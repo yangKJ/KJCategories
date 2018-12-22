@@ -9,6 +9,10 @@
 #ifndef KJBannerHeader_h
 #define KJBannerHeader_h
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <objc/runtime.h>
+
 /// 轮播图 - 无需第三方网络依赖
 #import "KJBannerView.h"
 

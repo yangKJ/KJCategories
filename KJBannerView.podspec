@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     ss.public_header_files = "KJBannerViewDemo/Classes/**/*.h",'KJBannerViewDemo/Classes/*.h'# 添加头文件
   end
 
-  s.frameworks = 'Foundation','UIKit','CommonCrypto'
+  s.frameworks = 'Foundation','UIKit'
   
 end
 
