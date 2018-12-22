@@ -55,7 +55,6 @@
 		683A7F2421CEA49F008DD08C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6814AB6021CEA59B000AE6AB /* KJBannerHeader.h */,
 				683A7F3221CEA4E5008DD08C /* KJBannerView */,
 			);
 			path = Classes;
@@ -95,6 +94,7 @@
 		68E26B5021CE924700F91182 /* KJBannerViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				6814AB6021CEA59B000AE6AB /* KJBannerHeader.h */,
 				683A7F2421CEA49F008DD08C /* Classes */,
 				68E26B5121CE924700F91182 /* AppDelegate.h */,
 				68E26B5221CE924700F91182 /* AppDelegate.m */,
