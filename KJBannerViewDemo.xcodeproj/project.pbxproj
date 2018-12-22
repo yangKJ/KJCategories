@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		683A7F2021CEA031008DD08C /* KJBannerViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A7F1821CEA031008DD08C /* KJBannerViewFlowLayout.m */; };
-		683A7F2121CEA031008DD08C /* KJBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A7F1A21CEA031008DD08C /* KJBannerView.m */; };
-		683A7F2221CEA031008DD08C /* KJLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A7F1D21CEA031008DD08C /* KJLoadImageView.m */; };
-		683A7F2321CEA031008DD08C /* KJBannerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A7F1E21CEA031008DD08C /* KJBannerViewCell.m */; };
+		683A7F3B21CEA4E5008DD08C /* KJBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A7F3421CEA4E5008DD08C /* KJBannerView.m */; };
+		683A7F3C21CEA4E5008DD08C /* KJLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A7F3521CEA4E5008DD08C /* KJLoadImageView.m */; };
+		683A7F3D21CEA4E5008DD08C /* KJBannerViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A7F3721CEA4E5008DD08C /* KJBannerViewFlowLayout.m */; };
+		683A7F3E21CEA4E5008DD08C /* KJBannerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A7F3A21CEA4E5008DD08C /* KJBannerViewCell.m */; };
 		68E26B5321CE924700F91182 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E26B5221CE924700F91182 /* AppDelegate.m */; };
 		68E26B5621CE924700F91182 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E26B5521CE924700F91182 /* ViewController.m */; };
 		68E26B5921CE924700F91182 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68E26B5721CE924700F91182 /* Main.storyboard */; };
@@ -20,14 +20,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		683A7F1821CEA031008DD08C /* KJBannerViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KJBannerViewFlowLayout.m; path = KJBannerViewDemo/KJBannerView/KJBannerViewFlowLayout.m; sourceTree = SOURCE_ROOT; };
-		683A7F1921CEA031008DD08C /* KJBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KJBannerView.h; path = KJBannerViewDemo/KJBannerView/KJBannerView.h; sourceTree = SOURCE_ROOT; };
-		683A7F1A21CEA031008DD08C /* KJBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KJBannerView.m; path = KJBannerViewDemo/KJBannerView/KJBannerView.m; sourceTree = SOURCE_ROOT; };
-		683A7F1B21CEA031008DD08C /* KJBannerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KJBannerViewCell.h; path = KJBannerViewDemo/KJBannerView/KJBannerViewCell.h; sourceTree = SOURCE_ROOT; };
-		683A7F1C21CEA031008DD08C /* KJBannerViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KJBannerViewFlowLayout.h; path = KJBannerViewDemo/KJBannerView/KJBannerViewFlowLayout.h; sourceTree = SOURCE_ROOT; };
-		683A7F1D21CEA031008DD08C /* KJLoadImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KJLoadImageView.m; path = KJBannerViewDemo/KJBannerView/KJLoadImageView.m; sourceTree = SOURCE_ROOT; };
-		683A7F1E21CEA031008DD08C /* KJBannerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KJBannerViewCell.m; path = KJBannerViewDemo/KJBannerView/KJBannerViewCell.m; sourceTree = SOURCE_ROOT; };
-		683A7F1F21CEA031008DD08C /* KJLoadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KJLoadImageView.h; path = KJBannerViewDemo/KJBannerView/KJLoadImageView.h; sourceTree = SOURCE_ROOT; };
+		6814AB6021CEA59B000AE6AB /* KJBannerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJBannerHeader.h; sourceTree = "<group>"; };
+		683A7F3321CEA4E5008DD08C /* KJBannerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJBannerViewCell.h; sourceTree = "<group>"; };
+		683A7F3421CEA4E5008DD08C /* KJBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJBannerView.m; sourceTree = "<group>"; };
+		683A7F3521CEA4E5008DD08C /* KJLoadImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJLoadImageView.m; sourceTree = "<group>"; };
+		683A7F3621CEA4E5008DD08C /* KJBannerViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJBannerViewFlowLayout.h; sourceTree = "<group>"; };
+		683A7F3721CEA4E5008DD08C /* KJBannerViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJBannerViewFlowLayout.m; sourceTree = "<group>"; };
+		683A7F3821CEA4E5008DD08C /* KJLoadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJLoadImageView.h; sourceTree = "<group>"; };
+		683A7F3921CEA4E5008DD08C /* KJBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJBannerView.h; sourceTree = "<group>"; };
+		683A7F3A21CEA4E5008DD08C /* KJBannerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJBannerViewCell.m; sourceTree = "<group>"; };
 		68E26B4E21CE924700F91182 /* KJBannerViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KJBannerViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68E26B5121CE924700F91182 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		68E26B5221CE924700F91182 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,20 +52,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		683A7F1721CEA01A008DD08C /* KJBannerView */ = {
+		683A7F2421CEA49F008DD08C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				683A7F1921CEA031008DD08C /* KJBannerView.h */,
-				683A7F1A21CEA031008DD08C /* KJBannerView.m */,
-				683A7F1B21CEA031008DD08C /* KJBannerViewCell.h */,
-				683A7F1E21CEA031008DD08C /* KJBannerViewCell.m */,
-				683A7F1C21CEA031008DD08C /* KJBannerViewFlowLayout.h */,
-				683A7F1821CEA031008DD08C /* KJBannerViewFlowLayout.m */,
-				683A7F1F21CEA031008DD08C /* KJLoadImageView.h */,
-				683A7F1D21CEA031008DD08C /* KJLoadImageView.m */,
+				6814AB6021CEA59B000AE6AB /* KJBannerHeader.h */,
+				683A7F3221CEA4E5008DD08C /* KJBannerView */,
 			);
-			name = KJBannerView;
-			path = "New Group";
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		683A7F3221CEA4E5008DD08C /* KJBannerView */ = {
+			isa = PBXGroup;
+			children = (
+				683A7F3321CEA4E5008DD08C /* KJBannerViewCell.h */,
+				683A7F3421CEA4E5008DD08C /* KJBannerView.m */,
+				683A7F3521CEA4E5008DD08C /* KJLoadImageView.m */,
+				683A7F3621CEA4E5008DD08C /* KJBannerViewFlowLayout.h */,
+				683A7F3721CEA4E5008DD08C /* KJBannerViewFlowLayout.m */,
+				683A7F3821CEA4E5008DD08C /* KJLoadImageView.h */,
+				683A7F3921CEA4E5008DD08C /* KJBannerView.h */,
+				683A7F3A21CEA4E5008DD08C /* KJBannerViewCell.m */,
+			);
+			path = KJBannerView;
 			sourceTree = "<group>";
 		};
 		68E26B4521CE924700F91182 = {
@@ -86,7 +95,7 @@
 		68E26B5021CE924700F91182 /* KJBannerViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				683A7F1721CEA01A008DD08C /* KJBannerView */,
+				683A7F2421CEA49F008DD08C /* Classes */,
 				68E26B5121CE924700F91182 /* AppDelegate.h */,
 				68E26B5221CE924700F91182 /* AppDelegate.m */,
 				68E26B5421CE924700F91182 /* ViewController.h */,
@@ -170,13 +179,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				683A7F2121CEA031008DD08C /* KJBannerView.m in Sources */,
 				68E26B5621CE924700F91182 /* ViewController.m in Sources */,
 				68E26B6121CE924800F91182 /* main.m in Sources */,
-				683A7F2221CEA031008DD08C /* KJLoadImageView.m in Sources */,
+				683A7F3C21CEA4E5008DD08C /* KJLoadImageView.m in Sources */,
+				683A7F3D21CEA4E5008DD08C /* KJBannerViewFlowLayout.m in Sources */,
 				68E26B5321CE924700F91182 /* AppDelegate.m in Sources */,
-				683A7F2021CEA031008DD08C /* KJBannerViewFlowLayout.m in Sources */,
-				683A7F2321CEA031008DD08C /* KJBannerViewCell.m in Sources */,
+				683A7F3B21CEA4E5008DD08C /* KJBannerView.m in Sources */,
+				683A7F3E21CEA4E5008DD08C /* KJBannerViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

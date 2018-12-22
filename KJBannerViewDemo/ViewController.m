@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "KJBannerView.h"
+#import "KJBannerHeader.h"
 
 @interface ViewController ()<KJBannerViewDelegate>
 @property (nonatomic,strong) KJBannerView *banner;
