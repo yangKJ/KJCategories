@@ -216,6 +216,7 @@
 - (void)configureLayout {
     self.contentMode = UIViewContentModeScaleToFill;
     self.kj_failedTimes = 2;
+    self.kj_isScale = NO;
 }
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -276,13 +277,25 @@
         if (data != nil && error == nil) {
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 UIImage *image = [UIImage imageWithData:data];
+                UIImage *finalImage = image;
+                
+                if (image) {
+                    if (weakSelf.kj_isScale) {
+                        // 剪裁
+                        if (fabs(weakSelf.frame.size.width - image.size.width) != 0 && fabs(weakSelf.frame.size.height - image.size.height) != 0) {
+                            finalImage = [KJLoadImageView kj_clipImage:image Size:weakSelf.frame.size IsScaleToMax:YES];
+                        }
+                    }
+                    [[UIApplication sharedApplication] kj_cacheImage:finalImage forRequest:theRequest];
+                } else {
+                    [[UIApplication sharedApplication] kj_cacheFailRequest:theRequest];
+                }
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    if (image) {
-                        [[UIApplication sharedApplication] kj_cacheImage:image forRequest:theRequest];
-                        weakSelf.image = image;
+                    if (finalImage) {
+                        weakSelf.image = finalImage;
                         !weakSelf.kj_completionBlock?:weakSelf.kj_completionBlock(weakSelf.image);
                     } else {// error data
-                        [[UIApplication sharedApplication] kj_cacheFailRequest:theRequest];
                         !weakSelf.kj_completionBlock?:weakSelf.kj_completionBlock(weakSelf.image);
                     }
                 });
@@ -297,6 +310,35 @@
 - (void)kj_cancelRequest {
     [_imageDownloader.task cancel];
 }
+
+
+/**
+ *  此处公开此API，是方便大家可以在别的地方使用。等比例剪裁图片大小到指定的size
+ *  @param image 剪裁前的图片
+ *  @param size  最终图片大小
+ *  @param isScaleToMax 是取最大比例还是最小比例，YES表示取最大比例
+ *
+ *  @return 裁剪后的图片
+ */
++ (UIImage *)kj_clipImage:(UIImage *)image Size:(CGSize)size IsScaleToMax:(BOOL)isScaleToMax {
+    CGFloat scale = [UIScreen mainScreen].scale;
+    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
+    CGSize aspectFitSize = CGSizeZero;
+    if (image.size.width != 0 && image.size.height != 0) {
+        CGFloat rateWidth = size.width / image.size.width;
+        CGFloat rateHeight = size.height / image.size.height;
+        
+        CGFloat rate = isScaleToMax ? MAX(rateHeight, rateWidth) : MIN(rateHeight, rateWidth);
+        aspectFitSize = CGSizeMake(image.size.width * rate, image.size.height * rate);
+    }
+    
+    [image drawInRect:CGRectMake(0, 0, aspectFitSize.width, aspectFitSize.height)];
+    UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return finalImage;
+}
+
 
 
 #pragma mark - 缓存相关方法

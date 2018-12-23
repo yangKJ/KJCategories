@@ -15,6 +15,7 @@
 
 @class KJBannerView;
 @protocol KJBannerViewDelegate <NSObject>
+@optional
 /** 点击图片回调 */
 - (void)kj_BannerView:(KJBannerView *)banner SelectIndex:(NSInteger)index;
 @end

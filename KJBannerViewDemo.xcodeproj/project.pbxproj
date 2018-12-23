@@ -63,14 +63,14 @@
 		683A7F3221CEA4E5008DD08C /* KJBannerView */ = {
 			isa = PBXGroup;
 			children = (
-				683A7F3321CEA4E5008DD08C /* KJBannerViewCell.h */,
-				683A7F3421CEA4E5008DD08C /* KJBannerView.m */,
+				683A7F3821CEA4E5008DD08C /* KJLoadImageView.h */,
 				683A7F3521CEA4E5008DD08C /* KJLoadImageView.m */,
+				683A7F3921CEA4E5008DD08C /* KJBannerView.h */,
+				683A7F3421CEA4E5008DD08C /* KJBannerView.m */,
+				683A7F3321CEA4E5008DD08C /* KJBannerViewCell.h */,
+				683A7F3A21CEA4E5008DD08C /* KJBannerViewCell.m */,
 				683A7F3621CEA4E5008DD08C /* KJBannerViewFlowLayout.h */,
 				683A7F3721CEA4E5008DD08C /* KJBannerViewFlowLayout.m */,
-				683A7F3821CEA4E5008DD08C /* KJLoadImageView.h */,
-				683A7F3921CEA4E5008DD08C /* KJBannerView.h */,
-				683A7F3A21CEA4E5008DD08C /* KJBannerViewCell.m */,
 			);
 			path = KJBannerView;
 			sourceTree = "<group>";
