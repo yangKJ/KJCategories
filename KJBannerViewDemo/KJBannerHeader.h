@@ -13,7 +13,10 @@
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
 
-/// 轮播图 - 无需第三方网络依赖
+/*  滚动轮播Banner
+ *  Banner 支持缩放
+ *  自带图片下载、缓存相关功能
+ */
 #import "KJBannerView.h"
 #import "KJLoadImageView.h" /// 加载网络图片
 

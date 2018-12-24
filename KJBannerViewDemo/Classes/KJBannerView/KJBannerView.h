@@ -5,11 +5,6 @@
 //  Created by 杨科军 on 2018/2/27.
 //  Copyright © 2018年 杨科军. All rights reserved.
 //
-/*  滚动轮播Banner
- *  Banner 支持缩放
- *  不需要第三方显示网络图片的依赖
- *  支持缓存图片到本地
- */
 
 #import <UIKit/UIKit.h>
 
