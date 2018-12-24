@@ -15,5 +15,6 @@
 
 /// 轮播图 - 无需第三方网络依赖
 #import "KJBannerView.h"
+#import "KJLoadImageView.h" /// 加载网络图片
 
 #endif /* KJBannerHeader_h */
