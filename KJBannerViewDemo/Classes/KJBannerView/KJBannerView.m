@@ -10,7 +10,6 @@
 #import "KJBannerViewCell.h"
 #import "KJBannerViewFlowLayout.h"
 
-static NSString *const cellID = @"KJBannerViewCellID";
 @interface KJBannerView()<UICollectionViewDataSource,UICollectionViewDelegate>{
     CGFloat _oldPoint;
     NSInteger _dragDirection;
@@ -21,6 +20,8 @@ static NSString *const cellID = @"KJBannerViewCellID";
 @property (nonatomic,strong) UIImageView *backgroundImageView;
 @property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,assign) NSUInteger currentpage;//当前页
+/// 是否自定义Cell, 默认no
+@property (nonatomic,assign) BOOL isCustomCell;
 @end
 
 @implementation KJBannerView
@@ -44,6 +45,18 @@ static NSString *const cellID = @"KJBannerViewCellID";
     _autoScrollTimeInterval = 2;
     _pageControl.currentPage = 0;
     _bannerImageViewContentMode = UIViewContentModeScaleToFill;
+    _isCustomCell = NO;
+    
+    self.itemClass = [KJBannerViewCell class];
+}
+
+- (void)setItemClass:(Class)itemClass{
+    _itemClass = itemClass;
+    if (![NSStringFromClass(itemClass) isEqualToString:@"KJBannerViewCell"]) {
+        _isCustomCell = YES;
+    }
+    //注册cell
+    [self.collectionView registerClass:_itemClass forCellWithReuseIdentifier:@"KJBannerViewCell"];
 }
 
 /// 设置初始滚动位置
@@ -80,15 +93,11 @@ static NSString *const cellID = @"KJBannerViewCellID";
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     _oldPoint = scrollView.contentOffset.x;
-    if (self.autoScroll) {
-        [self invalidateTimer];
-    }
+    if (self.autoScroll) return [self invalidateTimer];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    if (self.autoScroll) {
-        [self setupTimer];
-    }
+    if (self.autoScroll) return [self setupTimer];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
@@ -136,12 +145,16 @@ static NSString *const cellID = @"KJBannerViewCellID";
     return _totalItems;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    KJBannerViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+    KJBannerViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"KJBannerViewCell" forIndexPath:indexPath];
     long itemIndex = (int)indexPath.item % self.imageDatas.count;
-    cell.imageUrl = self.imageDatas[itemIndex];
-    cell.imgCornerRadius = self.imgCornerRadius;
-    cell.loadImageView.contentMode = self.bannerImageViewContentMode;
-    cell.placeholderImage = self.cellPlaceholderImage;
+    if (_isCustomCell) {
+        cell.model = self.imageDatas[itemIndex];
+    }else{
+        cell.imageUrl = self.imageDatas[itemIndex];
+        cell.imgCornerRadius = self.imgCornerRadius;
+        cell.loadImageView.contentMode = self.bannerImageViewContentMode;
+        cell.placeholderImage = self.cellPlaceholderImage;
+    }
     return cell;
 }
 #pragma mark - 代理方法
@@ -256,9 +269,6 @@ static NSString *const cellID = @"KJBannerViewCellID";
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.backgroundColor = [UIColor clearColor];
-        
-        //注册cell
-        [_collectionView registerClass:[KJBannerViewCell class] forCellWithReuseIdentifier:cellID];
     }
     return _collectionView;
 }

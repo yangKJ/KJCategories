@@ -18,4 +18,6 @@
 /// 占位图
 @property (nonatomic,strong) UIImage *placeholderImage;
 
+@property(nonatomic,strong) NSObject *model;
+
 @end

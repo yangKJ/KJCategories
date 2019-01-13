@@ -8,9 +8,12 @@
 
 #import "ViewController.h"
 #import "KJBannerHeader.h"
+#import "KJCollectionViewCell.h"
+#import "KJBannerModel.h"
 
 @interface ViewController ()<KJBannerViewDelegate>
 @property (nonatomic,strong) KJBannerView *banner;
+@property (nonatomic,strong) KJBannerView *banner2;
 @end
 
 @implementation ViewController
@@ -20,18 +23,25 @@
     
     [self _setDatas];
     
-    KJBannerView *banner = [[KJBannerView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width*0.4)];
-    banner.center = self.view.center;
+    KJBannerView *banner = [[KJBannerView alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.width*0.4)];
     self.banner = banner;
-    banner.backgroundColor = UIColor.clearColor;
-    banner.cellPlaceholderImage = [UIImage imageNamed:@"tu3"];
+    banner.itemClass = [KJCollectionViewCell class];
     banner.autoScrollTimeInterval = 2;
     banner.isZoom = YES;
     banner.itemSpace = -10;
-    banner.imgCornerRadius = 15;
     banner.itemWidth = self.view.frame.size.width-120;
     banner.delegate = self;
     [self.view addSubview:banner];
+    
+    KJBannerView *banner2 = [[KJBannerView alloc]initWithFrame:CGRectMake(0, 150+self.view.frame.size.width*0.4, self.view.frame.size.width, self.view.frame.size.width*0.4)];
+    self.banner2 = banner2;
+    banner2.imgCornerRadius = 15;
+    banner2.autoScrollTimeInterval = 2;
+    banner2.isZoom = YES;
+    banner2.itemSpace = -10;
+    banner2.itemWidth = self.view.frame.size.width-120;
+    banner2.delegate = self;
+    [self.view addSubview:banner2];
 }
 
 #pragma mark - KJBannerViewDelegate
@@ -53,7 +63,18 @@
         @"http://thumb.niutuku.com/960x1/2f/fd/2ffd3765c4b43c743751246b156d1896.jpg",
         @"http://i2.hdslb.com/bfs/archive/1c471796343e34a8613518cc0d393792680a1022.jpg",
         ];
-        weakself.banner.imageDatas = images;
+        
+        NSMutableArray *arr = [NSMutableArray array];
+        for (NSInteger i=0; i<images.count; i++) {
+            KJBannerModel *model = [[KJBannerModel alloc]init];
+            model.customImageUrl = images[i];
+            model.customTitle = [NSString stringWithFormat:@"图片名称:%ld",i];
+            [arr addObject:model];
+        }
+        
+        weakself.banner.imageDatas = arr;
+        
+        weakself.banner2.imageDatas = images;
     });
 }
 
