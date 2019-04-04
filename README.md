@@ -28,11 +28,7 @@ end
 ##################加入代码##################
 ```
 
-### 版本 1.0.2
-- 新增 KJBannerView 轮播图 - banner支持缩放
-- 自带图片下载、缓存相关功能，无任何第三方依赖、轻量级组件
-![轮播图](https://upload-images.jianshu.io/upload_images/1933747-2e51515ae91af6d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
+#版本更新日志
 
 ### 版本1.1.0
 - 新增 支持自定义Cell
@@ -52,3 +48,7 @@ end
     self.NameLabel.text = kj_model.customTitle;
 }
 ```
+### 版本 1.0.2
+- 新增 KJBannerView 轮播图 - banner支持缩放
+- 自带图片下载、缓存相关功能，无任何第三方依赖、轻量级组件
+![轮播图](https://upload-images.jianshu.io/upload_images/1933747-2e51515ae91af6d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
