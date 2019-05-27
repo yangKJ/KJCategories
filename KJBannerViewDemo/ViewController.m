@@ -31,7 +31,12 @@
     banner.itemSpace = -10;
     banner.itemWidth = self.view.frame.size.width-120;
     banner.delegate = self;
+    banner.rollType = KJBannerViewRollDirectionTypeLeftToRight;
     [self.view addSubview:banner];
+    
+    banner.kSelectBlock = ^(KJBannerView * _Nonnull banner, NSInteger idx) {
+        NSLog(@"---------%@,%ld",banner,idx);
+    };
     
     KJBannerView *banner2 = [[KJBannerView alloc]initWithFrame:CGRectMake(0, 150+self.view.frame.size.width*0.4, self.view.frame.size.width, self.view.frame.size.width*0.4)];
     self.banner2 = banner2;

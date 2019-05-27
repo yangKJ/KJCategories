@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class KJBannerView;
+/// 滚动方法
+typedef NS_ENUM(NSInteger, KJBannerViewRollDirectionType) {
+    KJBannerViewRollDirectionTypeRightToLeft = 0, /// 默认，从右往左
+    KJBannerViewRollDirectionTypeLeftToRight,    /// 从左往右
+};
+typedef void(^KJBannerViewBlock)(KJBannerView *banner,NSInteger idx);
 @protocol KJBannerViewDelegate <NSObject>
 @optional
 /** 点击图片回调 */
@@ -38,9 +46,13 @@
 @property (nonatomic,strong) UIImage *placeholderImage;
 /** 分页控制器 */
 @property (nonatomic,strong) UIPageControl *pageControl;
+/** 滚动方向，默认从右到左 */
+@property (nonatomic,assign) KJBannerViewRollDirectionType rollType;
 /// 代理方法
 @property (nonatomic,weak) id<KJBannerViewDelegate> delegate;
 
+/// block回调
+@property (nonatomic,copy) KJBannerViewBlock kSelectBlock;
 
 /************************** 自带Cell可设置属性 *****************************/
 /** cell的占位图, 用于网络未加载到图片时 */
@@ -51,3 +63,5 @@
 @property (nonatomic,assign) CGFloat imgCornerRadius;
 
 @end
+
+NS_ASSUME_NONNULL_END

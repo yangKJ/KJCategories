@@ -46,6 +46,7 @@
     _pageControl.currentPage = 0;
     _bannerImageViewContentMode = UIViewContentModeScaleToFill;
     _isCustomCell = NO;
+    _rollType = KJBannerViewRollDirectionTypeRightToLeft;
     
     self.itemClass = [KJBannerViewCell class];
 }
@@ -60,7 +61,7 @@
 }
 
 /// 设置初始滚动位置
-- (void)_setCollectionItemIndexPlace{
+- (void)kSetCollectionItemIndexPlace{
     self.collectionView.frame = self.bounds;
     self.pageControl.frame = CGRectMake(0, self.bounds.size.height - 30, self.bounds.size.width, 30);
     self.FlowLayout.itemSize = CGSizeMake(_itemWidth, self.bounds.size.height);
@@ -113,11 +114,11 @@
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
     /// 如果是向右滑或者滑动距离大于item的一半,则像右移动一个item+space的距离,反之向左
     float currentPoint = scrollView.contentOffset.x;
-    float moveWidth = currentPoint-_oldPoint;
+    float moveWidth = currentPoint - _oldPoint;
     int shouldPage = moveWidth/(self.itemWidth/2);
-    if (velocity.x>0 || shouldPage > 0) {
+    if (velocity.x > 0 || shouldPage > 0) {
         _dragDirection = 1;
-    }else if (velocity.x<0 || shouldPage < 0){
+    }else if (velocity.x < 0 || shouldPage < 0){
         _dragDirection = -1;
     }else{
         _dragDirection = 0;
@@ -159,9 +160,11 @@
 }
 #pragma mark - 代理方法
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger idx = [self currentIndex] % self.imageDatas.count;
     if ([self.delegate respondsToSelector:@selector(kj_BannerView:SelectIndex:)]) {
-        [self.delegate kj_BannerView:self SelectIndex:[self currentIndex] % self.imageDatas.count];
+        [self.delegate kj_BannerView:self SelectIndex:idx];
     }
+    !self.kSelectBlock?:self.kSelectBlock(self,idx);
 }
 #pragma mark  - notification
 
@@ -178,20 +181,26 @@
 }
 - (void)automaticScroll{
     if(_totalItems == 0) return;
-    
     NSInteger currentIndex = [self currentIndex];
-    NSInteger targetIndex = currentIndex + 1;
+    NSInteger targetIndex;
+    /// 滚动方向设定
+    if (_rollType == KJBannerViewRollDirectionTypeRightToLeft) {
+        targetIndex = currentIndex + 1;
+    }else{
+        if (currentIndex == 0) {
+            currentIndex = _totalItems;
+        }
+        targetIndex = currentIndex - 1;
+    }
     [self scrollToIndex:targetIndex];
 }
 - (NSInteger)currentIndex{
-    if(self.collectionView.frame.size.width == 0 || self.collectionView.frame.size.height == 0)
-        return 0;
+    if(self.collectionView.frame.size.width == 0 || self.collectionView.frame.size.height == 0) return 0;
     NSInteger index = 0;
-    
     if (_FlowLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal) {//水平滑动
         index = (self.collectionView.contentOffset.x + (self.itemWidth + self.itemSpace) * 0.5) / (self.itemSpace + self.itemWidth);
     }else{
-        index = (self.collectionView.contentOffset.y + _FlowLayout.itemSize.height * 0.5)/ _FlowLayout.itemSize.height;
+        index = (self.collectionView.contentOffset.y + _FlowLayout.itemSize.height * 0.5) / _FlowLayout.itemSize.height;
     }
     return MAX(0,index);
 }
@@ -235,13 +244,12 @@
 - (void)setImageDatas:(NSArray *)imageDatas{
     _imageDatas = imageDatas;
     self.pageControl.numberOfPages = _imageDatas.count;
-    /// 如果循环则100倍
-    _totalItems = self.infiniteLoop ? _imageDatas.count * 100 : _imageDatas.count;
+    /// 如果循环则50倍,让之看着像无限循环一样
+    _totalItems = self.infiniteLoop ? _imageDatas.count * 50 : _imageDatas.count;
     if(_imageDatas.count > 1){
         self.collectionView.scrollEnabled = YES;
         [self setAutoScroll:self.autoScroll];
-    }
-    else{
+    }else{
         //不循环
         self.collectionView.scrollEnabled = NO;
         [self invalidateTimer];
@@ -250,7 +258,7 @@
     /// 刷新数据
     [self.collectionView reloadData];
     /// 设置滚动item在最中间位置
-    [self _setCollectionItemIndexPlace];
+    [self kSetCollectionItemIndexPlace];
 }
 - (void)setAutoScroll:(BOOL)autoScroll{
     _autoScroll = autoScroll;

@@ -13,7 +13,8 @@
 // 这个方法返回所有的布局所需对象,瀑布流也可以重写这个方法实现.
 //1.返回rect中的所有的元素的布局属性
 //2.返回的是包含UICollectionViewLayoutAttributes的NSArray
-//3.UICollectionViewLayoutAttributes可以是cell，追加视图或装饰视图的信息，通过不同的UICollectionViewLayoutAttributes初始化方法可以得到不同类型的UICollectionViewLayoutAttributes：
+//3.UICollectionViewLayoutAttributes可以是cell，追加视图或装饰视图的信息，
+//通过不同的UICollectionViewLayoutAttributes初始化方法可以得到不同类型的UICollectionViewLayoutAttributes：
 //1)layoutAttributesForCellWithIndexPath:
 //2)layoutAttributesForSupplementaryViewOfKind:withIndexPath:
 //3)layoutAttributesForDecorationViewOfKind:withIndexPath:

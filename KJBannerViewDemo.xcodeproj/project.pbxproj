@@ -13,6 +13,9 @@
 		683A7F3E21CEA4E5008DD08C /* KJBannerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A7F3A21CEA4E5008DD08C /* KJBannerViewCell.m */; };
 		684059DD21EA08D00092F630 /* KJBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 684059DC21EA08D00092F630 /* KJBannerModel.m */; };
 		684059E121EB59DA0092F630 /* KJCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684059DF21EB59DA0092F630 /* KJCollectionViewCell.m */; };
+		68CC363A229B71E3005A78A5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 68CC3639229B71E3005A78A5 /* README.md */; };
+		68CC363C229B7226005A78A5 /* KJBannerView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 68CC363B229B7226005A78A5 /* KJBannerView.podspec */; };
+		68CC363F229B7AC9005A78A5 /* KJPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CC363E229B7AC9005A78A5 /* KJPageControl.m */; };
 		68E26B5321CE924700F91182 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E26B5221CE924700F91182 /* AppDelegate.m */; };
 		68E26B5621CE924700F91182 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E26B5521CE924700F91182 /* ViewController.m */; };
 		68E26B5921CE924700F91182 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68E26B5721CE924700F91182 /* Main.storyboard */; };
@@ -35,6 +38,10 @@
 		684059DC21EA08D00092F630 /* KJBannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJBannerModel.m; sourceTree = "<group>"; };
 		684059DE21EB59DA0092F630 /* KJCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJCollectionViewCell.h; sourceTree = "<group>"; };
 		684059DF21EB59DA0092F630 /* KJCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJCollectionViewCell.m; sourceTree = "<group>"; };
+		68CC3639229B71E3005A78A5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		68CC363B229B7226005A78A5 /* KJBannerView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KJBannerView.podspec; sourceTree = SOURCE_ROOT; };
+		68CC363D229B7AC9005A78A5 /* KJPageControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJPageControl.h; sourceTree = "<group>"; };
+		68CC363E229B7AC9005A78A5 /* KJPageControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJPageControl.m; sourceTree = "<group>"; };
 		68E26B4E21CE924700F91182 /* KJBannerViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KJBannerViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68E26B5121CE924700F91182 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		68E26B5221CE924700F91182 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -77,6 +84,8 @@
 				683A7F3A21CEA4E5008DD08C /* KJBannerViewCell.m */,
 				683A7F3621CEA4E5008DD08C /* KJBannerViewFlowLayout.h */,
 				683A7F3721CEA4E5008DD08C /* KJBannerViewFlowLayout.m */,
+				68CC363D229B7AC9005A78A5 /* KJPageControl.h */,
+				68CC363E229B7AC9005A78A5 /* KJPageControl.m */,
 			);
 			path = KJBannerView;
 			sourceTree = "<group>";
@@ -115,6 +124,8 @@
 				68E26B5C21CE924800F91182 /* LaunchScreen.storyboard */,
 				68E26B5F21CE924800F91182 /* Info.plist */,
 				68E26B6021CE924800F91182 /* main.m */,
+				68CC3639229B71E3005A78A5 /* README.md */,
+				68CC363B229B7226005A78A5 /* KJBannerView.podspec */,
 			);
 			path = KJBannerViewDemo;
 			sourceTree = "<group>";
@@ -177,7 +188,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				68E26B5E21CE924800F91182 /* LaunchScreen.storyboard in Resources */,
+				68CC363C229B7226005A78A5 /* KJBannerView.podspec in Resources */,
 				68E26B5B21CE924800F91182 /* Assets.xcassets in Resources */,
+				68CC363A229B71E3005A78A5 /* README.md in Resources */,
 				68E26B5921CE924700F91182 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +209,7 @@
 				68E26B5321CE924700F91182 /* AppDelegate.m in Sources */,
 				683A7F3B21CEA4E5008DD08C /* KJBannerView.m in Sources */,
 				684059DD21EA08D00092F630 /* KJBannerModel.m in Sources */,
+				68CC363F229B7AC9005A78A5 /* KJPageControl.m in Sources */,
 				683A7F3E21CEA4E5008DD08C /* KJBannerViewCell.m in Sources */,
 				684059E121EB59DA0092F630 /* KJCollectionViewCell.m in Sources */,
 			);
@@ -340,8 +354,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VH48VHTX9R;
+				DEVELOPMENT_TEAM = HXTFJDA4H2;
 				INFOPLIST_FILE = KJBannerViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -357,8 +372,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VH48VHTX9R;
+				DEVELOPMENT_TEAM = HXTFJDA4H2;
 				INFOPLIST_FILE = KJBannerViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

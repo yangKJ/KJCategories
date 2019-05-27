@@ -30,6 +30,11 @@ end
 
 #版本更新日志
 
+### 版本1.1.1
+- 新增支持Swift宏
+- 新增Block代理点击事件 KJBannerViewBlock
+- 新增设置滚动方向属性 rollType
+
 ### 版本1.1.0
 - 新增 支持自定义Cell
 - 使用方法：

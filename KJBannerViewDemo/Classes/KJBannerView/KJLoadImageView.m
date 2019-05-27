@@ -18,10 +18,8 @@
 
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) NSURLSessionDownloadTask *task;
-
 @property (nonatomic, assign) unsigned long long totalLength;
 @property (nonatomic, assign) unsigned long long currentLength;
-
 @property (nonatomic, copy) KJDownloadProgressBlock progressBlock;
 @property (nonatomic, copy) KJDownLoadDataCallBack callbackOnFinished;
 
@@ -117,7 +115,7 @@
 }
 
 - (void)kj_clearDiskCaches {
-    NSString *directoryPath = KJDOWN_LOAD_PATH;
+    NSString *directoryPath = KJBannerLoadImages;
     if ([[NSFileManager defaultManager] fileExistsAtPath:directoryPath isDirectory:nil]) {
         NSError *error = nil;
         [[NSFileManager defaultManager] removeItemAtPath:directoryPath error:&error];
@@ -137,11 +135,10 @@
 /// 缓存图片
 - (UIImage *)kj_cacheImageForRequest:(NSURLRequest *)request {
     if (request) {
-        NSString *directoryPath = KJDOWN_LOAD_PATH;
+        NSString *directoryPath = KJBannerLoadImages;
         NSString *path = [NSString stringWithFormat:@"%@/%@", directoryPath, [self kj_md5:[self kj_keyForRequest:request]]];
         return [UIImage imageWithContentsOfFile:path];
     }
-    
     return nil;
 }
 ///
@@ -160,7 +157,7 @@
         return;
     }
     
-    NSString *directoryPath = KJDOWN_LOAD_PATH;
+    NSString *directoryPath = KJBannerLoadImages;
     if (![[NSFileManager defaultManager] fileExistsAtPath:directoryPath isDirectory:nil]) {
         NSError *error = nil;
         [[NSFileManager defaultManager] createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:&error];
@@ -335,11 +332,8 @@
     [image drawInRect:CGRectMake(0, 0, aspectFitSize.width, aspectFitSize.height)];
     UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
     return finalImage;
 }
-
-
 
 #pragma mark - 缓存相关方法
 + (void)kj_clearImagesCache {
@@ -347,15 +341,13 @@
 }
 
 + (unsigned long long)kj_imagesCacheSize {
-    NSString *directoryPath = KJDOWN_LOAD_PATH;
+    NSString *directoryPath = KJBannerLoadImages;
     BOOL isDir = NO;
     unsigned long long total = 0;
-    
     if ([[NSFileManager defaultManager] fileExistsAtPath:directoryPath isDirectory:&isDir]) {
         if (isDir) {
             NSError *error = nil;
             NSArray *array = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directoryPath error:&error];
-            
             if (error == nil) {
                 for (NSString *subpath in array) {
                     NSString *path = [directoryPath stringByAppendingPathComponent:subpath];
