@@ -10,8 +10,7 @@
 #import <objc/runtime.h>
 #import <CommonCrypto/CommonDigest.h>
 
-/**
- *  网络下载相关
+/** 网络下载相关
  *  图片下载器，没有直接使用NSURLSession之类的，是因为希望这套库可以支持iOS6
  */
 @interface KJImageDownloader : NSObject<NSURLSessionDownloadDelegate>
@@ -228,10 +227,7 @@
 
 - (void)kj_setImageWithURLString:(NSString *)url Placeholder:(UIImage *)placeholderImage Completion:(void (^)(UIImage *image))completion {
     self.kj_completionBlock = completion;
-    
-    if (url == nil
-        || [url isKindOfClass:[NSNull class]]
-        || (![url hasPrefix:@"http://"] && ![url hasPrefix:@"https://"])){
+    if (url == nil || [url isKindOfClass:[NSNull class]] || (![url hasPrefix:@"http://"] && ![url hasPrefix:@"https://"])){
         self.image = placeholderImage;
         if (completion) {
             self.kj_completionBlock(self.image);

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface KJBannerViewFlowLayout : UICollectionViewFlowLayout
-@property (nonatomic,assign) BOOL isZoom;
+@property (nonatomic,assign) BOOL isZoom; /// 是否缩放
 @end

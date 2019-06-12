@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "KJPageControl.h"
 NS_ASSUME_NONNULL_BEGIN
-
 @class KJBannerView;
 /// 滚动方法
 typedef NS_ENUM(NSInteger, KJBannerViewRollDirectionType) {
@@ -25,7 +24,7 @@ typedef void(^KJBannerViewBlock)(KJBannerView *banner,NSInteger idx);
 
 @interface KJBannerView : UIView
 
-/// 支持自定义Cell，自定义Cell需继承自KJBannerViewCell
+/// 支持自定义Cell，自定义Cell需继承自 KJBannerViewCell
 @property (nonatomic,strong) Class itemClass;
 //////////////////////  数据源API //////////////////////
 /** 网络数组 1.本地  2.图片 url string  */
@@ -45,12 +44,11 @@ typedef void(^KJBannerViewBlock)(KJBannerView *banner,NSInteger idx);
 /** 占位图, 用于网络未加载到图片时 */
 @property (nonatomic,strong) UIImage *placeholderImage;
 /** 分页控制器 */
-@property (nonatomic,strong) UIPageControl *pageControl;
+@property (nonatomic,strong) KJPageControl *pageControl;
 /** 滚动方向，默认从右到左 */
 @property (nonatomic,assign) KJBannerViewRollDirectionType rollType;
 /// 代理方法
 @property (nonatomic,weak) id<KJBannerViewDelegate> delegate;
-
 /// block回调
 @property (nonatomic,copy) KJBannerViewBlock kSelectBlock;
 

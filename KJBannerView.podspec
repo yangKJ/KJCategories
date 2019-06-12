@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "KJBannerView"
-  s.version      = "1.1.1"
+  s.version      = "1.2.0"
   s.summary      = "Banner"
   s.homepage     = "https://github.com/yangKJ/KJBannerViewDemo"
   s.license      = "MIT"
@@ -14,9 +14,9 @@ Pod::Spec.new do |s|
   
   s.ios.source_files = 'KJBannerViewDemo/KJBannerHeader.h' # 添加头文件
 
-  s.subspec 'Classes' do |ss|
-    ss.source_files = "KJBannerViewDemo/Classes/**/*.{h,m}" # 添加文件
-    ss.public_header_files = "KJBannerViewDemo/Classes/**/*.h",'KJBannerViewDemo/Classes/*.h'# 添加头文件
+  s.subspec 'KJBannerView' do |ss|
+    ss.source_files = "KJBannerViewDemo/KJBannerView/*.{h,m}" # 添加文件
+    ss.resources = "KJBannerViewDemo/KJBannerView/*.{bundle}" # 添加数据资料
   end
 
   s.frameworks = 'Foundation','UIKit'

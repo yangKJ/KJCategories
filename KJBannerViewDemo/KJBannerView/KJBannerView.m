@@ -43,11 +43,11 @@
     _itemSpace = 0;
     _imgCornerRadius = 0;
     _autoScrollTimeInterval = 2;
-    _pageControl.currentPage = 0;
-    _bannerImageViewContentMode = UIViewContentModeScaleToFill;
+    _imgCornerRadius = 0;
+    _bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
     _isCustomCell = NO;
     _rollType = KJBannerViewRollDirectionTypeRightToLeft;
-    
+    _cellPlaceholderImage = [UIImage imageNamed:@"KJBannerView.bundle/KJBannerPlaceholderImage"];
     self.itemClass = [KJBannerViewCell class];
 }
 
@@ -63,7 +63,6 @@
 /// 设置初始滚动位置
 - (void)kSetCollectionItemIndexPlace{
     self.collectionView.frame = self.bounds;
-    self.pageControl.frame = CGRectMake(0, self.bounds.size.height - 30, self.bounds.size.width, 30);
     self.FlowLayout.itemSize = CGSizeMake(_itemWidth, self.bounds.size.height);
     self.FlowLayout.minimumLineSpacing = self.itemSpace;
     
@@ -72,7 +71,6 @@
         if(self.infiniteLoop){
             // 无线循环
             // 如果是无限循环, 应该默认把 collection 的 item 滑动到 中间位置
-            // 注意:此处 totalItems 的数值, 其实是图片数组数量的 100 倍
             // 乘以 0.5, 正好是取得中间位置的 item, 图片也恰好是图片数组里面的第 0 个
             targeIndex = _totalItems * 0.5;
         }else{
@@ -89,7 +87,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     self.collectionView.userInteractionEnabled = NO;
     if (!self.imageDatas.count) return; // 解决清除timer时偶尔会出现的问题
-    self.pageControl.currentPage = [self currentIndex] % self.imageDatas.count;
+    self.pageControl.kCurrentPage = [self currentIndex] % self.imageDatas.count;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
@@ -151,10 +149,10 @@
     if (_isCustomCell) {
         cell.model = self.imageDatas[itemIndex];
     }else{
-        cell.imageUrl = self.imageDatas[itemIndex];
         cell.imgCornerRadius = self.imgCornerRadius;
-        cell.loadImageView.contentMode = self.bannerImageViewContentMode;
         cell.placeholderImage = self.cellPlaceholderImage;
+        cell.contentMode = self.bannerImageViewContentMode;
+        cell.imageUrl = self.imageDatas[itemIndex];
     }
     return cell;
 }
@@ -166,18 +164,16 @@
     }
     !self.kSelectBlock?:self.kSelectBlock(self,idx);
 }
-#pragma mark  - notification
-
 #pragma mark  - private
+- (void)invalidateTimer{
+    [_timer invalidate];
+    _timer = nil;
+}
 - (void)setupTimer{
     [self invalidateTimer]; // 创建定时器前先停止定时器,不然会出现僵尸定时器,导致轮播频率错误
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:self.autoScrollTimeInterval target:self selector:@selector(automaticScroll) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     _timer = timer;
-}
-- (void)invalidateTimer{
-    [_timer invalidate];
-    _timer = nil;
 }
 - (void)automaticScroll{
     if(_totalItems == 0) return;
@@ -222,7 +218,7 @@
     if (!self.backgroundImageView) {
         UIImageView *bgImageView = [UIImageView new];
         bgImageView.frame = self.collectionView.frame;
-        bgImageView.contentMode = UIViewContentModeScaleToFill;
+        bgImageView.contentMode = _bannerImageViewContentMode;
         [self addSubview:bgImageView];
         [self insertSubview:bgImageView belowSubview:self.collectionView];
         self.backgroundImageView = bgImageView;
@@ -243,14 +239,16 @@
 }
 - (void)setImageDatas:(NSArray *)imageDatas{
     _imageDatas = imageDatas;
-    self.pageControl.numberOfPages = _imageDatas.count;
+    self.pageControl.kNumberPages = _imageDatas.count;
     /// 如果循环则50倍,让之看着像无限循环一样
     _totalItems = self.infiniteLoop ? _imageDatas.count * 50 : _imageDatas.count;
     if(_imageDatas.count > 1){
+        self.pageControl.hidden = NO;
         self.collectionView.scrollEnabled = YES;
         [self setAutoScroll:self.autoScroll];
     }else{
         //不循环
+        self.pageControl.hidden = YES;
         self.collectionView.scrollEnabled = NO;
         [self invalidateTimer];
     }
@@ -269,7 +267,7 @@
     }
 }
 - (UICollectionView *)collectionView{
-    if(_collectionView == nil){
+    if(!_collectionView){
         _collectionView = [[UICollectionView alloc]initWithFrame:self.bounds collectionViewLayout:self.FlowLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
@@ -280,16 +278,15 @@
     }
     return _collectionView;
 }
-- (UIPageControl *)pageControl{
-    if(_pageControl == nil){
-        _pageControl = [[UIPageControl alloc]init];
-        _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
-        _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+- (KJPageControl *)pageControl{
+    if(!_pageControl){
+        _pageControl = [[KJPageControl alloc]initWithFrame:CGRectMake(0, self.bounds.size.height - 15, self.bounds.size.width, 15)];
+        _pageControl.kPageType = PageControlStyleRectangle;
     }
     return _pageControl;
 }
 - (KJBannerViewFlowLayout *)FlowLayout{
-    if(_FlowLayout == nil){
+    if(!_FlowLayout){
         _FlowLayout = [[KJBannerViewFlowLayout alloc]init];
         _FlowLayout.isZoom = self.isZoom;
         _FlowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;

@@ -10,14 +10,16 @@
 #import "KJLoadImageView.h"
 
 @interface KJBannerViewCell : UICollectionViewCell
-@property (nonatomic,strong) KJLoadImageView *loadImageView;
+
+/// 图片显示方式
+@property (nonatomic,assign) UIViewContentMode contentMode;
 /// 圆角
 @property (nonatomic,assign) CGFloat imgCornerRadius;
 /// url
 @property (nonatomic,strong) NSString *imageUrl;
 /// 占位图
 @property (nonatomic,strong) UIImage *placeholderImage;
-
+/// 数据模型
 @property(nonatomic,strong) NSObject *model;
 
 @end

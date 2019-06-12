@@ -17,6 +17,11 @@
 /*
 #版本更新日志
 
+### 版本1.2.0
+- 新增自定义KJPageControl，支持3种样式（圆形，长方形，正方形）
+- 重新整理，从而提高轮播图性能
+- 自带Cell新增默认占位图，一条数据时隐藏KJPageControl
+ 
 ### 版本1.1.1
 - 新增支持Swift宏
 - 新增Block代理点击事件 KJBannerViewBlock
@@ -27,7 +32,7 @@
 - 使用方法：
 - 创建从KJBannerViewCell继承的Cell
 - 在model设置数据
-
+ 
 ```
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self=[super initWithFrame:frame]) {
@@ -40,6 +45,7 @@
     self.NameLabel.text = kj_model.customTitle;
 }
 ```
+ 
 ### 版本 1.0.2
 - 新增 KJBannerView 轮播图 - banner支持缩放
 - 自带图片下载、缓存相关功能，无任何第三方依赖、轻量级组件
