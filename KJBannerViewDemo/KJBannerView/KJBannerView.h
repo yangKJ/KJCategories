@@ -15,7 +15,6 @@ typedef NS_ENUM(NSInteger, KJBannerViewRollDirectionType) {
     KJBannerViewRollDirectionTypeRightToLeft = 0, /// 默认，从右往左
     KJBannerViewRollDirectionTypeLeftToRight,    /// 从左往右
 };
-typedef void(^KJBannerViewBlock)(KJBannerView *banner,NSInteger idx);
 @protocol KJBannerViewDelegate <NSObject>
 @optional
 /** 点击图片回调 */
@@ -50,15 +49,17 @@ typedef void(^KJBannerViewBlock)(KJBannerView *banner,NSInteger idx);
 /// 代理方法
 @property (nonatomic,weak) id<KJBannerViewDelegate> delegate;
 /// block回调
-@property (nonatomic,copy) KJBannerViewBlock kSelectBlock;
+@property (nonatomic,readwrite,copy) void(^kSelectBlock)(KJBannerView *banner,NSInteger idx);
 
 /************************** 自带Cell可设置属性 *****************************/
 /** cell的占位图, 用于网络未加载到图片时 */
 @property (nonatomic,strong) UIImage *cellPlaceholderImage;
 /** 轮播图片的ContentMode, 默认为 UIViewContentModeScaleToFill */
 @property (nonatomic,assign) UIViewContentMode bannerImageViewContentMode;
-/// imagView圆角, 默认为0
+/** imagView圆角, 默认为0 */
 @property (nonatomic,assign) CGFloat imgCornerRadius;
+/** 是否为本地图片, 默认NO */
+@property (nonatomic,assign) BOOL isLocalityImage;
 
 @end
 

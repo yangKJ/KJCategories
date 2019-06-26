@@ -10,7 +10,8 @@
 #import "KJLoadImageView.h"
 
 @interface KJBannerViewCell : UICollectionViewCell
-
+/** 是否为本地图片，默认NO */
+@property (nonatomic,assign) BOOL isLocalityImage;
 /// 图片显示方式
 @property (nonatomic,assign) UIViewContentMode contentMode;
 /// 圆角

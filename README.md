@@ -28,6 +28,10 @@ NSLog(@"---------%@,%ld",banner,idx);
 weakself.banner2.imageDatas = images;
 ```
 
+### 版本1.2.1
+- 再次优化，提高性能
+- 新增自带Cell显示本地图片 isLocalityImage
+
 ### 版本1.2.0
 - 新增自定义KJPageControl，支持3种样式（圆形，长方形，正方形）
 - 重新整理，从而提高轮播图性能

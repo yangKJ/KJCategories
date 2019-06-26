@@ -48,6 +48,8 @@
     banner2.itemSpace = -10;
     banner2.itemWidth = self.view.frame.size.width-120;
     banner2.delegate = self;
+    banner2.isLocalityImage = YES;
+    banner2.imageDatas = @[@"tu3",@"11",@"12",@"13",@"14",@"15",@"11",@"14",@"12",@"13",];
     [self.view addSubview:banner2];
 }
 
@@ -80,7 +82,6 @@
         }
         
         weakself.banner.imageDatas = arr;
-        weakself.banner2.imageDatas = [images arrayByAddingObjectsFromArray:images];
     });
 }
 

@@ -15,6 +15,10 @@
 @implementation KJBannerViewCell
 
 - (void)setImageUrl:(NSString *)imageUrl{
+    if (self.isLocalityImage) {
+        self.loadImageView.image = [UIImage imageNamed:imageUrl];
+        return;
+    }
     [self.loadImageView kj_setImageWithURLString:imageUrl Placeholder:_placeholderImage];
 }
 
