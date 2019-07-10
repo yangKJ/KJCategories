@@ -10,7 +10,11 @@
 #import "KJLoadImageView.h"
 
 @interface KJBannerViewCell : UICollectionViewCell
-/** 是否为本地图片，默认NO */
+
+/// 数据模型 - 用于自定义样式传递数据
+@property (nonatomic,strong) NSObject *model;
+
+/// 是否为本地图片，默认NO
 @property (nonatomic,assign) BOOL isLocalityImage;
 /// 图片显示方式
 @property (nonatomic,assign) UIViewContentMode contentMode;
@@ -20,7 +24,5 @@
 @property (nonatomic,strong) NSString *imageUrl;
 /// 占位图
 @property (nonatomic,strong) UIImage *placeholderImage;
-/// 数据模型
-@property(nonatomic,strong) NSObject *model;
 
 @end

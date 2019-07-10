@@ -13,16 +13,7 @@
 @end
 
 @implementation KJPageControl
-- (instancetype)initWithFrame:(CGRect)frame{
-    if (self = [super initWithFrame:frame]) {
-        // 默认设置
-        _kBackPageColor = UIColor.lightGrayColor;
-        _kSelectedColor = UIColor.whiteColor;
-        _kCurrentPage = 0;
-        _kPageType = PageControlStyleRectangle;
-    }
-    return self;
-}
+
 /// 设置PageView
 - (void)setKNumberPages:(NSInteger)kNumberPages{
     if (_kNumberPages != kNumberPages) {
@@ -36,7 +27,7 @@
         
         for (int i = 0; i < _kNumberPages; i++) {
             UIView *aview = [UIView new];
-            aview.backgroundColor = _kBackPageColor;
+            aview.backgroundColor = i == _kCurrentPage ? _kSelectedColor : _kBackPageColor;
             switch (_kPageType) {
                 case PageControlStyleCircle:
                     aview.frame = CGRectMake((margin*2/3 + pointWidth) * i, 0, pointWidth, pointWidth);
@@ -53,28 +44,16 @@
                     break;
             }
             [self addSubview:aview];
-            
-            /** 设置cuurrentPag */
-            if (i == _kCurrentPage) {
-                aview.backgroundColor = _kSelectedColor;
-            }
         }
     }
 }
 
 /// 当前的currentPage
 - (void)setKCurrentPage:(NSInteger)kCurrentPage{
-    if (_kCurrentPage != kCurrentPage) {
-        _kCurrentPage = kCurrentPage;
-        for (NSInteger i = 0; i<self.subviews.count; i++) {
-            UIView *view = self.subviews[i];
-            if (i == _kCurrentPage) {
-                view.backgroundColor = _kSelectedColor;
-            }else{
-                view.backgroundColor = _kBackPageColor;
-            }
-        }
-    }
+    /// 遍历修改颜色
+    [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.backgroundColor = idx == kCurrentPage ? self.kSelectedColor : self.kBackPageColor;
+    }];
 }
 
 @end

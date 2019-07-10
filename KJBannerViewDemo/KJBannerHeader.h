@@ -9,14 +9,33 @@
 #ifndef KJBannerHeader_h
 #define KJBannerHeader_h
 
-#import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
-#import <objc/runtime.h>
-
-
 /*
+ ------------- 本人其他库 -------------
+ 实用又方便的Category和一些自定义控件
+ pod 'KJEmitterView'
+ pod 'KJEmitterView/Function'#
+ pod 'KJEmitterView/Control' # 自定义控件
+ 
+ 轮播图 - 支持缩放 多种pagecontrol 支持继承自定义样式 自带网络加载和缓存
+ pod 'KJBannerView'  # 轮播图，网络图片加载
+ 
+ 菜单控件 - 下拉控件 选择控件
+ pod 'KJMenuView' # 菜单控件
+ 
+ 加载Loading - 多种样式供选择
+ pod 'KJLoadingAnimation' # 加载控件
+ 
+ 
+ Github地址：https://github.com/yangKJ
+ 简书地址：https://www.jianshu.com/u/c84c00476ab6
+ 博客地址：https://blog.csdn.net/qq_34534179
+ 
+ 
 #版本更新日志
 
+### 版本1.2.2
+- 修改pageControl样式颜色的修改方式，从而提高效率
+ 
 ### 版本1.2.1
 - 再次优化，提高性能
 - 新增自带Cell显示本地图片 isLocalityImage
@@ -56,6 +75,10 @@
 ![轮播图](https://upload-images.jianshu.io/upload_images/1933747-2e51515ae91af6d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 */
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <objc/runtime.h>
 
 /*  滚动轮播Banner
  *  Banner 支持缩放

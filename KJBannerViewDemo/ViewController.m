@@ -30,7 +30,7 @@
 //    banner.isZoom = YES;
     banner.itemSpace = 10;
     banner.itemWidth = self.view.frame.size.width-120;
-    banner.delegate = self;
+//    banner.delegate = self;
     banner.pageControl.kPageType = PageControlStyleCircle;
     banner.pageControl.kSelectedColor = UIColor.redColor;
     banner.rollType = KJBannerViewRollDirectionTypeLeftToRight;

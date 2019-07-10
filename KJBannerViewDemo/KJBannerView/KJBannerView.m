@@ -179,6 +179,7 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    /// 滑动时关闭交互
     self.collectionView.userInteractionEnabled = NO;
     if (!self.imageDatas.count) return; // 解决清除timer时偶尔会出现的问题
     self.pageControl.kCurrentPage = [self currentIndex] % self.imageDatas.count;
@@ -262,14 +263,18 @@
         _collectionView.scrollsToTop = NO;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
-        _collectionView.backgroundColor = [UIColor clearColor];
+        _collectionView.backgroundColor = self.backgroundColor;
     }
     return _collectionView;
 }
 - (KJPageControl *)pageControl{
     if(!_pageControl){
         _pageControl = [[KJPageControl alloc]initWithFrame:CGRectMake(0, self.bounds.size.height - 15, self.bounds.size.width, 15)];
+        // 默认设置
         _pageControl.kPageType = PageControlStyleRectangle;
+        _pageControl.kBackPageColor = UIColor.lightGrayColor;
+        _pageControl.kSelectedColor = UIColor.whiteColor;
+        _pageControl.kCurrentPage = 0;//[self currentIndex];
     }
     return _pageControl;
 }
