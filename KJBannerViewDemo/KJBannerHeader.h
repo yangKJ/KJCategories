@@ -11,6 +11,13 @@
 
 /*
  ------------- 本人其他库 -------------
+ 播放器 - KJPlayer是一款视频播放器，AVPlayer的封装，继承UIView
+ pod 'KJPlayer'  # 播放器功能区
+ pod 'KJPlayer/KJPlayerView'  # 自带展示界面
+ - 支持播放网络和本地视频、播放多种格式
+ - 视频可以边下边播，把播放器播放过的数据流缓存到本地，下次直接从缓冲读取播放
+ - 支持拖动、手势快进倒退、增大减小音量、重力感应切换横竖屏等等
+
  实用又方便的Category和一些自定义控件
  pod 'KJEmitterView'
  pod 'KJEmitterView/Function'#
