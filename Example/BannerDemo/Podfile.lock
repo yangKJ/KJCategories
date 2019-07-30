@@ -1,0 +1,18 @@
+PODS:
+  - KJBannerView (1.2.4):
+    - KJBannerView/KJBannerView (= 1.2.4)
+  - KJBannerView/KJBannerView (1.2.4)
+
+DEPENDENCIES:
+  - KJBannerView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - KJBannerView
+
+SPEC CHECKSUMS:
+  KJBannerView: 8a7e06f89a1a6a4e8ee9b21ef041de34584bf7c8
+
+PODFILE CHECKSUM: e44fbb058fd73864f1c9a1ab00a2b40c24fd3b3f
+
+COCOAPODS: 1.6.1

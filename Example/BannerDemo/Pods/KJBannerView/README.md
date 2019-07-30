@@ -13,7 +13,7 @@
 
 ----------------------------------------
 #### <a id="功能介绍"></a>功能介绍
-KJBannerView 是一款轮播Banner，自带图片下载、缓存相关功能    
+KJPlayer 是一款轮播Banner，自带图片下载、缓存相关功能    
 1.无任何第三方依赖、轻量级组件  ☑️  
 2.支持缩放、自带缓存加载  ☑️  
 3.支持自定义继承、定制特定样式  ☑️  
@@ -133,8 +133,6 @@ self.NameLabel.text = kj_model.customTitle;
 #### <a id="效果图"></a>效果图
 ![轮播图](https://upload-images.jianshu.io/upload_images/1933747-2e51515ae91af6d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![KJBannerViewDemo](https://upload-images.jianshu.io/upload_images/1933747-44a8733e65ea3b57.gif?imageMogr2/auto-orient/strip)
-
 #### <a id="KJBannerView"></a>KJBannerView
 
 - KJPageControl：自定义三种PageControl  长方形、正方形、圆形
@@ -195,11 +193,8 @@ banner2.isZoom = YES;
 banner2.itemSpace = -10;
 banner2.itemWidth = self.view.frame.size.width-120;
 banner2.delegate = self;
-banner2.imageType = KJBannerViewImageTypeMix;
-NSString *gif = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564463770360&di=c93e799328198337ed68c61381bcd0be&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170714%2F1eed483f1874437990ad84c50ecfc82a_th.jpg";
-banner2.imageDatas = @[gif,@"98338_https_hhh",@"tu3",
-@"http://photos.tuchong.com/285606/f/4374153.jpg",
-];
+banner2.isLocalityImage = YES;
+banner2.imageDatas = @[@"tu3",@"11",@"12",@"13",@"14",@"15",@"11",@"14",@"12",@"13",];
 [self.view addSubview:banner2];
 }
 
