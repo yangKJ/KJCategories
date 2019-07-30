@@ -15,6 +15,14 @@ typedef NS_ENUM(NSInteger, KJBannerViewRollDirectionType) {
     KJBannerViewRollDirectionTypeRightToLeft = 0, /// 默认，从右往左
     KJBannerViewRollDirectionTypeLeftToRight,    /// 从左往右
 };
+/// 图片的几种类型
+typedef NS_ENUM(NSInteger, KJBannerViewImageType) {
+    KJBannerViewImageTypeMix = 0, /// 混合，本地图片、网络图片、网络GIF
+    KJBannerViewImageTypeGIFAndNet,/// 网络GIF图片和网络图片混合
+    KJBannerViewImageTypeLocality,/// 本地图片
+    KJBannerViewImageTypeNetIamge,/// 网络图片
+    KJBannerViewImageTypeGIFImage,/// 网络GIF图片
+};
 @protocol KJBannerViewDelegate <NSObject>
 @optional
 /** 点击图片回调 */
@@ -58,9 +66,8 @@ typedef NS_ENUM(NSInteger, KJBannerViewRollDirectionType) {
 @property (nonatomic,assign) UIViewContentMode bannerImageViewContentMode;
 /** imagView圆角, 默认为0 */
 @property (nonatomic,assign) CGFloat imgCornerRadius;
-/** 是否为本地图片, 默认NO */
-@property (nonatomic,assign) BOOL isLocalityImage;
-
+/** 图片的样式, 默认 KJBannerViewImageTypeLocality 网络图片 */
+@property (nonatomic,assign) KJBannerViewImageType imageType;
 @end
 
 NS_ASSUME_NONNULL_END

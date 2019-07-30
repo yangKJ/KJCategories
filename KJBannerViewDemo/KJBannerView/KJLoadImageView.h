@@ -7,8 +7,7 @@
 //  不依赖三方网络加载图片显示
 
 #import <UIKit/UIKit.h>
-
-#define KJBannerLoadImages [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/KJLoadImages"];
+#import "KJBannerTool.h"
 
 /// 下载完成回调
 typedef void (^KJDownLoadImageBlock)(UIImage *image);

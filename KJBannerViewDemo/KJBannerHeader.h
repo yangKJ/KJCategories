@@ -39,7 +39,12 @@
  
  
 #版本更新日志
-
+ 
+### 版本1.2.3
+- 新增本地和网络图片混合，自带判断方式，去掉以前的本地判断方式
+- 新增Gif图显示，支持本地图片、网络图片、网络GIF图片混合显示
+- KJBannerViewImageType 控制图片的显示类型
+ 
 ### 版本1.2.2
 - 修改pageControl样式颜色的修改方式，从而提高效率
  
@@ -92,6 +97,7 @@
  *  自带图片下载、缓存相关功能
  */
 #import "KJBannerView.h"
-#import "KJLoadImageView.h" /// 加载网络图片
+//#import "KJLoadImageView.h" /// 加载网络图片
+//#import "KJBannerTool.h" /// 工具类
 
 #endif /* KJBannerHeader_h */

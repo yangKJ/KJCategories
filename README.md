@@ -17,7 +17,8 @@ KJPlayer 是一款轮播Banner，自带图片下载、缓存相关功能
 1.无任何第三方依赖、轻量级组件  ☑️  
 2.支持缩放、自带缓存加载  ☑️  
 3.支持自定义继承、定制特定样式  ☑️  
-4.图片和视频混合展示 
+4.支持网络GIF播放和网络图片和本地图片混合显示轮播  ☑️  
+5.图片和视频混合展示 
 
 ----------------------------------------
 #### 温馨提示
@@ -84,6 +85,14 @@ pod 'KJBannerView' # 轮播图
 ```
 ####版本更新日志:
 
+### 版本1.2.3
+- 新增本地和网络图片混合，自带判断方式，去掉以前的本地判断方式
+- 新增Gif图显示，支持本地图片、网络图片、网络GIF图片混合显示
+- KJBannerViewImageType 控制图片的显示类型
+
+### 版本1.2.2
+- 修改pageControl样式颜色的修改方式，从而提高效率
+
 ### 版本1.2.1
 - 再次优化，提高性能
 - 新增自带Cell显示本地图片 isLocalityImage
@@ -130,6 +139,7 @@ self.NameLabel.text = kj_model.customTitle;
 - KJBannerViewFlowLayout：Cell缩放管理
 - KJBannerViewCell：基类Cell，自定义的Cell需继承该Cell
 - KJLoadImageView：图片下载工具类
+- KJBannerTool：一些关于GIF的工具方法
 
 ##### 代码事例
 ```
@@ -233,6 +243,7 @@ weakself.banner.imageDatas = arr;
 [![LOGO](https://github.com/yangKJ/KJPlayerDemo/blob/master/KJPlayerDemo/Demo/Assets.xcassets/AppIcon.appiconset/WechatIMG57486iPhoneSpootlight7_40pt@3x.png?raw=true)](https://github.com/yangKJ/KJBannerViewDemo)
 
 [![谢谢老板](https://raw.githubusercontent.com/yangKJ/CommonDatas/master/CommonDatas/Money/77%E3%80%82/All.png)](https://github.com/yangKJ/KJBannerViewDemo)
+[![谢谢老板](https://upload-images.jianshu.io/upload_images/1933747-08e9820e7672c0e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](https://github.com/yangKJ/KJBannerViewDemo)
 
 #### 救救孩子吧，谢谢各位老板～～～～
 

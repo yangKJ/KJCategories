@@ -38,8 +38,8 @@
     _imgCornerRadius = 0;
     _bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
     _isCustomCell = NO;
-    _isLocalityImage = NO;
     _rollType = KJBannerViewRollDirectionTypeRightToLeft;
+    _imageType = KJBannerViewImageTypeNetIamge;
     _cellPlaceholderImage = [UIImage imageNamed:@"KJBannerView.bundle/KJBannerPlaceholderImage"];
     self.itemClass = [KJBannerViewCell class];
 }
@@ -84,7 +84,8 @@
 }
 - (void)setImageDatas:(NSArray *)imageDatas{
     _imageDatas = imageDatas;
-    self.pageControl.kNumberPages = _imageDatas.count;
+    [[KJBannerTool sharedInstance].imageTemps removeAllObjects];
+    self.pageControl.totalPages = _imageDatas.count;
     /// 如果循环则50倍,让之看着像无限循环一样
     _temps = self.infiniteLoop ? _imageDatas.count * 50 : _imageDatas.count;
     if(_imageDatas.count > 1){
@@ -182,7 +183,7 @@
     /// 滑动时关闭交互
     self.collectionView.userInteractionEnabled = NO;
     if (!self.imageDatas.count) return; // 解决清除timer时偶尔会出现的问题
-    self.pageControl.kCurrentPage = [self currentIndex] % self.imageDatas.count;
+    self.pageControl.currentIndex = [self currentIndex] % self.imageDatas.count;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
@@ -240,7 +241,7 @@
         cell.imgCornerRadius = self.imgCornerRadius;
         cell.placeholderImage = self.cellPlaceholderImage;
         cell.contentMode = self.bannerImageViewContentMode;
-        cell.isLocalityImage = self.isLocalityImage;
+        cell.imageType = self.imageType;
         cell.imageUrl = self.imageDatas[itemIndex];
     }
     return cell;
@@ -271,10 +272,10 @@
     if(!_pageControl){
         _pageControl = [[KJPageControl alloc]initWithFrame:CGRectMake(0, self.bounds.size.height - 15, self.bounds.size.width, 15)];
         // 默认设置
-        _pageControl.kPageType = PageControlStyleRectangle;
-        _pageControl.kBackPageColor = UIColor.lightGrayColor;
-        _pageControl.kSelectedColor = UIColor.whiteColor;
-        _pageControl.kCurrentPage = 0;//[self currentIndex];
+        _pageControl.pageType = PageControlStyleRectangle;
+        _pageControl.normalColor = UIColor.lightGrayColor;
+        _pageControl.selectColor = UIColor.whiteColor;
+        _pageControl.currentIndex = 0;//[self currentIndex];
     }
     return _pageControl;
 }

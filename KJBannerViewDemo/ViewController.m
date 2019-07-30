@@ -31,8 +31,8 @@
     banner.itemSpace = 10;
     banner.itemWidth = self.view.frame.size.width-120;
 //    banner.delegate = self;
-    banner.pageControl.kPageType = PageControlStyleCircle;
-    banner.pageControl.kSelectedColor = UIColor.redColor;
+    banner.pageControl.pageType = PageControlStyleCircle;
+    banner.pageControl.selectColor = UIColor.redColor;
     banner.rollType = KJBannerViewRollDirectionTypeLeftToRight;
     [self.view addSubview:banner];
     
@@ -48,8 +48,11 @@
     banner2.itemSpace = -10;
     banner2.itemWidth = self.view.frame.size.width-120;
     banner2.delegate = self;
-    banner2.isLocalityImage = YES;
-    banner2.imageDatas = @[@"tu3",@"11",@"12",@"13",@"14",@"15",@"11",@"14",@"12",@"13",];
+    banner2.imageType = KJBannerViewImageTypeMix;
+    NSString *gif = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564463770360&di=c93e799328198337ed68c61381bcd0be&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170714%2F1eed483f1874437990ad84c50ecfc82a_th.jpg";
+    banner2.imageDatas = @[gif,@"98338_https_hhh",@"tu3",
+                           @"http://photos.tuchong.com/285606/f/4374153.jpg",
+                           ];
     [self.view addSubview:banner2];
 }
 

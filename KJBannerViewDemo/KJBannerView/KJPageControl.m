@@ -15,20 +15,20 @@
 @implementation KJPageControl
 
 /// 设置PageView
-- (void)setKNumberPages:(NSInteger)kNumberPages{
-    if (_kNumberPages != kNumberPages) {
-        _kNumberPages = kNumberPages;
+- (void)setTotalPages:(NSInteger)totalPages{
+    if (_totalPages != totalPages) {
+        _totalPages = totalPages;
         CGFloat margin = 8; /// 间隙
-        CGFloat width = self.frame.size.width - (_kNumberPages - 1)*margin;
+        CGFloat width = self.frame.size.width - (_totalPages - 1)*margin;
         /// 修改page的中心位置
         self.center = CGPointMake(width, self.center.y);
-        CGFloat pointWidth = width / _kNumberPages;
+        CGFloat pointWidth = width / _totalPages;
         pointWidth = pointWidth > self.frame.size.height / 2 ? self.frame.size.height / 2 : pointWidth;
         
-        for (int i = 0; i < _kNumberPages; i++) {
+        for (int i = 0; i < _totalPages; i++) {
             UIView *aview = [UIView new];
-            aview.backgroundColor = i == _kCurrentPage ? _kSelectedColor : _kBackPageColor;
-            switch (_kPageType) {
+            aview.backgroundColor = i == _currentIndex ? _selectColor : _normalColor;
+            switch (_pageType) {
                 case PageControlStyleCircle:
                     aview.frame = CGRectMake((margin*2/3 + pointWidth) * i, 0, pointWidth, pointWidth);
                     aview.layer.cornerRadius = pointWidth / 2 ;
@@ -49,11 +49,14 @@
 }
 
 /// 当前的currentPage
-- (void)setKCurrentPage:(NSInteger)kCurrentPage{
-    /// 遍历修改颜色
-    [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.backgroundColor = idx == kCurrentPage ? self.kSelectedColor : self.kBackPageColor;
-    }];
+- (void)setCurrentIndex:(NSInteger)currentIndex{
+    if (_currentIndex != currentIndex) {    
+        _currentIndex = currentIndex;
+        /// 遍历修改颜色
+        [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj.backgroundColor = idx == currentIndex ? self.selectColor : self.normalColor;
+        }];
+    }
 }
 
 @end
