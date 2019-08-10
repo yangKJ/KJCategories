@@ -14,6 +14,7 @@
 @interface ViewController ()<KJBannerViewDelegate>
 @property (nonatomic,strong) KJBannerView *banner;
 @property (nonatomic,strong) KJBannerView *banner2;
+@property (nonatomic,strong) UILabel *label;
 @end
 
 @implementation ViewController
@@ -27,10 +28,9 @@
     self.banner = banner;
     banner.itemClass = [KJCollectionViewCell class];
     banner.autoScrollTimeInterval = 2;
-//    banner.isZoom = YES;
     banner.itemSpace = 10;
     banner.itemWidth = self.view.frame.size.width-120;
-//    banner.delegate = self;
+    banner.delegate = self;
     banner.pageControl.pageType = PageControlStyleCircle;
     banner.pageControl.selectColor = UIColor.redColor;
     banner.rollType = KJBannerViewRollDirectionTypeLeftToRight;
@@ -54,13 +54,41 @@
                            @"http://photos.tuchong.com/285606/f/4374153.jpg",
                            ];
     [self.view addSubview:banner2];
+    
+    UIButton *clearButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    clearButton.frame = CGRectMake(self.view.frame.size.width*.5 - 50, self.view.frame.size.height - 100, 100, 30);
+    [clearButton setTitle:@"清除缓存" forState:(UIControlStateNormal)];
+    [clearButton setTitleColor:UIColor.redColor forState:(UIControlStateNormal)];
+    [clearButton addTarget:self action:@selector(clearAction) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.view addSubview:clearButton];
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width*.5 - 100, self.view.frame.size.height - 100 - 50, 200, 30)];
+    label.font = [UIFont systemFontOfSize:12];
+    label.textAlignment = NSTextAlignmentCenter;
+    self.label = label;
+    [self.view addSubview:label];
+    
+    long long num = [KJLoadImageView kj_imagesCacheSize];
+    self.label.text = [NSString stringWithFormat:@"缓存大小：%.02f mb",num / 1024 / 1024.0];
+}
+
+- (void)clearAction{
+    [KJLoadImageView kj_clearImagesCache];
 }
 
 #pragma mark - KJBannerViewDelegate
 //点击图片的代理
 - (void)kj_BannerView:(KJBannerView *)banner SelectIndex:(NSInteger)index{
     NSLog(@"index = %ld",(long)index);
-    
+}
+- (BOOL)kj_BannerView:(KJBannerView *)banner CurrentIndex:(NSInteger)index{
+    long long num = [KJLoadImageView kj_imagesCacheSize];
+    self.label.text = [NSString stringWithFormat:@"缓存大小：%.02f mb",num / 1024 / 1024.0];
+    if (banner == self.banner) {
+        return YES;
+    }
+    NSLog(@"currentIndex = %ld",(long)index);
+    return NO;
 }
 
 - (void)_setDatas{

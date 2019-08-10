@@ -304,13 +304,11 @@
     [_imageDownloader.task cancel];
 }
 
-
 /**
  *  此处公开此API，是方便大家可以在别的地方使用。等比例剪裁图片大小到指定的size
  *  @param image 剪裁前的图片
  *  @param size  最终图片大小
  *  @param isScaleToMax 是取最大比例还是最小比例，YES表示取最大比例
- *
  *  @return 裁剪后的图片
  */
 + (UIImage *)kj_clipImage:(UIImage *)image Size:(CGSize)size IsScaleToMax:(BOOL)isScaleToMax {
@@ -355,7 +353,6 @@
             }
         }
     }
-    
     return total;
 }
 

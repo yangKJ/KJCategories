@@ -1,5 +1,9 @@
 # KJBannerView
 
+<video id="video" controls="" preload="none" width="375px" height="667px" poster="https://raw.githubusercontent.com/yangKJ/KJBannerViewDemo/master/Res/IMG_6906.PNG">
+<source id="mp4" src="https://github.com/yangKJ/KJBannerViewDemo/blob/master/Res/IMG_6904.mp4" type="video/mp4">
+</video>
+
 ----------------------------------------
 ### 框架整体介绍
 * [作者信息](#作者信息)
@@ -13,11 +17,11 @@
 
 ----------------------------------------
 #### <a id="功能介绍"></a>功能介绍
-KJBannerView 是一款轮播Banner，自带图片下载、缓存相关功能    
-1.无任何第三方依赖、轻量级组件  ☑️  
-2.支持缩放、自带缓存加载  ☑️  
-3.支持自定义继承、定制特定样式  ☑️  
-4.支持网络GIF播放和网络图片和本地图片混合显示轮播  ☑️  
+KJBannerView 是一款轮播Banner，自带图片下载、缓存相关功能、轻量级组件    
+1.无任何第三方依赖、自带缓存加载  ☑️  
+2.缩放无限循环滚动  ☑️  
+3.自定义继承 KJBannerViewCell、定制特定样式  ☑️  
+4.支持网络GIF和网络图片和本地图片混合轮播  ☑️  
 5.图片和视频混合展示 
 
 ----------------------------------------
@@ -84,6 +88,9 @@ pod 'KJBannerView' # 轮播图
 #### <a id="更新日志"></a>更新日志
 ```
 ####版本更新日志:
+### 版本1.2.4
+- 新增委托方法 kj_BannerView:CurrentIndex: 滚动时候回调 可是否隐藏自带的PageControl
+- 优化性能，修复重复创建PageControl
 
 ### 版本1.2.3
 - 新增本地和网络图片混合，自带判断方式，去掉以前的本地判断方式
@@ -240,7 +247,12 @@ weakself.banner.imageDatas = arr;
 ```
 
 #### <a id="打赏作者"></a>打赏作者
-* 如果你觉得有帮助，还请为我Star
+<!--user:用户名 repo:仓库名字 type:star count:数量-->
+* 如果你觉得有帮助，还请为我 <iframe
+style="margin-left: 2px; margin-bottom:-5px;"
+frameborder="0" scrolling="0" width="100px" height="20px"
+src="https://ghbtns.com/github-btn.html?user=yangKJ&repo=KJBannerViewDemo&type=star&count=true" >
+</iframe>
 * 如果在使用过程中遇到Bug，希望你能Issues，我会及时修复
 * 大家有什么需要添加的功能，也可以给我留言，有空我将补充完善
 * 谢谢大家的支持 - -！
@@ -248,7 +260,6 @@ weakself.banner.imageDatas = arr;
 [![LOGO](https://github.com/yangKJ/KJPlayerDemo/blob/master/KJPlayerDemo/Demo/Assets.xcassets/AppIcon.appiconset/WechatIMG57486iPhoneSpootlight7_40pt@3x.png?raw=true)](https://github.com/yangKJ/KJBannerViewDemo)
 
 [![谢谢老板](https://raw.githubusercontent.com/yangKJ/CommonDatas/master/CommonDatas/Money/77%E3%80%82/All.png)](https://github.com/yangKJ/KJBannerViewDemo)
-[![谢谢老板](https://upload-images.jianshu.io/upload_images/1933747-08e9820e7672c0e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](https://github.com/yangKJ/KJBannerViewDemo)
 
 #### 救救孩子吧，谢谢各位老板～～～～
 

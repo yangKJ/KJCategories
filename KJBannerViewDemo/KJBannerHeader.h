@@ -39,6 +39,10 @@
  
  
 #版本更新日志
+
+### 版本1.2.4
+- 新增委托方法 kj_BannerView:CurrentIndex: 滚动时候回调 可是否隐藏自带的PageControl
+- 优化性能，修复重复创建PageControl
  
 ### 版本1.2.3
 - 新增本地和网络图片混合，自带判断方式，去掉以前的本地判断方式
@@ -97,7 +101,7 @@
  *  自带图片下载、缓存相关功能
  */
 #import "KJBannerView.h"
-//#import "KJLoadImageView.h" /// 加载网络图片
-//#import "KJBannerTool.h" /// 工具类
+#import "KJLoadImageView.h" /// 加载网络图片
+#import "KJBannerTool.h" /// 工具类
 
 #endif /* KJBannerHeader_h */
