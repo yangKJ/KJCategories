@@ -1,7 +1,7 @@
 PODS:
-  - KJBannerView (1.2.4):
-    - KJBannerView/KJBannerView (= 1.2.4)
-  - KJBannerView/KJBannerView (1.2.4)
+  - KJBannerView (1.2.5):
+    - KJBannerView/KJBannerView (= 1.2.5)
+  - KJBannerView/KJBannerView (1.2.5)
 
 DEPENDENCIES:
   - KJBannerView
@@ -11,7 +11,7 @@ SPEC REPOS:
     - KJBannerView
 
 SPEC CHECKSUMS:
-  KJBannerView: 8a7e06f89a1a6a4e8ee9b21ef041de34584bf7c8
+  KJBannerView: ced4d6322b5425f75f5f941396e400ffa0a0b08f
 
 PODFILE CHECKSUM: e44fbb058fd73864f1c9a1ab00a2b40c24fd3b3f
 

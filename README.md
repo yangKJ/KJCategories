@@ -1,5 +1,5 @@
 # KJBannerView
-
+![coverImage](https://raw.githubusercontent.com/yangKJ/CommonDatas/master/CommonDatas/Res/coverImage.jpg)
 <video id="video" controls="" preload="none" width="375px" height="667px" poster="https://raw.githubusercontent.com/yangKJ/KJBannerViewDemo/master/Res/IMG_6906.PNG">
 <source id="mp4" src="https://github.com/yangKJ/KJBannerViewDemo/blob/master/Res/IMG_6904.mp4" type="video/mp4">
 </video>

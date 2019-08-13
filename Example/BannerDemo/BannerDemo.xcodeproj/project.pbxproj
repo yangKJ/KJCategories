@@ -17,6 +17,8 @@
 		68DADF7A22F03E410010964D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DADF7922F03E410010964D /* main.m */; };
 		68DADF8422F03E410010964D /* BannerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DADF8322F03E410010964D /* BannerDemoTests.m */; };
 		68DADF8F22F03E420010964D /* BannerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DADF8E22F03E420010964D /* BannerDemoUITests.m */; };
+		68E888842300F230005664F1 /* KJBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E888802300F230005664F1 /* KJBannerModel.m */; };
+		68E888852300F230005664F1 /* KJCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E888832300F230005664F1 /* KJCollectionViewCell.m */; };
 		9E7E39D006F45503B90FD8FB /* libPods-BannerDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B542E53D295CEEE2960A6A84 /* libPods-BannerDemoUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,10 @@
 		68DADF8A22F03E410010964D /* BannerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BannerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68DADF8E22F03E420010964D /* BannerDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerDemoUITests.m; sourceTree = "<group>"; };
 		68DADF9022F03E420010964D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68E888802300F230005664F1 /* KJBannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KJBannerModel.m; path = ../../../KJBannerViewDemo/KJBannerModel.m; sourceTree = "<group>"; };
+		68E888812300F230005664F1 /* KJCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KJCollectionViewCell.h; path = ../../../KJBannerViewDemo/KJCollectionViewCell.h; sourceTree = "<group>"; };
+		68E888822300F230005664F1 /* KJBannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KJBannerModel.h; path = ../../../KJBannerViewDemo/KJBannerModel.h; sourceTree = "<group>"; };
+		68E888832300F230005664F1 /* KJCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KJCollectionViewCell.m; path = ../../../KJBannerViewDemo/KJCollectionViewCell.m; sourceTree = "<group>"; };
 		A75A315D55A8B2794AF9F68B /* libPods-BannerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BannerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C047BB337890682A4C29C6 /* libPods-BannerDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BannerDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B542E53D295CEEE2960A6A84 /* libPods-BannerDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BannerDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +136,10 @@
 			children = (
 				68DADF6A22F03E3F0010964D /* AppDelegate.h */,
 				68DADF6B22F03E3F0010964D /* AppDelegate.m */,
+				68E888822300F230005664F1 /* KJBannerModel.h */,
+				68E888802300F230005664F1 /* KJBannerModel.m */,
+				68E888812300F230005664F1 /* KJCollectionViewCell.h */,
+				68E888832300F230005664F1 /* KJCollectionViewCell.m */,
 				68DADF6D22F03E3F0010964D /* ViewController.h */,
 				68DADF6E22F03E3F0010964D /* ViewController.m */,
 				68DADF7022F03E3F0010964D /* Main.storyboard */,
@@ -398,7 +408,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				68DADF6F22F03E3F0010964D /* ViewController.m in Sources */,
+				68E888852300F230005664F1 /* KJCollectionViewCell.m in Sources */,
 				68DADF7A22F03E410010964D /* main.m in Sources */,
+				68E888842300F230005664F1 /* KJBannerModel.m in Sources */,
 				68DADF6C22F03E3F0010964D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

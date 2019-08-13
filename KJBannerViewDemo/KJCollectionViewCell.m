@@ -7,7 +7,7 @@
 //
 
 #import "KJCollectionViewCell.h"
-#import "KJBannerModel.h"
+
 @interface KJCollectionViewCell ()
 @property (strong, nonatomic) UILabel *NameLabel;
 @property (strong, nonatomic) KJLoadImageView *ImageView;

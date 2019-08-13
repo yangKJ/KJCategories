@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import <KJBannerHeader.h>
-
+#import "KJCollectionViewCell.h"
 @interface ViewController ()<KJBannerViewDelegate>
 @property (nonatomic,strong) KJBannerView *banner;
 @property (nonatomic,strong) KJBannerView *banner2;
@@ -24,6 +24,7 @@
     
     KJBannerView *banner = [[KJBannerView alloc]initWithFrame:CGRectMake(20, 100, self.view.frame.size.width-30, self.view.frame.size.width*0.4)];
     self.banner = banner;
+    banner.itemClass = [KJCollectionViewCell class];
     banner.autoScrollTimeInterval = 2;
     banner.itemSpace = 10;
     banner.itemWidth = self.view.frame.size.width-120;

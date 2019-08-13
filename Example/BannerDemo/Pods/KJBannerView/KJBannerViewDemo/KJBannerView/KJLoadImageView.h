@@ -23,7 +23,6 @@ typedef void (^KJDownloadProgressBlock)(unsigned long long total, unsigned long 
 /// 下载进度回调
 @property (nonatomic, copy) KJDownloadProgressBlock kj_progressBlock;
 
-
 /// 指定URL下载图片失败时，重试的次数，默认为2次
 @property (nonatomic, assign) NSUInteger kj_failedTimes;
 /// 是否裁剪为ImageView的尺寸，默认为NO

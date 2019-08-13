@@ -7,7 +7,7 @@
 //
 
 #import "KJBannerViewCell.h"
-
+#import "KJBannerModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface KJCollectionViewCell : KJBannerViewCell

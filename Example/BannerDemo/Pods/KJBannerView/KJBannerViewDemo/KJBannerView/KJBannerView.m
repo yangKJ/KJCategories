@@ -11,15 +11,14 @@
 #import "KJBannerViewFlowLayout.h"
 
 @interface KJBannerView()<UICollectionViewDataSource,UICollectionViewDelegate>
-
-@property (nonatomic,strong) KJBannerViewFlowLayout *FlowLayout;
+@property (nonatomic,strong) KJBannerViewFlowLayout *layout;
 @property (nonatomic,strong) UICollectionView *collectionView;
-@property (nonatomic,assign) NSUInteger temps; // 总数
-@property (nonatomic,assign) NSUInteger dragDirection;//
-@property (nonatomic,assign) NSUInteger oldPoint;//
+@property (nonatomic,assign) NSUInteger nums; // 总数
+@property (nonatomic,assign) NSUInteger dragIndex;//
+@property (nonatomic,assign) NSUInteger lastX;// 上次的X
 @property (nonatomic,strong) NSTimer *timer;
 /// 是否自定义Cell, 默认no
-@property (nonatomic,assign) BOOL isCustomCell;
+@property (nonatomic,assign) BOOL customCell;
 
 @end
 
@@ -35,12 +34,11 @@
     _itemSpace = 0;
     _imgCornerRadius = 0;
     _autoScrollTimeInterval = 2;
-    _imgCornerRadius = 0;
     _bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
-    _isCustomCell = NO;
     _rollType = KJBannerViewRollDirectionTypeRightToLeft;
     _imageType = KJBannerViewImageTypeNetIamge;
     _cellPlaceholderImage = [UIImage imageNamed:@"KJBannerView.bundle/KJBannerPlaceholderImage"];
+    _customCell = NO;
     self.itemClass = [KJBannerViewCell class];
 }
 
@@ -53,45 +51,51 @@
     return self;
 }
 
-#pragma mark  - setter or getter
+#pragma mark - setter/getter
+- (void)setDelegate:(id<KJBannerViewDelegate>)delegate{
+    _delegate = delegate;
+    if ([delegate respondsToSelector:@selector(kj_BannerView:CurrentIndex:)]) {
+        BOOL close = [delegate kj_BannerView:self CurrentIndex:0];
+        if (close) [self.pageControl removeFromSuperview];
+    }
+}
+
 - (void)setItemClass:(Class)itemClass{
     _itemClass = itemClass;
     if (![NSStringFromClass(itemClass) isEqualToString:@"KJBannerViewCell"]) {
-        _isCustomCell = YES;
+        _customCell = YES;
     }
     /// 注册cell
     [self.collectionView registerClass:_itemClass forCellWithReuseIdentifier:@"KJBannerViewCell"];
 }
 - (void)setItemWidth:(CGFloat)itemWidth{
     _itemWidth = itemWidth;
-    self.FlowLayout.itemSize = CGSizeMake(itemWidth, self.bounds.size.height);
+    self.layout.itemSize = CGSizeMake(itemWidth, self.bounds.size.height);
 }
 - (void)setItemSpace:(CGFloat)itemSpace{
     _itemSpace = itemSpace;
-    self.FlowLayout.minimumLineSpacing = itemSpace;
+    self.layout.minimumLineSpacing = itemSpace;
 }
 - (void)setIsZoom:(BOOL)isZoom{
     _isZoom = isZoom;
-    self.FlowLayout.isZoom = isZoom;
+    self.layout.isZoom = isZoom;
 }
 - (void)setAutoScroll:(BOOL)autoScroll{
     _autoScroll = autoScroll;
     //创建之前，停止定时器
     [self invalidateTimer];
-    if (_autoScroll) {
-        [self setupTimer];
-    }
+    if (_autoScroll) [self setupTimer];
 }
 - (void)setImageDatas:(NSArray *)imageDatas{
     _imageDatas = imageDatas;
     [[KJBannerTool sharedInstance].imageTemps removeAllObjects];
-    self.pageControl.totalPages = _imageDatas.count;
     /// 如果循环则50倍,让之看着像无限循环一样
-    _temps = self.infiniteLoop ? _imageDatas.count * 50 : _imageDatas.count;
-    if(_imageDatas.count > 1){
+    _nums = self.infiniteLoop ? imageDatas.count * 100 : imageDatas.count;
+    if(imageDatas.count > 1){
         self.pageControl.hidden = NO;
         self.collectionView.scrollEnabled = YES;
         [self setAutoScroll:self.autoScroll];
+        self.pageControl.totalPages = imageDatas.count;
     }else{
         //不循环
         self.pageControl.hidden = YES;
@@ -109,21 +113,21 @@
 /// 设置初始滚动位置
 - (void)kSetCollectionItemIndexPlace{
     self.collectionView.frame = self.bounds;
-    self.FlowLayout.itemSize = CGSizeMake(_itemWidth, self.bounds.size.height);
-    self.FlowLayout.minimumLineSpacing = self.itemSpace;
-    if(self.collectionView.contentOffset.x == 0 && _temps > 0) {
+    self.layout.itemSize = CGSizeMake(_itemWidth, self.bounds.size.height);
+    self.layout.minimumLineSpacing = self.itemSpace;
+    if(self.collectionView.contentOffset.x == 0 && _nums > 0) {
         NSInteger targeIndex = 0;
         if(self.infiniteLoop){
             // 无线循环
             // 如果是无限循环, 应该默认把 collection 的 item 滑动到 中间位置
             // 乘以 0.5, 正好是取得中间位置的 item, 图片也恰好是图片数组里面的第 0 个
-            targeIndex = _temps * 0.5;
+            targeIndex = _nums * 0.5;
         }else{
             targeIndex = 0;
         }
         /// 设置图片默认位置
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:targeIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
-        self.oldPoint = self.collectionView.contentOffset.x;
+        self.lastX = self.collectionView.contentOffset.x;
         self.collectionView.userInteractionEnabled = YES;
     }
 }
@@ -141,7 +145,7 @@
 }
 /// 自动滚动
 - (void)automaticScroll{
-    if(_temps == 0) return;
+    if(_nums == 0) return;
     NSInteger currentIndex = [self currentIndex];
     NSInteger targetIndex;
     /// 滚动方向设定
@@ -149,7 +153,7 @@
         targetIndex = currentIndex + 1;
     }else{
         if (currentIndex == 0) {
-            currentIndex = _temps;
+            currentIndex = _nums;
         }
         targetIndex = currentIndex - 1;
     }
@@ -159,18 +163,23 @@
 - (NSInteger)currentIndex{
     if(self.collectionView.frame.size.width == 0 || self.collectionView.frame.size.height == 0) return 0;
     NSInteger index = 0;
-    if (_FlowLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal) {//水平滑动
+    if (_layout.scrollDirection == UICollectionViewScrollDirectionHorizontal) {//水平滑动
         index = (self.collectionView.contentOffset.x + (self.itemWidth + self.itemSpace) * 0.5) / (self.itemSpace + self.itemWidth);
     }else{
-        index = (self.collectionView.contentOffset.y + _FlowLayout.itemSize.height * 0.5) / _FlowLayout.itemSize.height;
+        index = (self.collectionView.contentOffset.y + _layout.itemSize.height * 0.5) / _layout.itemSize.height;
     }
     return MAX(0,index);
 }
 /// 滚动到指定位置
 - (void)scrollToIndex:(NSInteger)index{
-    if(index >= _temps){ //滑到最后则调到中间
+    if ([self.delegate respondsToSelector:@selector(kj_BannerView:CurrentIndex:)]) {
+        NSInteger idx = index % _imageDatas.count;
+        [self.delegate kj_BannerView:self CurrentIndex:idx];
+    }
+    
+    if(index >= _nums){ //滑到最后则调到中间
         if(self.infiniteLoop){
-            index = _temps * 0.5;
+            index = _nums * 0.5;
             [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
         }
         return;
@@ -187,7 +196,7 @@
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    _oldPoint = scrollView.contentOffset.x;
+    _lastX = scrollView.contentOffset.x;
     if (self.autoScroll) return [self invalidateTimer];
 }
 
@@ -207,35 +216,35 @@
 /// 手离开屏幕的时候
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
     /// 如果是向右滑或者滑动距离大于item的一半,则像右移动一个item+space的距离,反之向左
-    float currentPoint = scrollView.contentOffset.x;
-    float moveWidth = currentPoint - _oldPoint;
-    int shouldPage = moveWidth/(self.itemWidth/2);
+    CGFloat currentX = scrollView.contentOffset.x;
+    CGFloat moveWidth = currentX - self.lastX;
+    NSInteger shouldPage = moveWidth / (self.itemWidth*.5);
     if (velocity.x > 0 || shouldPage > 0) {
-        _dragDirection = 1;
+        _dragIndex = 1;
     }else if (velocity.x < 0 || shouldPage < 0){
-        _dragDirection = -1;
+        _dragIndex = -1;
     }else{
-        _dragDirection = 0;
+        _dragIndex = 0;
     }
     self.collectionView.userInteractionEnabled = NO;
-    NSInteger currentIndex = (_oldPoint + (self.itemWidth + self.itemSpace) * 0.5) / (self.itemSpace + self.itemWidth);
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:currentIndex + _dragDirection inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    NSInteger idx = (_lastX + (self.itemWidth + self.itemSpace) * 0.5) / (self.itemSpace + self.itemWidth);
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:idx + _dragIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
 
-- (void)scrollViewWillBeginDecelerating: (UIScrollView *)scrollView{
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
     /// 松开手指滑动开始减速的时候,设置滑动动画
-    NSInteger currentIndex = (_oldPoint + (self.itemWidth + self.itemSpace) * 0.5) / (self.itemSpace + self.itemWidth);
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:currentIndex + _dragDirection inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    NSInteger idx = (_lastX + (self.itemWidth + self.itemSpace) * 0.5) / (self.itemSpace + self.itemWidth);
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:idx + _dragIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
 
-#pragma mark  - UICollectionViewDataSource
+#pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.temps;
+    return self.nums;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     KJBannerViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"KJBannerViewCell" forIndexPath:indexPath];
-    long itemIndex = (int)indexPath.item % self.imageDatas.count;
-    if (_isCustomCell) {
+    NSInteger itemIndex = indexPath.item % self.imageDatas.count;
+    if (self.customCell) {
         cell.model = self.imageDatas[itemIndex];
     }else{
         cell.imgCornerRadius = self.imgCornerRadius;
@@ -258,7 +267,7 @@
 #pragma mark - lazy
 - (UICollectionView *)collectionView{
     if(!_collectionView){
-        _collectionView = [[UICollectionView alloc]initWithFrame:self.bounds collectionViewLayout:self.FlowLayout];
+        _collectionView = [[UICollectionView alloc]initWithFrame:self.bounds collectionViewLayout:self.layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.scrollsToTop = NO;
@@ -279,14 +288,14 @@
     }
     return _pageControl;
 }
-- (KJBannerViewFlowLayout *)FlowLayout{
-    if(!_FlowLayout){
-        _FlowLayout = [[KJBannerViewFlowLayout alloc]init];
-        _FlowLayout.isZoom = self.isZoom;
-        _FlowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        _FlowLayout.minimumLineSpacing = 0;
+- (KJBannerViewFlowLayout *)layout{
+    if(!_layout){
+        _layout = [[KJBannerViewFlowLayout alloc]init];
+        _layout.isZoom = self.isZoom;
+        _layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        _layout.minimumLineSpacing = 0;
     }
-    return _FlowLayout;
+    return _layout;
 }
 
 @end
