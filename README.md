@@ -251,11 +251,10 @@ weakself.banner.imageDatas = arr;
 * 如果你觉得有帮助，还请为我 <iframe
 style="margin-left: 2px; margin-bottom:-5px;"
 frameborder="0" scrolling="0" width="100px" height="20px"
-src="https://ghbtns.com/github-btn.html?user=yangKJ&repo=KJBannerViewDemo&type=star&count=true" >
-</iframe>
-* 如果在使用过程中遇到Bug，希望你能Issues，我会及时修复
-* 大家有什么需要添加的功能，也可以给我留言，有空我将补充完善
-* 谢谢大家的支持 - -！
+src="https://ghbtns.com/github-btn.html?user=yangKJ&repo=KJBannerViewDemo&type=star&count=true" ></iframe>   
+* 如果在使用过程中遇到Bug，希望你能Issues，我会及时修复  
+* 大家有什么需要添加的功能，也可以给我留言，有空我将补充完善  
+* 谢谢大家的支持 - -！  
 
 [![LOGO](https://github.com/yangKJ/KJPlayerDemo/blob/master/KJPlayerDemo/Demo/Assets.xcassets/AppIcon.appiconset/WechatIMG57486iPhoneSpootlight7_40pt@3x.png?raw=true)](https://github.com/yangKJ/KJBannerViewDemo)
 
