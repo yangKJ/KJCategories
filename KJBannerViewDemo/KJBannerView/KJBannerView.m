@@ -24,7 +24,7 @@
 
 @implementation KJBannerView
 
-#pragma mark  - config
+#pragma mark - config
 - (void)kConfig{
     /// 初始化 - 设置默认参数
     _infiniteLoop = YES;
@@ -59,7 +59,6 @@
         if (close) [self.pageControl removeFromSuperview];
     }
 }
-
 - (void)setItemClass:(Class)itemClass{
     _itemClass = itemClass;
     if (![NSStringFromClass(itemClass) isEqualToString:@"KJBannerViewCell"]) {
@@ -109,22 +108,16 @@
     [self kSetCollectionItemIndexPlace];
 }
 
-#pragma mark  - private
+#pragma mark - private
 /// 设置初始滚动位置
 - (void)kSetCollectionItemIndexPlace{
     self.collectionView.frame = self.bounds;
-    self.layout.itemSize = CGSizeMake(_itemWidth, self.bounds.size.height);
+    self.layout.itemSize = CGSizeMake(self.itemWidth, self.bounds.size.height);
     self.layout.minimumLineSpacing = self.itemSpace;
     if(self.collectionView.contentOffset.x == 0 && _nums > 0) {
-        NSInteger targeIndex = 0;
-        if(self.infiniteLoop){
-            // 无线循环
-            // 如果是无限循环, 应该默认把 collection 的 item 滑动到 中间位置
-            // 乘以 0.5, 正好是取得中间位置的 item, 图片也恰好是图片数组里面的第 0 个
-            targeIndex = _nums * 0.5;
-        }else{
-            targeIndex = 0;
-        }
+        // 如果是无限循环, 应该默认把 collection 的 item 滑动到 中间位置
+        // 乘以 0.5, 正好是取得中间位置的 item, 图片也恰好是图片数组里面的第 0 个
+        NSInteger targeIndex = self.infiniteLoop ? _nums * 0.5 : 0;
         /// 设置图片默认位置
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:targeIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
         self.lastX = self.collectionView.contentOffset.x;
@@ -152,9 +145,7 @@
     if (_rollType == KJBannerViewRollDirectionTypeRightToLeft) {
         targetIndex = currentIndex + 1;
     }else{
-        if (currentIndex == 0) {
-            currentIndex = _nums;
-        }
+        if (currentIndex == 0) currentIndex = _nums;
         targetIndex = currentIndex - 1;
     }
     [self scrollToIndex:targetIndex];

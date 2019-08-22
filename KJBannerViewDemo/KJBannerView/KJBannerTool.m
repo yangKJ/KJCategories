@@ -64,13 +64,9 @@
         case 0x4D:
             return KJBannerImageTypeTiff;
         case 0x52:
-            if ([data length] < 12) {
-                return KJBannerImageTypeUnknown;
-            }
+            if ([data length] < 12) return KJBannerImageTypeUnknown;
             NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 12)] encoding:NSASCIIStringEncoding];
-            if ([testString hasPrefix:@"RIFF"] && [testString hasSuffix:@"WEBP"]) {
-                return KJBannerImageTypeWebp;
-            }
+            if ([testString hasPrefix:@"RIFF"] && [testString hasSuffix:@"WEBP"]) return KJBannerImageTypeWebp;
             return KJBannerImageTypeUnknown;
     }
     return KJBannerImageTypeUnknown;
