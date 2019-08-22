@@ -1,9 +1,8 @@
 # KJBannerView
-<p align="center">
-  <img width="200" src="Res/WechatIMG12.png" hspace="30px" />
+<p align="left">
+  <img width="200" src="Res/121566436246_.pic.jpg" hspace="30px" />
   <img width="200" src="Res/IMG_6906.PNG" hspace="30px" />
 </p>
-
 
 <!--<video id="video" controls="" preload="none" width="375px" height="667px" poster="https://raw.githubusercontent.com/yangKJ/KJBannerViewDemo/master/Res/IMG_6906.PNG">
 <source id="mp4" src="Res/IMG_6904.mp4" type="video/mp4">
