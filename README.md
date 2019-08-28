@@ -1,5 +1,6 @@
 # KJBannerView
 <p align="left">
+  <img width="200" src="Res/156a18392553c66a65882650b1a2289a-2的副本.gif" hspace="30px" />
   <img width="200" src="Res/121566436246_.pic.jpg" hspace="30px" />
   <img width="200" src="Res/IMG_6906.PNG" hspace="30px" />
 </p>
@@ -142,7 +143,7 @@ self.NameLabel.text = kj_model.customTitle;
 #### <a id="效果图"></a>效果图
 ![轮播图](https://upload-images.jianshu.io/upload_images/1933747-2e51515ae91af6d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![KJBannerViewDemo](https://upload-images.jianshu.io/upload_images/1933747-44a8733e65ea3b57.gif?imageMogr2/auto-orient/strip)
+![KJBannerViewDemo](https://upload-images.jianshu.io/upload_images/1933747-f7fbb91e9088f39e.gif?imageMogr2/auto-orient/strip)
 
 #### <a id="KJBannerView"></a>KJBannerView
 
