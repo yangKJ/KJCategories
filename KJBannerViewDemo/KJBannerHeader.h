@@ -36,6 +36,11 @@
  
  
 #版本更新日志
+ 
+### 版本1.2.6
+- KJPageControl 新增大小点类型 PageControlStyleSizeDot
+- 优化修改网友提出的卡顿问题
+- 移出 KJBannerViewCell 当中的判断处理，从而提高效率
 
 ### 版本1.2.5
 - 新增委托方法 kj_BannerView:CurrentIndex: 滚动时候回调 可是否隐藏自带的PageControl

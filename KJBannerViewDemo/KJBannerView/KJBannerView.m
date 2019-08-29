@@ -87,7 +87,17 @@
 }
 - (void)setImageDatas:(NSArray *)imageDatas{
     _imageDatas = imageDatas;
-    [[KJBannerTool sharedInstance].imageTemps removeAllObjects];
+    if (self.customCell == NO) {
+        NSMutableArray *temp = [NSMutableArray array];
+        for (NSString *string in imageDatas) {
+            KJBannerDatasInfo *info = [[KJBannerDatasInfo alloc]init];
+            info.superType = self.imageType;
+            info.imageUrl = string;
+            [temp addObject:info];
+        }
+        [KJBannerTool sharedInstance].imageTemps = temp;
+        temp = nil;
+    }
     /// 如果循环则50倍,让之看着像无限循环一样
     _nums = self.infiniteLoop ? imageDatas.count * 100 : imageDatas.count;
     if(imageDatas.count > 1){
@@ -241,8 +251,7 @@
         cell.imgCornerRadius = self.imgCornerRadius;
         cell.placeholderImage = self.cellPlaceholderImage;
         cell.contentMode = self.bannerImageViewContentMode;
-        cell.imageType = self.imageType;
-        cell.imageUrl = self.imageDatas[itemIndex];
+        cell.info = [KJBannerTool sharedInstance].imageTemps[itemIndex];
     }
     return cell;
 }

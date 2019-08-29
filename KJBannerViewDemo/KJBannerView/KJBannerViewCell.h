@@ -19,10 +19,9 @@
 @property (nonatomic,assign) UIViewContentMode contentMode;
 /// 圆角
 @property (nonatomic,assign) CGFloat imgCornerRadius;
-/// url
-@property (nonatomic,strong) NSString *imageUrl;
 /// 占位图
 @property (nonatomic,strong) UIImage *placeholderImage;
-/// 图片的样式, 默认 KJBannerViewImageTypeLocality 网络图片
-@property (nonatomic,assign) NSInteger imageType;
+/// 自带数据模型
+@property (nonatomic,strong) KJBannerDatasInfo *info;
+
 @end

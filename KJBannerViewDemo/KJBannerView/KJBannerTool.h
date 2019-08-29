@@ -10,9 +10,7 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
 #define KJBannerLoadImages [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/KJLoadImages"];
-
 typedef NS_ENUM(NSInteger, KJBannerImageType) {
     KJBannerImageTypeUnknown = 0, /// 未知
     KJBannerImageTypeJpeg    = 1, /// jpg
@@ -21,11 +19,23 @@ typedef NS_ENUM(NSInteger, KJBannerImageType) {
     KJBannerImageTypeTiff    = 4, /// tiff
     KJBannerImageTypeWebp    = 5, /// webp
 };
+/// 图片的几种类型
+typedef NS_ENUM(NSInteger, KJBannerImageInfoType) {
+    KJBannerImageInfoTypeLocality, /// 本地图片
+    KJBannerImageInfoTypeNetIamge, /// 网络图片
+    KJBannerImageInfoTypeGIFImage, /// 网络GIF图片
+};
+@interface KJBannerDatasInfo : NSObject
+@property (nonatomic,strong) NSString *imageUrl;
+@property (nonatomic,assign) KJBannerImageInfoType type;
+@property (nonatomic,strong) UIImage *image;
+@property (nonatomic,assign) NSInteger superType;
+@end
 
 @interface KJBannerTool : NSObject
 
-/// gif存放数组 数组里面存放了判断网络图片或者GIF图片
-@property(nonatomic,strong) NSMutableArray *imageTemps;
+/// 存放数据
+@property(nonatomic,strong) NSArray *imageTemps;
 
 /* 单例 */
 + (instancetype)sharedInstance;

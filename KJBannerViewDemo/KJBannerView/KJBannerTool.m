@@ -9,6 +9,68 @@
 #import "KJBannerTool.h"
 #import <CommonCrypto/CommonDigest.h>
 
+@implementation KJBannerDatasInfo
+
+- (void)setImageUrl:(NSString *)imageUrl{
+    _imageUrl = imageUrl;
+    switch (_superType) {
+        case 0:{ // 混合，本地图片、网络图片、网络GIF
+            //1.判断是本地还是网络
+            if ([KJBannerTool kj_bannerImageWithImageUrl:_imageUrl] == YES) { /// 本地图片
+                _type = KJBannerImageInfoTypeLocality;
+                _image = [UIImage imageNamed:_imageUrl];
+            }else{
+                //2.判断是GIF还是网络图片
+                if ([KJBannerTool kj_bannerIsGifWithURL:_imageUrl] == YES) {
+                    _image = [KJBannerTool kj_bannerGetImageWithURL:_imageUrl];
+                    _type = KJBannerImageInfoTypeGIFImage;
+                }else{
+                    //3.网络图片
+                    _type = KJBannerImageInfoTypeNetIamge;
+                }
+            }
+        }
+            break;
+        case 1:{ // 网络GIF和网络图片混合
+            if ([KJBannerTool kj_bannerIsGifWithURL:_imageUrl] == YES) {
+                _image = [KJBannerTool kj_bannerGetImageWithURL:_imageUrl];
+                _type = KJBannerImageInfoTypeGIFImage;
+            }else{
+                //3.网络图片
+                _type = KJBannerImageInfoTypeNetIamge;
+            }
+        }
+            break;
+        case 2:{ // 本地图片
+            _type = KJBannerImageInfoTypeLocality;
+            _image = [UIImage imageNamed:_imageUrl];
+        }
+            break;
+        case 3:{ // 网络图片
+            _type = KJBannerImageInfoTypeNetIamge;
+        }
+            break;
+        case 4:{ // 网络GIF图片
+            _image = [KJBannerTool kj_bannerGetImageWithURL:_imageUrl];
+            _type = KJBannerImageInfoTypeGIFImage;
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark - 内部方法
+/// 本地GIF和本地图片
+- (void)kj_ImageLociaWithURL:(NSString*)imageUrl{
+    //2.判断是否为本地的gif
+    if ([KJBannerTool kj_bannerIsGifImageWithImageName:imageUrl] == NO) {
+        
+    }
+}
+
+@end
+
 @implementation KJBannerTool
 
 + (instancetype)sharedInstance {
@@ -22,7 +84,7 @@
 
 - (instancetype)init{
     if (self==[super init]) {
-        self.imageTemps = [NSMutableArray array];
+        
     }
     return self;
 }

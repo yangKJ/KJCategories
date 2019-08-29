@@ -13,6 +13,7 @@ typedef enum : NSInteger{
     PageControlStyleRectangle = 0, // 默认类型 长方形
     PageControlStyleCircle, // 圆形
     PageControlStyleSquare, // 正方形
+    PageControlStyleSizeDot,// 大小点
 }PageControlStyle;
 @interface KJPageControl : UIPageControl
 /* 总共点数 */
