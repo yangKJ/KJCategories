@@ -17,15 +17,15 @@ typedef enum : NSInteger{
 }PageControlStyle;
 @interface KJPageControl : UIPageControl
 /* 总共点数 */
-@property(nonatomic,assign)NSInteger totalPages;
+@property(nonatomic,assign) IBInspectable NSInteger totalPages;
 /* 当前点，默认0 */
-@property(nonatomic,assign)NSInteger currentIndex;
+@property(nonatomic,assign) IBInspectable NSInteger currentIndex;
 /* 选中的色，默认白色 */
-@property(nonatomic,strong)UIColor *selectColor;
+@property(nonatomic,strong) IBInspectable UIColor *selectColor;
 /* 背景色，默认灰色 */
-@property(nonatomic,strong)UIColor *normalColor;
+@property(nonatomic,strong) IBInspectable UIColor *normalColor;
 /* 类别，默认长方形 */
-@property(nonatomic,assign)PageControlStyle pageType;
+@property(nonatomic,assign) IBInspectable PageControlStyle pageType;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "KJBannerView"
-  s.version      = "1.2.6"
+  s.version      = "1.2.7"
   s.summary      = "Banner"
   s.homepage     = "https://github.com/yangKJ/KJBannerViewDemo"
   s.license      = "MIT"

@@ -340,16 +340,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BannerDemo/Pods-BannerDemo-resources.sh",
-				"${PODS_ROOT}/KJBannerView/KJBannerViewDemo/KJBannerView/KJBannerView.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-BannerDemo/Pods-BannerDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/KJBannerView.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-BannerDemo/Pods-BannerDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

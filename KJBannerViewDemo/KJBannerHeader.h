@@ -10,7 +10,7 @@
 #define KJBannerHeader_h
 
 /*------------- 本人其他库 -------------
- 轮播图 - 支持缩放 多种pagecontrol 支持继承自定义样式 自带网络加载和缓存
+ 轮播图 - 支持缩放 多种pagecontrol 支持继承自定义样式 自带网络加载和缓存 Xib布局设置属性
  pod 'KJBannerView'  # 轮播图，网络图片加载 支持网络GIF和网络图片和本地图片混合轮播
  
  实用又方便的Category和自定义控件(Switch、选择控件等等)
@@ -36,6 +36,10 @@
  
  
 #版本更新日志
+ 
+### 版本1.2.7
+- 新增裁剪网络图片从而提高效率 kj_scale
+- Banner支持在Storyboard和Xib中创建并配置其属性
  
 ### 版本1.2.6
 - KJPageControl 新增大小点类型 PageControlStyleSizeDot

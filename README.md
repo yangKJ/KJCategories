@@ -27,11 +27,11 @@ KJBannerView 是一款轮播Banner，自带图片下载、缓存相关功能、�
 2.缩放无限循环滚动  ☑️  
 3.自定义继承 KJBannerViewCell、定制特定样式  ☑️  
 4.支持网络GIF和网络图片和本地图片混合轮播  ☑️  
-5.图片和视频混合展示 
+5.支持在Storyboard和Xib中创建并配置其属性  ☑️  
 
 ----------------------------------------
 #### 温馨提示
-使用第三方库Xcode报错  
+#####1、使用第三方库Xcode报错  
 Cannot synthesize weak property because the current deployment target does not support weak references  
 可在`Podfile`文件底下加入下面的代码，'8.0'是对应的部署目标（deployment target） 删除库重新Pod  
 不支持用weak修饰属性，而weak在使用ARC管理引用计数项目中才可使用  
@@ -49,6 +49,10 @@ end
 end
 ##################加入代码##################
 ```
+#####2、若搜索不到库
+- 方案1：可执行pod repo update
+- 方案2：使用 rm ~/Library/Caches/CocoaPods/search_index.json 移除本地索引然后再执行安装
+- 方案3：更新一下 CocoaPods 版本
 
 ----------------------------------------
 

@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="98338_https_hhh" translatesAutoresizingMaskIntoConstraints="NO" id="jv6-Yp-EQm">
+                            <imageView userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tu3" translatesAutoresizingMaskIntoConstraints="NO" id="jv6-Yp-EQm">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="98338_https_hhh" width="1241" height="1211"/>
+        <image name="tu3" width="1024" height="682"/>
     </resources>
 </document>

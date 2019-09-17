@@ -33,6 +33,7 @@
 - (KJLoadImageView *)ImageView{
     if(!_ImageView){
         _ImageView = [[KJLoadImageView alloc]initWithFrame:self.contentView.bounds];
+        _ImageView.layer.cornerRadius = 10;
     }
     return _ImageView;
 }

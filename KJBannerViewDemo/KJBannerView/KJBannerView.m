@@ -9,6 +9,7 @@
 #import "KJBannerView.h"
 #import "KJBannerViewCell.h"
 #import "KJBannerViewFlowLayout.h"
+#import <objc/runtime.h>
 
 @interface KJBannerView()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic,strong) KJBannerViewFlowLayout *layout;
@@ -17,6 +18,8 @@
 @property (nonatomic,assign) NSUInteger dragIndex;//
 @property (nonatomic,assign) NSUInteger lastX;// 上次的X
 @property (nonatomic,strong) NSTimer *timer;
+/** 分页控制器 */
+@property (nonatomic,strong) KJPageControl *pageControl;
 /// 是否自定义Cell, 默认no
 @property (nonatomic,assign) BOOL customCell;
 
@@ -37,10 +40,21 @@
     _bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
     _rollType = KJBannerViewRollDirectionTypeRightToLeft;
     _imageType = KJBannerViewImageTypeNetIamge;
-    _cellPlaceholderImage = [UIImage imageNamed:@"KJBannerView.bundle/KJBannerPlaceholderImage"];
+    _placeholderImage = [UIImage imageNamed:@"KJBannerView.bundle/KJBannerPlaceholderImage"];
     _customCell = NO;
+    _kj_scale = YES;
     self.itemClass = [KJBannerViewCell class];
 }
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self kConfig];
+        [self addSubview:self.collectionView];
+        [self addSubview:self.pageControl];
+    }
+    return self;
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
@@ -88,18 +102,20 @@
 - (void)setImageDatas:(NSArray *)imageDatas{
     _imageDatas = imageDatas;
     if (self.customCell == NO) {
-        NSMutableArray *temp = [NSMutableArray array];
-        for (NSString *string in imageDatas) {
-            KJBannerDatasInfo *info = [[KJBannerDatasInfo alloc]init];
-            info.superType = self.imageType;
-            info.imageUrl = string;
-            [temp addObject:info];
-        }
-        [KJBannerTool sharedInstance].imageTemps = temp;
-        temp = nil;
+//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSMutableArray *temp = [NSMutableArray array];
+            for (NSString *string in imageDatas) {
+                KJBannerDatasInfo *info = [[KJBannerDatasInfo alloc]init];
+                info.superType = self.imageType;
+                info.imageUrl = string;
+                [temp addObject:info];
+            }
+            [KJBannerTool sharedInstance].imageTemps = temp;
+            temp = nil;
+//        });
     }
     /// 如果循环则50倍,让之看着像无限循环一样
-    _nums = self.infiniteLoop ? imageDatas.count * 100 : imageDatas.count;
+    _nums = self.infiniteLoop ? imageDatas.count * 10000 : imageDatas.count;
     if(imageDatas.count > 1){
         self.pageControl.hidden = NO;
         self.collectionView.scrollEnabled = YES;
@@ -249,7 +265,7 @@
         cell.model = self.imageDatas[itemIndex];
     }else{
         cell.imgCornerRadius = self.imgCornerRadius;
-        cell.placeholderImage = self.cellPlaceholderImage;
+        cell.placeholderImage = self.placeholderImage;
         cell.contentMode = self.bannerImageViewContentMode;
         cell.info = [KJBannerTool sharedInstance].imageTemps[itemIndex];
     }
@@ -296,6 +312,23 @@
         _layout.minimumLineSpacing = 0;
     }
     return _layout;
+}
+
+#pragma mark - runtime
+//动态添加方法
+void KJBannerRemovePageControl(id self,SEL sel) {
+    [self kj_removePageControl];
+}
++ (BOOL)resolveInstanceMethod:(SEL)sel {
+    //给本类动态添加一个方法
+    if ([NSStringFromSelector(sel) isEqualToString:@"kj_removeBannerPageControl"]) {
+        class_addMethod(self, sel, (IMP)KJBannerRemovePageControl, "v@:");
+    }
+    return [super resolveInstanceMethod:sel];
+}
+
+- (void)kj_removePageControl{
+    [self.pageControl removeFromSuperview];
 }
 
 @end

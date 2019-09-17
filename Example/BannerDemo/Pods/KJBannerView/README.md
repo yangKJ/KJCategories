@@ -1,8 +1,13 @@
 # KJBannerView
+<p align="left">
+  <img width="200" src="Res/156a18392553c66a65882650b1a2289a-2的副本.gif" hspace="30px" />
+  <img width="200" src="Res/121566436246_.pic.jpg" hspace="30px" />
+  <img width="200" src="Res/IMG_6906.PNG" hspace="30px" />
+</p>
 
-<video id="video" controls="" preload="none" width="375px" height="667px" poster="https://raw.githubusercontent.com/yangKJ/KJBannerViewDemo/master/Res/IMG_6906.PNG">
-<source id="mp4" src="https://github.com/yangKJ/KJBannerViewDemo/blob/master/Res/IMG_6904.mp4" type="video/mp4">
-</video>
+<!--<video id="video" controls="" preload="none" width="375px" height="667px" poster="https://raw.githubusercontent.com/yangKJ/KJBannerViewDemo/master/Res/IMG_6906.PNG">
+<source id="mp4" src="Res/IMG_6904.mp4" type="video/mp4">
+</video>-->
 
 ----------------------------------------
 ### 框架整体介绍
@@ -38,7 +43,7 @@ Cannot synthesize weak property because the current deployment target does not s
 post_install do |installer|
 installer.pods_project.targets.each do |target|
 target.build_configurations.each do |config|
-config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] ='8.0'
+config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '8.0'
 end
 end
 end
@@ -54,26 +59,24 @@ end
 
 #### <a id="作者其他库"></a>作者其他Pod库
 ```
-播放器 - KJPlayer是一款视频播放器，AVPlayer的封装，继承UIView
-- 支持播放网络和本地视频、播放多种格式
-- 视频可以边下边播，把播放器播放过的数据流缓存到本地，下次直接从缓冲读取播放
-- 支持拖动、手势快进倒退、增大减小音量、重力感应切换横竖屏等等
-pod 'KJPlayer'  # 播放器功能区
-pod 'KJPlayer/KJPlayerView'  # 自带展示界面
+轮播图 - 支持缩放 多种pagecontrol 支持继承自定义样式 自带网络加载和缓存
+pod 'KJBannerView'  # 轮播图，网络图片加载 支持网络GIF和网络图片和本地图片混合轮播
 
-实用又方便的Category和一些自定义控件
+实用又方便的Category和自定义控件(Switch、选择控件等等)
 pod 'KJEmitterView'
 pod 'KJEmitterView/Function'#
 pod 'KJEmitterView/Control' # 自定义控件
 
-轮播图 - 支持缩放 多种pagecontrol 支持继承自定义样式 自带网络加载和缓存
-pod 'KJBannerView'  # 轮播图，网络图片加载
+加载Loading - 多种样式供选择 HUD控件封装
+pod 'KJLoadingAnimation' # 加载控件
 
 菜单控件 - 下拉控件 选择控件
 pod 'KJMenuView' # 菜单控件
 
-加载Loading - 多种样式供选择
-pod 'KJLoadingAnimation' # 加载控件
+播放器 - KJPlayer是一款视频播放器，AVPlayer的封装，继承UIView
+- 视频可以边下边播，把播放器播放过的数据流缓存到本地，下次直接从缓冲读取播放
+pod 'KJPlayer'  # 播放器功能区
+pod 'KJPlayer/KJPlayerView'  # 自带展示界面
 
 ```
 
@@ -88,6 +91,11 @@ pod 'KJBannerView' # 轮播图
 #### <a id="更新日志"></a>更新日志
 ```
 ####版本更新日志:
+### 版本1.2.6
+- KJPageControl 新增大小点类型 PageControlStyleSizeDot
+- 优化修改网友提出的卡顿问题
+- 移出 KJBannerViewCell 当中的判断处理，从而提高效率
+
 ### 版本1.2.5
 - 新增委托方法 kj_BannerView:CurrentIndex: 滚动时候回调 可是否隐藏自带的PageControl
 - 优化性能，修复重复创建PageControl
@@ -140,7 +148,7 @@ self.NameLabel.text = kj_model.customTitle;
 #### <a id="效果图"></a>效果图
 ![轮播图](https://upload-images.jianshu.io/upload_images/1933747-2e51515ae91af6d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![KJBannerViewDemo](https://upload-images.jianshu.io/upload_images/1933747-44a8733e65ea3b57.gif?imageMogr2/auto-orient/strip)
+![KJBannerViewDemo](https://upload-images.jianshu.io/upload_images/1933747-f7fbb91e9088f39e.gif?imageMogr2/auto-orient/strip)
 
 #### <a id="KJBannerView"></a>KJBannerView
 
@@ -251,11 +259,10 @@ weakself.banner.imageDatas = arr;
 * 如果你觉得有帮助，还请为我 <iframe
 style="margin-left: 2px; margin-bottom:-5px;"
 frameborder="0" scrolling="0" width="100px" height="20px"
-src="https://ghbtns.com/github-btn.html?user=yangKJ&repo=KJBannerViewDemo&type=star&count=true" >
-</iframe>
-* 如果在使用过程中遇到Bug，希望你能Issues，我会及时修复
-* 大家有什么需要添加的功能，也可以给我留言，有空我将补充完善
-* 谢谢大家的支持 - -！
+src="https://ghbtns.com/github-btn.html?user=yangKJ&repo=KJBannerViewDemo&type=star&count=true" ></iframe>   
+* 如果在使用过程中遇到Bug，希望你能Issues，我会及时修复  
+* 大家有什么需要添加的功能，也可以给我留言，有空我将补充完善  
+* 谢谢大家的支持 - -！  
 
 [![LOGO](https://github.com/yangKJ/KJPlayerDemo/blob/master/KJPlayerDemo/Demo/Assets.xcassets/AppIcon.appiconset/WechatIMG57486iPhoneSpootlight7_40pt@3x.png?raw=true)](https://github.com/yangKJ/KJBannerViewDemo)
 

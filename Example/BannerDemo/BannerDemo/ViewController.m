@@ -29,8 +29,9 @@
     banner.itemSpace = 10;
     banner.itemWidth = self.view.frame.size.width-120;
     banner.delegate = self;
-    banner.pageControl.pageType = PageControlStyleCircle;
-    banner.pageControl.selectColor = UIColor.redColor;
+    banner.pageControl.pageType = PageControlStyleSizeDot;
+    //    banner.pageControl.selectColor = UIColor.whiteColor;
+    //    banner.pageControl.normalColor = [UIColor.whiteColor colorWithAlphaComponent:0.5];
     banner.rollType = KJBannerViewRollDirectionTypeLeftToRight;
     [self.view addSubview:banner];
     
@@ -68,8 +69,30 @@
     
     long long num = [KJLoadImageView kj_imagesCacheSize];
     self.label.text = [NSString stringWithFormat:@"缓存大小：%.02f mb",num / 1024 / 1024.0];
+    
+    UIButton *button = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    button.frame = CGRectMake(self.view.frame.size.width*.5 - 50, self.view.frame.size.height - 55, 100, 30);
+    [button setTitle:@"切换数据" forState:(UIControlStateNormal)];
+    [button setTitleColor:UIColor.greenColor forState:(UIControlStateNormal)];
+    [button addTarget:self action:@selector(qiehuanAction) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.view addSubview:button];
 }
-
+- (void)qiehuanAction{
+    if (arc4random()%2) {
+        NSArray *images = @[@"http://img12.360buyimg.com/piao/jfs/t2743/132/3170930521/77809/42cfd6d4/57836e27N06956fd3.jpg",
+                            @"http://photos.tuchong.com/285606/f/4374153.jpg",
+                            @"http://img5.cache.netease.com/photo/0003/2012-06-21/84G462VS51GQ0003.jpg",
+                            @"http://thumb.niutuku.com/960x1/2f/fd/2ffd3765c4b43c743751246b156d1896.jpg",
+                            @"http://i2.hdslb.com/bfs/archive/1c471796343e34a8613518cc0d393792680a1022.jpg",
+                            ];
+        self.banner2.imageDatas = images;
+    }else{
+        NSString *gif = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564463770360&di=c93e799328198337ed68c61381bcd0be&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170714%2F1eed483f1874437990ad84c50ecfc82a_th.jpg";
+        self.banner2.imageDatas = @[gif,@"98338_https_hhh",@"tu3",
+                                    @"http://photos.tuchong.com/285606/f/4374153.jpg",
+                                    ];
+    }
+}
 - (void)clearAction{
     [KJLoadImageView kj_clearImagesCache];
 }
@@ -83,7 +106,7 @@
     long long num = [KJLoadImageView kj_imagesCacheSize];
     self.label.text = [NSString stringWithFormat:@"缓存大小：%.02f mb",num / 1024 / 1024.0];
     if (banner == self.banner) {
-        return YES;
+        return NO;
     }
     NSLog(@"currentIndex = %ld",(long)index);
     return NO;

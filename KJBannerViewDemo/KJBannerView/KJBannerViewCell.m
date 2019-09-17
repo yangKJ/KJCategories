@@ -34,6 +34,7 @@
         _loadImageView = [[KJLoadImageView alloc]initWithFrame:self.bounds];
         _loadImageView.image = self.placeholderImage;
         _loadImageView.contentMode = self.contentMode;
+        _loadImageView.kj_isScale = self.kj_scale;
         [self.contentView addSubview:_loadImageView];
         if (self.imgCornerRadius > 0) {
             /// 画圆

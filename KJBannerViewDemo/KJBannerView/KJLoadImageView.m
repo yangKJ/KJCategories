@@ -226,9 +226,9 @@
 }
 
 - (void)kj_setImageWithURLString:(NSString *)url Placeholder:(UIImage *)placeholderImage Completion:(void (^)(UIImage *image))completion {
+    self.image = placeholderImage;
     self.kj_completionBlock = completion;
     if (url == nil || [url isKindOfClass:[NSNull class]] || (![url hasPrefix:@"http://"] && ![url hasPrefix:@"https://"])){
-        self.image = placeholderImage;
         if (completion) {
             self.kj_completionBlock(self.image);
         }
@@ -271,7 +271,6 @@
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 UIImage *image = [UIImage imageWithData:data];
                 UIImage *finalImage = image;
-                
                 if (image) {
                     if (weakSelf.kj_isScale) {
                         // 剪裁
@@ -304,8 +303,7 @@
     [_imageDownloader.task cancel];
 }
 
-/**
- *  此处公开此API，是方便大家可以在别的地方使用。等比例剪裁图片大小到指定的size
+/** 此处公开此API，是方便大家可以在别的地方使用。等比例剪裁图片大小到指定的size
  *  @param image 剪裁前的图片
  *  @param size  最终图片大小
  *  @param isScaleToMax 是取最大比例还是最小比例，YES表示取最大比例
@@ -318,7 +316,6 @@
     if (image.size.width != 0 && image.size.height != 0) {
         CGFloat rateWidth = size.width / image.size.width;
         CGFloat rateHeight = size.height / image.size.height;
-        
         CGFloat rate = isScaleToMax ? MAX(rateHeight, rateWidth) : MIN(rateHeight, rateWidth);
         aspectFitSize = CGSizeMake(image.size.width * rate, image.size.height * rate);
     }
