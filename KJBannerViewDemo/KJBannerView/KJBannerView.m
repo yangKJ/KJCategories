@@ -7,7 +7,6 @@
 //
 
 #import "KJBannerView.h"
-#import "KJBannerViewCell.h"
 #import "KJBannerViewFlowLayout.h"
 #import <objc/runtime.h>
 
@@ -22,6 +21,8 @@
 @property (nonatomic,strong) KJPageControl *pageControl;
 /// 是否自定义Cell, 默认no
 @property (nonatomic,assign) BOOL customCell;
+/// 是否使用KJBannerViewDataSource委托方式
+@property (nonatomic,assign) BOOL useDataSource;
 
 @end
 
@@ -43,6 +44,7 @@
     _placeholderImage = [UIImage imageNamed:@"KJBannerView.bundle/KJBannerPlaceholderImage"];
     _customCell = NO;
     _kj_scale = YES;
+    _useDataSource = NO;
     self.itemClass = [KJBannerViewCell class];
 }
 
@@ -73,35 +75,13 @@
         if (close) [self.pageControl removeFromSuperview];
     }
 }
-- (void)setItemClass:(Class)itemClass{
-    _itemClass = itemClass;
-    if (![NSStringFromClass(itemClass) isEqualToString:@"KJBannerViewCell"]) {
-        _customCell = YES;
-    }
-    /// 注册cell
-    [self.collectionView registerClass:_itemClass forCellWithReuseIdentifier:@"KJBannerViewCell"];
-}
-- (void)setItemWidth:(CGFloat)itemWidth{
-    _itemWidth = itemWidth;
-    self.layout.itemSize = CGSizeMake(itemWidth, self.bounds.size.height);
-}
-- (void)setItemSpace:(CGFloat)itemSpace{
-    _itemSpace = itemSpace;
-    self.layout.minimumLineSpacing = itemSpace;
-}
-- (void)setIsZoom:(BOOL)isZoom{
-    _isZoom = isZoom;
-    self.layout.isZoom = isZoom;
-}
-- (void)setAutoScroll:(BOOL)autoScroll{
-    _autoScroll = autoScroll;
-    //创建之前，停止定时器
-    [self invalidateTimer];
-    if (_autoScroll) [self setupTimer];
+- (void)setDataSource:(id<KJBannerViewDataSource>)dataSource{
+    _dataSource = dataSource;
+    self.useDataSource = YES;
 }
 - (void)setImageDatas:(NSArray *)imageDatas{
     _imageDatas = imageDatas;
-    if (self.customCell == NO) {
+    if (self.customCell == NO && self.useDataSource == NO) {
 //        dispatch_async(dispatch_get_global_queue(0, 0), ^{
             NSMutableArray *temp = [NSMutableArray array];
             for (NSString *string in imageDatas) {
@@ -127,11 +107,37 @@
         self.collectionView.scrollEnabled = NO;
         [self invalidateTimer];
     }
-    
     /// 刷新数据
     [self.collectionView reloadData];
     /// 设置滚动item在最中间位置
     [self kSetCollectionItemIndexPlace];
+}
+
+- (void)setItemClass:(Class)itemClass{
+    _itemClass = itemClass;
+    if (![NSStringFromClass(itemClass) isEqualToString:@"KJBannerViewCell"]) {
+        _customCell = YES;
+    }
+    /// 注册cell
+    [self.collectionView registerClass:_itemClass forCellWithReuseIdentifier:@"KJBannerViewCell"];
+}
+- (void)setItemWidth:(CGFloat)itemWidth{
+    _itemWidth = itemWidth;
+    self.layout.itemSize = CGSizeMake(itemWidth, self.bounds.size.height);
+}
+- (void)setItemSpace:(CGFloat)itemSpace{
+    _itemSpace = itemSpace;
+    self.layout.minimumLineSpacing = itemSpace;
+}
+- (void)setIsZoom:(BOOL)isZoom{
+    _isZoom = isZoom;
+    self.layout.isZoom = isZoom;
+}
+- (void)setAutoScroll:(BOOL)autoScroll{
+    _autoScroll = autoScroll;
+    //创建之前，停止定时器
+    [self invalidateTimer];
+    if (_autoScroll) [self setupTimer];
 }
 
 #pragma mark - private
@@ -261,15 +267,21 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     KJBannerViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"KJBannerViewCell" forIndexPath:indexPath];
     NSInteger itemIndex = indexPath.item % self.imageDatas.count;
-    if (self.customCell) {
-        cell.model = self.imageDatas[itemIndex];
+    if (self.useDataSource) {
+        [_dataSource kj_BannerView:self BannerViewCell:cell ImageDatas:self.imageDatas Index:itemIndex];
+//        [cell.contentView addSubview:view];
+        return cell;
     }else{
-        cell.imgCornerRadius = self.imgCornerRadius;
-        cell.placeholderImage = self.placeholderImage;
-        cell.contentMode = self.bannerImageViewContentMode;
-        cell.info = [KJBannerTool sharedInstance].imageTemps[itemIndex];
+        if (self.customCell) {
+            cell.model = self.imageDatas[itemIndex];
+        }else{
+            cell.imgCornerRadius = self.imgCornerRadius;
+            cell.placeholderImage = self.placeholderImage;
+            cell.contentMode = self.bannerImageViewContentMode;
+            cell.info = [KJBannerTool sharedInstance].imageTemps[itemIndex];
+        }
+        return cell;
     }
-    return cell;
 }
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

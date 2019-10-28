@@ -36,10 +36,11 @@
  
  
 #版本更新日志
- 
-### 版本1.2.7
-- 新增裁剪网络图片从而提高效率 kj_scale
+### 版本1.3.0
+- 新增KJBannerViewDataSource委托，更方便的自定义方式 不需要再继承 KJBannerViewCell
+- kj_BannerView:BannerViewCell:ImageDatas:Index: 此方法和 itemClass 互斥
 - Banner支持在Storyboard和Xib中创建并配置其属性
+- 新增裁剪网络图片从而提高效率 kj_scale
  
 ### 版本1.2.6
 - KJPageControl 新增大小点类型 PageControlStyleSizeDot

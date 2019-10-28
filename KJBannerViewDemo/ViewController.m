@@ -14,7 +14,7 @@
 
 #define gif @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564463770360&di=c93e799328198337ed68c61381bcd0be&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170714%2F1eed483f1874437990ad84c50ecfc82a_th.jpg"
 
-@interface ViewController ()<KJBannerViewDelegate>
+@interface ViewController ()<KJBannerViewDelegate,KJBannerViewDataSource>
 @property (weak, nonatomic) IBOutlet KJBannerView *banner;
 @property (weak, nonatomic) IBOutlet UIView *backView;
 @property (nonatomic,strong) KJBannerView *banner2;
@@ -34,13 +34,14 @@
     
     KJBannerView *banner2 = [[KJBannerView alloc]initWithFrame:self.backView.bounds];
     self.banner2 = banner2;
-    banner2.itemClass = [KJCollectionViewCell class];
     banner2.imgCornerRadius = 15;
     banner2.autoScrollTimeInterval = 2;
     banner2.isZoom = YES;
-    banner2.itemSpace = -10;
-    banner2.itemWidth = self.backView.frame.size.width-120;
+    banner2.itemSpace = 10;
+    banner2.itemWidth = 200;
     banner2.delegate = self;
+    banner2.dataSource = self;
+//    banner2.itemClass = [KJCollectionViewCell class];
     banner2.imageType = KJBannerViewImageTypeMix;
     [self.backView addSubview:banner2];
 //    /// 隐藏page
@@ -115,6 +116,20 @@
         [arr addObject:model];
     }
     self.temp = arr;
+}
+
+#pragma mark - KJBannerViewDataSource
+- (void)kj_BannerView:(nonnull KJBannerView *)banner BannerViewCell:(nonnull KJBannerViewCell *)bannercell ImageDatas:(nonnull NSArray *)imageDatas Index:(NSInteger)index {
+    KJBannerModel *model = imageDatas[index];
+    CGRect rect = {0, 0, 100, 20};
+    UILabel *label = [[UILabel alloc]initWithFrame:rect];
+    label.text = model.customTitle;
+    label.textColor = UIColor.whiteColor;
+    label.center = bannercell.contentView.center;
+    KJLoadImageView *imageView = [[KJLoadImageView alloc]initWithFrame:bannercell.contentView.bounds];
+    [imageView kj_setImageWithURLString:model.customImageUrl Placeholder:[UIImage imageNamed:@"tu3"]];
+    [bannercell.contentView addSubview:imageView];
+    [bannercell.contentView addSubview:label];
 }
 
 @end
