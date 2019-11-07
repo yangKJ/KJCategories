@@ -1,8 +1,7 @@
 # KJBannerView
 <p align="left">
-  <img width="200" src="Res/156a18392553c66a65882650b1a2289a-2的副本.gif" hspace="30px" />
-  <img width="200" src="Res/121566436246_.pic.jpg" hspace="30px" />
-  <img width="200" src="Res/IMG_6906.PNG" hspace="30px" />
+  <img width="250" src="Res/156a18392553c66a65882650b1a2289a-2的副本.gif" hspace="1px" />
+  <img width="250" src="Res/IMG_6906.PNG" hspace="10px" />
 </p>
 
 <!--<video id="video" controls="" preload="none" width="375px" height="667px" poster="https://raw.githubusercontent.com/yangKJ/KJBannerViewDemo/master/Res/IMG_6906.PNG">
@@ -320,7 +319,7 @@ src="https://ghbtns.com/github-btn.html?user=yangKJ&repo=KJBannerViewDemo&type=s
 
 [![LOGO](https://github.com/yangKJ/KJPlayerDemo/blob/master/KJPlayerDemo/Demo/Assets.xcassets/AppIcon.appiconset/WechatIMG57486iPhoneSpootlight7_40pt@3x.png?raw=true)](https://github.com/yangKJ/KJBannerViewDemo)
 
-[![谢谢老板](https://raw.githubusercontent.com/yangKJ/CommonDatas/master/CommonDatas/Money/77%E3%80%82/All.png)](https://github.com/yangKJ/KJBannerViewDemo)
+[![谢谢老板](https://upload-images.jianshu.io/upload_images/1933747-879572df848f758a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](https://github.com/yangKJ/KJBannerViewDemo)
 
 #### 救救孩子吧，谢谢各位老板～～～～
 
