@@ -317,8 +317,6 @@ src="https://ghbtns.com/github-btn.html?user=yangKJ&repo=KJBannerViewDemo&type=s
 * 大家有什么需要添加的功能，也可以给我留言，有空我将补充完善  
 * 谢谢大家的支持 - -！  
 
-[![LOGO](https://github.com/yangKJ/KJPlayerDemo/blob/master/KJPlayerDemo/Demo/Assets.xcassets/AppIcon.appiconset/WechatIMG57486iPhoneSpootlight7_40pt@3x.png?raw=true)](https://github.com/yangKJ/KJBannerViewDemo)
-
 [![谢谢老板](https://upload-images.jianshu.io/upload_images/1933747-879572df848f758a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](https://github.com/yangKJ/KJBannerViewDemo)
 
 #### 救救孩子吧，谢谢各位老板～～～～
