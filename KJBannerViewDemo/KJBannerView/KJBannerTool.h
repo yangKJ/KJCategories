@@ -58,16 +58,16 @@ typedef NS_ENUM(NSInteger, KJBannerImageInfoType) {
 /// 判断是网络图片还是本地
 + (BOOL)kj_bannerImageWithImageUrl:(NSString*)imageUrl;
 
-/// 播放网络Gif
-+ (void)kj_bannerPlayGifWithImageView:(UIImageView*)imageView URL:(id)url;
+/// 播放网络GIF  
++ (NSTimeInterval)kj_bannerPlayGifWithImageView:(UIImageView*)imageView URL:(id)url;
 
 // 得到Gif
 + (UIImage*)kj_bannerGetImageWithURL:(id)url;
 
-///// 保存gif在本地
+/// 保存gif在本地
 //+ (void)kj_bannerSaveWithImage:(UIImage*)image URL:(id)url;
 
-///// 从 File 当中获取Gif文件
+/// 从 File 当中获取Gif文件
 //+ (UIImage*)kj_bannerGetImageInFileWithURL:(id)url;
 
 /// md5加密

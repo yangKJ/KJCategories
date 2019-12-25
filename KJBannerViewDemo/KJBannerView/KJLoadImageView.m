@@ -142,13 +142,14 @@
 }
 ///
 - (void)kj_cacheFailRequest:(NSURLRequest *)request {
-    NSNumber *faileTimes = [self.kj_cacheFaileDictionary objectForKey:[self kj_md5:[self kj_keyForRequest:request]]];
+    NSString *key = [self kj_md5:[self kj_keyForRequest:request]];
+    NSNumber *faileTimes = [self.kj_cacheFaileDictionary objectForKey:key];
     NSUInteger times = 0;
     if (faileTimes && [faileTimes respondsToSelector:@selector(integerValue)]) {
         times = [faileTimes integerValue];
     }
     times++;
-    [self.kj_cacheFaileDictionary setObject:@(times) forKey:[self kj_md5:[self kj_keyForRequest:request]]];
+    [self.kj_cacheFaileDictionary setObject:@(times) forKey:key];
 }
 
 - (void)kj_cacheImage:(UIImage *)image forRequest:(NSURLRequest *)request {
@@ -160,9 +161,7 @@
     if (![[NSFileManager defaultManager] fileExistsAtPath:directoryPath isDirectory:nil]) {
         NSError *error = nil;
         [[NSFileManager defaultManager] createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:&error];
-        if (error) {
-            return;
-        }
+        if (error) return;
     }
     
     NSString *path = [NSString stringWithFormat:@"%@/%@",directoryPath,[self kj_md5:[self kj_keyForRequest:request]]];
@@ -185,14 +184,10 @@
 
 /// 加密
 - (NSString *)kj_md5:(NSString *)string {
-    if (string == nil || [string length] == 0) {
-        return nil;
-    }
-
+    if (string == nil || [string length] == 0) return nil;
     unsigned char digest[CC_MD5_DIGEST_LENGTH], i;
     CC_MD5([string UTF8String], (int)[string lengthOfBytesUsingEncoding:NSUTF8StringEncoding], digest);
     NSMutableString *ms = [NSMutableString string];
-
     for (i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
         [ms appendFormat:@"%02x", (int)(digest[i])];
     }

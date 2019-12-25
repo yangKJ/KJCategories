@@ -20,7 +20,7 @@
 /** 分页控制器 */
 @property (nonatomic,strong) KJPageControl *pageControl;
 /// 是否自定义Cell, 默认no
-@property (nonatomic,assign) BOOL customCell;
+@property (nonatomic,assign) BOOL useCustomCell;
 /// 是否使用KJBannerViewDataSource委托方式
 @property (nonatomic,assign) BOOL useDataSource;
 
@@ -42,7 +42,7 @@
     _rollType = KJBannerViewRollDirectionTypeRightToLeft;
     _imageType = KJBannerViewImageTypeNetIamge;
     _placeholderImage = [UIImage imageNamed:@"KJBannerView.bundle/KJBannerPlaceholderImage"];
-    _customCell = NO;
+    _useCustomCell = NO;
     _kj_scale = YES;
     _useDataSource = NO;
     self.itemClass = [KJBannerViewCell class];
@@ -81,7 +81,7 @@
 }
 - (void)setImageDatas:(NSArray *)imageDatas{
     _imageDatas = imageDatas;
-    if (self.customCell == NO && self.useDataSource == NO) {
+    if (self.useCustomCell == NO && self.useDataSource == NO) {
 //        dispatch_async(dispatch_get_global_queue(0, 0), ^{
             NSMutableArray *temp = [NSMutableArray array];
             for (NSString *string in imageDatas) {
@@ -90,19 +90,20 @@
                 info.imageUrl = string;
                 [temp addObject:info];
             }
-            [KJBannerTool sharedInstance].imageTemps = temp;
+            [KJBannerTool sharedInstance].imageTemps = temp.mutableCopy;
             temp = nil;
 //        });
     }
-    /// 如果循环则50倍,让之看着像无限循环一样
-    _nums = self.infiniteLoop ? imageDatas.count * 10000 : imageDatas.count;
     if(imageDatas.count > 1){
+        /// 如果循环则50倍,让之看着像无限循环一样
+        _nums = self.infiniteLoop ? imageDatas.count * 10000 : imageDatas.count;
         self.pageControl.hidden = NO;
         self.collectionView.scrollEnabled = YES;
         [self setAutoScroll:self.autoScroll];
         self.pageControl.totalPages = imageDatas.count;
     }else{
         //不循环
+        _nums = 1;
         self.pageControl.hidden = YES;
         self.collectionView.scrollEnabled = NO;
         [self invalidateTimer];
@@ -116,7 +117,7 @@
 - (void)setItemClass:(Class)itemClass{
     _itemClass = itemClass;
     if (![NSStringFromClass(itemClass) isEqualToString:@"KJBannerViewCell"]) {
-        _customCell = YES;
+        _useCustomCell = YES;
     }
     /// 注册cell
     [self.collectionView registerClass:_itemClass forCellWithReuseIdentifier:@"KJBannerViewCell"];
@@ -164,9 +165,10 @@
 /// 开启计时器
 - (void)setupTimer{
     [self invalidateTimer]; // 创建定时器前先停止定时器,不然会出现僵尸定时器,导致轮播频率错误
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:self.autoScrollTimeInterval target:self selector:@selector(automaticScroll) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    _timer = timer;
+    __weak typeof(self) weakself = self;
+    self.timer = [NSTimer kj_scheduledTimerWithTimeInterval:self.autoScrollTimeInterval Repeats:YES Block:^(NSTimer *timer) {
+        [weakself automaticScroll];
+    }];
 }
 /// 自动滚动
 - (void)automaticScroll{
@@ -272,7 +274,7 @@
 //        [cell.contentView addSubview:view];
         return cell;
     }else{
-        if (self.customCell) {
+        if (self.useCustomCell) {
             cell.model = self.imageDatas[itemIndex];
         }else{
             cell.imgCornerRadius = self.imgCornerRadius;

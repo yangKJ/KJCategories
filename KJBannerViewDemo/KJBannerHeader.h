@@ -36,6 +36,9 @@
  
  
 #版本更新日志
+### 版本1.3.1
+- 新增 NSTimer+KJSolve 解决计时器循环引用
+ 
 ### 版本1.3.0
 - 新增KJBannerViewDataSource委托，更方便的自定义方式 不需要再继承 KJBannerViewCell
 - kj_BannerView:BannerViewCell:ImageDatas:Index: 此方法和 itemClass 互斥

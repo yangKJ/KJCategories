@@ -141,7 +141,7 @@
     return ([imageUrl hasPrefix:@"http"] || [imageUrl hasPrefix:@"https"]) ? NO : YES;
 }
 /// 播放网络Gif
-+ (void)kj_bannerPlayGifWithImageView:(UIImageView*)imageView URL:(id)url{
++ (NSTimeInterval)kj_bannerPlayGifWithImageView:(UIImageView*)imageView URL:(id)url{
     //1.加载Gif图片，转换成Data类型
     //    NSString *path = [NSBundle.mainBundle pathForResource:@"demo" ofType:@"gif"];
     //    NSData *data = [NSData dataWithContentsOfFile:path];
@@ -176,6 +176,8 @@
     
     //5.开始播放
     [imageView startAnimating];
+    
+    return totalDuration;
 }
 // 得到Gif
 + (UIImage*)kj_bannerGetImageWithURL:(id)url{
@@ -207,6 +209,7 @@
         animatedImage = [UIImage animatedImageWithImages:images duration:totalDuration];
     }
     CFRelease(imageSource);
+    
     return animatedImage;
 }
 /// 保存gif在本地
@@ -215,9 +218,7 @@
     if (![[NSFileManager defaultManager] fileExistsAtPath:directoryPath isDirectory:nil]) {
         NSError *error = nil;
         [[NSFileManager defaultManager] createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:&error];
-        if (error) {
-            return;
-        }
+        if (error) return;
     }
     if ([url isKindOfClass:[NSURL class]]) {
         url = [url absoluteString];

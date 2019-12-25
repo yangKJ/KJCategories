@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		680DE7F523B2EF9C0061C5B2 /* NSTimer+KJSolve.m in Sources */ = {isa = PBXBuildFile; fileRef = 680DE7F423B2EF9C0061C5B2 /* NSTimer+KJSolve.m */; };
 		68185A9422EFED0500C365DE /* KJBannerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 68185A9322EFED0500C365DE /* KJBannerTool.m */; };
 		683A7F3B21CEA4E5008DD08C /* KJBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A7F3421CEA4E5008DD08C /* KJBannerView.m */; };
 		683A7F3C21CEA4E5008DD08C /* KJLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A7F3521CEA4E5008DD08C /* KJLoadImageView.m */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		680DE7F323B2EF9C0061C5B2 /* NSTimer+KJSolve.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+KJSolve.h"; sourceTree = "<group>"; };
+		680DE7F423B2EF9C0061C5B2 /* NSTimer+KJSolve.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+KJSolve.m"; sourceTree = "<group>"; };
 		6814AB6021CEA59B000AE6AB /* KJBannerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJBannerHeader.h; sourceTree = "<group>"; };
 		68185A9222EFED0500C365DE /* KJBannerTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJBannerTool.h; sourceTree = "<group>"; };
 		68185A9322EFED0500C365DE /* KJBannerTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJBannerTool.m; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 				68CC363E229B7AC9005A78A5 /* KJPageControl.m */,
 				68185A9222EFED0500C365DE /* KJBannerTool.h */,
 				68185A9322EFED0500C365DE /* KJBannerTool.m */,
+				680DE7F323B2EF9C0061C5B2 /* NSTimer+KJSolve.h */,
+				680DE7F423B2EF9C0061C5B2 /* NSTimer+KJSolve.m */,
 			);
 			path = KJBannerView;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				68E26B6121CE924800F91182 /* main.m in Sources */,
 				683A7F3C21CEA4E5008DD08C /* KJLoadImageView.m in Sources */,
 				683A7F3D21CEA4E5008DD08C /* KJBannerViewFlowLayout.m in Sources */,
+				680DE7F523B2EF9C0061C5B2 /* NSTimer+KJSolve.m in Sources */,
 				68E26B5321CE924700F91182 /* AppDelegate.m in Sources */,
 				683A7F3B21CEA4E5008DD08C /* KJBannerView.m in Sources */,
 				684059DD21EA08D00092F630 /* KJBannerModel.m in Sources */,
