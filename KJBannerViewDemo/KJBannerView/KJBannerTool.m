@@ -82,13 +82,6 @@
     return _sharedInstance;
 }
 
-- (instancetype)init{
-    if (self==[super init]) {
-        
-    }
-    return self;
-}
-
 /** 判断该字符串是不是一个有效的URL */
 + (BOOL)kj_bannerValidUrl:(NSString*)url{
     NSString *regex = @"[a-zA-z]+://[^\\s]*";

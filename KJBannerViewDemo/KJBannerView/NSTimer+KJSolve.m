@@ -9,7 +9,7 @@
 #import "NSTimer+KJSolve.h"
 
 @implementation NSTimer (KJSolve)
-/// 解决计时器循环引用
+
 + (NSTimer *)kj_scheduledTimerWithTimeInterval:(NSTimeInterval)inerval Repeats:(BOOL)repeats Block:(void(^)(NSTimer *timer))block{
     return [NSTimer scheduledTimerWithTimeInterval:inerval target:self selector:@selector(blcokInvoke:) userInfo:[block copy] repeats:repeats];
 }

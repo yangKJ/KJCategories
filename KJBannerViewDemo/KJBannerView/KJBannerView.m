@@ -57,7 +57,6 @@
     return self;
 }
 
-
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
         [self kConfig];
@@ -157,6 +156,10 @@
         self.collectionView.userInteractionEnabled = YES;
     }
 }
+- (void)willMoveToSuperview:(UIView *)newSuperview{
+    [super willMoveToSuperview:newSuperview];
+    [self invalidateTimer];
+}
 /// 释放计时器
 - (void)invalidateTimer{
     [_timer invalidate];
@@ -169,6 +172,7 @@
     self.timer = [NSTimer kj_scheduledTimerWithTimeInterval:self.autoScrollTimeInterval Repeats:YES Block:^(NSTimer *timer) {
         [weakself automaticScroll];
     }];
+    [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
 }
 /// 自动滚动
 - (void)automaticScroll{

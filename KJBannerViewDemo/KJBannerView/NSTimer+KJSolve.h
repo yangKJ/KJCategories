@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSTimer (KJSolve)
 
-/// 解决计时器循环引用
 + (NSTimer *)kj_scheduledTimerWithTimeInterval:(NSTimeInterval)inerval Repeats:(BOOL)repeats Block:(void(^)(NSTimer *timer))block;
 
 @end
