@@ -119,10 +119,11 @@
 
 - (void)qiehuanAction:(UISwitch*)sender{
     if (!sender.on) {
-        NSArray *images = @[@"http://photos.tuchong.com/285606/f/4374153.jpg",
-                            @"http://img5.cache.netease.com/photo/0003/2012-06-21/84G462VS51GQ0003.jpg",
-                            @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1579082232413&di=2775dc6e781e712d518bf1cf7a1e675e&imgtype=0&src=http%3A%2F%2Fimg3.doubanio.com%2Fview%2Fnote%2Fl%2Fpublic%2Fp41813904.jpg",
-                            ];
+        NSArray *images = @[
+        @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1579082232413&di=2775dc6e781e712d518bf1cf7a1e675e&imgtype=0&src=http%3A%2F%2Fimg3.doubanio.com%2Fview%2Fnote%2Fl%2Fpublic%2Fp41813904.jpg",  @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1579081905778&di=6ff1ad740b5d1dfc2d622c44fff8716b&imgtype=0&src=http%3A%2F%2Fimg.guitarchina.com%2Fimg2011%2F1013wj3%2F57.jpg",
+        @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2791659266,2306116334&fm=26&gp=0.jpg",
+        @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1579081948321&di=12073138df74d694f683a2526852a3af&imgtype=0&src=http%3A%2F%2Fwx4.sinaimg.cn%2Flarge%2F005Nclsvgy1fde9a93yipj31kw11znbs.jpg",
+        ];
         NSMutableArray *arr = [NSMutableArray array];
         for (NSInteger i=0; i<images.count; i++) {
             KJBannerModel *model = [[KJBannerModel alloc]init];
@@ -163,13 +164,7 @@
 }
 
 - (void)_setDatas{
-    NSArray *images = @[
-        @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1579082232413&di=2775dc6e781e712d518bf1cf7a1e675e&imgtype=0&src=http%3A%2F%2Fimg3.doubanio.com%2Fview%2Fnote%2Fl%2Fpublic%2Fp41813904.jpg",
-        @"http://photos.tuchong.com/285606/f/4374153.jpg",
-        @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1579081905778&di=6ff1ad740b5d1dfc2d622c44fff8716b&imgtype=0&src=http%3A%2F%2Fimg.guitarchina.com%2Fimg2011%2F1013wj3%2F57.jpg",
-        @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2791659266,2306116334&fm=26&gp=0.jpg",
-        @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1579081948321&di=12073138df74d694f683a2526852a3af&imgtype=0&src=http%3A%2F%2Fwx4.sinaimg.cn%2Flarge%2F005Nclsvgy1fde9a93yipj31kw11znbs.jpg",
-        ];
+    NSArray *images = @[@"http://photos.tuchong.com/285606/f/4374153.jpg"];
     NSMutableArray *arr = [NSMutableArray array];
     for (NSInteger i=0; i<images.count; i++) {
         KJBannerModel *model = [[KJBannerModel alloc]init];

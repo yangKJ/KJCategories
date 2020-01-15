@@ -124,7 +124,7 @@
         self.pageControl.totalPages = imageDatas.count;
     }else{
         //不循环
-        _nums = 1;
+        _nums = 100;
         self.pageControl.hidden = YES;
         self.collectionView.scrollEnabled = NO;
         [self invalidateTimer];

@@ -40,9 +40,12 @@
  > 博客地址：https://blog.csdn.net/qq_34534179
 
  #版本更新日志
+ ### 版本1.3.4
+ - 解决只有一张图片显示异常问题
+ - 多线程处理gif数据，再次提升效率
+ 
  ### 版本1.3.3
  - 优化图片下载速率，解决卡顿问题
- - 多线程处理gif数据，再次提升效率
  - 修改kj_BannerView:BannerViewCell:ImageDatas:Index:委托方法，解决Memory疯涨问题
  
  ### 版本1.3.2
