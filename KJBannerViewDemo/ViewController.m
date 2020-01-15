@@ -14,6 +14,8 @@
 #import "KJTestViewController.h"
 
 #define gif @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564463770360&di=c93e799328198337ed68c61381bcd0be&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170714%2F1eed483f1874437990ad84c50ecfc82a_th.jpg"
+#define gif2 @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1579085817466&di=0c1cba2b5dba938cd33ea7d053b1493a&imgtype=0&src=http%3A%2F%2Fww2.sinaimg.cn%2Flarge%2F85cc5ccbgy1ffngbkq2c9g20b206k78d.jpg"
+#define tu1 @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1579082232413&di=2775dc6e781e712d518bf1cf7a1e675e&imgtype=0&src=http%3A%2F%2Fimg3.doubanio.com%2Fview%2Fnote%2Fl%2Fpublic%2Fp41813904.jpg"
 
 @interface ViewController ()<KJBannerViewDelegate,KJBannerViewDataSource>{
     __block UILabel *lab,*labe;
@@ -86,6 +88,13 @@
     labe = label2;
     label.text = [NSString stringWithFormat:@"当前设备可用内存：%.2fMB",[KJTestViewController availableMemory]];
     label2.text = [NSString stringWithFormat:@"当前任务所占用内存：%.2fMB",[KJTestViewController usedMemory]];
+    
+    UILabel *label3 = [[UILabel alloc]initWithFrame:CGRectMake(20, self.view.frame.size.height - 30, w-40, 20)];
+//    label3.text = @"pod 'KJBannerView',";
+    label3.textColor = UIColor.redColor;
+    label3.numberOfLines = 0;
+    label3.font = [UIFont systemFontOfSize:12];
+    [self.view addSubview:label3];
 }
 
 - (void)setTimer{
@@ -105,7 +114,7 @@
     self.banner.delegate = self;
     self.banner.pageControl.pageType = PageControlStyleSizeDot;
     self.banner.imageType = KJBannerViewImageTypeMix;
-    self.banner.imageDatas = @[gif,@"98338_https_hhh",@"tu3", @"http://photos.tuchong.com/285606/f/4374153.jpg"];
+    self.banner.imageDatas = @[gif,@"98338_https_hhh",tu1,gif2,@"http://photos.tuchong.com/285606/f/4374153.jpg"];
 }
 
 - (void)qiehuanAction:(UISwitch*)sender{

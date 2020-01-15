@@ -18,7 +18,7 @@
     switch (info.type) {
         case KJBannerImageInfoTypeLocality:
         case KJBannerImageInfoTypeGIFImage:
-            self.loadImageView.image = info.image;
+            self.loadImageView.image = info.image?:self.placeholderImage;
             break;
         case KJBannerImageInfoTypeNetIamge:
             [self.loadImageView kj_setImageWithURLString:info.imageUrl Placeholder:self.placeholderImage];
@@ -54,7 +54,6 @@
     }
     return _itemView;
 }
-
 - (void)setItemView:(UIView *)itemView{
     if (_itemView) {
         [_itemView removeFromSuperview];

@@ -98,7 +98,9 @@
             for (NSString *string in imageDatas) {
                 KJBannerDatasInfo *info = [[KJBannerDatasInfo alloc]init];
                 info.superType = weakself.imageType;
-                info.imageUrl = string;
+                dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                    info.imageUrl = string;
+                });
                 [temp addObject:info];
             }
             [KJBannerTool sharedInstance].imageTemps = temp.mutableCopy;

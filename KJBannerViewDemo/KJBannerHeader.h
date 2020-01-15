@@ -42,7 +42,7 @@
  #版本更新日志
  ### 版本1.3.3
  - 优化图片下载速率，解决卡顿问题
- - 优化gif数据处理，解决启动延迟问题
+ - 多线程处理gif数据，再次提升效率
  - 修改kj_BannerView:BannerViewCell:ImageDatas:Index:委托方法，解决Memory疯涨问题
  
  ### 版本1.3.2
