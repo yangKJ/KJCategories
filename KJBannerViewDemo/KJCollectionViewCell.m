@@ -26,7 +26,7 @@
 
 - (void)setModel:(NSObject *)model{
     KJBannerModel *mmodel = (KJBannerModel*)model;
-    [self.ImageView kj_setImageWithURLString:mmodel.customImageUrl Placeholder:[UIImage imageNamed:@"tu3"]];
+    [self.ImageView kj_setImageWithURLString:mmodel.customImageUrl Placeholder:[UIImage imageNamed:@"98338_https_hhh"]];
     self.NameLabel.text = mmodel.customTitle;
 }
 

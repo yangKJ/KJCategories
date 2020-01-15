@@ -154,7 +154,6 @@
         CGImageRef cgImage = CGImageSourceCreateImageAtIndex(imageSource, i, nil);
         UIImage *image = [UIImage imageWithCGImage:cgImage];
         [images addObject:image];
-        
         //持续时间
         NSDictionary *properties = (__bridge_transfer NSDictionary*)CGImageSourceCopyPropertiesAtIndex(imageSource, i, nil);
         NSDictionary *gifDict = [properties objectForKey:(__bridge NSString *)kCGImagePropertyGIFDictionary];
@@ -190,7 +189,7 @@
         NSTimeInterval totalDuration = 0;
         for (int i = 0; i<imageCount; i++) {
             //取出每一张图片
-            CGImageRef cgImage = CGImageSourceCreateImageAtIndex(imageSource, i, nil);
+            CGImageRef cgImage = CGImageSourceCreateImageAtIndex(imageSource,i,nil);
             [images addObject:[UIImage imageWithCGImage:cgImage scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp]];
             CGImageRelease(cgImage);
             //持续时间
@@ -200,6 +199,7 @@
             totalDuration += frameDuration.doubleValue;
         }
         animatedImage = [UIImage animatedImageWithImages:images duration:totalDuration];
+        images = nil;
     }
     CFRelease(imageSource);
     

@@ -10,13 +10,15 @@
 #define KJBannerHeader_h
 
 /*------------- 本人其他库 -------------
- 轮播图 - 支持缩放 多种pagecontrol 支持继承自定义样式 自带网络加载和缓存 Xib布局设置属性
- pod 'KJBannerView'  # 轮播图，网络图片加载 支持网络GIF和网络图片和本地图片混合轮播
- 
- 实用又方便的Category和自定义控件(Switch、选择控件等等)
+ - 粒子效果、Button图文混排、点击事件封装、扩大点击域、点赞粒子效果，
+ - 手势封装、圆角渐变、Xib属性、TextView输入框扩展、限制字数、识别网址超链接，
+ - Image图片加工处理、滤镜渲染、泛洪算法等等
  pod 'KJEmitterView'
  pod 'KJEmitterView/Function'#
  pod 'KJEmitterView/Control' # 自定义控件
+ 
+ 轮播图 - 支持缩放 多种pagecontrol 支持继承自定义样式 自带网络加载和缓存 Xib布局设置属性
+ pod 'KJBannerView'  # 轮播图，网络图片加载 支持网络GIF和网络图片和本地图片混合轮播
  
  加载Loading - 多种样式供选择 HUD控件封装
  pod 'KJLoadingAnimation' # 加载控件
@@ -29,21 +31,28 @@
  pod 'KJPlayer'  # 播放器功能区
  pod 'KJPlayer/KJPlayerView'  # 自带展示界面
 
+ 工具库 - 推送工具、网络下载工具、识别网页图片工具等
+ pod 'KJWorkbox' # 系统工具
+ pod 'KJWorkbox/CommonBox'
  
- Github地址：https://github.com/yangKJ
- 简书地址：https://www.jianshu.com/u/c84c00476ab6
- 博客地址：https://blog.csdn.net/qq_34534179
+ > Github地址：https://github.com/yangKJ
+ > 简书地址：https://www.jianshu.com/u/c84c00476ab6
+ > 博客地址：https://blog.csdn.net/qq_34534179
+
+ #版本更新日志
+ ### 版本1.3.3
+ - 优化图片下载速率，解决卡顿问题
+ - 优化gif数据处理，解决启动延迟问题
+ - 修改kj_BannerView:BannerViewCell:ImageDatas:Index:委托方法，解决Memory疯涨问题
  
+ ### 版本1.3.2
+ - 新增 NSTimer+KJSolve 解决计时器循环引用
  
-#版本更新日志
-### 版本1.3.2 
-- 新增 NSTimer+KJSolve 解决计时器循环引用
- 
-### 版本1.3.0
-- 新增KJBannerViewDataSource委托，更方便的自定义方式 不需要再继承 KJBannerViewCell
-- kj_BannerView:BannerViewCell:ImageDatas:Index: 此方法和 itemClass 互斥
-- Banner支持在Storyboard和Xib中创建并配置其属性
-- 新增裁剪网络图片从而提高效率 kj_scale
+ ### 版本1.3.0
+ - 新增KJBannerViewDataSource委托，更方便的自定义方式 不需要再继承 KJBannerViewCell
+ - kj_BannerView:BannerViewCell:ImageDatas:Index: 此方法和 itemClass 互斥
+ - Banner支持在Storyboard和Xib中创建并配置其属性
+ - 新增裁剪网络图片从而提高效率 kj_scale
  
 ### 版本1.2.6
 - KJPageControl 新增大小点类型 PageControlStyleSizeDot
@@ -81,7 +90,6 @@
 - 使用方法：
 - 创建从KJBannerViewCell继承的Cell
 - 在model设置数据
- 
 ```
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self=[super initWithFrame:frame]) {
@@ -95,9 +103,9 @@
 }
 ```
  
-### 版本 1.0.2
-- 新增 KJBannerView 轮播图 - banner支持缩放
-- 自带图片下载、缓存相关功能，无任何第三方依赖、轻量级组件
+ ### 版本 1.0.2
+ - 新增 KJBannerView 轮播图 - banner支持缩放
+ - 自带图片下载、缓存相关功能，无任何第三方依赖、轻量级组件
 ![轮播图](https://upload-images.jianshu.io/upload_images/1933747-2e51515ae91af6d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 */

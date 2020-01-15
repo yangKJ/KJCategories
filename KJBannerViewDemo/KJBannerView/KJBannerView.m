@@ -43,7 +43,7 @@
     _imageType = KJBannerViewImageTypeNetIamge;
     _placeholderImage = [UIImage imageNamed:@"KJBannerView.bundle/KJBannerPlaceholderImage"];
     _useCustomCell = NO;
-    _kj_scale = YES;
+    _kj_scale = NO;
     _useDataSource = NO;
     self.itemClass = [KJBannerViewCell class];
 }
@@ -65,7 +65,18 @@
     }
     return self;
 }
-
+/// 暂停计时器滚动处理
+- (void)kj_pauseTimer{
+    if (_timer) {
+        [_timer setFireDate:[NSDate distantFuture]];
+    }
+}
+/// 继续计时器滚动
+- (void)kj_repauseTimer{
+    if (_timer) {
+        [_timer setFireDate:[NSDate date]];
+    }
+}
 #pragma mark - setter/getter
 - (void)setDelegate:(id<KJBannerViewDelegate>)delegate{
     _delegate = delegate;
@@ -81,18 +92,27 @@
 - (void)setImageDatas:(NSArray *)imageDatas{
     _imageDatas = imageDatas;
     if (self.useCustomCell == NO && self.useDataSource == NO) {
-//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        __weak typeof(self) weakself = self;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
             NSMutableArray *temp = [NSMutableArray array];
             for (NSString *string in imageDatas) {
                 KJBannerDatasInfo *info = [[KJBannerDatasInfo alloc]init];
-                info.superType = self.imageType;
+                info.superType = weakself.imageType;
                 info.imageUrl = string;
                 [temp addObject:info];
             }
             [KJBannerTool sharedInstance].imageTemps = temp.mutableCopy;
             temp = nil;
-//        });
+            dispatch_async(dispatch_get_main_queue(), ^{            
+                [weakself kj_dealImageDatas:imageDatas];
+            });
+        });
+    }else{
+        [self kj_dealImageDatas:imageDatas];
     }
+}
+
+- (void)kj_dealImageDatas:(NSArray*)imageDatas{
     if(imageDatas.count > 1){
         /// 如果循环则50倍,让之看着像无限循环一样
         _nums = self.infiniteLoop ? imageDatas.count * 10000 : imageDatas.count;
@@ -274,13 +294,15 @@
     KJBannerViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"KJBannerViewCell" forIndexPath:indexPath];
     NSInteger itemIndex = indexPath.item % self.imageDatas.count;
     if (self.useDataSource) {
-        [_dataSource kj_BannerView:self BannerViewCell:cell ImageDatas:self.imageDatas Index:itemIndex];
-//        [cell.contentView addSubview:view];
+        if ([self.dataSource respondsToSelector:@selector(kj_BannerView:BannerViewCell:ImageDatas:Index:)]) {
+            cell.itemView = [_dataSource kj_BannerView:self BannerViewCell:cell ImageDatas:self.imageDatas Index:itemIndex];
+        }
         return cell;
     }else{
         if (self.useCustomCell) {
             cell.model = self.imageDatas[itemIndex];
         }else{
+            cell.kj_scale = self.kj_scale;
             cell.imgCornerRadius = self.imgCornerRadius;
             cell.placeholderImage = self.placeholderImage;
             cell.contentMode = self.bannerImageViewContentMode;

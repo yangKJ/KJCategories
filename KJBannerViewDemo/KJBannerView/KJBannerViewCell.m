@@ -37,16 +37,30 @@
         _loadImageView.kj_isScale = self.kj_scale;
         [self.contentView addSubview:_loadImageView];
         if (self.imgCornerRadius > 0) {
-            /// 画圆
             UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_loadImageView.bounds cornerRadius:_imgCornerRadius];
             CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
-            /// 设置大小
-            maskLayer.frame = self.bounds;
-            /// 设置图形样子
-            maskLayer.path = maskPath.CGPath;
+            maskLayer.frame = self.bounds;/// 设置大小
+            maskLayer.path = maskPath.CGPath;/// 设置图形样子
             _loadImageView.layer.mask = maskLayer;
         }
     }
     return _loadImageView;
 }
+
+@synthesize itemView = _itemView;
+- (UIView *)itemView{
+    if (!_itemView) {
+        _itemView = [[UIView alloc] init];
+    }
+    return _itemView;
+}
+
+- (void)setItemView:(UIView *)itemView{
+    if (_itemView) {
+        [_itemView removeFromSuperview];
+    }
+    _itemView = itemView;
+    [self addSubview:_itemView];
+}
+
 @end

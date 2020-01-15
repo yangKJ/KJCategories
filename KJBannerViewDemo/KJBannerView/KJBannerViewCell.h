@@ -21,8 +21,11 @@
 @property (nonatomic,assign) CGFloat imgCornerRadius;
 /// 占位图
 @property (nonatomic,strong) UIImage *placeholderImage;
-/** 是否裁剪，默认yes */
+/** 是否裁剪，默认no */
 @property (nonatomic,assign) BOOL kj_scale;
 /// 自带数据模型
 @property (nonatomic,strong) KJBannerDatasInfo *info;
+/// 使用KJBannerViewDataSource方式时候使用
+@property (nonatomic,strong) UIView *itemView;
+
 @end

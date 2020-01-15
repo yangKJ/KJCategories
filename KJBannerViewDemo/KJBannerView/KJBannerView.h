@@ -35,7 +35,7 @@ typedef NS_ENUM(NSInteger, KJBannerViewImageType) {
 
 @protocol KJBannerViewDataSource <NSObject>
 /// 自定义
-- (void)kj_BannerView:(KJBannerView*)banner BannerViewCell:(KJBannerViewCell*)bannercell ImageDatas:(NSArray*)imageDatas Index:(NSInteger)index;
+- (UIView*)kj_BannerView:(KJBannerView*)banner BannerViewCell:(KJBannerViewCell*)bannercell ImageDatas:(NSArray*)imageDatas Index:(NSInteger)index;
 @end
 
 @interface KJBannerView : UIView
@@ -65,6 +65,13 @@ typedef NS_ENUM(NSInteger, KJBannerViewImageType) {
 /** 分页控制器 */
 @property (nonatomic,strong,readonly) KJPageControl *pageControl;
 
+/// 暂停计时器滚动处理
+/// 备注：在viewDidDisappear当中实现
+- (void)kj_pauseTimer;
+/// 继续计时器滚动
+/// 备注：在viewDidAppear当中实现
+- (void)kj_repauseTimer;
+
 //************************ 自带Cell可设置属性 *****************************/
 /** imagView圆角, 默认为0 */
 @property (nonatomic,assign) IBInspectable CGFloat imgCornerRadius;
@@ -74,9 +81,8 @@ typedef NS_ENUM(NSInteger, KJBannerViewImageType) {
 @property (nonatomic,assign) UIViewContentMode bannerImageViewContentMode;
 /** 图片的样式, 默认 KJBannerViewImageTypeLocality 网络图片 */
 @property (nonatomic,assign) KJBannerViewImageType imageType;
-/** 是否裁剪, 默认yes */
+/** 是否裁剪, 默认no*/
 @property (nonatomic,assign) BOOL kj_scale;
-
 
 //************************ 废弃属性方法 *****************************/
 /// 支持自定义Cell，自定义Cell需继承自 KJBannerViewCell

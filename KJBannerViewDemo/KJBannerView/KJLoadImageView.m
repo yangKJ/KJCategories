@@ -231,7 +231,9 @@
     }
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [self kj_downloadWithReqeust:request holder:placeholderImage];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self kj_downloadWithReqeust:request holder:placeholderImage];
+    });
 }
 
 #pragma mark - 内部方法
@@ -239,13 +241,17 @@
 - (void)kj_downloadWithReqeust:(NSURLRequest *)theRequest holder:(UIImage *)holder {
     UIImage *cachedImage = [[UIApplication sharedApplication] kj_cacheImageForRequest:theRequest];
     if (cachedImage) {
-        self.image = cachedImage;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.image = cachedImage;
+        });
         if (self.kj_completionBlock) {
             self.kj_completionBlock(cachedImage);
         }
         return;
     }
-    self.image = holder;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.image = holder;
+    });
     
     /// 判断失败次数
     if ([[UIApplication sharedApplication] kj_failTimesForRequest:theRequest] >= self.kj_failedTimes) {
@@ -263,30 +269,28 @@
     } Complete:^(NSData *data, NSError *error) {
         // 成功
         if (data != nil && error == nil) {
-            dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                UIImage *image = [UIImage imageWithData:data];
-                UIImage *finalImage = image;
-                if (image) {
-                    if (weakSelf.kj_isScale) {
-                        // 剪裁
+            UIImage *image = [UIImage imageWithData:data];
+            __block UIImage *finalImage = image;
+            if (image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (weakSelf.kj_isScale) {// 剪裁
                         if (fabs(weakSelf.frame.size.width - image.size.width) != 0 && fabs(weakSelf.frame.size.height - image.size.height) != 0) {
                             finalImage = [KJLoadImageView kj_clipImage:image Size:weakSelf.frame.size IsScaleToMax:YES];
                         }
                     }
-                    [[UIApplication sharedApplication] kj_cacheImage:finalImage forRequest:theRequest];
-                } else {
-                    [[UIApplication sharedApplication] kj_cacheFailRequest:theRequest];
-                }
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (finalImage) {
-                        weakSelf.image = finalImage;
-                        !weakSelf.kj_completionBlock?:weakSelf.kj_completionBlock(weakSelf.image);
-                    } else {// error data
-                        !weakSelf.kj_completionBlock?:weakSelf.kj_completionBlock(weakSelf.image);
-                    }
                 });
-            });
+                [[UIApplication sharedApplication] kj_cacheImage:finalImage forRequest:theRequest];
+            } else {
+                [[UIApplication sharedApplication] kj_cacheFailRequest:theRequest];
+            }
+            if (finalImage) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    weakSelf.image = finalImage;
+                });
+                !weakSelf.kj_completionBlock?:weakSelf.kj_completionBlock(weakSelf.image);
+            } else {
+                !weakSelf.kj_completionBlock?:weakSelf.kj_completionBlock(weakSelf.image);
+            }
         } else { // error
             [[UIApplication sharedApplication] kj_cacheFailRequest:theRequest];
             !weakSelf.kj_completionBlock?:weakSelf.kj_completionBlock(weakSelf.image);

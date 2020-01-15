@@ -62,13 +62,15 @@ end
 
 #### <a id="作者其他库"></a>作者其他Pod库
 ```
-轮播图 - 支持缩放 多种pagecontrol 支持继承自定义样式 自带网络加载和缓存
-pod 'KJBannerView'  # 轮播图，网络图片加载 支持网络GIF和网络图片和本地图片混合轮播
-
-实用又方便的Category和自定义控件(Switch、选择控件等等)
+- 粒子效果、Button图文混排、点击事件封装、扩大点击域、点赞粒子效果，
+- 手势封装、圆角渐变、Xib属性、TextView输入框扩展、限制字数、识别网址超链接，
+- Image图片加工处理、滤镜渲染、泛洪算法等等
 pod 'KJEmitterView'
 pod 'KJEmitterView/Function'#
 pod 'KJEmitterView/Control' # 自定义控件
+
+轮播图 - 支持缩放 多种pagecontrol 支持继承自定义样式 自带网络加载和缓存 Xib布局设置属性
+pod 'KJBannerView'  # 轮播图，网络图片加载 支持网络GIF和网络图片和本地图片混合轮播
 
 加载Loading - 多种样式供选择 HUD控件封装
 pod 'KJLoadingAnimation' # 加载控件
@@ -80,6 +82,10 @@ pod 'KJMenuView' # 菜单控件
 - 视频可以边下边播，把播放器播放过的数据流缓存到本地，下次直接从缓冲读取播放
 pod 'KJPlayer'  # 播放器功能区
 pod 'KJPlayer/KJPlayerView'  # 自带展示界面
+
+工具库 - 推送工具、网络下载工具、识别网页图片工具等
+pod 'KJWorkbox' # 系统工具
+pod 'KJWorkbox/CommonBox'
 
 ```
 
@@ -94,6 +100,11 @@ pod 'KJBannerView' # 轮播图
 #### <a id="更新日志"></a>更新日志
 ```
 ####版本更新日志:
+### 版本1.3.3
+- 优化图片下载速率，解决卡顿问题
+- 优化gif数据处理，解决启动延迟问题
+- 修改kj_BannerView:BannerViewCell:ImageDatas:Index:委托方法，解决Memory疯涨问题
+
 ### 版本1.3.2
 - 新增 NSTimer+KJSolve 解决计时器循环引用
 

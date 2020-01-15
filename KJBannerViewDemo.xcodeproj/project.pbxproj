@@ -15,6 +15,7 @@
 		683A7F3E21CEA4E5008DD08C /* KJBannerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A7F3A21CEA4E5008DD08C /* KJBannerViewCell.m */; };
 		684059DD21EA08D00092F630 /* KJBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 684059DC21EA08D00092F630 /* KJBannerModel.m */; };
 		684059E121EB59DA0092F630 /* KJCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684059DF21EB59DA0092F630 /* KJCollectionViewCell.m */; };
+		6872ECB823CEBB4100F63970 /* KJTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6872ECB623CEBB4100F63970 /* KJTestViewController.m */; };
 		68B5F17F22B0AB2000D71808 /* KJBannerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 68B5F17E22B0AB2000D71808 /* KJBannerView.bundle */; };
 		68CC363A229B71E3005A78A5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 68CC3639229B71E3005A78A5 /* README.md */; };
 		68CC363C229B7226005A78A5 /* KJBannerView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 68CC363B229B7226005A78A5 /* KJBannerView.podspec */; };
@@ -45,6 +46,8 @@
 		684059DC21EA08D00092F630 /* KJBannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJBannerModel.m; sourceTree = "<group>"; };
 		684059DE21EB59DA0092F630 /* KJCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJCollectionViewCell.h; sourceTree = "<group>"; };
 		684059DF21EB59DA0092F630 /* KJCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJCollectionViewCell.m; sourceTree = "<group>"; };
+		6872ECB523CEBB4100F63970 /* KJTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJTestViewController.h; sourceTree = "<group>"; };
+		6872ECB623CEBB4100F63970 /* KJTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJTestViewController.m; sourceTree = "<group>"; };
 		68B5F17E22B0AB2000D71808 /* KJBannerView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KJBannerView.bundle; sourceTree = "<group>"; };
 		68CC3639229B71E3005A78A5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		68CC363B229B7226005A78A5 /* KJBannerView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KJBannerView.podspec; sourceTree = SOURCE_ROOT; };
@@ -118,6 +121,8 @@
 				683A7F3221CEA4E5008DD08C /* KJBannerView */,
 				68E26B5121CE924700F91182 /* AppDelegate.h */,
 				68E26B5221CE924700F91182 /* AppDelegate.m */,
+				6872ECB523CEBB4100F63970 /* KJTestViewController.h */,
+				6872ECB623CEBB4100F63970 /* KJTestViewController.m */,
 				68E26B5421CE924700F91182 /* ViewController.h */,
 				68E26B5521CE924700F91182 /* ViewController.m */,
 				684059DB21EA08D00092F630 /* KJBannerModel.h */,
@@ -216,6 +221,7 @@
 				68E26B5321CE924700F91182 /* AppDelegate.m in Sources */,
 				683A7F3B21CEA4E5008DD08C /* KJBannerView.m in Sources */,
 				684059DD21EA08D00092F630 /* KJBannerModel.m in Sources */,
+				6872ECB823CEBB4100F63970 /* KJTestViewController.m in Sources */,
 				68CC363F229B7AC9005A78A5 /* KJPageControl.m in Sources */,
 				683A7F3E21CEA4E5008DD08C /* KJBannerViewCell.m in Sources */,
 				68185A9422EFED0500C365DE /* KJBannerTool.m in Sources */,
