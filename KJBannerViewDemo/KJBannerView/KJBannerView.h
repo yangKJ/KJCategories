@@ -10,33 +10,8 @@
 #import "KJPageControl.h"
 #import "KJBannerViewCell.h"
 #import "NSTimer+KJSolve.h"
+#import "KJBannerViewProtocol.h"
 NS_ASSUME_NONNULL_BEGIN
-@class KJBannerView;
-/// 滚动方法
-typedef NS_ENUM(NSInteger, KJBannerViewRollDirectionType) {
-    KJBannerViewRollDirectionTypeRightToLeft = 0, /// 默认，从右往左
-    KJBannerViewRollDirectionTypeLeftToRight,    /// 从左往右
-};
-/// 图片的几种类型
-typedef NS_ENUM(NSInteger, KJBannerViewImageType) {
-    KJBannerViewImageTypeMix = 0,  /// 混合，本地图片、网络图片、网络GIF
-    KJBannerViewImageTypeGIFAndNet,/// 网络GIF图片和网络图片混合
-    KJBannerViewImageTypeLocality, /// 本地图片
-    KJBannerViewImageTypeNetIamge, /// 网络图片
-    KJBannerViewImageTypeGIFImage, /// 网络GIF图片
-};
-@protocol KJBannerViewDelegate <NSObject>
-@optional
-/** 点击图片回调 */
-- (void)kj_BannerView:(KJBannerView*)banner SelectIndex:(NSInteger)index;
-/** 滚动时候回调 是否隐藏自带的PageControl */
-- (BOOL)kj_BannerView:(KJBannerView*)banner CurrentIndex:(NSInteger)index;
-@end
-
-@protocol KJBannerViewDataSource <NSObject>
-/// 自定义
-- (UIView*)kj_BannerView:(KJBannerView*)banner BannerViewCell:(KJBannerViewCell*)bannercell ImageDatas:(NSArray*)imageDatas Index:(NSInteger)index;
-@end
 
 @interface KJBannerView : UIView
 /// 代理方法

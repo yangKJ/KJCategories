@@ -1,7 +1,7 @@
 # KJBannerView
 <p align="left">
   <img width="250" src="Res/156a18392553c66a65882650b1a2289a-2的副本.gif" hspace="1px" />
-  <img width="250" src="Res/IMG_6906.PNG" hspace="10px" />
+  <img width="250" src="Res/811579078870_.pic.jpg" hspace="10px" />
 </p>
 
 <!--<video id="video" controls="" preload="none" width="375px" height="667px" poster="https://raw.githubusercontent.com/yangKJ/KJBannerViewDemo/master/Res/IMG_6906.PNG">
@@ -63,8 +63,8 @@ end
 #### <a id="作者其他库"></a>作者其他Pod库
 ```
 - 粒子效果、Button图文混排、点击事件封装、扩大点击域、点赞粒子效果，
-- 手势封装、圆角渐变、Xib属性、TextView输入框扩展、限制字数、识别网址超链接，
-- Image图片加工处理、滤镜渲染、泛洪算法等等
+- 手势封装、圆角渐变、倒影、内阴影处理、Xib属性、识别网址超链接，
+- 图片加工处理、对花铺贴效果、滤镜渲染、泛洪算法等等
 pod 'KJEmitterView'
 pod 'KJEmitterView/Function'#
 pod 'KJEmitterView/Control' # 自定义控件

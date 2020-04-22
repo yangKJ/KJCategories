@@ -9,37 +9,50 @@
 #ifndef KJBannerHeader_h
 #define KJBannerHeader_h
 
-/*------------- 本人其他库 -------------
- - 粒子效果、Button图文混排、点击事件封装、扩大点击域、点赞粒子效果，
- - 手势封装、圆角渐变、Xib属性、TextView输入框扩展、限制字数、识别网址超链接，
- - Image图片加工处理、滤镜渲染、泛洪算法等等
- pod 'KJEmitterView'
- pod 'KJEmitterView/Function'#
- pod 'KJEmitterView/Control' # 自定义控件
- 
- 轮播图 - 支持缩放 多种pagecontrol 支持继承自定义样式 自带网络加载和缓存 Xib布局设置属性
- pod 'KJBannerView'  # 轮播图，网络图片加载 支持网络GIF和网络图片和本地图片混合轮播
- 
- 加载Loading - 多种样式供选择 HUD控件封装
- pod 'KJLoadingAnimation' # 加载控件
- 
- 菜单控件 - 下拉控件 选择控件
- pod 'KJMenuView' # 菜单控件
- 
- 播放器 - KJPlayer是一款视频播放器，AVPlayer的封装，继承UIView
- - 视频可以边下边播，把播放器播放过的数据流缓存到本地，下次直接从缓冲读取播放
- pod 'KJPlayer'  # 播放器功能区
- pod 'KJPlayer/KJPlayerView'  # 自带展示界面
+/*
+*********************************************************************************
+*
+*⭐️⭐️⭐️ ----- 本人其他库 ----- ⭐️⭐️⭐️
+*
+- 粒子效果、Button图文混排、点击事件封装、扩大点击域、点赞粒子效果，
+- 手势封装、圆角渐变、倒影、内阴影处理、Xib属性、识别网址超链接，
+- 图片加工处理、对花铺贴效果、滤镜渲染、泛洪算法等等
+pod 'KJEmitterView'
+pod 'KJEmitterView/Function'#
+pod 'KJEmitterView/Control' # 自定义控件
 
- 工具库 - 推送工具、网络下载工具、识别网页图片工具等
- pod 'KJWorkbox' # 系统工具
- pod 'KJWorkbox/CommonBox'
- 
- > Github地址：https://github.com/yangKJ
- > 简书地址：https://www.jianshu.com/u/c84c00476ab6
- > 博客地址：https://blog.csdn.net/qq_34534179
+轮播图 - 支持缩放 多种pagecontrol 支持继承自定义样式 自带网络加载和缓存 Xib布局设置属性
+pod 'KJBannerView'  # 轮播图，网络图片加载 支持网络GIF和网络图片和本地图片混合轮播
 
+加载Loading - 多种样式供选择 HUD控件封装
+pod 'KJLoadingAnimation' # 加载控件
+
+菜单控件 - 下拉控件 选择控件
+pod 'KJMenuView' # 菜单控件
+
+播放器 - KJPlayer是一款视频播放器，AVPlayer的封装，继承UIView
+- 视频可以边下边播，把播放器播放过的数据流缓存到本地，下次直接从缓冲读取播放
+pod 'KJPlayer'  # 播放器功能区
+pod 'KJPlayer/KJPlayerView'  # 自带展示界面
+
+工具库 - 推送工具、网络下载工具、识别网页图片工具等
+pod 'KJWorkbox' # 系统工具
+pod 'KJWorkbox/CommonBox'
+
+* Github地址：https://github.com/yangKJ
+* 简书地址：https://www.jianshu.com/u/c84c00476ab6
+* 博客地址：https://blog.csdn.net/qq_34534179
+
+* 如果觉得好用,希望您能Star支持,你的 ⭐️ 是我持续更新的动力!
+*
+*********************************************************************************
+*/
+
+/*
  #版本更新日志
+ ### 版本1.3.5
+ - 独立委托协议类KJBannerViewProtocol，归类代码更加简洁
+ 
  ### 版本1.3.4
  - 解决只有一张图片显示异常问题
  - 多线程处理gif数据，再次提升效率

@@ -305,7 +305,7 @@
             cell.model = self.imageDatas[itemIndex];
         }else{
             cell.kj_scale = self.kj_scale;
-            cell.imgCornerRadius = self.imgCornerRadius;
+            cell.imgCornerRadius  = self.imgCornerRadius;
             cell.placeholderImage = self.placeholderImage;
             cell.contentMode = self.bannerImageViewContentMode;
             cell.info = [KJBannerTool sharedInstance].imageTemps[itemIndex];
