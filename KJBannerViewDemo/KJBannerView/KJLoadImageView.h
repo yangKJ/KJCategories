@@ -30,8 +30,8 @@ typedef void (^KJDownloadProgressBlock)(unsigned long long total, unsigned long 
 
 /************************************************************************************/
 /// 使用这些方法下载图像异步
-- (void)kj_setImageWithURLString:(NSString *)url Placeholder:(UIImage *)placeholderImage;
-- (void)kj_setImageWithURLString:(NSString *)url Placeholder:(UIImage *)placeholderImage Completion:(void (^)(UIImage *image))completion;
+- (void)kj_setImageWithURLString:(NSString*)url Placeholder:(UIImage*)placeholderImage;
+- (void)kj_setImageWithURLString:(NSString*)url Placeholder:(UIImage*)placeholderImage Completion:(void (^)(UIImage*image))completion;
 /************************************************************************************/
 
 /// 取消请求

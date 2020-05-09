@@ -1,8 +1,14 @@
 # KJBannerView
+
 <p align="left">
+<img src="https://upload-images.jianshu.io/upload_images/1933747-4627deb498ba06db.gif?imageMogr2/auto-orient/strip" width="200" hspace="1px">
+<img src="https://upload-images.jianshu.io/upload_images/1933747-7b120a5ae9b76bf5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="200" hspace="30px">
+</p>
+
+<!--<p align="left">
   <img width="250" src="Res/156a18392553c66a65882650b1a2289a-2的副本.gif" hspace="1px" />
   <img width="250" src="Res/811579078870_.pic.jpg" hspace="10px" />
-</p>
+</p>-->
 
 <!--<video id="video" controls="" preload="none" width="375px" height="667px" poster="https://raw.githubusercontent.com/yangKJ/KJBannerViewDemo/master/Res/IMG_6906.PNG">
 <source id="mp4" src="Res/IMG_6904.mp4" type="video/mp4">
@@ -100,6 +106,11 @@ pod 'KJBannerView' # 轮播图
 #### <a id="更新日志"></a>更新日志
 ```
 ####版本更新日志:
+### 版本1.3.5
+- 独立委托协议类KJBannerViewProtocol，归类代码更加简洁
+- 新增滚动回调 kScrollBlock
+- 细节优化
+
 ### 版本1.3.4
 - 解决只有一张图片显示异常问题
 - 多线程处理gif数据，再次提升效率

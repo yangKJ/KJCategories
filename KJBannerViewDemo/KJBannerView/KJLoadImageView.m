@@ -267,8 +267,7 @@
     [downloader kj_startDownloadImageWithUrl:theRequest.URL.absoluteString Progress:^(unsigned long long total, unsigned long long current) {
         !self.kj_progressBlock?:self.kj_progressBlock(total,current);
     } Complete:^(NSData *data, NSError *error) {
-        // 成功
-        if (data != nil && error == nil) {
+        if (data != nil && error == nil) {// 成功
             UIImage *image = [UIImage imageWithData:data];
             __block UIImage *finalImage = image;
             if (image) {
@@ -318,7 +317,6 @@
         CGFloat rate = isScaleToMax ? MAX(rateHeight, rateWidth) : MIN(rateHeight, rateWidth);
         aspectFitSize = CGSizeMake(image.size.width * rate, image.size.height * rate);
     }
-    
     [image drawInRect:CGRectMake(0, 0, aspectFitSize.width, aspectFitSize.height)];
     UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

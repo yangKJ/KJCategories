@@ -52,6 +52,8 @@ pod 'KJWorkbox/CommonBox'
  #版本更新日志
  ### 版本1.3.5
  - 独立委托协议类KJBannerViewProtocol，归类代码更加简洁
+ - 新增滚动回调 kScrollBlock
+ - 细节优化
  
  ### 版本1.3.4
  - 解决只有一张图片显示异常问题

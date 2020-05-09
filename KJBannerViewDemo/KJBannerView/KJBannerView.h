@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,weak) id<KJBannerViewDataSource> dataSource;
 /// block回调
 @property (nonatomic,readwrite,copy) void(^kSelectBlock)(KJBannerView *banner,NSInteger idx);
+@property (nonatomic,readwrite,copy) void(^kScrollBlock)(KJBannerView *banner,NSInteger idx);
 
 //************************ 数据源API ************************
 /** 网络数组 1.本地  2.图片 url string  */
@@ -48,6 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)kj_repauseTimer;
 
 //************************ 自带Cell可设置属性 *****************************/
+/** 是否裁剪, 默认no*/
+@property (nonatomic,assign) BOOL kj_scale;
 /** imagView圆角, 默认为0 */
 @property (nonatomic,assign) IBInspectable CGFloat imgCornerRadius;
 /** cell的占位图, 用于网络未加载到图片时 */
@@ -56,8 +59,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) UIViewContentMode bannerImageViewContentMode;
 /** 图片的样式, 默认 KJBannerViewImageTypeLocality 网络图片 */
 @property (nonatomic,assign) KJBannerViewImageType imageType;
-/** 是否裁剪, 默认no*/
-@property (nonatomic,assign) BOOL kj_scale;
 
 //************************ 废弃属性方法 *****************************/
 /// 支持自定义Cell，自定义Cell需继承自 KJBannerViewCell

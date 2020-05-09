@@ -74,7 +74,7 @@ typedef NS_ENUM(NSInteger, KJBannerViewImageType) {
 /// 播放网络GIF  
 + (NSTimeInterval)kj_bannerPlayGifWithImageView:(UIImageView*)imageView URL:(id)url;
 
-// 得到Gif
+// 获取网络GIF图
 + (UIImage*)kj_bannerGetImageWithURL:(id)url;
 
 /// 保存gif在本地
