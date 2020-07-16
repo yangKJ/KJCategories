@@ -12,15 +12,15 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://www.jianshu.com/u/c84c00476ab6'
   s.requires_arc = true
   
+  s.default_subspec = 'KJBannerView'
   s.ios.source_files = 'KJBannerViewDemo/KJBannerHeader.h' # 添加头文件
 
   s.subspec 'KJBannerView' do |ss|
     ss.source_files = "KJBannerViewDemo/KJBannerView/*.{h,m}" # 添加文件
     ss.resources = "KJBannerViewDemo/KJBannerView/*.{bundle}" # 添加数据资料
+    ss.frameworks = 'Foundation','UIKit'
   end
 
-  s.frameworks = 'Foundation','UIKit'
-  
 end
 
 

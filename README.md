@@ -68,9 +68,9 @@ end
 
 #### <a id="作者其他库"></a>作者其他Pod库
 ```
-- 粒子效果、Button图文混排、点击事件封装、扩大点击域、点赞粒子效果，
-- 手势封装、圆角渐变、倒影、内阴影处理、Xib属性、识别网址超链接，
-- 图片加工处理、对花铺贴效果、滤镜渲染、泛洪算法等等
+粒子效果、Button图文混排、点击事件封装、扩大点击域、点赞粒子效果，
+手势封装、圆角渐变、倒影、内阴影处理、Xib属性、识别网址超链接，
+图片加工处理、对花铺贴效果、滤镜渲染、泛洪算法等等
 pod 'KJEmitterView'
 pod 'KJEmitterView/Function'#
 pod 'KJEmitterView/Control' # 自定义控件
@@ -193,7 +193,7 @@ pod 'KJBannerView' # 轮播图
 - KJBannerViewFlowLayout：Cell缩放管理
 - KJBannerViewCell：基类Cell，自定义的Cell需继承该Cell
 - KJLoadImageView：图片下载工具类
-- KJBannerTool：一些关于GIF的工具方法
+- KJBannerTool：工具方法
 
 ##### 代码事例
 ```
