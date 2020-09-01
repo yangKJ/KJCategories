@@ -10,7 +10,7 @@
 
 @implementation NSTimer (KJSolve)
 
-+ (NSTimer*)kj_scheduledTimerWithTimeInterval:(NSTimeInterval)inerval Repeats:(BOOL)repeats Block:(void(^)(NSTimer *timer))block{
++ (NSTimer*)kj_scheduledTimerWithTimeInterval:(NSTimeInterval)inerval Repeats:(BOOL)repeats Block:(void(^)(NSTimer*timer))block{
     return [NSTimer scheduledTimerWithTimeInterval:inerval target:self selector:@selector(blcokInvoke:) userInfo:[block copy] repeats:repeats];
 }
 + (void)blcokInvoke:(NSTimer*)timer {

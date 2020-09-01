@@ -11,9 +11,9 @@
 @class KJBannerView;
 @protocol KJBannerViewDelegate <NSObject>
 @optional
-/** 点击图片回调 */
+/// 点击图片回调
 - (void)kj_BannerView:(KJBannerView*)banner SelectIndex:(NSInteger)index;
-/** 滚动时候回调 是否隐藏自带的PageControl */
+/// 滚动时候回调 是否隐藏自带的PageControl
 - (BOOL)kj_BannerView:(KJBannerView*)banner CurrentIndex:(NSInteger)index;
 @end
 

@@ -29,7 +29,7 @@
 - (NSArray<UICollectionViewLayoutAttributes*>*)layoutAttributesForElementsInRect:(CGRect)rect{
     // 1.获取cell对应的attributes对象
     NSArray *temps = [[NSArray alloc] initWithArray:[super layoutAttributesForElementsInRect:rect] copyItems:YES];
-    if(!self.isZoom) return temps;// 不缩放直接返回数据
+    if(self.isZoom == NO) return temps;
     // 2.计算整体的中心点的x值
     CGFloat centerX = self.collectionView.contentOffset.x + self.collectionView.bounds.size.width * 0.5;
     // 3.修改一下attributes对象

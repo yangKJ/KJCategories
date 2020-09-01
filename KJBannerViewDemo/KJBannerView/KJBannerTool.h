@@ -49,40 +49,26 @@ typedef NS_ENUM(NSInteger, KJBannerViewImageType) {
 
 /// 存放数据
 @property(nonatomic,strong) NSArray *imageTemps;
-
-/* 单例 */
+/// 单例
 + (instancetype)sharedInstance;
-
-/** 判断该字符串是不是一个有效的URL */
+/// 判断该字符串是不是一个有效的URL
 + (BOOL)kj_bannerValidUrl:(NSString*)url;
-
-/** 根据图片名 判断是否是gif图 */
+/// 根据图片名 判断是否是gif图
 + (BOOL)kj_bannerIsGifImageWithImageName:(NSString*)imageName;
-
-/** 根据图片url 判断是否是gif图 */
+/// 根据图片url 判断是否是gif图
 + (BOOL)kj_bannerIsGifWithURL:(id)url;
-
-/** 根据image的data 判断图片类型
- @param data 图片data
- @return 图片类型(png、jpg...)
- */
+/// 根据image的data 判断图片类型
 + (KJBannerImageType)contentTypeWithImageData:(NSData*)data;
-
 /// 判断是网络图片还是本地
 + (BOOL)kj_bannerImageWithImageUrl:(NSString*)imageUrl;
-
 /// 播放网络GIF  
 + (NSTimeInterval)kj_bannerPlayGifWithImageView:(UIImageView*)imageView URL:(id)url;
-
 // 获取网络GIF图
 + (UIImage*)kj_bannerGetImageWithURL:(id)url;
-
 /// 保存gif在本地
 //+ (void)kj_bannerSaveWithImage:(UIImage*)image URL:(id)url;
-
 /// 从 File 当中获取Gif文件
 //+ (UIImage*)kj_bannerGetImageInFileWithURL:(id)url;
-
 /// md5加密
 + (NSString*)kj_bannerMD5WithString:(NSString*)string;
 

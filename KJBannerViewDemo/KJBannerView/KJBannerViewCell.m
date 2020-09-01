@@ -14,7 +14,7 @@
 
 @implementation KJBannerViewCell
 
-- (void)setInfo:(KJBannerDatasInfo *)info{
+- (void)setInfo:(KJBannerDatasInfo*)info{
     switch (info.type) {
         case KJBannerImageInfoTypeLocality:
         case KJBannerImageInfoTypeGIFImage:
@@ -38,9 +38,9 @@
         [self.contentView addSubview:_loadImageView];
         if (self.imgCornerRadius > 0) {
             UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_loadImageView.bounds cornerRadius:_imgCornerRadius];
-            CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
-            maskLayer.frame = self.bounds;/// 设置大小
-            maskLayer.path = maskPath.CGPath;/// 设置图形样子
+            CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+            maskLayer.frame = self.bounds;
+            maskLayer.path = maskPath.CGPath;
             _loadImageView.layer.mask = maskLayer;
         }
     }

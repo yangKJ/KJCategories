@@ -32,7 +32,6 @@
 - (void)kj_startDownloadImageWithUrl:(NSString *)url Progress:(KJDownloadProgressBlock)progress Complete:(KJDownLoadDataCallBack)complete {
     self.progressBlock = progress;
     self.callbackOnFinished = complete;
-    
     if ([NSURL URLWithString:url] == nil) {
         NSError *error = [NSError errorWithDomain:@"henishuo.com" code:101 userInfo:@{@"errorMessage": @"URL不正确"}];
         !complete ?: complete(nil, error);
@@ -51,11 +50,9 @@
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
     NSData *data = [NSData dataWithContentsOfURL:location];
-    
     if (self.progressBlock) {
         self.progressBlock(self.totalLength, self.currentLength);
     }
-    
     if (self.callbackOnFinished) {
         self.callbackOnFinished(data, nil);
         // 防止重复调用
@@ -66,7 +63,6 @@
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     self.currentLength = totalBytesWritten;
     self.totalLength = totalBytesExpectedToWrite;
-    
     if (self.progressBlock) {
         self.progressBlock(self.totalLength, self.currentLength);
     }
@@ -220,16 +216,13 @@
     return [self kj_setImageWithURLString:url Placeholder:placeholderImage Completion:nil];
 }
 
-- (void)kj_setImageWithURLString:(NSString *)url Placeholder:(UIImage *)placeholderImage Completion:(void (^)(UIImage *image))completion {
+- (void)kj_setImageWithURLString:(NSString *)url Placeholder:(UIImage *)placeholderImage Completion:(void (^)(UIImage*image))completion {
     self.image = placeholderImage;
     self.kj_completionBlock = completion;
     if (url == nil || [url isKindOfClass:[NSNull class]] || (![url hasPrefix:@"http://"] && ![url hasPrefix:@"https://"])){
-        if (completion) {
-            self.kj_completionBlock(self.image);
-        }
+        if (completion) self.kj_completionBlock(self.image);
         return;
     }
-    
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self kj_downloadWithReqeust:request holder:placeholderImage];
@@ -238,21 +231,18 @@
 
 #pragma mark - 内部方法
 /// 下载图片
-- (void)kj_downloadWithReqeust:(NSURLRequest *)theRequest holder:(UIImage *)holder {
+- (void)kj_downloadWithReqeust:(NSURLRequest*)theRequest holder:(UIImage*)holder {
     UIImage *cachedImage = [[UIApplication sharedApplication] kj_cacheImageForRequest:theRequest];
     if (cachedImage) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.image = cachedImage;
         });
-        if (self.kj_completionBlock) {
-            self.kj_completionBlock(cachedImage);
-        }
+        if (self.kj_completionBlock) self.kj_completionBlock(cachedImage);
         return;
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         self.image = holder;
     });
-    
     /// 判断失败次数
     if ([[UIApplication sharedApplication] kj_failTimesForRequest:theRequest] >= self.kj_failedTimes) {
         return;
@@ -290,7 +280,7 @@
             } else {
                 !weakSelf.kj_completionBlock?:weakSelf.kj_completionBlock(weakSelf.image);
             }
-        } else { // error
+        }else {
             [[UIApplication sharedApplication] kj_cacheFailRequest:theRequest];
             !weakSelf.kj_completionBlock?:weakSelf.kj_completionBlock(weakSelf.image);
         }
@@ -301,13 +291,8 @@
     [_imageDownloader.task cancel];
 }
 
-/** 此处公开此API，是方便大家可以在别的地方使用。等比例剪裁图片大小到指定的size
- *  @param image 剪裁前的图片
- *  @param size  最终图片大小
- *  @param isScaleToMax 是取最大比例还是最小比例，YES表示取最大比例
- *  @return 裁剪后的图片
- */
-+ (UIImage *)kj_clipImage:(UIImage *)image Size:(CGSize)size IsScaleToMax:(BOOL)isScaleToMax {
+/// 裁剪图片
++ (UIImage*)kj_clipImage:(UIImage*)image Size:(CGSize)size IsScaleToMax:(BOOL)isScaleToMax {
     CGFloat scale = [UIScreen mainScreen].scale;
     UIGraphicsBeginImageContextWithOptions(size, NO, scale);
     CGSize aspectFitSize = CGSizeZero;
