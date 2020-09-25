@@ -45,7 +45,11 @@ pod 'KJMenuView' # 菜单控件
 工具库 - 推送工具、网络下载工具、识别网页图片工具等
 pod 'KJWorkbox' # 系统工具
 pod 'KJWorkbox/CommonBox'
-
+ 
+Github地址：https://github.com/yangKJ
+简书地址：https://www.jianshu.com/u/c84c00476ab6
+博客地址：https://blog.csdn.net/qq_34534179
+ 
 * 如果觉得好用,希望您能Star支持,你的 ⭐️ 是我持续更新的动力!
 *
 *********************************************************************************
