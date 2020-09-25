@@ -13,11 +13,11 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   
   s.default_subspec = 'KJBannerView'
-  s.ios.source_files = 'KJBannerViewDemo/KJBannerHeader.h' # 添加头文件
+  s.ios.source_files = 'KJBannerViewDemo/KJBannerHeader.h' 
 
   s.subspec 'KJBannerView' do |ss|
-    ss.source_files = "KJBannerViewDemo/KJBannerView/*.{h,m}" # 添加文件
-    ss.resources = "KJBannerViewDemo/KJBannerView/*.{bundle}" # 添加数据资料
+    ss.source_files = "KJBannerViewDemo/KJBannerView/*.{h,m}" 
+    ss.resources = "KJBannerViewDemo/KJBannerView/*.{bundle}" 
     ss.frameworks = 'Foundation','UIKit'
   end
 
