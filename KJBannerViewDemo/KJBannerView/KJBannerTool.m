@@ -101,10 +101,7 @@
     NSData *data = [NSData dataWithContentsOfURL:url];
     return [self contentTypeWithImageData:data] == KJBannerImageTypeGif ? YES : NO;
 }
-/** 根据image的data 判断图片类型
- @param data 图片data
- @return 图片类型(png、jpg...)
- */
+/// 根据image的data 判断图片类型
 + (KJBannerImageType)contentTypeWithImageData:(NSData *)data {
     uint8_t c;
     [data getBytes:&c length:1];
@@ -135,43 +132,31 @@
 }
 /// 播放网络Gif
 + (NSTimeInterval)kj_bannerPlayGifWithImageView:(UIImageView*)imageView URL:(id)url{
-    //1.加载Gif图片，转换成Data类型
     if (![url isKindOfClass:[NSURL class]]) url = [NSURL URLWithString:url];
     NSData *data = [NSData dataWithContentsOfURL:url];
-    //2.将data数据转换成CGImageSource对象
     CGImageSourceRef imageSource = CGImageSourceCreateWithData(CFBridgingRetain(data), nil);
     size_t imageCount = CGImageSourceGetCount(imageSource);
-    
-    //3.遍历所有图片
     NSMutableArray *images = [NSMutableArray array];
     NSTimeInterval totalDuration = 0;
     for (int i = 0; i<imageCount; i++) {
-        //取出每一张图片
         CGImageRef cgImage = CGImageSourceCreateImageAtIndex(imageSource, i, nil);
         UIImage *image = [UIImage imageWithCGImage:cgImage];
         [images addObject:image];
-        //持续时间
         NSDictionary *properties = (__bridge_transfer NSDictionary*)CGImageSourceCopyPropertiesAtIndex(imageSource, i, nil);
         NSDictionary *gifDict = [properties objectForKey:(__bridge NSString *)kCGImagePropertyGIFDictionary];
         NSNumber *frameDuration = [gifDict objectForKey:(__bridge NSString *)kCGImagePropertyGIFDelayTime];
         totalDuration += frameDuration.doubleValue;
     }
-    
-    //4.设置imageView属性
     imageView.animationImages = images;
     imageView.animationDuration = totalDuration;
     imageView.animationRepeatCount = 0;
-    
-    //5.开始播放
     [imageView startAnimating];
-    
     return totalDuration;
 }
 // 获取网络GIF图
 + (UIImage*)kj_bannerGetImageWithURL:(id)url{
     if (![url isKindOfClass:[NSURL class]]) url = [NSURL URLWithString:url];
     NSData *data = [NSData dataWithContentsOfURL:url];
-    //2.将data数据转换成CGImageSource对象
     CGImageSourceRef imageSource = CGImageSourceCreateWithData(CFBridgingRetain(data), nil);
     size_t imageCount = CGImageSourceGetCount(imageSource);
     UIImage *animatedImage;
@@ -181,13 +166,9 @@
         NSMutableArray *images = [NSMutableArray array];
         NSTimeInterval totalDuration = 0;
         CGImageRef cgImage = NULL;
-        //3.遍历所有图片
         for (int i = 0; i<imageCount; i++) {
-            //取出每一张图片
             cgImage = CGImageSourceCreateImageAtIndex(imageSource,i,nil);
             [images addObject:[UIImage imageWithCGImage:cgImage]];
-//            [images addObject:[UIImage imageWithCGImage:cgImage scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp]];
-            //持续时间
             NSDictionary *properties = (__bridge_transfer NSDictionary*)CGImageSourceCopyPropertiesAtIndex(imageSource, i, nil);
             NSDictionary *gifDict = [properties objectForKey:(__bridge NSString *)kCGImagePropertyGIFDictionary];
             NSNumber *frameDuration = [gifDict objectForKey:(__bridge NSString *)kCGImagePropertyGIFDelayTime];
@@ -198,7 +179,6 @@
         images = nil;
     }
     CFRelease(imageSource);
-    
     return animatedImage;
 }
 /// 保存gif在本地
@@ -209,16 +189,11 @@
         [[NSFileManager defaultManager] createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:&error];
         if (error) return;
     }
-    if ([url isKindOfClass:[NSURL class]]) {
-        url = [url absoluteString];
-    }
+    if ([url isKindOfClass:[NSURL class]]) url = [url absoluteString];
     NSString *name = [self kj_bannerMD5WithString:url];
     NSString *path = [directoryPath stringByAppendingPathComponent:name];
     NSData *data = UIImagePNGRepresentation(image);
-    if (data) {
-        /// 缓存数据
-        [[NSFileManager defaultManager] createFileAtPath:path contents:data attributes:nil];
-    }
+    if (data) [[NSFileManager defaultManager] createFileAtPath:path contents:data attributes:nil];
 }
 /// 从 File 当中获取Gif文件
 + (UIImage*)kj_bannerGetImageInFileWithURL:(id)url{
@@ -234,11 +209,11 @@
 /// md5加密
 + (NSString*)kj_bannerMD5WithString:(NSString*)string{
     const char *original_str = [string UTF8String];
-    unsigned char digist[CC_MD5_DIGEST_LENGTH]; //CC_MD5_DIGEST_LENGTH = 16
+    unsigned char digist[CC_MD5_DIGEST_LENGTH];
     CC_MD5(original_str, (uint)strlen(original_str), digist);
     NSMutableString *outPutStr = [NSMutableString stringWithCapacity:10];
     for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++){
-        [outPutStr appendFormat:@"%02X", digist[i]];//小写x表示输出的是小写MD5，大写X表示输出的是大写MD5
+        [outPutStr appendFormat:@"%02X", digist[i]];
     }
     return [outPutStr lowercaseString];
 }
