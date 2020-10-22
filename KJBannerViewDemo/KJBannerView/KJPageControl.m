@@ -100,12 +100,13 @@
 /// 设置PageView
 - (void)setTotalPages:(NSInteger)totalPages{
     _totalPages = totalPages;
-    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     if (_pageType == PageControlStyleSizeDot) {
         self.loopPageView.pages = totalPages;
         return;
     }
+    
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     CGFloat margin = 8; /// 间隙
     CGFloat width = self.frame.size.width - (_totalPages - 1) * margin;
