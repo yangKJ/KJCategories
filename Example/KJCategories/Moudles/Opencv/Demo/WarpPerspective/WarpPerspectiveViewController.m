@@ -10,6 +10,8 @@
 
 @implementation WarpPerspectiveViewController
 
+#if __has_include(<opencv2/imgcodecs/ios.h>)
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -35,5 +37,7 @@
         [weakself.topImageView.image kj_opencvWarpPerspectiveWithKnownPoints:KJKnownPointsMake(kPoint(x, x), kPoint(w-x, x), kPoint(w, h), kPoint(0, h)) size:CGSizeMake(w, h)];
     };
 }
+
+#endif
 
 @end

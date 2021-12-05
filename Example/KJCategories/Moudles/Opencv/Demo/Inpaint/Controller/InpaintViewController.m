@@ -13,6 +13,8 @@
 
 @implementation InpaintViewController
 
+#if __has_include(<opencv2/imgcodecs/ios.h>)
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -33,5 +35,7 @@
         });
     });
 }
+
+#endif
 
 @end

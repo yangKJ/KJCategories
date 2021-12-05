@@ -7,6 +7,7 @@
 //  https://github.com/YangKJ/KJCategories
 
 import UIKit
+import SnapKit
 
 class OpencvViewController: BaseViewController {
 
@@ -18,13 +19,32 @@ class OpencvViewController: BaseViewController {
     }
     
     func setupUI() {
+        self.view.addSubview(self.label)
         self.view.addSubview(self.tableView)
-        self.tableView.frame = self.view.bounds
+        self.label.snp.makeConstraints { make in
+            make.left.right.equalTo(self.view).inset(20)
+            make.height.equalTo(40)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(0)
+        }
+        self.tableView.snp.makeConstraints { make in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(self.label.snp.bottom).offset(10)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(10)
+        }
     }
     
     // MARK: - lazy
+    private lazy var label: UILabel = {
+        let label = UILabel.init()
+        label.text = "备注提示：该模块需引入OpenCV三方库，请先执行`pod install`操作"
+        label.textColor = UIColor.red
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
     private lazy var tableView: UITableView = {
-        let table = UITableView.init(frame: .zero, style: .grouped)
+        let table = UITableView.init(frame: .zero, style: .plain)
         table.delegate = self
         table.dataSource = self
         table.rowHeight = 44

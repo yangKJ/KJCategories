@@ -14,6 +14,8 @@
 
 @implementation LuminanceViewController
 
+#if __has_include(<opencv2/imgcodecs/ios.h>)
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -36,5 +38,7 @@
         weakself.bottomImageView.image = [weakself.topImageView.image kj_opencvChangeContrast:x luminance:y];
     };
 }
+
+#endif
 
 @end
