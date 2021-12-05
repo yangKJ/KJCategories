@@ -95,8 +95,8 @@
 
 /// 粒子需要时间
 /// @param time 动画执行到当前帧所进过的时间
-/// @param beginPosition 起始位置
-/// @param endPosition 结束位置
+/// @param begin 起始位置
+/// @param end 结束位置
 /// @param duration 持续时间
 - (CGFloat)easeInOutQuad:(CGFloat)time begin:(CGFloat)begin end:(CGFloat)end duration:(CGFloat)duration{
     CGFloat coverDistance = end - begin;
