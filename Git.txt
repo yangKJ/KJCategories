@@ -1,0 +1,212 @@
+
+
+git 命令
+--------------------------------------------------------------------
+
+1.cd 到对应目录
+
+2.git status 查看当前状态，包括修改的文件和添加的文件
+
+3.git diff 查看修改内容
+
+4.git add . 将有变动的文件添加到索引也可以用 【git add 路径】单个添加
+
+5.git commit 将文件提交，会弹出可编辑模块
+
+6.git fetch  将这些更新取回本地
+
+7.git branch -a  查看分支
+
+8.git rebase -i origin/分支
+
+9.git push origin HEAD:refs/for/分支   合并
+
+10.git fetch --all && git reset --hard origin/master && git pull   强制本地与远端同步（本地被覆盖）
+
+
+--------------------------------------------------------------------
+
+1.git checkout -b 分支名    新增分支
+
+2.git checkout master      切换至master分支
+
+3.git merge xxx            合并xxx分支到master
+
+4.git branch -d 分支名      删除分支
+
+--------------------------------------------------------------------
+
+Git commit提交规范
+
+Feat：新功能（feature）
+
+Fix：修补bug
+
+Docs：文档（documentation）
+
+Style：格式（不影响代码运行的变动）
+
+Refactor：重构（即不是新增功能，也不是修改bug的代码变动）
+
+Test：增加测试
+
+Chore：构建过程或辅助工具的变动
+
+
+--------------------------------------------------------------------
+
+1.git clone 代码仓库    克隆项目
+
+2.git branch -r       查看远端所有分支
+
+3.git pull origin/分支   拉取分支代码
+
+
+--------------------------------------------------------------------
+
+上传到CocoaPods
+
+1.pod lib lint --allow-warnings   无网本地验证
+
+2.git tag -a 0.0.0 -m 'release 0.0.0'   添加本地标签
+
+3.git push origin --tags   远端仓库同步为本地标签
+
+4.pod trunk push KJCategories.podspec --skip-import-validation   上传到CocoaPods
+
+5.git tag -d 0.0.1    删除本地标签
+
+6.git push origin -d tag 0.0.1      删除远端标签
+
+Podspec 参数说明：
+
+--help      显示指定命令的帮助横幅
+--verbose   显示更多调试信息
+--silent    显示所有信息
+--allow-warnings   忽略警告
+--use-libraries    使用静态库安装
+--use-modular-headers       OC与Swift混编必须添加
+--skip-import-validation    跳过验证pod是否可以导入
+--skip-tests     在验证期间跳过构建和运行测试
+--use-json       在将其推送到repo之前，将podspec转换为JSON
+--swift-version=VERSION     在标记规范时应该使用的SWIFT_VERSION.这优先于规范中指定的Swift版本或. Swift版本文
+
+--------------------------------------------------------------------
+
+如果，提交内容错误时，需要重新提交某一个文件，更改错误内容后
+
+git status  查看git 状态
+
+git add .   添加所有为添加项目
+
+git commit —amend   修改最近一次的提交
+
+git reset --soft HEAD~i   撤销本地提交记录，I代表恢复到多少次提交前的状态
+
+git push origin master --force   删除远端提交记录
+
+
+--------------------------------------------------------------------
+
+使用 Git worktree 将同一个项目分裂成多个本地目录
+https://einverne.github.io/post/2019/03/git-worktree.html
+
+git worktree add ../new-dir some-existing-branch
+git worktree add [path] [branch]
+
+修改分支名
+1.git branch -m oldName newName   修改本地分支名
+
+2.git push --delete origin oldName   删除远程分支
+
+3.git push origin newName   上传新命名的本地分支
+
+4.git branch --set-upstream-to origin/newName   本地分支与远程分支关联 
+
+
+------------------------------------------------------------------------
+
+GitHub突破上传 100M 限制
+
+1.安装LFS插件
+git lfs install
+
+2.需要上传的大文件
+由此可以看出大文件的路径 "Example/Pods/OpenCV/opencv2.framework/Versions/A/opencv2"
+remote: error: File Example/Pods/OpenCV/opencv2.framework/Versions/A/opencv2 is 332.36 MB; this exceeds GitHub's file size limit of 100.00 MB
+
+命令：git lfs track "大文件路径"   例如：Example/Pods/OpenCV/opencv2.framework/Versions/A/opencv2
+
+3.添加`gitattributes`文件
+git add .gitattributes
+
+4.正常提交Push命令即可
+git add .
+git commit -m "提交记录"
+git push origin master
+
+git lfs push --all origin
+
+
+------------------------------------------------------------------------
+
+删除远端所有提交历史记录，成为干净的新仓库
+
+1.git checkout --orphan temp   检出新分支temp
+
+2.git add -A                   添加全部文件
+
+3.git commit -am "提交记录"
+
+4.git branch -D master         删除分支
+
+5.git barnch -m master         当前分支重命名master
+
+6.git push -f origin master    强制更新仓库
+
+
+------------------------------------------------------------------------
+
+Git 终端BUG
+------------------------------------------------------------------------
+问题1：LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443
+
+取消代理，终端代码：
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+
+------------------------------------------------------------------------
+
+目录结构：tree -L 2 >README.md
+
+KJNetworkPlugin
+├── Docs
+│   ├── BATCH.md
+│   ├── CHAIN.md
+│   └── THIEF.md
+├── GitStandard.md
+├── KJNetworkPlugin
+│   ├── Batch
+│   ├── Chain
+│   ├── Network
+│   └── Plugins
+├── KJNetworkPlugin.podspec
+├── KJNetworkPluginTests
+│   ├── Info.plist
+│   ├── KJNetworkAnslysisPluginTests.m
+│   ├── KJNetworkBatchTests.m
+│   ├── KJNetworkCertificatePluginTests.m
+│   ├── KJNetworkChainTests.m
+│   ├── KJNetworkPluginTests.m
+│   └── KJNetworkThiefPluginTests.m
+├── LICENSE
+├── Pods
+│   ├── AFNetworking
+│   ├── MJExtension
+│   └── YYCache
+└── README.md
+
+
+
+

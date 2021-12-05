@@ -1,0 +1,87 @@
+
+替换正则
+------------------------------------------------------------------------------
+
+https://jayeshkawli.ghost.io/search-and-replace-in-xcode-with-regular-expressions/
+
+例子1：
+---------------------
+正则匹配
+FONT\(([0-9.f]+)\)
+
+替换文本
+[UIFont systemFontOfSize:$1]
+
+待匹配文本
+FONT(14)
+
+---------------------
+
+
+例子2：
+---------------------
+正则匹配
+FONT_Medium\(([0-9.f]+)\)
+
+替换文本
+[UIFont systemFontOfSize:$1 weight:UIFontWeightMedium]
+
+待匹配文本
+FONT_Medium(18.f)
+---------------------
+
+
+例子3：
+---------------------
+正则匹配
+\[STNetworkManager HTTPRequestMethod:STNetworkRequestMethod(.+) ip:kBaseURL path:(@".+") params:(.+) configuration
+
+替换文本
+STNetworkingRequest * request = [[STNetworkingRequest alloc] init];  
+	request.method = STNetworkRequestMethod$1;
+	request.path = $2;
+	request.params = $3;
+	[STNetworkManager HTTPPluginRequest:request configuration
+
+待匹配文本
+[STNetworkManager HTTPRequestMethod:STNetworkRequestMethodGET ip:kBaseURL path:@"/wallet/api/coin/detail" params:params configuration
+
+---------------------
+
+
+例子4：
+---------------------
+正则匹配
+\[STNetworkManager HTTPRequestMethod:\(STNetworkRequestMethod(.+)\) ip:kBaseURL path:(.+) params:(.+) configuration
+
+替换文本
+STNetworkingRequest * request = [[STNetworkingRequest alloc] init];  
+request.method = STNetworkRequestMethod$1;   
+request.path = $2;
+request.params = $3; 
+[STNetworkManager HTTPPluginRequest:request configuration
+
+待匹配文本
+[STNetworkManager HTTPRequestMethod:(STNetworkRequestMethodGET) ip:kBaseURL path:@"/wallet/api/coin/detail" params:params configuration
+
+---------------------
+
+
+例子5：
+---------------------
+正则匹配
+\[\[EOSChainTools shared\] decryptWith:(.+) password:(.+)\]
+
+替换文本
+Decrypt($1, $2)
+
+待匹配文本
+[[EOSChainTools shared] decryptWith:data password:pwd]
+
+---------------------
+
+
+
+
+
+
