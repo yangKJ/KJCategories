@@ -1,0 +1,28 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'KJCategories_Example' do
+  pod 'KJCategories', :path => '../'
+  pod 'KJCategories/Kit', :path => '../'
+  pod 'KJCategories/Foundation', :path => '../'
+  pod 'KJCategories/Opencv', :path => '../'
+  pod 'KJCategories/CustomControl', :path => '../'
+
+  pod 'SnapKit'
+  pod 'Masonry'
+  
+  target 'KJCategories_Tests' do
+    inherit! :search_paths
+  end
+end
+
+## 忽略CocoaPods警告
+inhibit_all_warnings!
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['COMPILER_INDEX_STORE_ENABLE'] = "NO"
+    end
+  end
+end

@@ -1,0 +1,36 @@
+//
+//  ChangeColorViewController.m
+//  KJEmitterView
+//
+//  Created by 杨科军 on 2021/3/20.
+//  https://github.com/YangKJ/KJCategories
+
+#import "ChangeColorViewController.h"
+
+@interface ChangeColorViewController ()
+
+@end
+
+@implementation ChangeColorViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    _weakself;
+    weakself.bottomImageView.image = [weakself.topImageView.image kj_opencvChangeR:-1 g:-1 b:-1];
+    self.kButtonAction = ^{
+        weakself.bottomImageView.image = [weakself.topImageView.image kj_opencvChangeR:-1 g:-1 b:-1];
+    };
+    self.kSliderMoveEnd = ^(CGFloat value) {
+        CGFloat x = 255 * value;
+        CGFloat y = 255 * weakself.bottomSlider.value;
+        weakself.bottomImageView.image = [weakself.topImageView.image kj_opencvChangeR:x g:y b:-1];
+    };
+    self.kSlider2MoveEnd = ^(CGFloat value) {
+        CGFloat x = 255 * weakself.topSlider.value;
+        CGFloat y = 255 * value;
+        weakself.bottomImageView.image = [weakself.topImageView.image kj_opencvChangeR:y g:-1 b:x];
+    };
+}
+
+@end

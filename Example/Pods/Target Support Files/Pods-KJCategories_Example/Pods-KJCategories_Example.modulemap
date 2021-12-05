@@ -1,0 +1,6 @@
+framework module Pods_KJCategories_Example {
+  umbrella header "Pods-KJCategories_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
