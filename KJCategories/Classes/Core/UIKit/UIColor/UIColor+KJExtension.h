@@ -2,10 +2,8 @@
 //  UIColor+KJExtension.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/12/31.
-//  Copyright © 2019 杨科军. All rights reserved.
+//  Created by 77。 on 2019/12/31.
 //  https://github.com/YangKJ/KJCategories
-//  颜色相关扩展
 
 #import <UIKit/UIKit.h>
 
@@ -19,36 +17,38 @@ green:((hex&0xFF00)>>8)/255.0f blue:(hex&0xFF)/255.0f alpha:a]
 #define kRGB(r,g,b)               kRGBA(r,g,b,1.0f)
 
 @interface UIColor (KJExtension)
+
 @property (nonatomic, assign, readonly) CGFloat red;
 @property (nonatomic, assign, readonly) CGFloat green;
 @property (nonatomic, assign, readonly) CGFloat blue;
 @property (nonatomic, assign, readonly) CGFloat alpha;
-@property (nonatomic, assign, readonly) CGFloat hue;/// 色相 -π ~ π
-@property (nonatomic, assign, readonly) CGFloat saturation;/// 饱和度 0 ~ 1
-@property (nonatomic, assign, readonly) CGFloat light;/// 亮度 0 ~ 1
-/// 获取颜色对应的RGBA
+@property (nonatomic, assign, readonly) CGFloat hue;
+@property (nonatomic, assign, readonly) CGFloat saturation;
+@property (nonatomic, assign, readonly) CGFloat light;
+
+/// Get the RGBA corresponding to the color
 - (void)kj_rgba:(CGFloat *)r :(CGFloat *)g :(CGFloat *)b :(CGFloat *)a;
 
-/// 获取颜色对应的色相饱和度和透明度
+/// Get the hue saturation and transparency corresponding to the color
 - (void)kj_HSL:(CGFloat *)hue :(CGFloat *)saturation :(CGFloat *)light;
 
-/// UIColor转16进制字符串
+/// UIColor to hexadecimal string
 - (NSString *)kj_hexString;
-/// UIColor转16进制字符串
+/// UIColor to hexadecimal string
 + (NSString *)hexStringFromColor:(UIColor *)color;
 FOUNDATION_EXPORT NSString * kDoraemonBoxHexStringFromColor(UIColor *color);
 
-/// 16进制字符串转UIColor
-/// @param hexString 十六进制，`0x` 或 `#` 开头也均支持
+/// Convert hexadecimal string to UIColor
+/// @param hexString hexadecimal, the beginning of `0x` or `#` are also supported
 + (UIColor *)colorWithHexString:(NSString *)hexString;
 FOUNDATION_EXPORT UIColor * kDoraemonBoxColorHexString(NSString *hexString);
 
-/// 16进制字符串转UIColor
-/// @param hexString 十六进制，`0x` 或 `#` 开头也均支持
-/// @param alpha 透明度
+/// Convert hexadecimal string to UIColor
+/// @param hexString hexadecimal, the beginning of `0x` or `#` are also supported
+/// @param alpha transparency
 + (UIColor *)colorWithHexString:(NSString *)hexString alpha:(float)alpha;
 
-/// 随机颜色
+/// random color
 FOUNDATION_EXPORT UIColor * kDoraemonBoxRandomColor(void);
 
 @end

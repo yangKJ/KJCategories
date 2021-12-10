@@ -2,8 +2,7 @@
 //  UILabel+KJExtension.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/9/24.
-//  Copyright © 2019 杨科军. All rights reserved.
+//  Created by 77。 on 2019/9/24.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UILabel+KJExtension.h"

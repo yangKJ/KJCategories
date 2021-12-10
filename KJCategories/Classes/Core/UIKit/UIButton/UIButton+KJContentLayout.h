@@ -2,15 +2,13 @@
 //  UIButton+KJContentLayout.h
 //  CategoryDemo
 //
-//  Created by 杨科军 on 2018/7/7.
-//  Copyright © 2018年 杨科军. All rights reserved.
+//  Created by 77。 on 2018/7/7.
 //  https://github.com/YangKJ/KJCategories
-//  图文混排
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/// Button 图文样式
+
 typedef NS_ENUM(NSInteger, KJButtonContentLayoutStyle) {
     KJButtonContentLayoutStyleNormal = 0,       // 内容居中-图左文右
     KJButtonContentLayoutStyleCenterImageRight, // 内容居中-图右文左
@@ -23,23 +21,25 @@ typedef NS_ENUM(NSInteger, KJButtonContentLayoutStyle) {
 };
 IB_DESIGNABLE
 @interface UIButton (KJContentLayout)
-/// 图文样式
-@property(nonatomic,assign)IBInspectable NSInteger layoutType;
-/// 图文间距，默认为0px
-@property(nonatomic,assign)IBInspectable CGFloat padding;
-/// 图文边界的间距，默认为5px
-@property(nonatomic,assign)IBInspectable CGFloat periphery;
 
-/// 设置图文混排，默认图文边界间距5px
-/// @param layoutStyle 图文混排样式
-/// @param padding 图文间距
+/// Graphic style
+@property (nonatomic, assign) IBInspectable NSInteger layoutType;
+/// Picture and text spacing, the default is 0px
+@property (nonatomic, assign) IBInspectable CGFloat padding;
+/// The spacing between the graphic and text borders, the default is 5px
+@property (nonatomic, assign) IBInspectable CGFloat periphery;
+
+/// Set graphics and text mixing, the default border spacing between graphics and text is 5px
+/// @param layoutStyle Graphic and text mixed style
+/// @param padding Image and text spacing
 - (void)kj_contentLayout:(KJButtonContentLayoutStyle)layoutStyle
                  padding:(CGFloat)padding;
-/// 设置图文混排
-/// FIXME: 这样写有个问题就是会破环按钮的自动布局
-/// @param layoutStyle 图文混排样式
-/// @param padding 图文间距
-/// @param periphery 图文边界的间距
+
+/// Set image and text mixing
+/// FIXME: There is a problem with this writing that it will break the automatic layout of the button
+/// @param layoutStyle Graphic and text mixed style
+/// @param padding Image and text spacing
+/// @param periphery The distance between the graphic borders
 - (void)kj_contentLayout:(KJButtonContentLayoutStyle)layoutStyle
                  padding:(CGFloat)padding
                periphery:(CGFloat)periphery;

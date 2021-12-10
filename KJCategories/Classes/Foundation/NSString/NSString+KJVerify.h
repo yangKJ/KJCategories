@@ -3,9 +3,7 @@
 //  KJEmitterView
 //
 //  Created by yangkejun on 2021/8/10.
-//  Copyright © 2021 杨科军. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
-//  验证处理
 
 #import <Foundation/Foundation.h>
 
@@ -13,46 +11,46 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (KJVerify)
 
-/// 是否为纯字母
+/// Is it a pure letter
 @property (nonatomic, assign, readonly) BOOL isPureLetter;
-/// 是否为大写字母
+/// Is it a capital letter
 @property (nonatomic, assign, readonly) BOOL isCapitalLetter;
-/// 是否为小写字母
+/// Is it a lowercase letter
 @property (nonatomic, assign, readonly) BOOL isLowercaseLetter;
-/// 是否为纯汉字
+/// Is it a pure Chinese character
 @property (nonatomic, assign, readonly) BOOL isChineseCharacter;
-/// 是否包含字母
+/// Does it contain letters
 @property (nonatomic, assign, readonly) BOOL isContainLetter;
-/// 是否仅包含字母和数字
+/// Whether it contains only letters and numbers
 @property (nonatomic, assign, readonly) BOOL isLetterAndNumber;
-/// 是否以字母开头
+/// Does it start with a letter
 @property (nonatomic, assign, readonly) BOOL isLettersBegin;
-/// 是否以汉字开头
+/// Whether to start with a Chinese character
 @property (nonatomic, assign, readonly) BOOL isChineseBegin;
 
-/// 过滤空格
+/// Filter spaces
 - (NSString *)kj_filterSpace;
 
-/// 过滤特殊字符
-/// @param character 过滤字符
+/// Filter special characters
+/// @param character filter character
 - (NSString *)kj_removeSpecialCharacter:(NSString * _Nullable)character;
 
-/// 验证字符串中是否有特殊字符
+/// Verify whether there are special characters in the string
 - (BOOL)kj_validateHaveSpecialCharacter;
 
-/// 验证手机号码
+/// Verify mobile phone number
 - (BOOL)kj_validateMobileNumber;
 
-/// 验证邮箱格式
+/// Verify email format
 - (BOOL)kj_validateEmail;
 
-/// 验证身份证
+/// Verify ID
 - (BOOL)kj_validateIDCardNumber;
 
-/// 验证银行卡
+/// Verify bank card
 - (BOOL)kj_validateBankCardNumber;
 
-/// 验证IP地址
+/// Verify IP address
 - (BOOL)kj_validateIPAddress;
 
 @end

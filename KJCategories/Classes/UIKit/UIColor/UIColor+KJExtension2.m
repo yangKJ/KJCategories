@@ -3,7 +3,7 @@
 //  KJEmitterView
 //
 //  Created by 77。 on 2021/10/28.
-//  Copyright © 2021 杨科军. All rights reserved.
+
 //
 
 #import "UIColor+KJExtension2.h"

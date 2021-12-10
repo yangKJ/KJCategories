@@ -4,9 +4,9 @@
 //
 //  Created by 77。 on 2021/11/7.
 //  https://github.com/YangKJ/KJCategories
-//  UIKit功能分类模块，支持分模块导入
 
-//  举个例子导入`贝塞尔曲线模块`，pod 'KJCategories/Kit/UIBezierPath'
+//  Example import `UIBezierPath`:
+//  pod 'KJCategories/Kit/UIBezierPath'
 
 #ifndef KJUIKitHeader_h
 #define KJUIKitHeader_h

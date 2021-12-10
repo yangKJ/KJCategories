@@ -2,8 +2,7 @@
 //  UITextView+KJHyperlink.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/12/4.
-//  Copyright © 2019 杨科军. All rights reserved.
+//  Created by 77。 on 2019/12/4.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UITextView+KJHyperlink.h"
@@ -14,7 +13,7 @@
 
 @interface UITextView ()<UITextViewDelegate>
 
-@property(nonatomic,copy,readwrite) KJTextViewURLHyperlinkBlock withBlock;
+@property (nonatomic, copy, readwrite)  KJTextViewURLHyperlinkBlock withBlock;
 @property(nonatomic,copy) NSArray *URLTemps;
 
 @end

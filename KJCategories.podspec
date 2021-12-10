@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KJCategories'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = '🎸🎸🎸 Common categories for daily development. Such as UIKit, Foundation, OpenCV and more.'
   
   # This description is used to generate tags and improve search results.
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   
   s.homepage         = 'https://github.com/yangKJ/KJCategories'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '77' => 'ykj310@126.com' }
+  s.author           = { 'yangkejun' => 'ykj310@126.com' }
   s.source           = { :git => 'https://github.com/yangKJ/KJCategories.git', :tag => "#{s.version}" }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
   
@@ -129,11 +129,11 @@ Pod::Spec.new do |s|
   
   s.subspec 'CustomControl' do |xx|
     xx.source_files = "KJCategories/Classes/CustomControl/KJCustomControlHeader.h"
-    ## 彩虹渐变滑杆
+    ## Rainbow gradient slider
     xx.subspec 'GradientSlider' do |xxx|
       xxx.source_files = "KJCategories/Classes/CustomControl/GradientSlider/*.{h,m}"
     end
-    ## 开屏粒子动画
+    ## Open screen particle animation
     xx.subspec 'EmitterAnimation' do |xxx|
       xxx.source_files = "KJCategories/Classes/CustomControl/EmitterAnimation/*.{h,m}"
     end

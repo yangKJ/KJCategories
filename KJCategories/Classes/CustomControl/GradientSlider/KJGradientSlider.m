@@ -2,8 +2,7 @@
 //  KJGradientSlider.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/8/24.
-//  Copyright © 2020 杨科军. All rights reserved.
+//  Created by 77。 on 2019/8/24.
 //  https://github.com/YangKJ/KJCategories
 
 #import "KJGradientSlider.h"
@@ -16,7 +15,6 @@
 @property (nonatomic,assign) CGFloat progress;
 @property (nonatomic,readwrite,copy) void(^kValueChangeBlock)(CGFloat progress);
 @property (nonatomic,readwrite,copy) void(^kMoveEndBlock)(CGFloat progress);
-
 
 @end
 

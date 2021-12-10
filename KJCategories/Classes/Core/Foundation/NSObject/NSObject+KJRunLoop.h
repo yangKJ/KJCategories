@@ -2,7 +2,7 @@
 //  NSObject+KJRunLoop.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/12/15.
+//  Created by 77。 on 2019/12/15.
 //  https://github.com/YangKJ/KJCategories
 
 #import <Foundation/Foundation.h>
@@ -11,15 +11,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (KJRunLoop)
 
-/// 常驻线程，线程保活
+/// Resident thread, thread keep alive
 - (void)kj_residentThread:(dispatch_block_t)withBlock;
 
-/// 停止常驻线程
+/// Stop the resident thread
 - (void)kj_stopResidentThread;
 
-/// 空闲时刻执行
-/// @param withBlock 执行回调
-/// @param queue 线程，默认主线程
+/// Execute at idle time
+/// @param withBlock execute callback
+/// @param queue thread, the default main thread
 - (void)kj_performOnLeisure:(dispatch_block_t)withBlock
                       queue:(nullable dispatch_queue_t)queue;
 

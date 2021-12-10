@@ -2,7 +2,7 @@
 //  NSObject+KJDealloc.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/10/29.
+//  Created by 77。 on 2019/10/29.
 //  https://github.com/YangKJ/KJCategories
 
 #import "NSObject+KJDealloc.h"

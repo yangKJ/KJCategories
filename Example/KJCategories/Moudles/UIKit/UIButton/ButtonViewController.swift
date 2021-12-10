@@ -12,6 +12,22 @@ import KJCategories
 
 class ButtonViewController: BaseViewController {
 
+    private lazy var layoutButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage.init(named: "wode_nor"), for: .normal)
+        button.setTitle("Center", for: .normal)
+        button.setTitleColor(UIColor.blue, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.kj_contentLayout(.centerImageTop, padding: 10)
+        button.enlargeClick = 20
+        button.kj_addAction { [weak self] _ in
+            let count: UInt32 = 7//UInt32(ButtonViewController.contentLayoutStyleCount)
+            let style = KJButtonContentLayoutStyle(rawValue: Int(arc4random()%count))
+            self!.layoutButton.kj_contentLayout(style ?? .centerImageTop, padding: 10)
+        }
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
@@ -43,22 +59,4 @@ class ButtonViewController: BaseViewController {
         }
         return KJButtonContentLayoutStyle.RawValue(maxValue)
     }()
-    
-    // MARK: - lazy
-    private lazy var layoutButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage.init(named: "wode_nor"), for: .normal)
-        button.setTitle("居中-图上文下", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        button.kj_contentLayout(.centerImageTop, padding: 10)
-        button.enlargeClick = 20
-        button.kj_addAction { [weak self] _ in
-            let count: UInt32 = 7//UInt32(ButtonViewController.contentLayoutStyleCount)
-            let style = KJButtonContentLayoutStyle(rawValue: Int(arc4random()%count))
-            self!.layoutButton.kj_contentLayout(style ?? .centerImageTop, padding: 10)
-        }
-        return button
-    }()
-    
 }

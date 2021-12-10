@@ -3,35 +3,33 @@
 //  KJEmitterView
 //
 //  Created by 77。 on 2021/10/28.
-//  Copyright © 2021 杨科军. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSUInteger,KJGradietColorType) {
-    KJGradietColorTypeTopToBottom = 0, /// 从上到下
-    KJGradietColorTypeLeftToRight = 1, /// 从左到右
-    KJGradietColorTypeUpLeftToLowRight,/// 从左上到右下
-    KJGradietColorTypeUpRightToLowLeft,/// 从右上到左下
+    KJGradietColorTypeTopToBottom = 0,
+    KJGradietColorTypeLeftToRight = 1,
+    KJGradietColorTypeUpLeftToLowRight,
+    KJGradietColorTypeUpRightToLowLeft,
 };
 @interface UIColor (KJExtension2)
 
-/// 渐变颜色
-/// @param colors 渐变色数组
-/// @param type 渐变类型
-/// @param size 渐变色尺寸
+/// Gradient color
+/// @param colors gradient color array
+/// @param type gradient type
+/// @param size Gradient color size
 + (UIColor *)kj_gradientColorWithColors:(NSArray *)colors
                            gradientType:(KJGradietColorType)type
                                    size:(CGSize)size;
 
-/// 获取颜色的均值
+/// Get the average value of the color
 + (UIColor *)kj_averageColors:(NSArray<UIColor*> *)colors;
 
-/// 获取图片上指定点的颜色
+/// Get the color of the specified point on the picture
 + (UIColor *)kj_colorAtImage:(UIImage *)image Point:(CGPoint)point;
 
-/// 获取ImageView上指定点的图片颜色
+/// Get the image color of the specified point on the ImageView
 + (UIColor *)kj_colorAtImageView:(UIImageView *)imageView Point:(CGPoint)point;
 
 @end

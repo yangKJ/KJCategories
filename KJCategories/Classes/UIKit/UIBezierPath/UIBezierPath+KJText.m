@@ -2,7 +2,7 @@
 //  UIBezierPath+KJText.m
 //  KJCategories
 //
-//  Created by abas on 2021/11/21.
+//  Created by yangkejun on 2021/11/21.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UIBezierPath+KJText.h"

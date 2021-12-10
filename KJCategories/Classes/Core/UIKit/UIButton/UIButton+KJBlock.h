@@ -2,10 +2,8 @@
 //  UIButton+KJBlock.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/4/4.
-//  Copyright © 2019 杨科军. All rights reserved.
+//  Created by 77。 on 2019/4/4.
 //  https://github.com/YangKJ/KJCategories
-//  点击事件ButtonBlock
 
 #import <UIKit/UIKit.h>
 
@@ -14,22 +12,28 @@ typedef void(^KJButtonBlock)(UIButton * kButton);
 IB_DESIGNABLE
 @interface UIButton (KJBlock)
 
-/// 添加点击事件，默认UIControlEventTouchUpInside
+/// Add click event, default UIControlEventTouchUpInside
 - (void)kj_addAction:(void(^)(UIButton * kButton))block;
-/// 添加事件，不支持多枚举形式
+
+/// Add event, does not support multiple enumeration forms
 - (void)kj_addAction:(KJButtonBlock)block forControlEvents:(UIControlEvents)controlEvents;
 
-/// 点击事件间隔，设置非零取消间隔
+/// Click the event interval, set a non-zero cancellation interval
 @property (nonatomic, assign) IBInspectable CGFloat timeInterval;
 
-#pragma mark - 扩大点击域
+#pragma mark - Expand the click field
 
-/// 扩大统一点击域，支持Xib快捷设置
+/// Expand the unified click domain, support Xib quick setting
 @property (nonatomic, assign) IBInspectable CGFloat enlargeClick;
-/// 设置按钮额外热区
+/// Set button extra hot zone
 @property (nonatomic, assign) UIEdgeInsets touchAreaInsets;
-/// 扩大点击域
-@property (nonatomic, copy, readonly) void(^kEnlargeEdge)(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right);
+
+/// Expand the click domain
+/// @param top Top
+/// @param left Left
+/// @param bottom Bottom
+/// @param right Right
+- (void)EnlargeEdgeTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right;
 
 @end
 

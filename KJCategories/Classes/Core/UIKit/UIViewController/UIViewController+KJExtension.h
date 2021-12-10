@@ -3,7 +3,6 @@
 //  KJEmitterView
 //
 //  Created by 77。 on 2021/5/28.
-//  Copyright © 2021 杨科军. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 
 #import <UIKit/UIKit.h>
@@ -12,13 +11,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (KJExtension)
 
-/// 跳转回指定控制器
-/// @param clazz 指定控制器类名
-/// @param complete 成功回调出该控制器
-/// @return 返回是否跳转成功
+/// Jump back to the specified controller
+/// @param clazz specifies the controller class name
+/// @param complete successfully callback out the controller
+/// @return returns whether the jump was successful
 - (BOOL)kj_popTargetViewController:(Class)clazz complete:(void(^)(UIViewController * vc))complete;
 
-/// 切换根视图控制器
+/// Switch the root view controller
 - (void)kj_changeRootViewController:(void(^)(BOOL success))complete;
 
 @end

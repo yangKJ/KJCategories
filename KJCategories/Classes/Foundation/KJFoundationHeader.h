@@ -4,9 +4,9 @@
 //
 //  Created by 77。 on 2021/11/7.
 //  https://github.com/YangKJ/KJCategories
-//  Foundation功能分类模块，支持分模块导入
 
-//  举个例子导入`数组模块`，pod 'KJCategories/Foundation/NSArray'
+//  Example import NSArray:
+//  pod 'KJCategories/Foundation/NSArray'
 
 #ifndef KJFoundationHeader_h
 #define KJFoundationHeader_h

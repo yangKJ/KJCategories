@@ -2,7 +2,7 @@
 //  AnimationViewController.swift
 //  KJCategories_Example
 //
-//  Created by abas on 2021/11/21.
+//  Created by yangkejun on 2021/11/21.
 //  Copyright © 2021 CocoaPods. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 
@@ -11,37 +11,6 @@ import KJCategories
 
 class AnimationViewController: BaseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setupUI()
-    }
-    
-    func setupUI() {
-        let colums: Int = 3
-        let space: CGFloat = 20.0
-        let leading: CGFloat = 20.0
-        let width: CGFloat = (CGFloat(self.view.frame.size.width) -
-                              CGFloat(leading * 2) - CGFloat(colums - 1) * space) / CGFloat(colums)
-        for i in stride(from: 0, to: 10, by: 2) {
-            let view = UIView.init(frame: CGRect(x: CGFloat((i/2) % colums) * (width + space) + leading,
-                                                 y: CGFloat((i/2) / colums) * (width + space) + leading + 100,
-                                                 width: width, height: width))
-            view.backgroundColor = UIColor.green.withAlphaComponent(0.2)
-            view.cornerRadius = 5
-            view.borderWidth = 1
-            view.borderColor = UIColor.green
-            self.view.addSubview(view)
-            
-            let shadow = UIView.init()
-            shadow.frame = view.frame
-            shadow.backgroundColor = UIColor.green.withAlphaComponent(0.2)
-            shadow.shadowColor(UIColor.green, offset: CGSize(width: 10, height: 10), radius: 10)
-            self.view.addSubview(shadow)
-        }
-        self.view.addSubview(self.movingView)
-        self.view.addSubview(self.rotateView)
-    }
-    
     private lazy var movingView: UIView = {
         let view = UIView.init(frame: CGRect(x: 20, y: 0, width: 100, height: 100))
         view.centerY = self.view.centerY + 20
@@ -71,4 +40,37 @@ class AnimationViewController: BaseViewController {
         }
         return view
     }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupUI()
+    }
+    
+    func setupUI() {
+        let colums: Int = 3
+        let space: CGFloat = 20.0
+        let leading: CGFloat = 20.0
+        let width: CGFloat = {
+            let sWidth = UIScreen.main.bounds.width
+            return floor((sWidth - leading * 2 - CGFloat(colums - 1) * space) / CGFloat(colums))
+        }()
+        for i in stride(from: 0, to: 10, by: 2) {
+            let x = ceil(CGFloat((i/2) % colums) * (width + space) + leading)
+            let y = ceil(CGFloat((i/2) / colums) * (width + space) + leading + 100)
+            let view = UIView.init(frame: CGRect(x: x, y: y, width: width, height: width))
+            view.backgroundColor = UIColor.green.withAlphaComponent(0.2)
+            view.cornerRadius = 5
+            view.borderWidth = 1
+            view.borderColor = UIColor.green
+            self.view.addSubview(view)
+            
+            let shadow = UIView.init()
+            shadow.frame = view.frame
+            shadow.backgroundColor = UIColor.green.withAlphaComponent(0.2)
+            shadow.shadowColor(UIColor.green, offset: CGSize(width: 10, height: 10), radius: 10)
+            self.view.addSubview(shadow)
+        }
+        self.view.addSubview(self.movingView)
+        self.view.addSubview(self.rotateView)
+    }
 }

@@ -11,10 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSData (KJExtension)
 
-/// Deflate算法压缩
+/// Deflate algorithm compression
 - (NSData *)kj_zipDeflate;
 
-/// Inflater解压缩，与上面是一对
+/// Inflater decompresses, it is a pair with the above
 - (NSData *)kj_zipInflater;
 
 @end

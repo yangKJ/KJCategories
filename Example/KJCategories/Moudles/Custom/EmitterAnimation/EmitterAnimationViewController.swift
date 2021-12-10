@@ -2,7 +2,7 @@
 //  EmitterAnimationViewController.swift
 //  KJCategories_Example
 //
-//  Created by abas on 2021/11/22.
+//  Created by yangkejun on 2021/11/22.
 //  Copyright © 2021 CocoaPods. All rights reserved.
 //
 
@@ -12,6 +12,27 @@ import KJCategories
 
 class EmitterAnimationViewController: BaseViewController {
 
+    private lazy var emitter: KJEmitterAnimation = {
+        let provider = KJEmitterAnimationProvider.init()
+        provider.dropSpeed = 1.0
+        provider.pixelBeginPoint = CGPoint(x: self.view.centerX, y: 100)
+        let animation = KJEmitterAnimation.create(with: provider, emitterImage: UIImage.init(named: "pikaqiu")!) {
+            print("End")
+        }
+        return animation
+    }()
+    private lazy var resetButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("Reset", for: .normal)
+        button.setTitleColor(UIColor.green, for: .normal)
+        button.backgroundColor = UIColor.green.withAlphaComponent(0.2)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        button.kj_addAction { [weak self] _ in
+            self?.emitter.restart()
+        }
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
@@ -28,25 +49,4 @@ class EmitterAnimationViewController: BaseViewController {
             make.height.equalTo(50)
         }
     }
-    
-    private lazy var emitter: KJEmitterAnimation = {
-        let provider = KJEmitterAnimationProvider.init()
-        provider.dropSpeed = 1.0
-        provider.pixelBeginPoint = CGPoint(x: self.view.centerX, y: 100)
-        let animation = KJEmitterAnimation.create(with: provider, emitterImage: UIImage.init(named: "pikaqiu")!) {
-            print("开屏动画已结束")
-        }
-        return animation
-    }()
-    private lazy var resetButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setTitle("重 置", for: .normal)
-        button.setTitleColor(UIColor.green, for: .normal)
-        button.backgroundColor = UIColor.green.withAlphaComponent(0.2)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        button.kj_addAction { [weak self] _ in
-            self?.emitter.restart()
-        }
-        return button
-    }()
 }

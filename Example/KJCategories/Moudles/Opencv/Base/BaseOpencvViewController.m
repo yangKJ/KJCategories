@@ -2,7 +2,7 @@
 //  BaseOpencvViewController.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2021/3/20.
+//  Created by 77。 on 2021/3/20.
 //  https://github.com/YangKJ/KJCategories
 
 #import "BaseOpencvViewController.h"
@@ -17,11 +17,7 @@
 @implementation BaseOpencvViewController
 
 - (void)dealloc{
-    // 只要控制器执行此方法，代表VC以及其控件全部已安全从内存中撤出。
-    // ARC除去了手动管理内存，但不代表能控制循环引用，虽然去除了内存销毁概念，但引入了新的概念--对象被持有。
-    // 框架在使用后能完全从内存中销毁才是最好的优化
-    // 不明白ARC和内存泄漏的请自行谷歌，此示例已加入内存检测功能，如果有内存泄漏会alent进行提示
-    NSLog(@"控制器%s调用情况，已销毁%@",__func__,self);
+    NSLog(@"Controller %s call status, destroyed %@", __func__,self);
 }
 
 - (void)viewDidLoad {
@@ -46,7 +42,7 @@
         make.kAddBarButtonItemInfo(^(KJNavigationItemInfo * _Nonnull info) {
             info.isLeft = NO;
             info.barButton = ^(UIButton * _Nonnull barButton) {
-                [barButton setTitle:@"分享" forState:(UIControlStateNormal)];
+                [barButton setTitle:@"Share" forState:(UIControlStateNormal)];
                 [barButton setTitleColor:UIColor.blueColor forState:(UIControlStateNormal)];
                 barButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
             };
@@ -97,9 +93,9 @@
         make.height.equalTo(self.topImageView.mas_height);
     }];
     [self.issuesButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).inset(35);
+        make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).inset(10);
         make.left.right.equalTo(self.view).inset(20);
-        make.height.equalTo(@35);
+        make.height.equalTo(@55);
     }];
     [_changeButton kj_updateFrame];
     [_changeButton bezierBorderWithRadius:10 borderWidth:1 borderColor:UIColor.greenColor];
@@ -149,7 +145,7 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info{
     if (!_issuesButton) {
         _issuesButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
         NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc]
-                                              initWithString:@"大家觉得好用还请点个星，遇见什么问题也可issues，持续更新ing.."
+                                              initWithString:@"If you find it easy to use, please click a star. You can also issue any problems you encounter, and continue to update.."
                                               attributes:@{NSForegroundColorAttributeName:UIColor.redColor}];
         [_issuesButton setAttributedTitle:attrStr forState:(UIControlStateNormal)];
         _issuesButton.titleLabel.numberOfLines = 0;

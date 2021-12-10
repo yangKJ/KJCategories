@@ -3,7 +3,6 @@
 //  KJEmitterView
 //
 //  Created by yangkejun on 2021/8/21.
-//  Copyright © 2021 杨科军. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 
 #import <Foundation/Foundation.h>
@@ -14,7 +13,7 @@
 + (void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        // Hook字符串为空时刻做运算处理导致闪退问题
+        // When the Hook string is empty, the operation processing causes the crash problem
         [self kj_exchangeClassMethodWithOriginal:@selector(decimalNumberWithString:)
                                         swizzled:@selector(kj_decimalNumberWithString:)];
         [self kj_exchangeClassMethodWithOriginal:@selector(decimalNumberWithString:locale:)

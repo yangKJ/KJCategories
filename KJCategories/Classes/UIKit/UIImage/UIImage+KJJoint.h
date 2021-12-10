@@ -3,57 +3,57 @@
 //  KJEmitterView
 //
 //  Created by yangkejun on 2020/8/10.
-//  Copyright © 2020 杨科军. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
-//  图片拼接技术
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/// 拼接类型
+/// Splicing type
 typedef NS_ENUM(NSInteger, KJJointImageType) {
-    KJJointImageTypeCustom = 0,/// 正常平铺
-    KJJointImageTypePositively,/// 正斜对花
-    KJJointImageTypeBackslash, /// 反斜对花
-    KJJointImageTypeAcross,    /// 横对花
-    KJJointImageTypeVertical,  /// 竖对花
+    KJJointImageTypeCustom = 0,/// normal tile
+    KJJointImageTypePositively,/// diagonally opposite flowers
+    KJJointImageTypeBackslash, /// Backslash to the flower
+    KJJointImageTypeAcross, /// Horizontal to flower
+    KJJointImageTypeVertical, /// Vertical pair of flowers
 };
 @interface UIImage (KJJoint)
 
-/// 竖直方向拼接随意张图片，固定主图的宽度
-/// @param jointImage 拼接图片组
-/// @return 返回拼接好的图片
+/// Stitch any pictures in the vertical direction and fix the width of the main picture
+/// @param jointImage stitching picture group
+/// @return returns the spliced ​​picture
 - (UIImage *)kj_moreJointVerticalImage:(UIImage *)jointImage,...;
 
-/// 水平方向拼接随意张图片，固定主图的高度
-/// @param jointImage 拼接图片组
-/// @return 返回拼接好的图片
+/// Stitch random pictures in the horizontal direction and fix the height of the main picture
+/// @param jointImage stitching picture group
+/// @return returns the spliced ​​picture
 - (UIImage *)kj_moreJointLevelImage:(UIImage *)jointImage,...;
 
-/// 图片合成
-/// @param loopTimes 重复合成次数
-/// @param orientation 合成方向
-/// @return 返回拼接图
+/// Picture synthesis
+/// @param loopTimes Repeated synthesis times
+/// @param orientation Synthesis direction
+/// @return Return to the mosaic
 - (UIImage *)kj_imageCompoundWithLoopNums:(NSInteger)loopTimes
                               orientation:(UIImageOrientation)orientation;
-/// 水平拼接图片，固定主图高度
-/// @param jointImage 拼接图片，可追加多张以nil结尾
-/// @return 返回拼接图
+
+/// Stitch pictures horizontally, fix the height of the main picture
+/// @param jointImage stitching pictures, you can add multiple pictures ending in nil
+/// @return Return to the mosaic
 - (UIImage *)kj_moreCoreGraphicsJointLevelImage:(UIImage *)jointImage,...;
 
-/// 图片拼接艺术
-/// @param type 拼接类型
-/// @param size 拼接出来图片尺寸
-/// @param maxw 固定拼接图片的宽度
-/// @return 返回拼接图
+/// Picture stitching art
+/// @param type splicing type
+/// @param size stitched out picture size
+/// @param maxw fix the width of the stitched picture
+/// @return Return to the mosaic
 - (UIImage *)kj_jointImageWithJointType:(KJJointImageType)type
                                    size:(CGSize)size
                                maxwidth:(CGFloat)maxw;
-/// 异步图片拼接处理
-/// @param block 回调拼接之后的图片
-/// @param type 拼接类型
-/// @param size 拼接图片尺寸
-/// @param maxw 固定拼接图片的宽度
+
+/// Asynchronous image stitching processing
+/// @param block callback image after stitching
+/// @param type splicing type
+/// @param size stitching picture size
+/// @param maxw fix the width of the stitched picture
 - (void)kj_asyncJointImage:(void(^)(UIImage * image))block
                  jointType:(KJJointImageType)type
                       size:(CGSize)size

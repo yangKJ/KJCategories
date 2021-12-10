@@ -2,10 +2,8 @@
 //  UICollectionView+KJTouch.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/9/18.
-//  Copyright © 2020 杨科军. All rights reserved.
+//  Created by 77。 on 2019/9/18.
 //  https://github.com/YangKJ/KJCategories
-//  获取touch事件处理
 
 #import <UIKit/UIKit.h>
 
@@ -17,10 +15,12 @@ typedef NS_ENUM(NSInteger, KJMoveStateType) {
     KJMoveStateTypeCancelled,
 };
 @interface UICollectionView (KJTouch)
-/// 开启方法交换
-@property(nonatomic,assign) BOOL openExchange;
-/// Touch里面移动回调，需要开启方法交换才处理
-@property(nonatomic,readwrite,copy) void(^moveblock)(KJMoveStateType state,CGPoint point);
+
+/// Open method exchange
+@property (nonatomic, assign) BOOL openExchange;
+
+/// Move callback in Touch, need to open method exchange before processing
+- (void)moveWithBlock:(void(^)(KJMoveStateType state,CGPoint point))withBlock;
 
 @end
 

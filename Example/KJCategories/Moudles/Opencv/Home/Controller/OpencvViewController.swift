@@ -10,8 +10,32 @@ import UIKit
 import SnapKit
 
 class OpencvViewController: BaseViewController {
-
-    var viewModel = OpencvViewModel()
+    
+    private static let opencvCellIdentifier = "opencvCellIdentifier"
+    private let viewModel = OpencvViewModel()
+    
+    private lazy var label: UILabel = {
+        let label = UILabel.init()
+        label.text = "Remarks: This module needs to import the OpenCV, please execute the `pod install` operation first"
+        label.textColor = UIColor.red
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
+    private lazy var tableView: UITableView = {
+        let table = UITableView.init(frame: .zero, style: .plain)
+        table.delegate = self
+        table.dataSource = self
+        table.rowHeight = 44
+        table.sectionHeaderHeight = 0.00001
+        table.sectionFooterHeight = 0.00001
+        table.showsVerticalScrollIndicator = false
+        table.showsHorizontalScrollIndicator = false
+        table.contentInsetAdjustmentBehavior = .always
+        table.register(UITableViewCell.self, forCellReuseIdentifier: OpencvViewController.opencvCellIdentifier)
+        return table
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,31 +56,6 @@ class OpencvViewController: BaseViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(10)
         }
     }
-    
-    // MARK: - lazy
-    private lazy var label: UILabel = {
-        let label = UILabel.init()
-        label.text = "备注提示：该模块需引入OpenCV三方库，请先执行`pod install`操作"
-        label.textColor = UIColor.red
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        return label
-    }()
-    private lazy var tableView: UITableView = {
-        let table = UITableView.init(frame: .zero, style: .plain)
-        table.delegate = self
-        table.dataSource = self
-        table.rowHeight = 44
-        table.sectionHeaderHeight = 0.00001
-        table.sectionFooterHeight = 0.00001
-        table.showsVerticalScrollIndicator = false
-        table.showsHorizontalScrollIndicator = false
-        table.contentInsetAdjustmentBehavior = .always
-        table.register(UITableViewCell.self, forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
-        return table
-    }()
-
 }
 
 // MARK: - UITableViewDataSource,UITableViewDelegate
@@ -70,15 +69,15 @@ extension OpencvViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell.init(style: .value1, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
+        let dict = self.viewModel.datas[indexPath.row]
+        let cell = UITableViewCell.init(style: .value1, reuseIdentifier: OpencvViewController.opencvCellIdentifier)
         cell.selectionStyle = .none
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.textColor = UIColor.blue
-        cell.textLabel?.text = (NSString.init(format: "%d. ", indexPath.row+1) as String) +
-        (viewModel.datas[indexPath.row]["class"] as! String)
+        cell.textLabel?.text = "\(indexPath.row + 1). " + (dict["class"] as! String)
         cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
         cell.detailTextLabel?.textColor = UIColor.blue.withAlphaComponent(0.6)
-        cell.detailTextLabel?.text = (viewModel.datas[indexPath.row]["describeName"] as! String)
+        cell.detailTextLabel?.text = (dict["describeName"] as! String)
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 13)
         return cell
     }
@@ -87,7 +86,7 @@ extension OpencvViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let className = viewModel.datas[indexPath.row]["class"] as! String
         var clazz: AnyClass? = NSClassFromString(className)
-        if (clazz == nil) {// Swift类需要命名空间
+        if (clazz == nil) {// Swift classes require namespace
             let nameSpace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
             clazz = NSClassFromString(nameSpace + "." + className)
         }
@@ -97,7 +96,5 @@ extension OpencvViewController: UITableViewDataSource, UITableViewDelegate {
         let vc = typeClass.init()
         vc.title = (viewModel.datas[indexPath.row]["describeName"] as! String)
         self.navigationController?.pushViewController(vc, animated: true)
-
     }
-
 }

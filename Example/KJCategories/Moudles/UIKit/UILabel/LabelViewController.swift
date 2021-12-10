@@ -2,7 +2,7 @@
 //  LabelViewController.swift
 //  KJCategories_Example
 //
-//  Created by abas on 2021/11/21.
+//  Created by yangkejun on 2021/11/21.
 //  Copyright © 2021 CocoaPods. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 
@@ -12,16 +12,12 @@ import KJCategories
 
 class LabelViewController: BaseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setupUI()
-    }
-    
+    private var lastLabel: UILabel? = nil
     public var names: [String] {
         return [
-            "左上","中上","右上",
-            "左边","中间","右边",
-            "左下","中下","右下",
+            "Upper Left", "Upper Middle", "Upper Right",
+            "Left", "Middle", "Right",
+            "Lower left", "lower middle", "lower right",
         ]
     }
     public var types: [KJLabelTextAlignmentType] {
@@ -38,7 +34,34 @@ class LabelViewController: BaseViewController {
         ]
     }
     
-    private var lastLabel: UILabel? = nil
+    private lazy var copyLabel: UILabel = {
+        let label = UILabel.init()
+        label.text = "Turn on long press to copy."
+        label.textColor = UIColor.orange
+        label.backgroundColor = UIColor.orange.withAlphaComponent(0.3)
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.copyable = true
+        return label
+    }()
+    
+    private lazy var tapLabel: UILabel = {
+        let label = UILabel.init()
+        label.text = "This is to test the text content of the click event, `click me`, anything can be used to do the click effect, such as text, numbers, letters, links, etc."
+        label.textColor = UIColor.orange
+        label.backgroundColor = UIColor.orange.withAlphaComponent(0.3)
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.numberOfLines = 0
+        let array = ["click event", "`click me`", "anything"]
+        label.kj_addAttributeTapAction(with: array) { _, text, _, index in
+            print("content:\(text)，index:\(index)")
+        }
+        return label
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupUI()
+    }
     
     func setupUI() {
         self.createSudoku()
@@ -55,7 +78,9 @@ class LabelViewController: BaseViewController {
             make.height.equalTo(60)
         }
     }
+}
 
+extension LabelViewController {
     /// 创建九宫格
     private func createSudoku() {
         let colums: Int = 3
@@ -88,28 +113,4 @@ class LabelViewController: BaseViewController {
             }
         }
     }
-    
-    private lazy var copyLabel: UILabel = {
-        let label = UILabel.init()
-        label.text = "开启拷贝功能 - 长按拷贝文本内容"
-        label.textColor = UIColor.orange
-        label.backgroundColor = UIColor.orange.withAlphaComponent(0.3)
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.copyable = true
-        return label
-    }()
-    
-    private lazy var tapLabel: UILabel = {
-        let label = UILabel.init()
-        label.text = "这是测试点击事件的文本内容，`点我`，什么都可以用来做点击效果，例如文本、数字、字母、链接等等"
-        label.textColor = UIColor.orange
-        label.backgroundColor = UIColor.orange.withAlphaComponent(0.3)
-        label.font = UIFont.systemFont(ofSize: 15)
-        label.numberOfLines = 0
-        let array = ["点击事件","`点我`","什么都可以"]
-        label.kj_addAttributeTapAction(with: array) { _, text, _, index in
-            print("显示内容:\(text)，index:\(index)")
-        }
-        return label
-    }()
 }

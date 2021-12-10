@@ -2,7 +2,7 @@
 //  UITabBar+KJBadge.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/11/5.
+//  Created by 77。 on 2019/11/5.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UITabBar+KJBadge.h"

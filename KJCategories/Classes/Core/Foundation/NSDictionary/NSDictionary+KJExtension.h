@@ -2,7 +2,7 @@
 //  NSDictionary+KJExtension.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/11/6.
+//  Created by 77。 on 2019/11/6.
 //  https://github.com/YangKJ/KJCategories
 
 #import <Foundation/Foundation.h>
@@ -10,27 +10,37 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDictionary (KJExtension)
-/// 是否为空
+
+/// Is it empty
 @property (nonatomic, assign, readonly) BOOL isEmpty;
-/// 转换为Josn字符串
+
+/// Convert to Josn string
 @property (nonatomic, strong, readonly) NSString * jsonString;
-/// 是否包含某个key
+
+/// Does it contain a key
 - (BOOL)kj_containsKey:(NSString *)key;
-/// 字典键名排序，升序排列
+
+/// Sort by dictionary key name, in ascending order
 - (NSArray<NSString *> *)kj_keysSorted;
-/// 字典键名排序，降序排列
+
+/// Sort by dictionary key name, sort in descending order
 - (NSArray<NSString *> *)kj_keySortDescending;
-/// 快速遍历字典
-/// @param apply 遍历事件，返回yes即需要该值
-/// @return 返回满足条件键
+
+/// Quickly traverse the dictionary
+/// @param apply traverse the event, return yes to need the value
+/// @return returns the key that satisfies the condition
 - (NSArray<NSString *> *)kj_applyDictionaryValue:(BOOL(^)(id value, BOOL * stop))apply;
-/// 映射字典
+
+/// mapping dictionary
 - (NSDictionary *)kj_mapDictionary:(BOOL(^)(NSString * key, id value))map;
-/// 合并字典
+
+/// merge dictionary
 - (NSDictionary *)kj_mergeDictionary:(NSDictionary *)dictionary;
-/// 字典选择器
+
+/// Dictionary selector
 - (NSDictionary *)kj_pickForKeys:(NSArray<NSString *> *)keys;
-/// 字典移除器
+
+/// Dictionary remover
 - (NSDictionary *)kj_omitForKeys:(NSArray<NSString *> *)keys;
 
 @end

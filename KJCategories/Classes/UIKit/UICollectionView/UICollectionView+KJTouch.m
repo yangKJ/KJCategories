@@ -2,8 +2,7 @@
 //  UICollectionView+KJTouch.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/9/18.
-//  Copyright © 2020 杨科军. All rights reserved.
+//  Created by 77。 on 2019/9/18.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UICollectionView+KJTouch.h"
@@ -23,6 +22,11 @@
         [UICollectionView kj_collectionViewSwizzleMethod:@selector(touchesCancelled:withEvent:) Method:@selector(kj_touchesCancelled:withEvent:)];
     });
 }
+/// Move callback in Touch, need to open method exchange before processing
+- (void)moveWithBlock:(void(^)(KJMoveStateType state,CGPoint point))withBlock{
+    self.moveblock = withBlock;
+}
+
 - (void(^)(KJMoveStateType state,CGPoint point))moveblock{
     return objc_getAssociatedObject(self, _cmd);
 }

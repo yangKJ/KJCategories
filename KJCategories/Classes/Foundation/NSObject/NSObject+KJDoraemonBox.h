@@ -2,9 +2,8 @@
 //  NSObject+KJDoraemonBox.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/10/29.
+//  Created by 77。 on 2019/10/29.
 //  https://github.com/YangKJ/KJCategories
-//  哆啦A梦百宝箱
 
 #import <Foundation/Foundation.h>
 
@@ -12,38 +11,39 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (KJDoraemonBox)
 
-#pragma mark - 轻量级解耦工具（信号方式）
-/// 发送消息处理
+/// Send message processing
 - (id)kj_sendSemaphoreWithKey:(NSString *)key
                       Message:(id)message
                     Parameter:(id _Nullable)parameter;
-/// 接收消息处理
+/// Receive message processing
 - (void)kj_receivedSemaphoreBlock:(id _Nullable(^)(NSString * key, id message, id _Nullable parameter))block;
 
-#pragma mark - 路由框架（基于URL实现控制器转场）
-/// 注册路由URL
+#pragma mark - routing framework
+/// Register routing URL
 + (void)kj_routerRegisterWithURL:(NSURL *)URL
                            Block:(UIViewController * (^)(NSURL * URL, UIViewController * vc))block;
-/// 移除路由URL
+
+/// Remove routing URL
 + (void)kj_routerRemoveWithURL:(NSURL *)URL;
-/// 执行跳转处理
+
+/// Execute jump processing
 + (void)kj_routerTransferWithURL:(NSURL *)URL
                           source:(UIViewController *)vc;
 + (void)kj_routerTransferWithURL:(NSURL *)URL
                           source:(UIViewController *)vc
                       completion:(void(^_Nullable)(UIViewController * vc))completion;
-/// 解析获取参数
+/// Analyze to obtain parameters
 + (NSDictionary *)kj_analysisParameterGetQuery:(NSURL *)URL;
 
-#pragma mark - 安全数据处理
+#pragma mark - Secure data processing
 
-/// 安全非空数据转换，目前支持数组、字典、数字对象、字符串
-/// @return 处理之后的对象，NSNull转换为空字符串
+/// Safe non-empty data conversion, currently supports arrays, dictionaries, digital objects, and strings
+/// @return After processing the object, NSNull is converted to an empty string
 - (id)kj_safeObject;
 
-/// 偷懒专用，自动生成属性代码
+/// Special for laziness, automatically generate attribute code
 - (void)kj_autoCreatePropertyCodeWithJson:(id)json;
-/// 模型转换，支持二级和关键字替换
+/// Model conversion, support secondary and keyword substitution
 + (__kindof NSObject *)kj_modelTransformJson:(id)json;
 
 @end

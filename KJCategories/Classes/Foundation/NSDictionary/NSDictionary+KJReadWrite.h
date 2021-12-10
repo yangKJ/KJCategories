@@ -2,7 +2,7 @@
 //  NSDictionary+KJReadWrite.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/11/6.
+//  Created by 77。 on 2019/11/6.
 //  https://github.com/YangKJ/KJCategories
 
 #import <Foundation/Foundation.h>
@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDictionary (KJReadWrite)
 
-/// 读取本地Plist文件
+/// Read local Plist file
 + (NSDictionary *)plistWithName:(NSString *)name;
 
 #pragma mark - NSDictionary

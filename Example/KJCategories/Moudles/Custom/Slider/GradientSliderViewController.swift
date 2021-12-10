@@ -2,7 +2,7 @@
 //  GradientSliderViewController.swift
 //  KJCategories_Example
 //
-//  Created by abas on 2021/11/21.
+//  Created by yangkejun on 2021/11/21.
 //  Copyright © 2021 CocoaPods. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 
@@ -12,26 +12,6 @@ import KJCategories
 
 class GradientSliderViewController: BaseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setupUI()
-    }
-    
-    func setupUI() {
-        self.view.addSubview(self.slider)
-        self.view.addSubview(self.rainbowSlider)
-        self.slider.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
-            make.left.right.equalTo(self.view).inset(30)
-            make.height.equalTo(30)
-        }
-        self.rainbowSlider.snp.makeConstraints { make in
-            make.top.equalTo(self.slider.snp.bottom).offset(30)
-            make.left.right.equalTo(self.view).inset(30)
-            make.height.equalTo(30)
-        }
-    }
-    
     private lazy var slider: KJGradientSlider = {
         let slider = KJGradientSlider.init()
         slider.value = 0.5
@@ -68,4 +48,23 @@ class GradientSliderViewController: BaseViewController {
         return slider
     }()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupUI()
+    }
+    
+    func setupUI() {
+        self.view.addSubview(self.slider)
+        self.view.addSubview(self.rainbowSlider)
+        self.slider.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.left.right.equalTo(self.view).inset(30)
+            make.height.equalTo(30)
+        }
+        self.rainbowSlider.snp.makeConstraints { make in
+            make.top.equalTo(self.slider.snp.bottom).offset(30)
+            make.left.right.equalTo(self.view).inset(30)
+            make.height.equalTo(30)
+        }
+    }
 }

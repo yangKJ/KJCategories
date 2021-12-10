@@ -3,7 +3,6 @@
 //  KJEmitterView
 //
 //  Created by yangkejun on 2021/9/6.
-//  Copyright © 2021 杨科军. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UIView+KJKeyboard.h"
@@ -12,7 +11,6 @@
 @implementation UIView (KJKeyboard)
 
 - (void)kj_automaticFollowKeyboard:(UIView *)mainView{
-    //监听键盘通知
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(kj_showKeyboard:)
                                                  name:UIKeyboardWillShowNotification
@@ -55,7 +53,7 @@
         if ((bottom+extraHeight) > keyboardFrame.origin.y) {
             [UIView animateWithDuration:duration delay:0 options:option animations:^{
                 CGRect frame = self.mainView.frame;
-                frame.origin.y = -(bottom - keyboardFrame.origin.y);
+                frame.origin.y = - (bottom - keyboardFrame.origin.y);
                 self.mainView.frame = frame;
             } completion:^(BOOL finished) {
                 [self layoutIfNeeded];

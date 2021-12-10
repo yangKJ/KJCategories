@@ -3,9 +3,7 @@
 //  KJEmitterView
 //
 //  Created by yangkejun on 2021/9/6.
-//  Copyright © 2021 杨科军. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
-//  键盘监听
 
 #import <UIKit/UIKit.h>
 
@@ -13,15 +11,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (KJKeyboard)
 
-/// 根据键盘的弹出与收回，自动调整控件位置，防止键盘遮挡输入框
-/// 使用示例：[self.textField kj_automaticFollowKeyboard:self.view]
-/// @param mainView 要移动的主视图
+/// Automatically adjust the position of the control according to the pop-up and retraction of the keyboard to prevent the keyboard from blocking the input box
+/// Usage example: [self.textField kj_automaticFollowKeyboard:self.view]
+/// @param mainView The main view to be moved
 - (void)kj_automaticFollowKeyboard:(UIView *)mainView;
 
-/// 添加收起键盘的手势
+/// Add a gesture to retract the keyboard
 - (void)kj_addHideKeyboardGesture;
 
-/// 释放监听键盘的通知
+/// Release the notification of the monitor keyboard
 - (void)kj_releaseKeyboardNotification;
 
 @end

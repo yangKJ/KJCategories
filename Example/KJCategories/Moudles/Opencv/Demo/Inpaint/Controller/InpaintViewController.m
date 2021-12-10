@@ -2,7 +2,7 @@
 //  InpaintViewController.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2021/3/22.
+//  Created by 77。 on 2021/3/22.
 //
 
 #import "InpaintViewController.h"

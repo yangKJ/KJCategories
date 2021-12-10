@@ -3,7 +3,6 @@
 //  KJEmitterView
 //
 //  Created by 77。 on 2021/10/28.
-//  Copyright © 2021 杨科军. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UILabel+KJExtension2.h"
@@ -118,14 +117,6 @@
         objc_setAssociatedObject(self, @selector(copyGesture), gesture, OBJC_ASSOCIATION_RETAIN);
     }
     return gesture;
-}
-
-#pragma mark - 下拉菜单
-/// 下拉菜单扩展
-- (UITableView*)kj_dropdownMenuTexts:(NSArray<NSString*>*)texts MaxHeight:(CGFloat)height selectText:(void(^)(NSString *string))block{
-    UITableView *tableView;
-    tableView.rowHeight = 30;
-    return tableView;
 }
 
 @end

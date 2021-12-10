@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,11 +18,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="zuqiu" translatesAutoresizingMaskIntoConstraints="NO" id="RFT-fo-FgQ">
-                    <rect key="frame" x="-1" y="110" width="377" height="377"/>
+                    <rect key="frame" x="-1" y="153.66666666666663" width="377" height="377"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="RFT-fo-FgQ" secondAttribute="height" multiplier="1:1" id="vOO-fx-wkg"/>
                     </constraints>
@@ -37,7 +39,7 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <button opaque="NO" tag="520" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdR-4g-Va4">
-                    <rect key="frame" x="10" y="10" width="51" height="30"/>
+                    <rect key="frame" x="10" y="54" width="51" height="30"/>
                     <color key="backgroundColor" red="0.97942632439999999" green="0.18941727280000001" blue="0.0019874030259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="cdR-4g-Va4" secondAttribute="height" multiplier="17:10" id="M8r-Z6-QPZ"/>
@@ -52,7 +54,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="521" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQE-wy-4w5">
-                    <rect key="frame" x="71" y="10" width="50.5" height="30"/>
+                    <rect key="frame" x="71" y="54" width="50.666666666666657" height="30"/>
                     <color key="backgroundColor" red="1" green="0.50824494890000005" blue="0.2097883941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -64,7 +66,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="522" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKw-n9-DH3">
-                    <rect key="frame" x="131.5" y="10" width="51" height="30"/>
+                    <rect key="frame" x="131.66666666666666" y="54" width="51" height="30"/>
                     <color key="backgroundColor" red="0.97942632439999999" green="0.88959157859107119" blue="0.18163040100706032" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -76,7 +78,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="523" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9A-EQ-LZf">
-                    <rect key="frame" x="192.5" y="10" width="51" height="30"/>
+                    <rect key="frame" x="192.66666666666666" y="54" width="50.666666666666657" height="30"/>
                     <color key="backgroundColor" red="0.24048520008346477" green="0.97942632439999999" blue="0.13677679609907475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -88,7 +90,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="524" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghn-pI-t72">
-                    <rect key="frame" x="253.5" y="10" width="50.5" height="30"/>
+                    <rect key="frame" x="253.33333333333337" y="54" width="51" height="30"/>
                     <color key="backgroundColor" red="0.24362348343357998" green="0.97942632439999999" blue="0.85953518911978188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -100,7 +102,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="525" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gss-bx-xre">
-                    <rect key="frame" x="314" y="10" width="51" height="30"/>
+                    <rect key="frame" x="314.33333333333331" y="54" width="50.666666666666686" height="30"/>
                     <color key="backgroundColor" red="0.09886406666" green="0.1446794719" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -112,13 +114,13 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTf-dk-pNk">
-                    <rect key="frame" x="289" y="43" width="66" height="44"/>
+                    <rect key="frame" x="289" y="87" width="66" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="HbK-gm-qkp"/>
                         <constraint firstAttribute="width" constant="66" id="u0y-93-aXM"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title=" 后退">
+                    <state key="normal" title="Back">
                         <color key="titleColor" red="0.44206857681274414" green="0.78682905435562134" blue="0.69745922088623047" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -131,7 +133,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="526" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FG4-Rm-mzL">
-                    <rect key="frame" x="10" y="50" width="51" height="30"/>
+                    <rect key="frame" x="10" y="94" width="51" height="29.666666666666671"/>
                     <color key="backgroundColor" red="0.69234569264492252" green="0.17668743938748774" blue="0.97942632439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -143,7 +145,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="527" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Vv-Ob-CQ2">
-                    <rect key="frame" x="71" y="50" width="50.5" height="30"/>
+                    <rect key="frame" x="71" y="94" width="50.666666666666657" height="29.666666666666671"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -155,7 +157,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="528" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QqN-Y6-5Dg">
-                    <rect key="frame" x="131.5" y="50" width="51" height="30"/>
+                    <rect key="frame" x="131.66666666666666" y="94" width="51" height="29.666666666666671"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -167,7 +169,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="529" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3k-wK-PQD">
-                    <rect key="frame" x="192.5" y="50" width="51" height="30"/>
+                    <rect key="frame" x="192.66666666666666" y="94" width="50.666666666666657" height="29.666666666666671"/>
                     <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -178,9 +180,9 @@
                         <action selector="changeColor:" destination="-1" eventType="touchUpInside" id="AUq-jK-UT1"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基于扫描线的泛洪算法，获取填充同颜色区域后的图片" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuT-0y-azn">
-                    <rect key="frame" x="20" y="517" width="335" height="37"/>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flooding algorithm based on scan line to obtain the picture after filling the same color area" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuT-0y-azn">
+                    <rect key="frame" x="20" y="560.66666666666663" width="335" height="57"/>
+                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                     <color key="textColor" red="0.020782118660000001" green="0.67566406729999995" blue="0.68194687369999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>

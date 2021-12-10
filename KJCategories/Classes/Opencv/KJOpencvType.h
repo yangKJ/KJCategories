@@ -2,9 +2,8 @@
 //  KJOpencvType.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2021/3/20.
+//  Created by 77。 on 2021/3/20.
 //  https://github.com/YangKJ/KJCategories
-//  枚举文件夹
 
 #ifndef KJOpencvType_h
 #define KJOpencvType_h
@@ -16,14 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 //  |      |
 //  |      |
 //  D ---- C
-// 透视选区四点，样式如上
+// Four points of perspective selection, the style is as above
 typedef struct KJKnownPoints {
     CGPoint PointA;
     CGPoint PointB;
     CGPoint PointC;
     CGPoint PointD;
 } KJKnownPoints;
-// 线条，start -> end
+// line, start -> end
 typedef struct KJLine {
     CGPoint start;
     CGPoint end;
@@ -45,13 +44,13 @@ NS_INLINE KJKnownPoints KJKnownPointsMake(CGPoint A, CGPoint B, CGPoint C, CGPoi
     points.PointD = D;
     return points;
 }
-/// 形态学操作
+/// Morphological operation
 typedef NS_ENUM(NSInteger, KJOpencvMorphologyStyle) {
-    KJOpencvMorphologyStyleOPEN = 0,/// 开操作，先腐蚀后膨胀，可以去掉小的对象
-    KJOpencvMorphologyStyleCLOSE,   /// 闭操作，先膨胀后腐蚀，可以填补小洞
-    KJOpencvMorphologyStyleGRADIENT,/// 形态学梯度，膨胀减去腐蚀
-    KJOpencvMorphologyStyleTOPHAT,  /// 顶帽，源图像与开操作之间的差值
-    KJOpencvMorphologyStyleBLACKHAT /// 黑帽，闭操作与源图像之间的差值
+    KJOpencvMorphologyStyleOPEN = 0,/// Open operation, first corroded and then expanded, small objects can be removed
+    KJOpencvMorphologyStyleCLOSE,   /// Close operation, first expand and then corrode, can fill small holes
+    KJOpencvMorphologyStyleGRADIENT,/// Morphology gradient, expansion minus corrosion
+    KJOpencvMorphologyStyleTOPHAT,  /// Top hat, the difference between the source image and the open operation
+    KJOpencvMorphologyStyleBLACKHAT /// Black hat, the difference between the closing operation and the source image
 };
 
 #endif /* KJOpencvType_h */

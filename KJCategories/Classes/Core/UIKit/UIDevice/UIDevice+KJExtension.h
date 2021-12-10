@@ -2,7 +2,7 @@
 //  UIDevice+KJExtension.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/3/17.
+//  Created by 77。 on 2019/3/17.
 //  https://github.com/YangKJ/KJCategories
 
 #import <UIKit/UIKit.h>
@@ -11,17 +11,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIDevice (KJExtension)
 
-/// App版本号
+/// App version number
 @property (nonatomic,strong,class) NSString *appCurrentVersion;
-/// App名称
+/// App name
 @property (nonatomic,strong,class) NSString *appName;
-/// 手机UUID
+/// Mobile phone UUID
 @property (nonatomic,strong,class) NSString *deviceID;
-/// 获取App图标
+/// Get App icon
 @property (nonatomic,strong,class) UIImage *appIcon;
-/// 获取启动页图片
+/// Get start page picture
 @property (nonatomic,strong,class) UIImage *launchImage;
-/// 判断相机是否可用
+/// Determine whether the camera is available
 @property (nonatomic,assign,class) BOOL cameraAvailable;
 
 @end

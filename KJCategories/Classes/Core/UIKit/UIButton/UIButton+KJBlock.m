@@ -2,8 +2,7 @@
 //  UIButton+KJBlock.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/4/4.
-//  Copyright © 2019 杨科军. All rights reserved.
+//  Created by 77。 on 2019/4/4.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UIButton+KJBlock.h"
@@ -111,14 +110,13 @@ static void kExceptionMethodSwizzling(Class clazz, SEL original, SEL swizzled){
     objc_setAssociatedObject(self, &leftNameKey, [NSNumber numberWithFloat:enlargeClick], OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 static char topNameKey,bottomNameKey,leftNameKey,rightNameKey;
-- (void (^)(CGFloat, CGFloat, CGFloat, CGFloat))kEnlargeEdge{
-    return ^(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right){
-        objc_setAssociatedObject(self, &topNameKey, [NSNumber numberWithFloat:top], OBJC_ASSOCIATION_COPY_NONATOMIC);
-        objc_setAssociatedObject(self, &rightNameKey, [NSNumber numberWithFloat:right], OBJC_ASSOCIATION_COPY_NONATOMIC);
-        objc_setAssociatedObject(self, &bottomNameKey, [NSNumber numberWithFloat:bottom], OBJC_ASSOCIATION_COPY_NONATOMIC);
-        objc_setAssociatedObject(self, &leftNameKey, [NSNumber numberWithFloat:left], OBJC_ASSOCIATION_COPY_NONATOMIC);
-    };
+- (void)EnlargeEdgeTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right{
+    objc_setAssociatedObject(self, &topNameKey, [NSNumber numberWithFloat:top], OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, &rightNameKey, [NSNumber numberWithFloat:right], OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, &bottomNameKey, [NSNumber numberWithFloat:bottom], OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, &leftNameKey, [NSNumber numberWithFloat:left], OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
+
 - (CGRect)enlargedRect{
     NSNumber *top = objc_getAssociatedObject(self, &topNameKey);
     NSNumber *right = objc_getAssociatedObject(self, &rightNameKey);

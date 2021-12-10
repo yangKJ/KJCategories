@@ -2,7 +2,7 @@
 //  NSObject+KJGCDBox.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/3/17.
+//  Created by 77。 on 2019/3/17.
 //  https://github.com/YangKJ/KJCategories
 
 #import "NSObject+KJGCDBox.h"

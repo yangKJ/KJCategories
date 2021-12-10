@@ -4,10 +4,12 @@
 //
 //  Created by 77。 on 2021/11/7.
 //  https://github.com/YangKJ/KJCategories
-//  项目常用核心分类
+//
 
 #ifndef KJCoreHeader_h
 #define KJCoreHeader_h
+
+/// Commonly used core categories of projects.
 
 #if __has_include(<KJCategories/KJCoreHeader.h>)
 #import <KJCategories/UIButton+KJBlock.h>

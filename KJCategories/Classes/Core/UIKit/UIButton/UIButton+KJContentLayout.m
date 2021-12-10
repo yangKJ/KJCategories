@@ -2,8 +2,7 @@
 //  UIButton+KJContentLayout.m
 //  CategoryDemo
 //
-//  Created by 杨科军 on 2018/7/7.
-//  Copyright © 2018年 杨科军. All rights reserved.
+//  Created by 77。 on 2018/7/7.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UIButton+KJContentLayout.h"

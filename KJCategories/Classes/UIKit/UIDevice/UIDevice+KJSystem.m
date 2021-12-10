@@ -2,7 +2,7 @@
 //  UIDevice+KJSystem.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/10/23.
+//  Created by 77。 on 2019/10/23.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UIDevice+KJSystem.h"

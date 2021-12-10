@@ -3,7 +3,6 @@
 //  KJEmitterView
 //
 //  Created by yangkejun on 2020/8/10.
-//  Copyright © 2020 杨科军. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UIButton+KJIndicator.h"

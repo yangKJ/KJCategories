@@ -2,8 +2,8 @@
 //  UINavigationBar+KJExtension.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2018/12/1.
-//  Copyright © 2018 杨科军. All rights reserved.
+//  Created by 77。 on 2018/12/1.
+//  Copyright © 2018 77。. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UINavigationBar+KJExtension.h"

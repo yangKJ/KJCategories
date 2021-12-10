@@ -3,7 +3,6 @@
 //  KJEmitterView
 //
 //  Created by yangkejun on 2021/9/3.
-//  Copyright © 2021 杨科军. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 
 #import "NSString+KJPasswordLevel.h"

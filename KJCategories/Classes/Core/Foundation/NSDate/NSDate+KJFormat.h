@@ -2,7 +2,7 @@
 //  NSDate+KJFormat.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/12/16.
+//  Created by 77。 on 2019/12/16.
 //  https://github.com/YangKJ/KJCategories
 
 #import <Foundation/Foundation.h>
@@ -11,27 +11,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDate (KJFormat)
 
-/// 将日期转化为本地时间
+/// Convert date to local time
 - (NSDate *)kj_localeDate;
 
-/// 时间字符串转位NSDate，格式@"yyyy-MM-dd HH:mm:ss"
+/// Time string conversion NSDate, format @"yyyy-MM-dd HH:mm:ss"
 + (NSDate *)kj_dateFromString:(NSString *)string;
 
-/// 时间字符串转NSDate
-/// @param string 时间字符串
-/// @param format 时间格式
+/// Time string to NSDate
+/// @param string time string
+/// @param format time format
 + (NSDate *)kj_dateFromString:(NSString *)string format:(NSString *)format;
 
-/// 获取当前时间戳，是否为毫秒
+/// Get the current timestamp, whether it is milliseconds
 + (NSTimeInterval)kj_currentTimetampWithMsec:(BOOL)msec;
 
-/// 时间戳转时间，内部判断是毫秒还是秒
-/// @param timestamp 时间戳
-/// @param format 时间格式
+/// Timestamp to time, internal judgment is milliseconds or seconds
+/// @param timestamp timestamp
+/// @param format time format
 + (NSString *)kj_timeWithTimestamp:(NSTimeInterval)timestamp format:(NSString *)format;
 
-/// 获取指定时间UTC时间戳
-/// @param timeString 指定时间
+/// Get the UTC timestamp of the specified time
+/// @param timeString specifies the time
 + (NSTimeInterval)kj_timeStampUTCWithTimeString:(NSString *)timeString;
 
 @end

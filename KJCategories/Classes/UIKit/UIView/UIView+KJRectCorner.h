@@ -2,92 +2,98 @@
 //  UIView+KJRectCorner.h
 //  CategoryDemo
 //
-//  Created by 杨科军 on 2018/7/12.
-//  Copyright © 2018年 杨科军. All rights reserved.
+//  Created by 77。 on 2018/7/12.
 //  https://github.com/YangKJ/KJCategories
-//  进阶版圆角和边框扩展
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_OPTIONS(NSInteger, KJBorderOrientationType) {
-    KJBorderOrientationTypeUnknown= 1 << 0,/// 未知边
-    KJBorderOrientationTypeTop    = 1 << 1,/// 上边
-    KJBorderOrientationTypeBottom = 1 << 2,/// 下边
-    KJBorderOrientationTypeLeft   = 1 << 3,/// 左边
-    KJBorderOrientationTypeRight  = 1 << 4,/// 右边
+    KJBorderOrientationTypeUnknown = 1 << 0,/// unknown edge
+    KJBorderOrientationTypeTop = 1 << 1,    /// top
+    KJBorderOrientationTypeBottom = 1 << 2, /// bottom
+    KJBorderOrientationTypeLeft = 1 << 3,   /// left
+    KJBorderOrientationTypeRight = 1 << 4,  /// right
 };
 @interface UIView (KJRectCorner)
 
-#pragma mark - 进阶版圆角和边框扩展
-/// 圆角半径，默认5px
-@property(nonatomic,assign)CGFloat kj_radius;
-/// 圆角方位
-@property(nonatomic,assign)UIRectCorner kj_rectCorner;
+#pragma mark - Advanced rounded corners and border extension
 
-/// 边框颜色，默认黑色
-@property(nonatomic,strong)UIColor *kj_borderColor;
-/// 边框宽度，默认1px
-@property(nonatomic,assign)CGFloat kj_borderWidth;
-/// 边框方位，必设参数
-@property(nonatomic,assign)KJBorderOrientationType kj_borderOrientation;
+/// Fillet radius, default 5px
+@property (nonatomic, assign) CGFloat kj_radius;
+/// Rounded corner orientation
+@property (nonatomic, assign) UIRectCorner kj_rectCorner;
 
-/// 虚线边框
-/// @param lineColor 线条颜色
-/// @param lineWidth 线条宽度
-/// @param spaceAry 线条之间间隔数组
+/// Border color, default black
+@property (nonatomic, strong) UIColor *kj_borderColor;
+/// Border width, default 1px
+@property (nonatomic, assign) CGFloat kj_borderWidth;
+/// Border position, required parameter
+@property (nonatomic, assign) KJBorderOrientationType kj_borderOrientation;
+
+/// Dotted border
+/// @param lineColor line color
+/// @param lineWidth line width
+/// @param spaceAry array of intervals between lines
 - (void)kj_dashedLineColor:(UIColor *)lineColor
                  lineWidth:(CGFloat)lineWidth
                 spaceArray:(NSArray<NSNumber*>*)spaceAry;
 
-#pragma mark - 渐变相关
-/// 渐变图层
-/// @param colors 渐变颜色数组
-/// @param frame 需要渐变的尺寸
-/// @param locations 渐变颜色的分割点
-/// @param startPoint 开始坐标，范围在（0，0）与（1,1）之间,如(0,0)(1,0)代表水平方向渐变,(0,0)(0,1)代表竖直方向渐变
-/// @param endPoint 结束坐标
-/// @return 返回渐变图层
+#pragma mark - Gradient related
+
+/// Gradient layer
+/// @param colors gradient color array
+/// @param frame The size of the gradient
+/// @param locations The dividing point of the gradient color
+/// @param startPoint start coordinates, the range is between (0,0) and (1,1), such as (0,0)(1,0) represents the horizontal gradient, (0,0)(0,1) ) Represents a vertical gradient
+/// @param endPoint end coordinates
+/// @return Return to the gradient layer
 - (CAGradientLayer *)kj_gradientLayerWithColors:(NSArray *)colors
                                           frame:(CGRect)frame
                                       locations:(NSArray *)locations
                                      startPoint:(CGPoint)startPoint
                                        endPoint:(CGPoint)endPoint;
-/// 生成渐变背景色
-/// @param colors 渐变颜色数组
-/// @param locations 渐变颜色的分割点
-/// @param startPoint 开始坐标
-/// @param endPoint 结束坐标
+
+/// Generate gradient background color
+/// @param colors gradient color array
+/// @param locations The dividing point of the gradient color
+/// @param startPoint start coordinates
+/// @param endPoint end coordinates
 - (void)kj_gradientBgColorWithColors:(NSArray *)colors
                            locations:(NSArray *)locations
                           startPoint:(CGPoint)startPoint
                             endPoint:(CGPoint)endPoint;
 
-#pragma mark - 指定图形
-/// 画直线
+#pragma mark - Specify graphics
+
+/// Draw a straight line
 - (void)kj_DrawLineWithPoint:(CGPoint)fPoint
                      toPoint:(CGPoint)tPoint
                    lineColor:(UIColor *)color
                    lineWidth:(CGFloat)width;
-/// 画虚线
+
+/// Draw a dotted line
 - (void)kj_DrawDashLineWithPoint:(CGPoint)fPoint
                          toPoint:(CGPoint)tPoint
                        lineColor:(UIColor *)color
                        lineWidth:(CGFloat)width
                        lineSpace:(CGFloat)space
                         lineType:(NSInteger)type;
-/// 画五角星
+
+/// Draw a five-pointed star
 - (void)kj_DrawPentagramWithCenter:(CGPoint)center
                             radius:(CGFloat)radius
                              color:(UIColor *)color
                               rate:(CGFloat)rate;
-/// 根据宽高画六边形
+
+/// Draw a hexagon according to the width and height
 - (void)kj_DrawSexangleWithWidth:(CGFloat)width
                        LineWidth:(CGFloat)lineWidth
                      StrokeColor:(UIColor *)color
                        FillColor:(UIColor *)fcolor;
-/// 根据宽高画八边形
+
+/// Draw an octagon according to the width and height
 - (void)kj_DrawOctagonWithWidth:(CGFloat)width
                          Height:(CGFloat)height
                       LineWidth:(CGFloat)lineWidth

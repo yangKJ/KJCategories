@@ -2,11 +2,10 @@
 //  NSObject+KJkvo.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/10/29.
+//  Created by 77。 on 2019/10/29.
 //  https://github.com/YangKJ/KJCategories
-//  kvo键值监听封装，自动释放
 
-/* kvo键值监听封装使用规则 */
+/* Kvo key-value monitoring package usage rules */
 // [self.label kj_observeKey:@"text" ObserveResultBlock:^(id _Nonnull newValue, id _Nonnull oldValue) {
 //     NSLog(@"%@",newValue);
 // }];
@@ -17,10 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (KJkvo)
 
-/// kvo监听属性，自动释放
-/// 暂不支持点语法例如：button.titleLabel.font这种 `titleLabel.font`
-/// @param keyPath 监听字段
-/// @param withBlock 变化响应
+/// kvo monitor properties, automatically release
+/// Point syntax is not supported for the time being, for example: button.titleLabel.font such as `titleLabel.font`
+/// @param keyPath listening field
+/// @param withBlock change response
 - (void)kj_kvokeyPath:(NSString *)keyPath
                result:(void(^)(id newValue, id oldValue))withBlock;
 

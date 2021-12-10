@@ -2,7 +2,7 @@
 //  NSDate+KJDayWeek.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/12/16.
+//  Created by 77。 on 2019/12/16.
 //  https://github.com/YangKJ/KJCategories
 
 #import <Foundation/Foundation.h>
@@ -10,29 +10,39 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDate (KJDayWeek)
-/// 是否为昨天
+
+/// Is it yesterday
 @property (nonatomic, assign, readonly) BOOL isYesterday;
-/// 是否同一周
+
+/// Is it the same week
 - (BOOL)kj_weekSameDate:(NSDate *)date;
-/// 是否同一天
+
+/// Is it the same day
 - (BOOL)kj_daySameDate:(NSDate *)date;
-/// 蔡勒公式获取周几
+
+/// Zeiler formula to get the day of the week
 - (NSInteger)kj_weekDay;
-/// 当前周末日期
+
+/// Current weekend date
 - (NSDate *)kj_weekendDate;
-/// 本月多少天
+
+/// How many days in this month
 - (NSUInteger)kj_monthHowDays;
-/// 月初
+
+/// Beginning of the month
 - (NSDate *)kj_monthFristDay;
-/// 月末
+
+/// end of month
 - (NSDate *)kj_monthLastDay;
-/// 偏移几天的日期
-/// @param day 前后天数
-/// @param format 时间格式
+
+/// Date offset by a few days
+/// @param day days before and after
+/// @param format time format
 - (NSString *)kj_skewingDay:(NSInteger)day format:(NSString *)format;
-/// 偏移几月的日期
-/// @param month 前后月数
-/// @param format 时间格式
+
+/// Date offset by a few months
+/// @param month The number of months before and after
+/// @param format time format
 - (NSString *)kj_skewingMonth:(NSInteger)month format:(NSString *)format;
 
 @end

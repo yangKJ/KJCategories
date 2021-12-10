@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  KJCategories
 //
-//  Created by Zz on 2021/11/7.
-//  Copyright (c) 2021 Zz. All rights reserved.
+//  Created by 77。 on 2021/11/7.
+//  Copyright © 2021 CocoaPods. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 
 import UIKit

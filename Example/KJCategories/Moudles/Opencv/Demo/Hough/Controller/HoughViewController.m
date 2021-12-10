@@ -2,7 +2,7 @@
 //  HoughViewController.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2021/3/21.
+//  Created by 77。 on 2021/3/21.
 //
 
 #import "HoughViewController.h"

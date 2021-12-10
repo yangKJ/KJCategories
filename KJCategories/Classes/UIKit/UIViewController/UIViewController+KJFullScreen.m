@@ -2,7 +2,7 @@
 //  UIViewController+KJFullScreen.m
 //  Winpower
 //
-//  Created by 杨科军 on 2019/10/10.
+//  Created by 77。 on 2019/10/10.
 //  Copyright © 2019 cq. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 

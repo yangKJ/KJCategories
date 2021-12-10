@@ -2,7 +2,7 @@
 //  UITextView+KJBackout.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/11/10.
+//  Created by 77。 on 2019/11/10.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UITextView+KJBackout.h"

@@ -2,8 +2,7 @@
 //  UIView+KJRectCorner.m
 //  CategoryDemo
 //
-//  Created by 杨科军 on 2018/7/12.
-//  Copyright © 2018年 杨科军. All rights reserved.
+//  Created by 77。 on 2018/7/12.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UIView+KJRectCorner.h"
@@ -279,8 +278,8 @@ static char kCALayerTagKey;
     UIBezierPath * path = [UIBezierPath bezierPath];
     [path moveToPoint:CGPointMake((sin(M_1_PI/180*60))*(w/2), (w/4))];
     [path addLineToPoint:CGPointMake((w/2), 0)];
-    [path addLineToPoint:CGPointMake(w-((sin(M_1_PI/180*60))*(w/2)), (w/4))];
-    [path addLineToPoint:CGPointMake(w-((sin(M_1_PI/180*60))*(w/2)), (w/2)+(w/4))];
+    [path addLineToPoint:CGPointMake(w- ((sin(M_1_PI/180*60))*(w/2)), (w/4))];
+    [path addLineToPoint:CGPointMake(w- ((sin(M_1_PI/180*60))*(w/2)), (w/2)+(w/4))];
     [path addLineToPoint:CGPointMake((w/2), w)];
     [path addLineToPoint:CGPointMake((sin(M_1_PI/180*60))*(w/2), (w/2)+(w/4))];
     [path closePath];

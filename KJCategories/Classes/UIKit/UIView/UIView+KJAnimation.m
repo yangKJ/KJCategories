@@ -2,19 +2,19 @@
 //  UIView+KJAnimation.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/12/18.
+//  Created by 77。 on 2019/12/18.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UIView+KJAnimation.h"
 
 @interface KJAnimationManager ()
-@property(nonatomic,assign)NSInteger repeatCount;
-@property(nonatomic,assign)CGFloat repeatDuration;
-@property(nonatomic,assign)CGFloat duration;
-@property(nonatomic,assign)BOOL autoreverses;
-@property(nonatomic,assign)NSInteger ease,rotation;
-@property(nonatomic,assign)CGFloat multiple;
-@property(nonatomic,assign)CGFloat opacity;
+@property (nonatomic, assign) NSInteger repeatCount;
+@property (nonatomic, assign) CGFloat repeatDuration;
+@property (nonatomic, assign) CGFloat duration;
+@property (nonatomic, assign) BOOL autoreverses;
+@property (nonatomic, assign) NSInteger ease,rotation;
+@property (nonatomic, assign) CGFloat multiple;
+@property (nonatomic, assign) CGFloat opacity;
 
 @end
 

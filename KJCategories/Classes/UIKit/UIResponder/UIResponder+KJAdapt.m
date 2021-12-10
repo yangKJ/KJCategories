@@ -2,7 +2,7 @@
 //  UIResponder+KJAdapt.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/10/14.
+//  Created by 77。 on 2019/10/14.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UIResponder+KJAdapt.h"

@@ -2,10 +2,9 @@
 //  UIImage+KJDoraemonBox.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2018/12/1.
-//  Copyright © 2018 杨科军. All rights reserved.
+//  Created by 77。 on 2018/12/1.
+//  Copyright © 2018 77。. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
-//  图片百宝箱
 
 #import <UIKit/UIKit.h>
 
@@ -13,17 +12,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (KJDoraemonBox)
 
-/// 获取图片平均颜色
+/// Get the average color of the picture
 - (UIColor *)kj_getImageAverageColor;
 
-/// 获得灰度图
+/// Get grayscale image
 - (UIImage *)kj_getGrayImage;
 
-/// 绘制图片
+/// Draw pictures
 - (UIImage *)kj_mallocDrawImage;
 
-/// 图片透明区域点击穿透处理
-/// @param point 点坐标
+/// Click through the transparent area of ​​the picture
+/// @param point point coordinates
 - (bool)kj_transparentWithPoint:(CGPoint)point;
 
 @end

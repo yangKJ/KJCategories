@@ -2,7 +2,7 @@
 //  UIBezierPath+KJPoints.m
 //  AutoDecorate
 //
-//  Created by 杨科军 on 2019/7/8.
+//  Created by 77。 on 2019/7/8.
 //  Copyright © 2020 songxf. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 

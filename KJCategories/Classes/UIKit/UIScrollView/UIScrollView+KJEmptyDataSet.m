@@ -2,7 +2,7 @@
 //  UIScrollView+KJEmptyDataSet.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/11/18.
+//  Created by 77。 on 2019/11/18.
 //  https://github.com/YangKJ/KJCategories
 
 #import "UIScrollView+KJEmptyDataSet.h"

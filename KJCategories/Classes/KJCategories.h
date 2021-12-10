@@ -20,12 +20,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+// Like Doraemon’s pocket, has endless and unexpected props for us to use
 
-// 机器猫工具库，就像机器猫的口袋一样有无穷无尽意想不到的的各种道具供我们使用
-
-// 该库是从之前`KJEmitterView`当中独立拆解出来使用，后续有相关也会慢慢补充..
-// 觉得有帮助的老哥，请帮忙点个星⭐..
-// 传送门：https://github.com/YangKJ/KJCategories <备注：快捷打开浏览器命令，command + 鼠标左键>
+// This library is independently disassembled from the previous `KJEmitterView` for use,
+// And will be added later if relevant..
+// You think it’s helpful, please give me a star ⭐..
+// Portal: https://github.com/YangKJ/KJCategories
+// Note: Open the browser command quickly, command + left mouse button
 
 #import <Foundation/Foundation.h>
 
@@ -41,7 +42,7 @@ FOUNDATION_EXPORT const unsigned char KJCategoriesVersionString[];
 // using statements like #import <KJCategories/KJCategories.h>
 // or @import KJCategories;
 
-//************ UIKit/Foundation 高频使用分类 ************
+//**!  pod 'KJCategories'
 #if __has_include(<KJCategories/KJCoreHeader.h>)
 #import <KJCategories/KJCoreHeader.h>
 #elif __has_include("KJCoreHeader.h")
@@ -49,8 +50,7 @@ FOUNDATION_EXPORT const unsigned char KJCategoriesVersionString[];
 #else
 #endif
 
-//************ UIKit功能分类模块 ************
-//    pod 'KJCategories/Kit'
+//**!  pod 'KJCategories/Kit'
 #if __has_include(<KJCategories/KJUIKitHeader.h>)
 #import <KJCategories/KJUIKitHeader.h>
 #elif __has_include("KJUIKitHeader.h")
@@ -58,8 +58,7 @@ FOUNDATION_EXPORT const unsigned char KJCategoriesVersionString[];
 #else
 #endif
 
-//************ Foundation功能分类模块 ************
-//    pod 'KJCategories/Foundation'
+//**!  pod 'KJCategories/Foundation'
 #if __has_include(<KJCategories/KJFoundationHeader.h>)
 #import <KJCategories/KJFoundationHeader.h>
 #elif __has_include("KJFoundationHeader.h")
@@ -67,8 +66,7 @@ FOUNDATION_EXPORT const unsigned char KJCategoriesVersionString[];
 #else
 #endif
 
-//************ OpenCV功能分类模块 ************
-//    pod 'KJCategories/Opencv'
+//**!  pod 'KJCategories/Opencv'
 #if __has_include(<KJCategories/UIImage+KJOpencv.h>)
 #import <KJCategories/UIImage+KJOpencv.h>
 #elif __has_include("UIImage+KJOpencv.h")
@@ -76,8 +74,7 @@ FOUNDATION_EXPORT const unsigned char KJCategoriesVersionString[];
 #else
 #endif
 
-//************ 自定义控件模块 ************
-//    pod 'KJCategories/CustomControl'
+//**!  pod 'KJCategories/CustomControl'
 #if __has_include(<KJCategories/KJCustomControlHeader.h>)
 #import <KJCategories/KJCustomControlHeader.h>
 #elif __has_include("KJCustomControlHeader.h")

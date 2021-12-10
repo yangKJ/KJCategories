@@ -2,7 +2,7 @@
 //  UIBezierPath+KJText.h
 //  KJCategories
 //
-//  Created by abas on 2021/11/21.
+//  Created by yangkejun on 2021/11/21.
 //  https://github.com/YangKJ/KJCategories
 
 #import <UIKit/UIKit.h>
@@ -11,10 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIBezierPath (KJText)
 
-/// 获取文字贝塞尔路径
-/// @param text 文本内容
-/// @param font 文本字体
-/// @return 返回文字贝塞尔路径
+/// Get the text Bezier path
+/// @param text text content
+/// @param font text font
+/// @return returns the text Bezier path
 + (UIBezierPath *)kj_bezierPathWithText:(NSString *)text font:(UIFont *)font;
 
 @end

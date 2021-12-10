@@ -2,7 +2,7 @@
 //  NSObject+KJRunLoop.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/12/15.
+//  Created by 77。 on 2019/12/15.
 //  https://github.com/YangKJ/KJCategories
 
 #import "NSObject+KJRunLoop.h"

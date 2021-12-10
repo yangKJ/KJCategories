@@ -2,7 +2,7 @@
 //  NSDictionary+KJReadWrite.m
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/11/6.
+//  Created by 77。 on 2019/11/6.
 //  https://github.com/YangKJ/KJCategories
 
 #import "NSDictionary+KJReadWrite.h"

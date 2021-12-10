@@ -3,7 +3,6 @@
 //  KJEmitterView
 //
 //  Created by 77。 on 2021/5/28.
-//  Copyright © 2021 杨科军. All rights reserved.
 //  https://github.com/YangKJ/KJCategories
 
 #import "NSString+KJBlockChain.h"

@@ -2,9 +2,9 @@
 //  NSObject+KJRuntime.h
 //  KJEmitterView
 //
-//  Created by 杨科军 on 2019/12/15.
+//  Created by 77。 on 2019/12/15.
 //  https://github.com/YangKJ/KJCategories
-//  Runtime轻量级封装
+//
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
@@ -14,41 +14,43 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (KJRuntime)
 
-/// 获取该对象的所有属性
-@property(nonatomic,strong,readonly)NSArray<NSString *> *propertyTemps;
-/// 实例变量列表
-@property(nonatomic,strong,readonly)NSArray<NSString *> *ivarTemps;
-/// 方法列表
-@property(nonatomic,strong,readonly)NSArray<NSString *> *methodTemps;
-/// 遵循的协议列表
-@property(nonatomic,strong,readonly)NSArray<NSString *> *protocolTemps;
-/// 获取对象的所有属性，是否包含父类属性
-@property(nonatomic,strong,readonly)NSArray<NSString *> *(^objectProperties)(BOOL containSuper);
+/// Get all the attributes of the object
+@property (nonatomic, strong, readonly) NSArray<NSString *> *propertyTemps;
+/// List of instance variables
+@property (nonatomic, strong, readonly) NSArray<NSString *> *ivarTemps;
+/// Method list
+@property (nonatomic, strong, readonly) NSArray<NSString *> *methodTemps;
+/// List of protocols followed
+@property (nonatomic, strong, readonly) NSArray<NSString *> *protocolTemps;
+/// Get all the attributes of the object, whether it contains the attributes of the parent class
+@property (nonatomic, strong, readonly) NSArray<NSString *> *(^objectProperties)(BOOL containSuper);
 
-/// 归档封装
+/// Archive package
 - (void)kj_runtimeEncode:(NSCoder *)encoder;
-/// 解档封装
+/// Unarchive and package
 - (void)kj_runtimeInitCoder:(NSCoder *)decoder;
-/// NSCopying协议快捷设置
+/// NSCopying protocol quick setting
 - (id)kj_setCopyingWithZone:(NSZone *)zone;
-/// 拷贝属性
+/// Copy attributes
 - (void)kj_copyingObject:(id)obj;
 
-/// 拷贝指定类属性，NSCopying协议时使用
+/// Copy specified class attributes, used in NSCopying protocol
 - (instancetype)kj_appointCopyPropertyClass:(Class)clazz Zone:(NSZone *)zone;
-/// 拷贝全部属性（包括父类）
+/// Copy all attributes (including parent class)
 - (instancetype)kj_copyPropertyWithZone:(NSZone *)zone;
 
-/// 交换实例方法，该方法需要放在 dispatch_once 当中执行
+/// Exchange instance method, this method needs to be executed in dispatch_once
 FOUNDATION_EXPORT void kRuntimeMethodSwizzling(Class clazz, SEL original, SEL swizzled);
-/// 交换类方法
+/// Exchange class method
 FOUNDATION_EXPORT void kRuntimeClassMethodSwizzling(Class clazz, SEL original, SEL swizzled);
 
-/// 动态继承，慎用（一旦修改后面使用的都是该子类）
+/// Dynamic inheritance, use it with caution (Once you modify it, you will use this subclass)
 - (void)kj_dynamicInheritChildClass:(Class)clazz;
-/// 获取对象类名
+
+/// Get the object class name
 - (NSString *)kj_runtimeClassName;
-/// 判断对象是否有该属性
+
+/// Determine whether the object has this attribute
 - (void)kj_runtimeHaveProperty:(void(^)(NSString * property, BOOL * stop))traversal;
 
 @end
