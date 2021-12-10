@@ -30,15 +30,15 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 
 ### Example
 <p align="left">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/1.png" width="200" hspace="1px">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/2.png" width="200" hspace="30px">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/3.png" width="200" hspace="1px">
+<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/1.png" width="248" hspace="1px">
+<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/2.png" width="248" hspace="30px">
+<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/3.png" width="248" hspace="1px">
 </p>
 
 <p align="left">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/4.png" width="200" hspace="1px">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/5.png" width="200" hspace="30px">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/6.png" width="200" hspace="1px">
+<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/4.png" width="248" hspace="1px">
+<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/5.png" width="248" hspace="30px">
+<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/6.png" width="248" hspace="1px">
 </p>
 
 ### <a id="Catalogue list"></a>Catalogue list ###
