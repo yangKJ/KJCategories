@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (KJOpencv)
 
 /// The picture is tiled
-/// @param row
+/// @param row row
 /// @param col column
 - (UIImage *)kj_opencvTiledRows:(int)row cols:(int)col;
 
@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Image morphology related
 
 /// Morphological operation
-/// @param type
+/// @param type morphology style
 /// @param element Corrosion and expansion degree
 - (UIImage *)kj_opencvMorphology:(KJOpencvMorphologyStyle)type element:(int)element;
 

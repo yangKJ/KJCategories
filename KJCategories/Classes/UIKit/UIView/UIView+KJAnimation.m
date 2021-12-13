@@ -20,15 +20,6 @@
 
 @implementation UIView (KJAnimation)
 
-/// 隐式动画
-- (void)kj_animationImplicitDuration:(CFTimeInterval)time animations:(void(^)(void))animations{
-    [CATransaction begin];
-    [CATransaction setDisableActions:NO];
-    [CATransaction setAnimationDuration:time];
-    if (animations) animations();
-    [CATransaction commit];
-}
-
 /// 动画组
 - (CAAnimationGroup *)kj_animationMoreAnimations:(NSArray<CABasicAnimation *> *)animations{
     CAAnimationGroup *group = [CAAnimationGroup animation];

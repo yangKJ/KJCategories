@@ -8,10 +8,6 @@
 #import "UILabel+KJExtension2.h"
 #import <objc/runtime.h>
 
-@interface UILabel ()<UITableViewDelegate,UITableViewDataSource>
-//@property (nonatomic,strong) UITableView *tableView;
-@end
-
 @implementation UILabel (KJExtension2)
 
 - (KJLabelTextAlignmentType)customTextAlignment{
@@ -57,13 +53,11 @@
             CGRect textRect = [self textRectForBounds:rect limitedToNumberOfLines:self.numberOfLines];
             textRect.origin = CGPointMake(textRect.origin.x, -CGRectGetMaxY(textRect)+rect.size.height);
             [self kj_drawTextInRect:textRect];
-        }
-            break;
+        } break;
         default:{
             CGRect textRect = [self textRectForBounds:rect limitedToNumberOfLines:self.numberOfLines];
             [self kj_drawTextInRect:textRect];
-        }
-            break;
+        } break;
     }
 }
 

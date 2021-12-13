@@ -31,6 +31,7 @@
 }
 
 #pragma mark - 条形码
+
 /// 将字符串转成条形码
 + (UIImage *)kj_barCodeImageWithContent:(NSString *)content{
     CIFilter *filter = [CIFilter filterWithName:@"CICode128BarcodeGenerator"];
@@ -80,11 +81,12 @@
 
 #pragma mark - private
 
+/// 将二维码转成高清的格式
 + (UIImage *)kj_changeCIImage:(CIImage *)image codeImageSize:(CGFloat)size{
     CGRect integralRect = CGRectIntegral(image.extent);
     CGFloat scale = MIN(size/CGRectGetWidth(integralRect), size/CGRectGetHeight(integralRect));
-    size_t width = CGRectGetWidth(integralRect)*scale;
-    size_t height = CGRectGetHeight(integralRect)*scale;
+    size_t width  = CGRectGetWidth(integralRect) * scale;
+    size_t height = CGRectGetHeight(integralRect) * scale;
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceGray();
     CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, colorSpaceRef, (CGBitmapInfo)kCGImageAlphaNone);
     CIContext *context = [CIContext contextWithOptions:nil];
@@ -96,9 +98,9 @@
     CGContextRelease(bitmapRef);
     CGImageRelease(bitmapImage);
     CGColorSpaceRelease(colorSpaceRef);
-    UIImage *__image = [UIImage imageWithCGImage:scaledImage];
+    UIImage *resultImage = [UIImage imageWithCGImage:scaledImage];
     CGImageRelease(scaledImage);
-    return __image;
+    return resultImage;
 }
 
 NS_INLINE UIImage * kChangeImagePixelColor(UIImage * image, UIColor * color){
@@ -130,7 +132,10 @@ NS_INLINE UIImage * kChangeImagePixelColor(UIImage * image, UIColor * color){
             ptr[0] = 0;
         }
     }
-    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, rgbImageBuf, bytesPerRow * imageHeight, kQRCodeProviderReleaseData);
+    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL,
+                                                                  rgbImageBuf,
+                                                                  bytesPerRow * imageHeight,
+                                                                  kQRCodeProviderReleaseData);
     CGImageRef imageRef = CGImageCreate(imageWidth,
                                         imageHeight,
                                         8,
@@ -167,7 +172,10 @@ void kQRCodeImage(void(^codeImage)(UIImage * image), NSString *content, CGFloat 
     }
 }
 /// 生成指定颜色二维码
-void kQRCodeImageFromColor(void(^codeImage)(UIImage * image), NSString *content, CGFloat size, UIColor *color){
+void kQRCodeImageFromColor(void(^codeImage)(UIImage * image),
+                           NSString *content,
+                           CGFloat size,
+                           UIColor *color){
     kQRCodeImage(^(UIImage *image) {
         if (codeImage) {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

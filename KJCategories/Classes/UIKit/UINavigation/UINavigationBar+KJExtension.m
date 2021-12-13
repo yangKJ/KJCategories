@@ -28,9 +28,15 @@
 - (UINavigationBar * (^)(UIColor *, UIFont *))kChangeNavigationBarTitle{
     return ^(UIColor * color, UIFont * font){
         if (@available(iOS 13.0, *)) {
-            [self.standardAppearance setTitleTextAttributes:@{NSFontAttributeName:font, NSForegroundColorAttributeName:color}];
+            [self.standardAppearance setTitleTextAttributes:@{
+                NSFontAttributeName: font,
+                NSForegroundColorAttributeName: color
+            }];
         } else {
-            [self setTitleTextAttributes:@{NSFontAttributeName:font, NSForegroundColorAttributeName:color}];
+            [self setTitleTextAttributes:@{
+                NSFontAttributeName: font,
+                NSForegroundColorAttributeName: color
+            }];
         }
         return self;
     };

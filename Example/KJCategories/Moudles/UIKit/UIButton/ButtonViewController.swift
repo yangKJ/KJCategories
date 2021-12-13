@@ -20,10 +20,9 @@ class ButtonViewController: BaseViewController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.kj_contentLayout(.centerImageTop, padding: 10)
         button.enlargeClick = 20
-        button.kj_addAction { [weak self] _ in
-            let count: UInt32 = 7//UInt32(ButtonViewController.contentLayoutStyleCount)
-            let style = KJButtonContentLayoutStyle(rawValue: Int(arc4random()%count))
-            self!.layoutButton.kj_contentLayout(style ?? .centerImageTop, padding: 10)
+        button.kj_addAction { button in
+            let style = KJButtonContentLayoutStyle(rawValue: Int(arc4random() % 7))
+            button.kj_contentLayout(style ?? .centerImageTop, padding: 10)
         }
         return button
     }()
@@ -48,15 +47,4 @@ class ButtonViewController: BaseViewController {
         self.layoutButton.kj_updateFrame()
         layoutButton.bezierBorder(withRadius: 10, borderWidth: 2, borderColor: UIColor.blue)
     }
-    
-    // MARK: - private method
-    
-    // find the maximum enum value
-    private static let contentLayoutStyleCount: KJButtonContentLayoutStyle.RawValue = {
-        var maxValue: UInt32 = 0
-        while let _ = KJButtonContentLayoutStyle(rawValue: Int(maxValue)) {
-            maxValue += 1
-        }
-        return KJButtonContentLayoutStyle.RawValue(maxValue)
-    }()
 }

@@ -148,7 +148,8 @@ static char kCALayerTagKey;
     borderLayer.bounds = CGRectMake(0, 0, self.frame.size.width , self.frame.size.height);
     borderLayer.position = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
     if (self.layer.cornerRadius > 0) {
-        borderLayer.path = [UIBezierPath bezierPathWithRoundedRect:borderLayer.bounds cornerRadius:self.layer.cornerRadius].CGPath;
+        borderLayer.path = [UIBezierPath bezierPathWithRoundedRect:borderLayer.bounds
+                                                      cornerRadius:self.layer.cornerRadius].CGPath;
     } else {
         borderLayer.path = [UIBezierPath bezierPathWithRect:borderLayer.bounds].CGPath;
     }
@@ -246,7 +247,7 @@ static char kCALayerTagKey;
                      StrokeColor:(UIColor *)color
                        FillColor:(UIColor *)fcolor{
     //在绘制layer之前先把之前添加的layer移除掉，如果不这么做，你就会发现设置多次image 之后，本view的layer上就会有多个子layer，
-    [self.layer.sublayers enumerateObjectsUsingBlock:^(CALayer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.layer.sublayers enumerateObjectsUsingBlock:^(CALayer * obj, NSUInteger idx, BOOL * stop) {
         [obj removeFromSuperlayer];
     }];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
@@ -288,7 +289,6 @@ static char kCALayerTagKey;
 // 八边形坐标
 - (CGPathRef)getOctagonCGPath:(CGFloat)w Height:(CGFloat)h Px:(CGFloat)px Py:(CGFloat)py{
     UIBezierPath *path = [UIBezierPath bezierPath];
-    
     CGFloat t = h/(2+sqrt(2));
     CGFloat m = w - 2*t;
     CGFloat r = sqrt(2)*t;
@@ -305,6 +305,5 @@ static char kCALayerTagKey;
     [path closePath];  // 闭合
     return path.CGPath;
 }
-
 
 @end

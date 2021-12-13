@@ -32,10 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - chain parameter
 
-@property (nonatomic, strong, readonly)  UINavigationItem *(^kAddBarButtonItemInfo)(void(^)(KJNavigationItemInfo *info),
-                                                                                void(^)(UIButton * kButton));
-@property (nonatomic, strong, readonly)  UINavigationItem *(^kAddLeftBarButtonItem)(UIBarButtonItem*);
-@property (nonatomic, strong, readonly)  UINavigationItem *(^kAddRightBarButtonItem)(UIBarButtonItem*);
+@property (nonatomic, strong, readonly) UINavigationItem *(^kAddBarButtonItemInfo)
+(void(^)(KJNavigationItemInfo *info), void(^)(UIButton * kButton));
+@property (nonatomic, strong, readonly) UINavigationItem *(^kAddLeftBarButtonItem)(UIBarButtonItem *);
+@property (nonatomic, strong, readonly) UINavigationItem *(^kAddRightBarButtonItem)(UIBarButtonItem *);
 
 @end
 

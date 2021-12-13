@@ -12,6 +12,8 @@ enum ViewControllerType: String {
     case Opencv = "Opencv image processing"
     case EmitterAnimation = "Particle opening animation"
     case Animation = "Test basic animation display"
+    case Projection = "Projection effect processing"
+    case Shadow = "Luminous display inside and outside"
     case FloodImage = "Flood Image Algorithm Exhibition"
     case GradientSlider = "Rainbow gradient color slider"
     case BezierPath = "Bezier Path Curve"
@@ -19,12 +21,15 @@ enum ViewControllerType: String {
     case Label = "Text multi-angle display"
     case TextField = "Input box construction"
     case TextView = "Restrict input box cancellation"
+    case QRCode = "QR code generator"
     
     func viewController() -> UIViewController {
         switch self {
         case .Opencv: return OpencvViewController()
         case .EmitterAnimation: return EmitterAnimationViewController()
         case .Animation: return AnimationViewController()
+        case .Projection: return ProjectionViewController()
+        case .Shadow: return ShadowViewController()
         case .FloodImage: return FloodImageVieController()
         case .GradientSlider: return GradientSliderViewController()
         case .BezierPath: return BezierPathViewController()
@@ -32,6 +37,7 @@ enum ViewControllerType: String {
         case .Label: return LabelViewController()
         case .TextField: return TextFieldViewController()
         case .TextView: return TextViewController()
+        case .QRCode: return QRCodeViewController()
         //default: return BaseViewController()
         }
     }
@@ -44,6 +50,8 @@ class HomeViewModel: NSObject {
             .Opencv,
             .EmitterAnimation,
             .Animation,
+            .Projection,
+            .Shadow,
             .FloodImage,
             .GradientSlider,
             .BezierPath,
@@ -51,6 +59,7 @@ class HomeViewModel: NSObject {
             .Label,
             .TextField,
             .TextView,
+            .QRCode,
         ]
     }()
 }

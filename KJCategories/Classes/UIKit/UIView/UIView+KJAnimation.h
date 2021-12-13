@@ -14,9 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// Simple animation effect chain packaging
 @interface UIView (KJAnimation)
 
-/// Implicit animation
-- (void)kj_animationImplicitDuration:(CFTimeInterval)time animations:(void(^)(void))animations;
-
 /// Animation group
 - (CAAnimationGroup *)kj_animationMoreAnimations:(NSArray<CABasicAnimation *> *)animations;
 
@@ -51,7 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) KJAnimationManager *(^kAutoreverses)(BOOL);
 
 #pragma mark - Rotating part
-/// Rotation speed, 1: first slow and then slow, 2: first slow and then fast, 3: first fast and then slow, others: uniform speed
+/// Rotation speed,
+/// 1: first slow and then slow,
+/// 2: first slow and then fast,
+/// 3: first fast and then slow,
+/// others: uniform speed
 @property (nonatomic, copy, readonly) KJAnimationManager *(^kEaseInEaseOut)(NSInteger);
 /// Flip axis, 0: z axis, 1: x axis, 2: y axis
 @property (nonatomic, copy, readonly) KJAnimationManager *(^kTransformRotation)(NSInteger);

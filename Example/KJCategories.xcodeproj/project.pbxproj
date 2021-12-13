@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		205CEAC4274A739300581CEB /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CEAC3274A739300581CEB /* AnimationViewController.swift */; };
+		205D44DE276436ED00DB69FB /* ProjectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D44DD276436ED00DB69FB /* ProjectionViewController.swift */; };
+		205D44E027643C3700DB69FB /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D44DF27643C3700DB69FB /* QRCodeViewController.swift */; };
+		20AA31A02766DFC900CEE0C8 /* ShadowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AA319F2766DFC900CEE0C8 /* ShadowViewController.swift */; };
 		20CA817A2749FA120011A476 /* GradientSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA81792749FA120011A476 /* GradientSliderViewController.swift */; };
 		20CA8181274A084C0011A476 /* BezierPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA8180274A084C0011A476 /* BezierPathViewController.swift */; };
 		20CA8184274A2FCC0011A476 /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA8183274A2FCC0011A476 /* LabelViewController.swift */; };
@@ -65,6 +68,9 @@
 
 /* Begin PBXFileReference section */
 		205CEAC3274A739300581CEB /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
+		205D44DD276436ED00DB69FB /* ProjectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectionViewController.swift; sourceTree = "<group>"; };
+		205D44DF27643C3700DB69FB /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		20AA319F2766DFC900CEE0C8 /* ShadowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowViewController.swift; sourceTree = "<group>"; };
 		20CA81792749FA120011A476 /* GradientSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientSliderViewController.swift; sourceTree = "<group>"; };
 		20CA8180274A084C0011A476 /* BezierPathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierPathViewController.swift; sourceTree = "<group>"; };
 		20CA8183274A2FCC0011A476 /* LabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
@@ -165,9 +171,27 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		205D44DC276436D000DB69FB /* Projection */ = {
+			isa = PBXGroup;
+			children = (
+				205D44DD276436ED00DB69FB /* ProjectionViewController.swift */,
+			);
+			path = Projection;
+			sourceTree = "<group>";
+		};
+		20AA319E2766DFB300CEE0C8 /* Shadow */ = {
+			isa = PBXGroup;
+			children = (
+				20AA319F2766DFC900CEE0C8 /* ShadowViewController.swift */,
+			);
+			path = Shadow;
+			sourceTree = "<group>";
+		};
 		20CA81772749F9DB0011A476 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				20AA319E2766DFB300CEE0C8 /* Shadow */,
+				205D44DC276436D000DB69FB /* Projection */,
 				20E2FA68274B81B1007A8CFD /* EmitterAnimation */,
 				20CA81782749F9E50011A476 /* Slider */,
 			);
@@ -224,6 +248,7 @@
 				20E2FA73274BA29D007A8CFD /* FloodImageVieController.h */,
 				20E2FA74274BA29D007A8CFD /* FloodImageVieController.m */,
 				20E2FA75274BA29D007A8CFD /* FloodImageVieController.xib */,
+				205D44DF27643C3700DB69FB /* QRCodeViewController.swift */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -865,6 +890,7 @@
 				6825C0BD273970A500C53A46 /* HoughViewController.m in Sources */,
 				6871FB35273A8570004AA690 /* BlurViewController.m in Sources */,
 				6871FB40273A8570004AA690 /* ImageBlendViewController.m in Sources */,
+				205D44DE276436ED00DB69FB /* ProjectionViewController.swift in Sources */,
 				20E2FA76274BA29D007A8CFD /* FloodImageVieController.m in Sources */,
 				20E2FA66274B447D007A8CFD /* TextFieldViewController.swift in Sources */,
 				20CA8181274A084C0011A476 /* BezierPathViewController.swift in Sources */,
@@ -885,8 +911,10 @@
 				20D92AF1276302930080C3EE /* BezierPathView.swift in Sources */,
 				68D4668B273859DB004AAA38 /* BaseViewController.swift in Sources */,
 				20D92AEF2762F8390080C3EE /* HomeViewModel.swift in Sources */,
+				20AA31A02766DFC900CEE0C8 /* ShadowViewController.swift in Sources */,
 				6871FB34273A8570004AA690 /* TiledViewController.m in Sources */,
 				6871FB38273A8570004AA690 /* WarpPerspectiveViewController.m in Sources */,
+				205D44E027643C3700DB69FB /* QRCodeViewController.swift in Sources */,
 				6825C0B92739460800C53A46 /* BaseOpencvViewController.m in Sources */,
 				20FD0324274A9D47007AD9C4 /* TextViewController.swift in Sources */,
 			);

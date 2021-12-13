@@ -22,7 +22,8 @@
 
 @implementation UILabel (KJAttributeTextTapAction)
 
-- (void)kj_addAttributeTapActionWithStrings:(NSArray<NSString *> *)strings withBlock:(KJLabelTapBlock)withBlock{
+- (void)kj_addAttributeTapActionWithStrings:(NSArray<NSString *> *)strings
+                                  withBlock:(KJLabelTapBlock)withBlock{
     [self kj_removeAttributeTapActions];
     [self kj_getRangesWithStrings:strings];
     self.userInteractionEnabled = YES;
@@ -31,7 +32,8 @@
     }
 }
 
-- (void)kj_addAttributeTapActionWithRanges:(NSArray<NSString *> *)ranges withBlock:(KJLabelTapBlock)withBlock{
+- (void)kj_addAttributeTapActionWithRanges:(NSArray<NSString *> *)ranges
+                                 withBlock:(KJLabelTapBlock)withBlock{
     [self kj_removeAttributeTapActions];
     [self kj_getRangesWithRanges:ranges];
     self.userInteractionEnabled = YES;
@@ -115,7 +117,7 @@
 /// 获取点击位置
 /// @param point 点击坐标
 /// @param resultBlock 事件响应
-- (BOOL)kj_getTapFrameWithTouchPoint:(CGPoint)point result:(void(^)(NSString *string, NSRange range, NSInteger index))resultBlock{
+- (BOOL)kj_getTapFrameWithTouchPoint:(CGPoint)point result:(void(^)(NSString *, NSRange, NSInteger))resultBlock{
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)self.attributedText);
     CGMutablePathRef Path = CGPathCreateMutable();
     CGPathAddRect(Path, NULL, CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height + 20));

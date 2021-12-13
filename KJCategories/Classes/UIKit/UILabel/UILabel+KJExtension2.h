@@ -21,7 +21,8 @@ typedef NS_ENUM(NSUInteger, KJLabelTextAlignmentType) {
 };
 @interface UILabel (KJExtension2)
 
-/// Set the display position of the text content, there is no need to set the "textAlignment" property externally
+/// Set the display position of the text content,
+/// There is no need to set the "textAlignment" property externally
 @property (nonatomic, assign) KJLabelTextAlignmentType customTextAlignment;
 
 /// Can copy

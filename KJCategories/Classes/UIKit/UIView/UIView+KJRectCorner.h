@@ -11,10 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_OPTIONS(NSInteger, KJBorderOrientationType) {
     KJBorderOrientationTypeUnknown = 1 << 0,/// unknown edge
-    KJBorderOrientationTypeTop = 1 << 1,    /// top
-    KJBorderOrientationTypeBottom = 1 << 2, /// bottom
-    KJBorderOrientationTypeLeft = 1 << 3,   /// left
-    KJBorderOrientationTypeRight = 1 << 4,  /// right
+    KJBorderOrientationTypeTop     = 1 << 1,/// top
+    KJBorderOrientationTypeBottom  = 1 << 2,/// bottom
+    KJBorderOrientationTypeLeft    = 1 << 3,/// left
+    KJBorderOrientationTypeRight   = 1 << 4,/// right
 };
 @interface UIView (KJRectCorner)
 

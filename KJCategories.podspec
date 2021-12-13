@@ -137,6 +137,13 @@ Pod::Spec.new do |s|
     xx.subspec 'EmitterAnimation' do |xxx|
       xxx.source_files = "KJCategories/Classes/CustomControl/EmitterAnimation/*.{h,m}"
     end
+    xx.subspec 'ProjectionView' do |xxx|
+      xxx.source_files = "KJCategories/Classes/CustomControl/ProjectionView/*.swift"
+    end
+    ## Shine view
+    xx.subspec 'ShadowView' do |xxx|
+      xxx.source_files = "KJCategories/Classes/CustomControl/ShadowView/*.swift"
+    end
   end
   
 end

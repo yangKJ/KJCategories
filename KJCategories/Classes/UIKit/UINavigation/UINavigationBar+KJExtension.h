@@ -42,7 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// Change transparency
 - (instancetype)kj_customNavgationAlpha:(CGFloat)alpha;
 
-/// The height of the background of the navigation bar, note: The height of the navigation bar is not changed here, but the height of the custom background is changed
+/// The height of the background of the navigation bar,
+/// Note: The height of the navigation bar is not changed here, but the height of the custom background is changed
 - (instancetype)kj_customNavgationHeight:(CGFloat)height;
 
 /// Hide bottom line

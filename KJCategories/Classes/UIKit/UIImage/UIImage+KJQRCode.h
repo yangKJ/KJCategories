@@ -61,7 +61,8 @@ extern void kQRCodeImage(void(^codeImage)(UIImage * image), NSString * content, 
 /// @param color QR code color
 extern void kQRCodeImageFromColor(void(^codeImage)(UIImage * image),
                                   NSString * content,
-                                  CGFloat size, UIColor * color);
+                                  CGFloat size,
+                                  UIColor * color);
 
 @end
 

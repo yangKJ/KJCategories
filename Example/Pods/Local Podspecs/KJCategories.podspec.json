@@ -1,6 +1,6 @@
 {
   "name": "KJCategories",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "summary": "🎸🎸🎸 Common categories for daily development. Such as UIKit, Foundation, OpenCV and more.",
   "homepage": "https://github.com/yangKJ/KJCategories",
   "license": {
@@ -8,11 +8,11 @@
     "file": "LICENSE"
   },
   "authors": {
-    "77": "ykj310@126.com"
+    "yangkejun": "ykj310@126.com"
   },
   "source": {
     "git": "https://github.com/yangKJ/KJCategories.git",
-    "tag": "1.0.0"
+    "tag": "1.0.1"
   },
   "platforms": {
     "ios": "9.0"
@@ -172,6 +172,14 @@
         {
           "name": "EmitterAnimation",
           "source_files": "KJCategories/Classes/CustomControl/EmitterAnimation/*.{h,m}"
+        },
+        {
+          "name": "ProjectionView",
+          "source_files": "KJCategories/Classes/CustomControl/ProjectionView/*.swift"
+        },
+        {
+          "name": "ShadowView",
+          "source_files": "KJCategories/Classes/CustomControl/ShadowView/*.swift"
         }
       ]
     }
