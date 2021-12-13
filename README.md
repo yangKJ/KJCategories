@@ -24,7 +24,7 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 - [x] UIImage: QR code, barcode generation, dynamic image playback, watermark processing, etc.
 - [x] NSObject: GCD, asynchronous timer, resident thread, thread keep alive, runtime methods, etc.
 - [x] NSString: Hash crypto, mathematical operators, unit conversion, etc.
-- [x] Other: Gradient slider, Open screen particle animation, etc.
+- [x] Other: Gradient slider, Open screen particle animation, projection and shadow, etc.
 
 #### Encapsulation exception Handling [KJExceptionDemo](https://github.com/yangKJ/KJExceptionDemo)
 
@@ -39,6 +39,12 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 <img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/4.png" width="248" hspace="1px">
 <img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/5.png" width="248" hspace="30px">
 <img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/6.png" width="248" hspace="1px">
+</p>
+
+<p align="left">
+<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/7.png" width="248" hspace="1px">
+<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/8.png" width="248" hspace="30px">
+<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/9.png" width="248" hspace="1px">
 </p>
 
 ### <a id="Catalogue list"></a>Catalogue list ###
