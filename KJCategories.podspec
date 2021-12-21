@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KJCategories'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = '🎸🎸🎸 Common categories for daily development. Such as UIKit, Foundation, OpenCV and more.'
   
   # This description is used to generate tags and improve search results.
@@ -29,11 +29,15 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.frameworks = "UIKit", "Foundation"
   
-  s.default_subspec  = 'Core'
-  s.ios.source_files = 'KJCategories/Classes/KJCategories.h'
+  s.default_subspec  = "Core"
+  s.ios.source_files = "KJCategories/Classes/KJCategories.h",
+  "KJCategories/Classes/Core/KJCoreHeader.h",
+  "KJCategories/Classes/UIKit/KJUIKitHeader.h",
+  "KJCategories/Classes/Foundation/KJFoundationHeader.h",
+  "KJCategories/Classes/Customized/KJCustomizedHeader.h"
   
   s.subspec 'Core' do |xx|
-    xx.source_files = "KJCategories/Classes/Core/*.h"
+    xx.source_files = "KJCategories/Classes/Core/KJCoreHeader.h"
     xx.subspec 'UIKit' do |xxx|
       xxx.source_files = "KJCategories/Classes/Core/UIKit/**/*.{h,m}"
     end
@@ -49,7 +53,7 @@ Pod::Spec.new do |s|
     xx.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   end
   
-  s.subspec 'Kit' do |xx|
+  s.subspec 'UIKit' do |xx|
     xx.source_files = "KJCategories/Classes/UIKit/KJUIKitHeader.h"
     xx.subspec 'UIBezierPath' do |xxx|
       xxx.source_files = "KJCategories/Classes/UIKit/UIBezierPath/*.{h,m}"
@@ -127,22 +131,22 @@ Pod::Spec.new do |s|
     end
   end
   
-  s.subspec 'CustomControl' do |xx|
-    xx.source_files = "KJCategories/Classes/CustomControl/KJCustomControlHeader.h"
+  s.subspec 'Customized' do |xx|
+    xx.source_files = "KJCategories/Classes/Customized/KJCustomizedHeader.h"
     ## Rainbow gradient slider
     xx.subspec 'GradientSlider' do |xxx|
-      xxx.source_files = "KJCategories/Classes/CustomControl/GradientSlider/*.{h,m}"
+      xxx.source_files = "KJCategories/Classes/Customized/GradientSlider/*.{h,m}"
     end
     ## Open screen particle animation
     xx.subspec 'EmitterAnimation' do |xxx|
-      xxx.source_files = "KJCategories/Classes/CustomControl/EmitterAnimation/*.{h,m}"
+      xxx.source_files = "KJCategories/Classes/Customized/EmitterAnimation/*.{h,m}"
     end
     xx.subspec 'ProjectionView' do |xxx|
-      xxx.source_files = "KJCategories/Classes/CustomControl/ProjectionView/*.swift"
+      xxx.source_files = "KJCategories/Classes/Customized/ProjectionView/*.swift"
     end
     ## Shine view
     xx.subspec 'ShadowView' do |xxx|
-      xxx.source_files = "KJCategories/Classes/CustomControl/ShadowView/*.swift"
+      xxx.source_files = "KJCategories/Classes/Customized/ShadowView/*.swift"
     end
   end
   
