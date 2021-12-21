@@ -2,11 +2,11 @@
 
 ![License MIT](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)
 ![Pod version](https://img.shields.io/cocoapods/v/KJCategories.svg?style=flat)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/yangKJ/KJCategories)
 [![Platform info](https://img.shields.io/cocoapods/p/KJCategories.svg?style=flat)](http://cocoadocs.org/docsets/KJCategories)
 
-- 该库是从之前`KJEmitterView`当中独立拆解出来使用，后续有相关也会慢慢补充..
-- 觉得有帮助的老哥，请帮忙点个星⭐..
+- <font color=red>**该库是从之前`KJEmitterView`当中独立拆解出来使用，后续有相关也会慢慢补充..**</font>
+- <font color=red>**觉得有帮助的老哥，请帮忙点个星⭐..**</font>
 
 #### 救救孩子吧，谢谢各位老板～～～～
 

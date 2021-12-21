@@ -1,12 +1,16 @@
 # KJCategories
 
-![License MIT](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)
-![Pod version](https://img.shields.io/cocoapods/v/KJCategories.svg?style=flat)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Platform info](https://img.shields.io/cocoapods/p/KJCategories.svg?style=flat)](http://cocoadocs.org/docsets/KJCategories)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat&colorA=28a745&&colorB=4E4E4E)](https://github.com/yangKJ/KJCategories)
+[![Releases Compatible](https://img.shields.io/github/release/yangKJ/KJCategories.svg?style=flat&label=Releases&colorA=28a745&&colorB=4E4E4E)](https://github.com/yangKJ/KJCategories/releases)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/KJCategories.svg?style=flat&label=CocoaPods&colorA=28a745&&colorB=4E4E4E)](https://cocoapods.org/pods/KJCategories)
+[![Platform](https://img.shields.io/badge/Platforms-iOS%20%7C%20macOS%20%7C%20watchOS-4E4E4E.svg?colorA=28a745)](#installation)
 
-Set of extensions and custom control for standard types and classes.  
-Just like Doraemon’s pocket, has an endless variety of props for us to use.
+<p align="left">
+<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ce8643f68c74fc2be80b22204268f65~tplv-k3u1fbpfcp-watermark.image?" width="800" hspace="1px">
+</p>
+
+<font color=red size=3>Set of **Extensions** and **Custom control** for standard types and classes.</font>  
+<font color=red>Just like Doraemon’s pocket, has an endless variety of props for us to use.</font>
 
 English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/README_CN.md)
 
@@ -26,26 +30,8 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 - [x] NSString: Hash crypto, mathematical operators, unit conversion, etc.
 - [x] Other: Gradient slider, Open screen particle animation, projection and shadow, etc.
 
-#### Encapsulation exception Handling [KJExceptionDemo](https://github.com/yangKJ/KJExceptionDemo)
-
-### Example
-<p align="left">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/1.png" width="248" hspace="1px">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/2.png" width="248" hspace="30px">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/3.png" width="248" hspace="1px">
-</p>
-
-<p align="left">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/4.png" width="248" hspace="1px">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/5.png" width="248" hspace="30px">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/6.png" width="248" hspace="1px">
-</p>
-
-<p align="left">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/7.png" width="248" hspace="1px">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/8.png" width="248" hspace="30px">
-<img src="https://github.com/yangKJ/KJCategories/blob/master/Screenshots/9.png" width="248" hspace="1px">
-</p>
+##### Encapsulation exception Handling [KJExceptionDemo](https://github.com/yangKJ/KJExceptionDemo)
+##### Quick creation of chained UI controls [ChainThen](https://github.com/yangKJ/ChainThen)
 
 ### <a id="Catalogue list"></a>Catalogue list ###
 - **[OpenCV](#OpenCV)**
@@ -404,7 +390,7 @@ Example import core module:
 - pod 'KJCategories'
 
 Example import UIBezierPath:
-- pod 'KJCategories/Kit/UIBezierPath'
+- pod 'KJCategories/UIKit/UIBezierPath'
 
 Example import NSArray:
 - pod 'KJCategories/Foundation/NSArray'
@@ -413,13 +399,13 @@ Example import opencv2 picture processing:
 - pod 'KJCategories/Opencv'
 
 Example import GradientSlider:
-- pod 'KJCategories/CustomControl/GradientSlider'
+- pod 'KJCategories/Customized/GradientSlider'
 ```
 
 ----
 
 #### Ex
-* Download demo please execute first `pod install`
+* <font color=red size=4>Download demo please execute first `pod install`</font>
 
 ## License
 
