@@ -11,7 +11,7 @@
 
 /// Commonly used core categories of projects.
 
-#if __has_include(<KJCategories/KJCoreHeader.h>)
+#if __has_include(<KJCategories/UIButton+KJBlock.h>)
 #import <KJCategories/UIButton+KJBlock.h>
 #import <KJCategories/UIButton+KJContentLayout.h>
 #import <KJCategories/UIColor+KJExtension.h>
@@ -30,16 +30,7 @@
 #import <KJCategories/UIView+KJFrame.h>
 #import <KJCategories/UIView+KJGestureBlock.h>
 #import <KJCategories/UIViewController+KJExtension.h>
-#import <KJCategories/NSArray+KJExtension.h>
-#import <KJCategories/NSDate+KJFormat.h>
-#import <KJCategories/NSDictionary+KJExtension.h>
-#import <KJCategories/NSObject+KJExtension.h>
-#import <KJCategories/NSObject+KJGCDBox.h>
-#import <KJCategories/NSObject+KJRunLoop.h>
-#import <KJCategories/NSObject+KJRuntime.h>
-#import <KJCategories/NSString+KJHash.h>
-#import <KJCategories/NSString+KJMath.h>
-#else
+#elif __has_include("UIButton+KJBlock.h")
 #import "UIButton+KJBlock.h"
 #import "UIButton+KJContentLayout.h"
 #import "UIColor+KJExtension.h"
@@ -58,6 +49,20 @@
 #import "UIView+KJFrame.h"
 #import "UIView+KJGestureBlock.h"
 #import "UIViewController+KJExtension.h"
+#else
+#endif
+
+#if __has_include(<KJCategories/NSArray+KJExtension.h>)
+#import <KJCategories/NSArray+KJExtension.h>
+#import <KJCategories/NSDate+KJFormat.h>
+#import <KJCategories/NSDictionary+KJExtension.h>
+#import <KJCategories/NSObject+KJExtension.h>
+#import <KJCategories/NSObject+KJGCDBox.h>
+#import <KJCategories/NSObject+KJRunLoop.h>
+#import <KJCategories/NSObject+KJRuntime.h>
+#import <KJCategories/NSString+KJHash.h>
+#import <KJCategories/NSString+KJMath.h>
+#elif __has_include("NSArray+KJExtension.h")
 #import "NSArray+KJExtension.h"
 #import "NSDate+KJFormat.h"
 #import "NSDictionary+KJExtension.h"
@@ -67,6 +72,8 @@
 #import "NSObject+KJRuntime.h"
 #import "NSString+KJHash.h"
 #import "NSString+KJMath.h"
+#else
 #endif
+
 
 #endif /* KJCoreHeader_h */

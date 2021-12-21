@@ -12,6 +12,10 @@
 
 #import "KJCategories.h"
 #import "KJCoreHeader.h"
+#import "KJUIKitHeader.h"
+#import "KJFoundationHeader.h"
+#import "KJCustomizedHeader.h"
+#import "KJCoreHeader.h"
 #import "NSArray+KJExtension.h"
 #import "NSDate+KJFormat.h"
 #import "NSDictionary+KJExtension.h"
@@ -39,7 +43,7 @@
 #import "UIView+KJGestureBlock.h"
 #import "UIView+KJXib.h"
 #import "UIViewController+KJExtension.h"
-#import "KJCustomControlHeader.h"
+#import "KJCustomizedHeader.h"
 #import "KJEmitterAnimation.h"
 #import "KJEmitterAnimationProvider.h"
 #import "KJGradientSlider.h"
@@ -61,6 +65,8 @@
 #import "NSString+KJSize.h"
 #import "NSString+KJVerify.h"
 #import "NSTimer+KJExtension.h"
+#import "KJOpencvType.h"
+#import "UIImage+KJOpencv.h"
 #import "KJUIKitHeader.h"
 #import "UIBezierPath+KJPoints.h"
 #import "UIBezierPath+KJText.h"
@@ -94,8 +100,6 @@
 #import "UIView+KJKeyboard.h"
 #import "UIView+KJRectCorner.h"
 #import "UIViewController+KJFullScreen.h"
-#import "KJOpencvType.h"
-#import "UIImage+KJOpencv.h"
 
 FOUNDATION_EXPORT double KJCategoriesVersionNumber;
 FOUNDATION_EXPORT const unsigned char KJCategoriesVersionString[];

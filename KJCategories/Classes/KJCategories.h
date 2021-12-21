@@ -74,10 +74,10 @@ FOUNDATION_EXPORT const unsigned char KJCategoriesVersionString[];
 #else
 #endif
 
-//**!  pod 'KJCategories/CustomControl'
-#if __has_include(<KJCategories/KJCustomControlHeader.h>)
-#import <KJCategories/KJCustomControlHeader.h>
-#elif __has_include("KJCustomControlHeader.h")
-#import "KJCustomControlHeader.h"
+//**!  pod 'KJCategories/Customized'
+#if __has_include(<KJCategories/KJCustomizedHeader.h>)
+#import <KJCategories/KJCustomizedHeader.h>
+#elif __has_include("KJCustomizedHeader.h")
+#import "KJCustomizedHeader.h"
 #else
 #endif

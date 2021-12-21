@@ -1,6 +1,6 @@
 {
   "name": "KJCategories",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "summary": "🎸🎸🎸 Common categories for daily development. Such as UIKit, Foundation, OpenCV and more.",
   "homepage": "https://github.com/yangKJ/KJCategories",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/yangKJ/KJCategories.git",
-    "tag": "1.0.1"
+    "tag": "1.0.2"
   },
   "platforms": {
     "ios": "9.0"
@@ -25,12 +25,18 @@
   ],
   "default_subspecs": "Core",
   "ios": {
-    "source_files": "KJCategories/Classes/KJCategories.h"
+    "source_files": [
+      "KJCategories/Classes/KJCategories.h",
+      "KJCategories/Classes/Core/KJCoreHeader.h",
+      "KJCategories/Classes/UIKit/KJUIKitHeader.h",
+      "KJCategories/Classes/Foundation/KJFoundationHeader.h",
+      "KJCategories/Classes/Customized/KJCustomizedHeader.h"
+    ]
   },
   "subspecs": [
     {
       "name": "Core",
-      "source_files": "KJCategories/Classes/Core/*.h",
+      "source_files": "KJCategories/Classes/Core/KJCoreHeader.h",
       "subspecs": [
         {
           "name": "UIKit",
@@ -53,7 +59,7 @@
       }
     },
     {
-      "name": "Kit",
+      "name": "UIKit",
       "source_files": "KJCategories/Classes/UIKit/KJUIKitHeader.h",
       "subspecs": [
         {
@@ -162,24 +168,24 @@
       ]
     },
     {
-      "name": "CustomControl",
-      "source_files": "KJCategories/Classes/CustomControl/KJCustomControlHeader.h",
+      "name": "Customized",
+      "source_files": "KJCategories/Classes/Customized/KJCustomizedHeader.h",
       "subspecs": [
         {
           "name": "GradientSlider",
-          "source_files": "KJCategories/Classes/CustomControl/GradientSlider/*.{h,m}"
+          "source_files": "KJCategories/Classes/Customized/GradientSlider/*.{h,m}"
         },
         {
           "name": "EmitterAnimation",
-          "source_files": "KJCategories/Classes/CustomControl/EmitterAnimation/*.{h,m}"
+          "source_files": "KJCategories/Classes/Customized/EmitterAnimation/*.{h,m}"
         },
         {
           "name": "ProjectionView",
-          "source_files": "KJCategories/Classes/CustomControl/ProjectionView/*.swift"
+          "source_files": "KJCategories/Classes/Customized/ProjectionView/*.swift"
         },
         {
           "name": "ShadowView",
-          "source_files": "KJCategories/Classes/CustomControl/ShadowView/*.swift"
+          "source_files": "KJCategories/Classes/Customized/ShadowView/*.swift"
         }
       ]
     }

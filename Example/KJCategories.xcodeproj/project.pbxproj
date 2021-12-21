@@ -187,15 +187,15 @@
 			path = Shadow;
 			sourceTree = "<group>";
 		};
-		20CA81772749F9DB0011A476 /* Custom */ = {
+		20CA81772749F9DB0011A476 /* Customized */ = {
 			isa = PBXGroup;
 			children = (
-				20AA319E2766DFB300CEE0C8 /* Shadow */,
-				205D44DC276436D000DB69FB /* Projection */,
 				20E2FA68274B81B1007A8CFD /* EmitterAnimation */,
+				205D44DC276436D000DB69FB /* Projection */,
+				20AA319E2766DFB300CEE0C8 /* Shadow */,
 				20CA81782749F9E50011A476 /* Slider */,
 			);
-			path = Custom;
+			path = Customized;
 			sourceTree = "<group>";
 		};
 		20CA81782749F9E50011A476 /* Slider */ = {
@@ -645,9 +645,9 @@
 		68D4667D27384B66004AAA38 /* Moudles */ = {
 			isa = PBXGroup;
 			children = (
-				20CA81772749F9DB0011A476 /* Custom */,
-				68D4668627384B89004AAA38 /* UIKit */,
+				20CA81772749F9DB0011A476 /* Customized */,
 				68D4667E27384B66004AAA38 /* Opencv */,
+				68D4668627384B89004AAA38 /* UIKit */,
 			);
 			path = Moudles;
 			sourceTree = "<group>";
@@ -681,9 +681,9 @@
 		68D4668627384B89004AAA38 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				20E2FA67274B80FE007A8CFD /* UIImage */,
 				20CA817F274A082F0011A476 /* UIBezierPath */,
 				68D4668727384B95004AAA38 /* UIButton */,
+				20E2FA67274B80FE007A8CFD /* UIImage */,
 				20CA8182274A2FB60011A476 /* UILabel */,
 				20E2FA64274B446A007A8CFD /* UITextField */,
 				20FD0322274A9D2B007AD9C4 /* UITextView */,

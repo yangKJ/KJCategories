@@ -1,5 +1,5 @@
 //
-//  KJCustomControlHeader.h
+//  KJCustomizedHeader.h
 //  Pods
 //
 //  Created by yangkejun on 2021/11/21.
@@ -7,10 +7,10 @@
 //  Custom control module, support sub-module import
 
 //  Example import `GradientSlider`:
-//  pod 'KJCategories/CustomControl/GradientSlider'
+//  pod 'KJCategories/Customized/GradientSlider'
 
-#ifndef KJCustomControlHeader_h
-#define KJCustomControlHeader_h
+#ifndef KJCustomizedHeader_h
+#define KJCustomizedHeader_h
 
 #if __has_include(<KJCategories/KJGradientSlider.h>)
 #import <KJCategories/KJGradientSlider.h>
@@ -26,4 +26,4 @@
 #else
 #endif
 
-#endif /* KJCustomControlHeader_h */
+#endif /* KJCustomizedHeader_h */
