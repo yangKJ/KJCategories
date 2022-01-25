@@ -1,5 +1,4 @@
 PODS:
-  - DZNEmptyDataSet (1.8.1)
   - KJCategories (1.0.4):
     - KJCategories/Core (= 1.0.4)
   - KJCategories/Core (1.0.4):
@@ -44,7 +43,6 @@ PODS:
     - KJCategories/UIKit/UILabel (= 1.0.4)
     - KJCategories/UIKit/UINavigation (= 1.0.4)
     - KJCategories/UIKit/UIResponder (= 1.0.4)
-    - KJCategories/UIKit/UIScrollView (= 1.0.4)
     - KJCategories/UIKit/UISlider (= 1.0.4)
     - KJCategories/UIKit/UITabBar (= 1.0.4)
     - KJCategories/UIKit/UITextView (= 1.0.4)
@@ -59,8 +57,6 @@ PODS:
   - KJCategories/UIKit/UILabel (1.0.4)
   - KJCategories/UIKit/UINavigation (1.0.4)
   - KJCategories/UIKit/UIResponder (1.0.4)
-  - KJCategories/UIKit/UIScrollView (1.0.4):
-    - DZNEmptyDataSet
   - KJCategories/UIKit/UISlider (1.0.4)
   - KJCategories/UIKit/UITabBar (1.0.4)
   - KJCategories/UIKit/UITextView (1.0.4)
@@ -80,7 +76,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - DZNEmptyDataSet
     - Masonry
     - SnapKit
 
@@ -89,8 +84,7 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  KJCategories: 1fcc3cc145a0e136c0cf69b90e75e1ae725dde56
+  KJCategories: ef8d86a3b3a46cbb84f6cb1da571c5728a9be5c2
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 

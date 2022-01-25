@@ -79,10 +79,6 @@ Pod::Spec.new do |s|
     xx.subspec 'UIResponder' do |xxx|
       xxx.source_files = "Sources/UIKit/UIResponder/*.{h,m}"
     end
-    xx.subspec 'UIScrollView' do |xxx|
-      xxx.source_files = "Sources/UIKit/UIScrollView/*.{h,m}"
-      xxx.dependency 'DZNEmptyDataSet'
-    end
     xx.subspec 'UISlider' do |xxx|
       xxx.source_files = "Sources/UIKit/UISlider/*.{h,m}"
     end

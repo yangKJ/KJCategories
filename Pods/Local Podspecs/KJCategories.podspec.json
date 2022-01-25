@@ -94,15 +94,6 @@
           "source_files": "Sources/UIKit/UIResponder/*.{h,m}"
         },
         {
-          "name": "UIScrollView",
-          "source_files": "Sources/UIKit/UIScrollView/*.{h,m}",
-          "dependencies": {
-            "DZNEmptyDataSet": [
-
-            ]
-          }
-        },
-        {
           "name": "UISlider",
           "source_files": "Sources/UIKit/UISlider/*.{h,m}"
         },

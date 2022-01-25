@@ -100,13 +100,6 @@
 #else
 #endif
 
-#if __has_include(<KJCategories/UIScrollView+KJEmptyDataSet.h>)
-#import <KJCategories/UIScrollView+KJEmptyDataSet.h>
-#elif __has_include("UIScrollView+KJEmptyDataSet.h")
-#import "UIScrollView+KJEmptyDataSet.h"
-#else
-#endif
-
 #if __has_include(<KJCategories/UISlider+KJTapValue.h>)
 #import <KJCategories/UISlider+KJTapValue.h>
 #elif __has_include("UISlider+KJTapValue.h")
