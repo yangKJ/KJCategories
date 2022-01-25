@@ -1,0 +1,99 @@
+PODS:
+  - DZNEmptyDataSet (1.8.1)
+  - KJCategories (1.0.4):
+    - KJCategories/Core (= 1.0.4)
+  - KJCategories/Core (1.0.4):
+    - KJCategories/Core/Foundation (= 1.0.4)
+    - KJCategories/Core/UIKit (= 1.0.4)
+  - KJCategories/Core/Foundation (1.0.4)
+  - KJCategories/Core/UIKit (1.0.4)
+  - KJCategories/Customized (1.0.4):
+    - KJCategories/Customized/EmitterAnimation (= 1.0.4)
+    - KJCategories/Customized/GradientSlider (= 1.0.4)
+    - KJCategories/Customized/ProjectionView (= 1.0.4)
+    - KJCategories/Customized/ShadowView (= 1.0.4)
+  - KJCategories/Customized/EmitterAnimation (1.0.4)
+  - KJCategories/Customized/GradientSlider (1.0.4)
+  - KJCategories/Customized/ProjectionView (1.0.4)
+  - KJCategories/Customized/ShadowView (1.0.4)
+  - KJCategories/Foundation (1.0.4):
+    - KJCategories/Foundation/NSArray (= 1.0.4)
+    - KJCategories/Foundation/NSData (= 1.0.4)
+    - KJCategories/Foundation/NSDate (= 1.0.4)
+    - KJCategories/Foundation/NSDictionary (= 1.0.4)
+    - KJCategories/Foundation/NSNumber (= 1.0.4)
+    - KJCategories/Foundation/NSObject (= 1.0.4)
+    - KJCategories/Foundation/NSString (= 1.0.4)
+    - KJCategories/Foundation/NSTimer (= 1.0.4)
+  - KJCategories/Foundation/NSArray (1.0.4)
+  - KJCategories/Foundation/NSData (1.0.4)
+  - KJCategories/Foundation/NSDate (1.0.4)
+  - KJCategories/Foundation/NSDictionary (1.0.4)
+  - KJCategories/Foundation/NSNumber (1.0.4)
+  - KJCategories/Foundation/NSObject (1.0.4)
+  - KJCategories/Foundation/NSString (1.0.4)
+  - KJCategories/Foundation/NSTimer (1.0.4)
+  - KJCategories/Opencv (1.0.4)
+  - KJCategories/UIKit (1.0.4):
+    - KJCategories/UIKit/UIBezierPath (= 1.0.4)
+    - KJCategories/UIKit/UIButton (= 1.0.4)
+    - KJCategories/UIKit/UICollectionView (= 1.0.4)
+    - KJCategories/UIKit/UIColor (= 1.0.4)
+    - KJCategories/UIKit/UIDevice (= 1.0.4)
+    - KJCategories/UIKit/UIImage (= 1.0.4)
+    - KJCategories/UIKit/UILabel (= 1.0.4)
+    - KJCategories/UIKit/UINavigation (= 1.0.4)
+    - KJCategories/UIKit/UIResponder (= 1.0.4)
+    - KJCategories/UIKit/UIScrollView (= 1.0.4)
+    - KJCategories/UIKit/UISlider (= 1.0.4)
+    - KJCategories/UIKit/UITabBar (= 1.0.4)
+    - KJCategories/UIKit/UITextView (= 1.0.4)
+    - KJCategories/UIKit/UIView (= 1.0.4)
+    - KJCategories/UIKit/UIViewController (= 1.0.4)
+  - KJCategories/UIKit/UIBezierPath (1.0.4)
+  - KJCategories/UIKit/UIButton (1.0.4)
+  - KJCategories/UIKit/UICollectionView (1.0.4)
+  - KJCategories/UIKit/UIColor (1.0.4)
+  - KJCategories/UIKit/UIDevice (1.0.4)
+  - KJCategories/UIKit/UIImage (1.0.4)
+  - KJCategories/UIKit/UILabel (1.0.4)
+  - KJCategories/UIKit/UINavigation (1.0.4)
+  - KJCategories/UIKit/UIResponder (1.0.4)
+  - KJCategories/UIKit/UIScrollView (1.0.4):
+    - DZNEmptyDataSet
+  - KJCategories/UIKit/UISlider (1.0.4)
+  - KJCategories/UIKit/UITabBar (1.0.4)
+  - KJCategories/UIKit/UITextView (1.0.4)
+  - KJCategories/UIKit/UIView (1.0.4)
+  - KJCategories/UIKit/UIViewController (1.0.4)
+  - Masonry (1.1.0)
+  - SnapKit (4.2.0)
+
+DEPENDENCIES:
+  - KJCategories (from `./`)
+  - KJCategories/Customized (from `./`)
+  - KJCategories/Foundation (from `./`)
+  - KJCategories/Opencv (from `./`)
+  - KJCategories/UIKit (from `./`)
+  - Masonry
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - DZNEmptyDataSet
+    - Masonry
+    - SnapKit
+
+EXTERNAL SOURCES:
+  KJCategories:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  KJCategories: 1fcc3cc145a0e136c0cf69b90e75e1ae725dde56
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+
+PODFILE CHECKSUM: 6800de7d79fa3677738944017f7ee719e606d62f
+
+COCOAPODS: 1.11.2
