@@ -160,7 +160,7 @@ git lfs push --all origin
 
 4.git branch -D master         删除分支
 
-5.git barnch -m master         当前分支重命名master
+5.git branch -m master         当前分支重命名master
 
 6.git push -f origin master    强制更新仓库
 
