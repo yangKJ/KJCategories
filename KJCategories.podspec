@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KJCategories'
-  s.version          = '1.0.4'
+  s.version          = '1.0.5'
   s.summary          = '🎸🎸🎸 Common categories for daily development. Such as UIKit, Foundation, OpenCV and more.'
   
   # This description is used to generate tags and improve search results.
