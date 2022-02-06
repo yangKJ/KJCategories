@@ -17,3 +17,9 @@ class BaseViewController: UIViewController {
         self.view.backgroundColor = UIColor.init(hexString: "#F5F5F5")
     }
 }
+
+extension UIColor {
+    static let background = UIColor(named: "background")
+    static let defaultTint = UIColor(named: "defaultTint")
+    static let cell_background = UIColor(named: "cell_background")
+}
