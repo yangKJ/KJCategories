@@ -390,13 +390,10 @@ Example import core module:
 - pod 'KJCategories'
 
 Example import UIBezierPath:
-- pod 'KJCategories/UIKit/UIBezierPath'
+- pod 'KJCategories/C7/UIBezierPath'
 
 Example import NSArray:
 - pod 'KJCategories/Foundation/NSArray'
-
-Example import opencv2 picture processing:
-- pod 'KJCategories/Opencv'
 
 Example import GradientSlider:
 - pod 'KJCategories/Customized/GradientSlider'
@@ -404,8 +401,12 @@ Example import GradientSlider:
 
 ----
 
-#### Ex
-* <font color=red size=4>Download demo please execute first `pod install`</font>
+### About Opencv module
+As for Opencv module, I have taken it out separately. Friends who need it can directly introduce [OpencvQueen](https://github.com/yangKJ/MetalQueen) library.
+
+```
+pod 'OpencvQueen'
+```
 
 ## License
 
