@@ -50,7 +50,7 @@ FOUNDATION_EXPORT const unsigned char KJCategoriesVersionString[];
 #else
 #endif
 
-//**!  pod 'KJCategories/Kit'
+//**!  pod 'KJCategories/C7'
 #if __has_include(<KJCategories/KJUIKitHeader.h>)
 #import <KJCategories/KJUIKitHeader.h>
 #elif __has_include("KJUIKitHeader.h")
@@ -63,21 +63,5 @@ FOUNDATION_EXPORT const unsigned char KJCategoriesVersionString[];
 #import <KJCategories/KJFoundationHeader.h>
 #elif __has_include("KJFoundationHeader.h")
 #import "KJFoundationHeader.h"
-#else
-#endif
-
-//**!  pod 'KJCategories/Opencv'
-#if __has_include(<KJCategories/UIImage+KJOpencv.h>)
-#import <KJCategories/UIImage+KJOpencv.h>
-#elif __has_include("UIImage+KJOpencv.h")
-#import "UIImage+KJOpencv.h"
-#else
-#endif
-
-//**!  pod 'KJCategories/Customized'
-#if __has_include(<KJCategories/KJCustomizedHeader.h>)
-#import <KJCategories/KJCustomizedHeader.h>
-#elif __has_include("KJCustomizedHeader.h")
-#import "KJCustomizedHeader.h"
 #else
 #endif

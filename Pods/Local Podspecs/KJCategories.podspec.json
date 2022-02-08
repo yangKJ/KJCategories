@@ -1,7 +1,7 @@
 {
   "name": "KJCategories",
   "version": "1.0.5",
-  "summary": "🎸🎸🎸 Common categories for daily development. Such as UIKit, Foundation, OpenCV and more.",
+  "summary": "Common categories for daily development. Such as UIKit, Foundation, etc.",
   "homepage": "https://github.com/yangKJ/KJCategories",
   "license": {
     "type": "MIT",
@@ -31,7 +31,7 @@
   "subspecs": [
     {
       "name": "Core",
-      "source_files": "Sources/Core/KJCoreHeader.h",
+      "source_files": "Sources/Core/*.h",
       "subspecs": [
         {
           "name": "UIKit",
@@ -44,18 +44,8 @@
       ]
     },
     {
-      "name": "Opencv",
-      "source_files": "Sources/Opencv/**/*.{h,mm}",
-      "pod_target_xcconfig": {
-        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
-      },
-      "user_target_xcconfig": {
-        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
-      }
-    },
-    {
-      "name": "UIKit",
-      "source_files": "Sources/UIKit/KJUIKitHeader.h",
+      "name": "C7",
+      "source_files": "Sources/UIKit/*.h",
       "subspecs": [
         {
           "name": "UIBezierPath",
@@ -117,7 +107,7 @@
     },
     {
       "name": "Foundation",
-      "source_files": "Sources/Foundation/KJFoundationHeader.h",
+      "source_files": "Sources/Foundation/*.h",
       "subspecs": [
         {
           "name": "NSArray",
@@ -155,7 +145,6 @@
     },
     {
       "name": "Customized",
-      "source_files": "Sources/Customized/KJCustomizedHeader.h",
       "subspecs": [
         {
           "name": "GradientSlider",
