@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KJCategories'
-  s.version          = '1.0.5'
-  s.summary          = '🎸🎸🎸 Common categories for daily development. Such as UIKit, Foundation, OpenCV and more.'
+  s.version          = '1.0.6'
+  s.summary          = 'Common categories for daily development. Such as UIKit, Foundation, etc.'
   
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   s.ios.source_files = "Sources/KJCategories.h"
   
   s.subspec 'Core' do |xx|
-    xx.source_files = "Sources/Core/KJCoreHeader.h"
+    xx.source_files = "Sources/Core/*.h"
     xx.subspec 'UIKit' do |xxx|
       xxx.source_files = "Sources/Core/UIKit/**/*.{h,m}"
     end
@@ -43,15 +43,8 @@ Pod::Spec.new do |s|
     end
   end
   
-  s.subspec 'Opencv' do |xx|
-    xx.source_files = "Sources/Opencv/**/*.{h,mm}"
-    xx.dependency 'OpenCV', "~> 4.1.0"
-    xx.pod_target_xcconfig  = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-    xx.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  end
-  
-  s.subspec 'UIKit' do |xx|
-    xx.source_files = "Sources/UIKit/KJUIKitHeader.h"
+  s.subspec 'C7' do |xx|
+    xx.source_files = "Sources/UIKit/*.h"
     xx.subspec 'UIBezierPath' do |xxx|
       xxx.source_files = "Sources/UIKit/UIBezierPath/*.{h,m}"
     end
@@ -97,7 +90,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Foundation' do |xx|
-    xx.source_files = "Sources/Foundation/KJFoundationHeader.h"
+    xx.source_files = "Sources/Foundation/*.h"
     xx.subspec 'NSArray' do |xxx|
       xxx.source_files = "Sources/Foundation/NSArray/*.{h,m}"
     end
@@ -125,7 +118,6 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Customized' do |xx|
-    xx.source_files = "Sources/Customized/KJCustomizedHeader.h"
     ## Rainbow gradient slider
     xx.subspec 'GradientSlider' do |xxx|
       xxx.source_files = "Sources/Customized/GradientSlider/*.{h,m}"
