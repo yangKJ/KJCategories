@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KJCategories'
-  s.version          = '1.0.6'
+  s.version          = '1.0.7'
   s.summary          = 'Common categories for daily development. Such as UIKit, Foundation, etc.'
   
   # This description is used to generate tags and improve search results.
@@ -43,7 +43,7 @@ Pod::Spec.new do |s|
     end
   end
   
-  s.subspec 'C7' do |xx|
+  s.subspec 'KitExtension' do |xx|
     xx.source_files = "Sources/UIKit/*.h"
     xx.subspec 'UIBezierPath' do |xxx|
       xxx.source_files = "Sources/UIKit/UIBezierPath/*.{h,m}"

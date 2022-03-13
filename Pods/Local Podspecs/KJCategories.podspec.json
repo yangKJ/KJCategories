@@ -1,6 +1,6 @@
 {
   "name": "KJCategories",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "summary": "Common categories for daily development. Such as UIKit, Foundation, etc.",
   "homepage": "https://github.com/yangKJ/KJCategories",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/yangKJ/KJCategories.git",
-    "tag": "1.0.6"
+    "tag": "1.0.7"
   },
   "platforms": {
     "ios": "9.0"
