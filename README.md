@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/badge/Platforms-iOS%20%7C%20macOS%20%7C%20watchOS-4E4E4E.svg?colorA=28a745)](#installation)
 
 <p align="left">
-<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ce8643f68c74fc2be80b22204268f65~tplv-k3u1fbpfcp-watermark.image?" width="800" hspace="1px">
+<img src="Screenshots/AT.jpeg" width="800" hspace="1px">
 </p>
 
 <font color=red size=3>Set of **Extensions** and **Custom control** for standard types and classes.</font>  
@@ -30,8 +30,7 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 - [x] NSString: Hash crypto, mathematical operators, unit conversion, etc.
 - [x] Other: Gradient slider, Open screen particle animation, projection and shadow, etc.
 
-##### Encapsulation exception Handling [KJExceptionDemo](https://github.com/yangKJ/KJExceptionDemo)
-##### Quick creation of chained UI controls [ChainThen](https://github.com/yangKJ/ChainThen)
+##### Encapsulation exception Handling [FoggyDemo](https://github.com/yangKJ/Foggy)
 
 ### <a id="Catalogue list"></a>Catalogue list ###
 - **[OpenCV](#OpenCV)**
@@ -56,7 +55,7 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 - Opencv picture processing.
 
 | Name | Signatures | 
-| :---- | ---- |
+| ---- | ---- |
 | Picture Tile | kj_opencvTiledRows:cols: |
 | Four-point perspective image based on perspective | kj_opencvWarpPerspectiveWithKnownPoints:size: |
 | Eliminate image highlights | kj_opencvIlluminationChangeBeta:alpha: |
@@ -390,7 +389,7 @@ Example import core module:
 - pod 'KJCategories'
 
 Example import UIBezierPath:
-- pod 'KJCategories/C7/UIBezierPath'
+- pod 'KJCategories/KitExtension/UIBezierPath'
 
 Example import NSArray:
 - pod 'KJCategories/Foundation/NSArray'
