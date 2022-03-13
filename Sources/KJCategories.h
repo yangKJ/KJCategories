@@ -50,7 +50,7 @@ FOUNDATION_EXPORT const unsigned char KJCategoriesVersionString[];
 #else
 #endif
 
-//**!  pod 'KJCategories/C7'
+//**!  pod 'KJCategories/KitExtension'
 #if __has_include(<KJCategories/KJUIKitHeader.h>)
 #import <KJCategories/KJUIKitHeader.h>
 #elif __has_include("KJUIKitHeader.h")

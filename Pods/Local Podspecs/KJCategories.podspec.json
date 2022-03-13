@@ -44,7 +44,7 @@
       ]
     },
     {
-      "name": "C7",
+      "name": "KitExtension",
       "source_files": "Sources/UIKit/*.h",
       "subspecs": [
         {

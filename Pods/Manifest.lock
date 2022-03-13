@@ -1,35 +1,6 @@
 PODS:
   - KJCategories (1.0.6):
     - KJCategories/Core (= 1.0.6)
-  - KJCategories/C7 (1.0.6):
-    - KJCategories/C7/UIBezierPath (= 1.0.6)
-    - KJCategories/C7/UIButton (= 1.0.6)
-    - KJCategories/C7/UICollectionView (= 1.0.6)
-    - KJCategories/C7/UIColor (= 1.0.6)
-    - KJCategories/C7/UIDevice (= 1.0.6)
-    - KJCategories/C7/UIImage (= 1.0.6)
-    - KJCategories/C7/UILabel (= 1.0.6)
-    - KJCategories/C7/UINavigation (= 1.0.6)
-    - KJCategories/C7/UIResponder (= 1.0.6)
-    - KJCategories/C7/UISlider (= 1.0.6)
-    - KJCategories/C7/UITabBar (= 1.0.6)
-    - KJCategories/C7/UITextView (= 1.0.6)
-    - KJCategories/C7/UIView (= 1.0.6)
-    - KJCategories/C7/UIViewController (= 1.0.6)
-  - KJCategories/C7/UIBezierPath (1.0.6)
-  - KJCategories/C7/UIButton (1.0.6)
-  - KJCategories/C7/UICollectionView (1.0.6)
-  - KJCategories/C7/UIColor (1.0.6)
-  - KJCategories/C7/UIDevice (1.0.6)
-  - KJCategories/C7/UIImage (1.0.6)
-  - KJCategories/C7/UILabel (1.0.6)
-  - KJCategories/C7/UINavigation (1.0.6)
-  - KJCategories/C7/UIResponder (1.0.6)
-  - KJCategories/C7/UISlider (1.0.6)
-  - KJCategories/C7/UITabBar (1.0.6)
-  - KJCategories/C7/UITextView (1.0.6)
-  - KJCategories/C7/UIView (1.0.6)
-  - KJCategories/C7/UIViewController (1.0.6)
   - KJCategories/Core (1.0.6):
     - KJCategories/Core/Foundation (= 1.0.6)
     - KJCategories/Core/UIKit (= 1.0.6)
@@ -61,13 +32,42 @@ PODS:
   - KJCategories/Foundation/NSObject (1.0.6)
   - KJCategories/Foundation/NSString (1.0.6)
   - KJCategories/Foundation/NSTimer (1.0.6)
+  - KJCategories/KitExtension (1.0.6):
+    - KJCategories/KitExtension/UIBezierPath (= 1.0.6)
+    - KJCategories/KitExtension/UIButton (= 1.0.6)
+    - KJCategories/KitExtension/UICollectionView (= 1.0.6)
+    - KJCategories/KitExtension/UIColor (= 1.0.6)
+    - KJCategories/KitExtension/UIDevice (= 1.0.6)
+    - KJCategories/KitExtension/UIImage (= 1.0.6)
+    - KJCategories/KitExtension/UILabel (= 1.0.6)
+    - KJCategories/KitExtension/UINavigation (= 1.0.6)
+    - KJCategories/KitExtension/UIResponder (= 1.0.6)
+    - KJCategories/KitExtension/UISlider (= 1.0.6)
+    - KJCategories/KitExtension/UITabBar (= 1.0.6)
+    - KJCategories/KitExtension/UITextView (= 1.0.6)
+    - KJCategories/KitExtension/UIView (= 1.0.6)
+    - KJCategories/KitExtension/UIViewController (= 1.0.6)
+  - KJCategories/KitExtension/UIBezierPath (1.0.6)
+  - KJCategories/KitExtension/UIButton (1.0.6)
+  - KJCategories/KitExtension/UICollectionView (1.0.6)
+  - KJCategories/KitExtension/UIColor (1.0.6)
+  - KJCategories/KitExtension/UIDevice (1.0.6)
+  - KJCategories/KitExtension/UIImage (1.0.6)
+  - KJCategories/KitExtension/UILabel (1.0.6)
+  - KJCategories/KitExtension/UINavigation (1.0.6)
+  - KJCategories/KitExtension/UIResponder (1.0.6)
+  - KJCategories/KitExtension/UISlider (1.0.6)
+  - KJCategories/KitExtension/UITabBar (1.0.6)
+  - KJCategories/KitExtension/UITextView (1.0.6)
+  - KJCategories/KitExtension/UIView (1.0.6)
+  - KJCategories/KitExtension/UIViewController (1.0.6)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - KJCategories (from `./`)
-  - KJCategories/C7 (from `./`)
   - KJCategories/Customized (from `./`)
   - KJCategories/Foundation (from `./`)
+  - KJCategories/KitExtension (from `./`)
   - SnapKit
 
 SPEC REPOS:
@@ -79,9 +79,9 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  KJCategories: 25de9e86d9ff8bdf9cc38c3dc174a76a08e367e9
+  KJCategories: 872051093bf93eddb3b300f2de5ab4a95e7b5346
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: d6bef8d809ce49a7ee44f0f7439be59642179097
+PODFILE CHECKSUM: 5023d3779cc5599891c180e49131e1e2784ac8fa
 
 COCOAPODS: 1.11.2

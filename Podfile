@@ -5,7 +5,7 @@ platform :ios, '9.0'
 target 'KJCategories_Example' do
   pod 'KJCategories', :path => './'
   pod 'KJCategories/Customized', :path => './'
-  pod 'KJCategories/C7', :path => './'
+  pod 'KJCategories/KitExtension', :path => './'
   pod 'KJCategories/Foundation', :path => './'
 
   pod 'SnapKit'

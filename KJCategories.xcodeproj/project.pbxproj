@@ -28,6 +28,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		6898E58027DDB90D00228F31 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6898E57E27DDB90D00228F31 /* README.md */; };
+		6898E58127DDB90D00228F31 /* README_CN.md in Resources */ = {isa = PBXBuildFile; fileRef = 6898E57F27DDB90D00228F31 /* README_CN.md */; };
 		68D4668927384BCC004AAA38 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D4668827384BCC004AAA38 /* ButtonViewController.swift */; };
 		68D4668B273859DB004AAA38 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D4668A273859DB004AAA38 /* BaseViewController.swift */; };
 		E90F1697C41E69F98D182664 /* Pods_KJCategories_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B504A18EB00BB8BF0C0953 /* Pods_KJCategories_Tests.framework */; };
@@ -74,6 +76,8 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		61B504A18EB00BB8BF0C0953 /* Pods_KJCategories_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KJCategories_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6825C0B62739460700C53A46 /* KJCategories_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KJCategories_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		6898E57E27DDB90D00228F31 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		6898E57F27DDB90D00228F31 /* README_CN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_CN.md; sourceTree = SOURCE_ROOT; };
 		68D4668827384BCC004AAA38 /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
 		68D4668A273859DB004AAA38 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7D3A48866FF6D46735D7B46B /* Pods-KJCategories_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KJCategories_Tests.debug.xcconfig"; path = "Target Support Files/Pods-KJCategories_Tests/Pods-KJCategories_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				6825C0B62739460700C53A46 /* KJCategories_Example-Bridging-Header.h */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				6898E57F27DDB90D00228F31 /* README_CN.md */,
+				6898E57E27DDB90D00228F31 /* README.md */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -407,6 +413,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6898E58027DDB90D00228F31 /* README.md in Resources */,
+				6898E58127DDB90D00228F31 /* README_CN.md in Resources */,
 				04A887D8279F992500C68F24 /* Color.xcassets in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				20E2FA77274BA29D007A8CFD /* FloodImageVieController.xib in Resources */,

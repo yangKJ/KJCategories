@@ -6,7 +6,7 @@
 //  https://github.com/YangKJ/KJCategories
 
 //  Example import `UIBezierPath`:
-//  pod 'KJCategories/C7/UIBezierPath'
+//  pod 'KJCategories/KitExtension/UIBezierPath'
 
 #ifndef KJUIKitHeader_h
 #define KJUIKitHeader_h
