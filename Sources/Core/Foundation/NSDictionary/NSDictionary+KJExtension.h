@@ -31,10 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @return returns the key that satisfies the condition
 - (NSArray<NSString *> *)kj_applyDictionaryValue:(BOOL(^)(id value, BOOL * stop))apply;
 
-/// mapping dictionary
+/// Mapping dictionary
 - (NSDictionary *)kj_mapDictionary:(BOOL(^)(NSString * key, id value))map;
 
-/// merge dictionary
+/// Merge dictionary
 - (NSDictionary *)kj_mergeDictionary:(NSDictionary *)dictionary;
 
 /// Dictionary selector

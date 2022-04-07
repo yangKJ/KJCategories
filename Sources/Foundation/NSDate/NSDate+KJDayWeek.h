@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// Beginning of the month
 - (NSDate *)kj_monthFristDay;
 
-/// end of month
+/// End of month
 - (NSDate *)kj_monthLastDay;
 
 /// Date offset by a few days

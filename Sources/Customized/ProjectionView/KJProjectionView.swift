@@ -10,8 +10,7 @@ import Accelerate
 
 // https://juejin.cn/post/7011309826592473125
 
-@objcMembers
-public class KJProjectionView: UIView {
+@objc public final class KJProjectionView: UIView {
     
     private var fuzzy: CGFloat = 0.1
     private var opacity: CGFloat = 0.8

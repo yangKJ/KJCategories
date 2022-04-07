@@ -10,10 +10,10 @@ import UIKit
 import KJCategories
 
 class BaseViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = UIColor.init(hexString: "#F5F5F5")
     }
 }

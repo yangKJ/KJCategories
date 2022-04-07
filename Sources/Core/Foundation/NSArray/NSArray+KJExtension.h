@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param repetition does it need to be repetitive
 - (NSArray *)kj_mapArray:(id _Nullable(^)(id object))map repetition:(BOOL)repetition;
 
-/// contains data
+/// Contains object?
 - (BOOL)kj_containsObject:(BOOL(^)(id object, NSUInteger index))contains;
 
 /// Does it contain data

@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString * (^)(NSString *))kj_ECDSADecryptPublicKey;
 
 #pragma mark - AES symmetric encryption algorithm
-/// encryption
+/// Encryption
 - (NSString * (^)(NSString *))kj_aesEncryptKey;
 /// Decrypt
 - (NSString * (^)(NSString *))kj_aesDecryptKey;

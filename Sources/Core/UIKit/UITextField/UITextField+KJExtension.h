@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 IB_DESIGNABLE
 @interface UITextField (KJExtension)
 
-/// placeholder color
+/// Placeholder color
 @property (nonatomic, strong) IBInspectable UIColor *placeholderColor;
 /// Font size of placeholder text
 @property (nonatomic, assign) IBInspectable CGFloat placeholderFontSize;

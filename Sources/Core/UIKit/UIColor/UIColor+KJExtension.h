@@ -48,7 +48,7 @@ FOUNDATION_EXPORT UIColor * kDoraemonBoxColorHexString(NSString *hexString);
 /// @param alpha transparency
 + (UIColor *)colorWithHexString:(NSString *)hexString alpha:(float)alpha;
 
-/// random color
+/// Random color
 FOUNDATION_EXPORT UIColor * kDoraemonBoxRandomColor(void);
 
 @end

@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint KJCategories.podspec' to ensure this is a
+# Be sure to run 'pod lib lint KJCategories.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -21,7 +21,6 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'yangkejun' => 'ykj310@126.com' }
   s.source           = { :git => 'https://github.com/yangKJ/KJCategories.git', :tag => "#{s.version}" }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
   
   s.platform = :ios
   s.swift_version = '5.0'

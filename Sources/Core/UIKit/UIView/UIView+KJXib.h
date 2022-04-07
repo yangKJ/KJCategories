@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
                    borderWidth:(CGFloat)borderWidth
                    borderColor:(UIColor *)borderColor;
 
-/// set shadow
+/// Set shadow
 /// @param color shadow color
 /// @param offset shadow displacement
 /// @param radius shadow radius

@@ -11,7 +11,7 @@ import SnapKit
 import KJCategories
 
 class HomeViewController: UIViewController {
-
+    
     private static let identifier = "homeCellIdentifier"
     private let viewModel: HomeViewModel = HomeViewModel()
     

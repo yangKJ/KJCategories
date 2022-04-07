@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 IB_DESIGNABLE
 @interface UITextView (KJPlaceHolder)
 
-/// placeholder text
+/// Placeholder text
 @property (nonatomic, strong) IBInspectable NSString *placeHolder;
 
 /// Placeholder Label

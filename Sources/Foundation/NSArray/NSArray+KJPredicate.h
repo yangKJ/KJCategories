@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// Sort in ascending and descending order of certain attributes
 - (NSArray *)kj_sortDescriptorWithKeys:(NSArray *)keys Ascendings:(NSArray *)ascendings;
 
-/// matching element
+/// Matching element
 /// @param key match condition, support sql syntax
 /// @param value matching value
 - (NSArray *)kj_takeOutDatasWithKey:(NSString *)key Value:(NSString *)value;

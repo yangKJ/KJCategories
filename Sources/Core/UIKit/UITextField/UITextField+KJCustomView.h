@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, KJTextAndImageStyle) {
 };
 /// Related parameter settings of the left view
 @interface KJTextFieldLeftMaker: NSObject
-/// text
+/// Text content
 @property (nonatomic, strong) NSString *text;
 /// Picture name
 @property (nonatomic, strong) NSString *imageName;

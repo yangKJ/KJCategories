@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Comparison of size
 - (NSComparisonResult)kj_compare:(NSString *)string;
-/// addition operation
+/// Addition operation
 - (NSString *)kj_adding:(NSString *)string;
 /// Subtraction operation
 - (NSString *)kj_subtract:(NSString *)string;

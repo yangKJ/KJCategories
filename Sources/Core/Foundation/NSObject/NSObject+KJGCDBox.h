@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT dispatch_queue_t kGCD_queue(void);
 /// Main thread
 FOUNDATION_EXPORT void kGCD_main(dispatch_block_t block);
-/// child thread
+/// Child thread
 FOUNDATION_EXPORT void kGCD_async(dispatch_block_t block);
 /// Asynchronous parallel queue, carrying variable parameters (need to end with nil)
 FOUNDATION_EXPORT void kGCD_group_notify(dispatch_block_t notify, dispatch_block_t block,...);

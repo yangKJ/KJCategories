@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray *)kj_bubbleSort;
 /// Insertion sort
 - (NSArray *)kj_insertSort;
-/// select sort
+/// Select sort
 - (NSArray *)kj_selectionSort;
 
 /// Generate a set of non-repeated random numbers
