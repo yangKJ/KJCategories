@@ -68,7 +68,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 @property (nonatomic, assign, readonly) CGFloat masonryHeight;
 @property (nonatomic, strong, readonly) UIViewController *viewController;
 @property (nonatomic, assign, readonly) BOOL showKeyWindow;
-@property (nonatomic, strong, class, readonly)UIViewController *topViewController;
+@property (nonatomic, strong, class, readonly) UIViewController *topViewController;
 
 /// Place the center of the view in its parent view, support post-processing of the rotation direction
 - (void)kj_centerToSuperview;

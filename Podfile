@@ -3,6 +3,7 @@ use_frameworks!
 platform :ios, '9.0'
 
 target 'KJCategories_Example' do
+  
   pod 'KJCategories', :path => './'
   pod 'KJCategories/Customized', :path => './'
   pod 'KJCategories/KitExtension', :path => './'

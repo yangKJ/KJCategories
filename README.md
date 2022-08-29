@@ -32,7 +32,7 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 
 ##### Encapsulation exception Handling [FoggyDemo](https://github.com/yangKJ/Foggy)
 
-### <a id="Catalogue list"></a>Catalogue list ###
+### <a id="Contents"></a> Contents ###
 - **[OpenCV](#OpenCV)**
 - **[NSArray](#NSArray)**
 - **[NSDate](#NSDate)**
@@ -49,12 +49,13 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 - **[UITextView](#UITextView)**
 - **[UIView](#UIView)**
 - **[UIViewController](#UIViewController)**
+- **[CustomizedControl](#CustomizedControl)**
 
 ### Methods and Functions
 #### <a id="OpenCV"></a>OpenCV ####
 - Opencv picture processing.
 
-| Name | Signatures | 
+| Description | Signatures | 
 | ---- | ---- |
 | Picture Tile | kj_opencvTiledRows:cols: |
 | Four-point perspective image based on perspective | kj_opencvWarpPerspectiveWithKnownPoints:size: |
@@ -74,12 +75,12 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 | Feature extraction | kj_opencvFeatureExtractionFromSobel |
 | Hough line judgment and correction | kj_opencvHoughLinesCorrectTextImageFillColor: |
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
 
 #### <a id="NSArray"></a>NSArray ####
 - Related processing of the elements in the array.
 
-| Name | Signatures | 
+| Description | Signatures | 
 | ---- | ---- | 
 | Is it empty| isEmpty | 
 | Filter data | kj_detectArray: | 
@@ -96,12 +97,12 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 | Insert Sort | kj_insertSort | 
 | Selection Sort| kj_selectionSort | 
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
 
 #### <a id="NSDate"></a>NSDate ####
 - Time transformation.
 
-| Name | Signatures | 
+| Description | Signatures | 
 | ---- | ---- | 
 | Convert date to local time | kj_localeDate |
 | Time string conversion NSDate | kj_dateFromString: |
@@ -110,30 +111,30 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 | Timestamp to time | kj_timeWithTimestamp:format: |
 | Get the UTC timestamp of the specified time | kj_timeStampUTCWithTimeString: |
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
 
 #### <a id="NSDictionary"></a>NSDictionary ####
 - Dictionary common methods.
 
-| Name | Signatures |
+| Description | Signatures |
 | ---- | ---- |
 | Is it empty | isEmpty |
 | Convert to Josn String | jsonString |
 | Whether to include a key | kj_containsKey: |
 | Dictionary keys in ascending order | kj_keysSorted |
-| Dictionary key name descending order | kj_keySortDescending |
+| Dictionary key Description descending order | kj_keySortDescending |
 | Quickly traverse the dictionary | kj_applyDictionaryValue: |
 | Mapping | kj_mapDictionary: |
 | Merge | kj_mergeDictionary: |
 | Selector | kj_pickForKeys: |
 | Remover | kj_omitForKeys: |
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
 
 #### <a id="UIView"></a>UIView ####
 - Advanced Edition Rounded Corners and Border Extension.
 
-| Name | Signatures |
+| Description | Signatures |
 | ---- | ---- |
 | Bezier Fillet | bezierRadius |
 | Shadow Offset | shadowOffset |
@@ -183,12 +184,12 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 | Hide/Show all subviews | kj_hideSubviews:operation: |
 | Child controls handle gesture events | kj_childHitTest:withEvent: |
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
 
 #### <a id="UITextView"></a>UITextView ####
 - UITextView undo processing, equivalent to command + z, limit processing.
 
-| Name | Signatures |
+| Description | Signatures |
 | ---- | ---- |
 | Whether to enable the undo function | kOpenBackout |
 | Cancel input | kj_textViewBackout |
@@ -199,12 +200,12 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 | Restricted area height | limitHeight |
 | Statistics limit the number of words Label | limitLabel |
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
 
 #### <a id="UITextField"></a>UITextField ####
 - UITextField input box extension, placeholder, quick setting account password box.
 
-| Name | Signatures |
+| Description | Signatures |
 | ---- | ---- |
 | Set the bottom border line color | bottomLineColor |
 | Placeholder Color | placeholderColor |
@@ -214,12 +215,12 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 | Maximum character length reached | kMaxLengthBolck |
 | Text editing moment callback | kTextEditingChangedBolck |
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
 
 #### <a id="UILabel"></a>UILabel ####
 - UILabel add long press copy function, Get text position and size.
 
-| Name | Signatures |
+| Description | Signatures |
 | ---- | ---- |
 | Can copy | copyable |
 | Remove copy long press gesture | kj_removeCopyLongPressGestureRecognizer |
@@ -237,12 +238,12 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 | Rich text text size and color | kj_AttributedStringTextFont:TextColor:Loc:Len: |
 | Rich text related attributes | kj_AttributedStringTextAttributes:Loc:Len: |
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
 
 #### <a id="UIImage"></a>UIImage ####
 - QR code and barcode generator, image size, screenshot and crop processing, Picture cropper.
 
-| Name | Signatures |
+| Description | Signatures |
 | ---- | ---- |
 | Convert a string to a barcode | kj_barCodeImageWithContent: |
 | Generate QR Code | kj_QRCodeImageWithContent:codeImageSize: |
@@ -288,15 +289,15 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 | Gauss | kj_gaussianImage |
 | Edge Detection | kj_marginImage |
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
 
 #### <a id="UIDevice"></a>UIDevice ####
 - UIDevice system related operations.
 
-| Name | Signatures |
+| Description | Signatures |
 | ---- | ---- |
 | App version number | appCurrentVersion |
-| App Name | appName |
+| App Description | appName |
 | Mobile UUID | deviceID |
 | Get App Icon | appIcon |
 | Get launch page image | launchImage |
@@ -314,12 +315,12 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 | System comes with sharing | kj_shareActivityWithItems:ViewController:Complete: |
 | Switch Root View Controller | kj_changeRootViewController:Complete: |
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
 
 #### <a id="UIColor"></a>UIColor ####
 - UIColor related extension.
 
-| Name | Signatures |
+| Description | Signatures |
 | ---- | ---- |
 | UIColor to hexadecimal string | kj_hexString |
 | Hexadecimal string to UIColor | kj_colorWithHexString: |
@@ -336,12 +337,12 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 | Horizontal gradient color | kj_gradientAcrossToColor:width: |
 | Get the color of a specified point on the image | kj_colorAtImage:Point: |
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
 
 #### <a id="UIButton"></a>UIButton ####
 - UIButton click event block, mixed graphics and text, enlarge click.
 
-| Name | Signatures |
+| Description | Signatures |
 | ---- | ---- |
 | Add click event | kj_addAction: |
 | Click Event Interval | timeInterval |
@@ -352,12 +353,12 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 | Picture and text spacing | kj_contentLayout:padding: |
 | Picture and text spacing | kj_contentLayout:padding:periphery: |
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
 
 #### <a id="UISlider"></a>UISlider ####
 - Rainbow gradient color slider.
 
-| Name | Signatures |
+| Description | Signatures |
 | ---- | ---- |
 | Color array | colors |
 | Location information corresponding to each color | locations |
@@ -370,17 +371,29 @@ English | [简体中文](https://github.com/yangKJ/KJCategories/blob/master/READ
 | Moved block | moveEndBlock: |
 | Reset UI | updateUI |
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
 
 #### <a id="UIViewController"></a> UIViewController ####
 - Switch view controller.
 
-| Name | Signatures |
+| Description | Signatures |
 | ---- | ---- |
 | Jump back to the specified controller | kj_popTargetViewController:complete: |
 | Switch Root View Controller | kj_changeRootViewController: |
 
-☝ **[Return to the catalogue list](#Catalogue list)** ☝
+[back to top](#readme)  
+
+#### <a id="CustomizedControl"></a> CustomizedControl ####
+- Primarily encapsulates custom controls.
+
+| Description | Class |
+| ---- | ---- |
+| Particle animation effect | [KJEmitterAnimation](https://github.com/yangKJ/KJCategories/blob/master/KJCategories/Moudles/Customized/EmitterAnimation/EmitterAnimationViewController.swift) |
+| Rainbow gradient slider | [KJGradientSlider](https://github.com/yangKJ/KJCategories/blob/master/KJCategories/Moudles/Customized/Slider/GradientSliderViewController.swift) |
+| Drop shadow layer control | [KJProjectionView](https://github.com/yangKJ/KJCategories/blob/master/KJCategories/Moudles/Customized/Projection/ProjectionViewController.swift) |
+| Inner and outer shadow control | [KJShadowView](https://github.com/yangKJ/KJCategories/blob/master/KJCategories/Moudles/Customized/Shadow/ShadowViewController.swift) |
+
+[back to top](#readme) 
 
 ### CocoaPods Install
 

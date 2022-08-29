@@ -23,6 +23,7 @@
 - Runtime：列表，方法交换，动态继承等；
 - Foundation：数组和字典防崩处理，数组高级算法处理，谓词相关，加密解密等等；
 - OpenCV：图片处理，霍夫矫正，特征提取，形态学处理，滤镜处理，照片修复等等；
+- Customized：内外发光自定义控件，投影控件，粒子效果动画，渐变色滑杆等等；
 
 #### Foundation异常处理崩溃防护 [FoggyDemo](https://github.com/yangKJ/Foggy)
 

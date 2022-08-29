@@ -17,7 +17,7 @@
         CFDictionaryRef imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSourceRef, 0, NULL);
         if (imageProperties != NULL) {
             CFNumberRef widthNumberRef = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelWidth);
-#if defined(__LP64__) && __LP64__
+            #if defined(__LP64__) && __LP64__
             if (widthNumberRef != NULL) {
                 CFNumberGetValue(widthNumberRef, kCFNumberFloat64Type, &width);
             }
@@ -25,7 +25,7 @@
             if (heightNumberRef != NULL) {
                 CFNumberGetValue(heightNumberRef, kCFNumberFloat64Type, &height);
             }
-#else
+            #else
             if (widthNumberRef != NULL) {
                 CFNumberGetValue(widthNumberRef, kCFNumberFloat32Type, &width);
             }
@@ -33,7 +33,7 @@
             if (heightNumberRef != NULL) {
                 CFNumberGetValue(heightNumberRef, kCFNumberFloat32Type, &height);
             }
-#endif
+            #endif
             NSInteger orientation = [(__bridge NSNumber *)CFDictionaryGetValue(imageProperties, kCGImagePropertyOrientation) integerValue];
             CGFloat temp = 0;
             switch (orientation) {
